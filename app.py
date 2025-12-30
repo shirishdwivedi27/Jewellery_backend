@@ -50,12 +50,12 @@ def get_db_cursor(dictionary=False):
         return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     return mysql.connection.cursor()
 
-@app.route('/testdb')
+@app.route('/testdb')    # end_point   app url ->  google.com
 def test_db():
     try:
         cur = mysql.connection.cursor()
         cur.execute("SELECT 1")
-        logging.info("hello")
+        logging.info("hello")     
         #print("DB")
         return "DB Connected!"
     except Exception as e:
@@ -64,8 +64,9 @@ def test_db():
 
 @app.route('/',methods=['GET'])
 def home():
-    data={"message":"welcome to Jewell_shop","name":"shirish"}
+    data={"message":"welcome to Jewell_shop shreya ","name":"shirish"}
     return jsonify(data),200
+    
     
 @app.route('/protected', methods=['GET'])
 @jwt_required()
@@ -372,6 +373,86 @@ def get_products_by_category(category):
     cursor.close()
     result = [{"id": p[0], "name": p[1], "price": p[2], "images": p[3]} for p in products]
     return jsonify(result), 200
+
+
+
+@app.route('/api/contact', methods=['POST'])
+def submit_contact():
+    """Handle contact form submissions"""
+    try:
+        data = request.get_json()
+
+        # Validate required fields
+        if not data.get('name') or not data.get('email') or not data.get('message'):
+            return jsonify({'error': 'Missing required fields'}), 400
+
+        # Insert into database
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('''
+            INSERT INTO contacts (name, email, phone, message, status)
+            VALUES (%s, %s, %s, %s, %s)
+        ''', (
+            data['name'],
+            data['email'],
+            data.get('phone', ''),
+            data['message'],
+            'new'
+        ))
+        mysql.connection.commit()
+
+        contact_id = cursor.lastrowid
+        cursor.close()
+
+        return jsonify({
+            'message': 'Contact form submitted successfully',
+            'id': contact_id
+        }), 201
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+# Optional: Get all contacts (admin only)
+@app.route('/api/admin/contacts', methods=['GET'])
+def get_contacts():
+    """Get all contact form submissions"""
+    try:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM contacts ORDER BY created_at DESC')
+        contacts = cursor.fetchall()
+        cursor.close()
+
+        return jsonify(contacts), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+# Optional: Update contact status
+@app.route('/api/admin/contacts/<int:contact_id>', methods=['PATCH'])
+def update_contact_status(contact_id):
+    """Update contact status"""
+    try:
+        data = request.get_json()
+
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('''
+            UPDATE contacts SET status = %s WHERE id = %s
+        ''', (data.get('status', 'new'), contact_id))
+        mysql.connection.commit()
+        cursor.close()
+
+        return jsonify({'message': 'Contact updated'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':

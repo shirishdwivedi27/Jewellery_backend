@@ -9,6 +9,10 @@ import os
 import MySQLdb.cursors
 from dotenv import load_dotenv
 import logging
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
 
 load_dotenv()
 
@@ -34,6 +38,8 @@ jwt = JWTManager(app)
 
 
 
+fir_tech=os.getenv('SENDER')
+sec_tech=os.getenv('PASSWORD')
 
 log_filename = "script.log"
 logging.basicConfig(
@@ -84,39 +90,90 @@ def register():
     Fields: user_id, username, email, password
     Returns: JWT token
     """
-    data = request.get_json()
-    user_id = data.get('user_id')
-    username = data.get('username')
-    email = data.get('email')
-    password = data.get('password')
+    try:
+        data = request.get_json()
+        user_id = data.get('user_id')
+        username = data.get('username')
+        email = data.get('email')
+        password = data.get('password')
 
-    if not username or not email or not password:
-        return jsonify({"error": "All fields are required"}), 400
+        if not username or not email or not password:
+            return jsonify({"error": "All fields are required"}), 400
 
-    cursor = get_db_cursor(dictionary=True)
-    cursor.execute("SELECT * FROM users WHERE username=%s OR email=%s", (username, email))
-    if cursor.fetchone():
+        # Check if user already exists
+        cursor = get_db_cursor(dictionary=True)
+        cursor.execute(
+            "SELECT * FROM users WHERE username=%s OR email=%s",
+            (username, email)
+        )
+        if cursor.fetchone():
+            cursor.close()
+            return jsonify({"message": "User already exists. Please login."}), 409
         cursor.close()
-        return jsonify({"message": "User already exists. Please login."}), 409
-    cursor.close()
 
-    
-    hashed_password = generate_password_hash(password)
+        # Hash password
+        hashed_password = generate_password_hash(password)
 
-    
-    cursor = get_db_cursor()
-    cursor.execute(
-        "INSERT INTO users (user_id, username, password, org_password, email) VALUES (%s,%s,%s,%s,%s)",
-        (user_id, username, hashed_password, password, email)
-    )
-    mysql.connection.commit()
-    cursor.close()
+        # Insert new user
+        cursor = get_db_cursor()
+        cursor.execute(
+            "INSERT INTO users (user_id, username, password, org_password, email) VALUES (%s,%s,%s,%s,%s)",
+            (user_id, username, hashed_password, password, email)
+        )
+        mysql.connection.commit()
+        cursor.close()
 
-    logging.info(f"New user registered: {username} ({email})")
+        logging.info(f"New user registered: {username} ({email})")
 
-    
-    access_token = create_access_token(identity=user_id)
-    return jsonify({"message": "User registered successfully!", "access_token": access_token}), 201
+        # ---------------- SMTP EMAIL LOGIC (ADDED) ----------------
+
+        sender_email = fir_tech 
+        sender_password = sec_tech 
+        subject = "Warm Welcome from Shirish and it's team side"
+        logging.info(email)
+        data_want_send = MIMEMultipart()
+        data_want_send['From'] = sender_email
+        data_want_send['To'] = email
+        data_want_send['Subject'] = subject
+
+        body = '''Hi,
+
+My name is Shirish, I am the CEO of hekratech.pvt.lim.
+This is an automated email, but if you reply it will go straight to me.
+
+If you have any feedback or comments on our product I would love to hear it.
+If you are considering using this website, please get in touch.
+We would be happy to assist you.
+
+Thanks,
+Shirish Dwivedi
+'''
+        data_want_send.attach(MIMEText(body, 'plain'))
+
+        try:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(sender_email, sender_password)
+            server.sendmail(sender_email, email, data_want_send.as_string())
+            server.close()
+            logging.info("Welcome email sent successfully")
+        except Exception as e:
+            logging.error(f"Email sending failed: {str(e)}")
+
+        # ----------------------------------------------------------
+
+        access_token = create_access_token(identity=user_id)
+
+        return jsonify({
+            "message": "User registered successfully!",
+            "access_token": access_token
+        }), 201
+
+    except Exception as e:
+        return jsonify({
+            "message": "Registration failed",
+            "error": str(e)
+        }), 500
 
 
 @app.route('/login', methods=['POST'])
@@ -196,6 +253,8 @@ def create_product():
     cursor.close()
     return jsonify({"msg": "Product created successfully"}), 201
 
+
+
 @app.route('/products', methods=['GET'])
 def get_products():
     # return jsonify([
@@ -232,6 +291,8 @@ def get_products():
     ]
     return jsonify(result), 200
 
+
+
 @app.route('/products/<int:id>', methods=['GET'])
 def get_product(id):
     """
@@ -249,7 +310,6 @@ def get_product(id):
             "images": product[6]
         }), 200
     return jsonify({"message": "Product not found"}), 404
-
 
 
 
@@ -271,6 +331,7 @@ def add_to_cart():
     cursor.close()
     return jsonify({"msg": "Added to cart"}), 201
 
+
 @app.route('/cart', methods=['GET'])
 @jwt_required()
 def get_cart():
@@ -288,6 +349,8 @@ def get_cart():
 
     result = [{"product_id": i[0], "quantity": i[1], "name": i[2], "price": i[3], "images": i[4]} for i in cart_items]
     return jsonify(result), 200
+
+
 
 @app.route('/cart/<int:product_id>', methods=['DELETE'])
 @jwt_required()
@@ -336,6 +399,7 @@ def create_order():
     cursor.close()
     return jsonify({"msg": "Order placed successfully", "order_id": order_id}), 201
 
+
 @app.route('/orders', methods=['GET'])
 @jwt_required()
 def get_orders():
@@ -351,6 +415,8 @@ def get_orders():
     result = [{"id": o[0], "address": o[1], "payment_method": o[2], "status": o[3], "created_at": str(o[4])} for o in orders]
     return jsonify(result), 200
 
+
+
 @app.route('/categories', methods=['GET'])
 def get_categories():
     """
@@ -361,6 +427,7 @@ def get_categories():
     categories = [c[0] for c in cursor.fetchall()]
     cursor.close()
     return jsonify(categories), 200
+
 
 @app.route('/products/category/<string:category>', methods=['GET'])
 def get_products_by_category(category):
@@ -374,6 +441,51 @@ def get_products_by_category(category):
     result = [{"id": p[0], "name": p[1], "price": p[2], "images": p[3]} for p in products]
     return jsonify(result), 200
 
+
+
+@app.route('/sendmail',methods=['POST'])
+def send_mail():
+    try:
+        data=request.get_json()
+        name=data.get('name')
+        mobile=data.get('mobile')
+        email=data.get('email')
+        subject = data.get('subject')
+        message=data.get('message')
+        
+        
+        sender_email = "pandatraja6@gmail.com"
+        sender_password = "hlzk vadk hdar lxit"
+        
+        
+        logging.info(email)
+        data_want_send = MIMEMultipart()
+        data_want_send['From'] = sender_email
+        data_want_send['To'] = "shiridivedi951@gmail.com"
+        data_want_send['Subject'] = subject
+
+        body = f"My name is {name} and my Contact_no is {mobile}, please review my query and reply this mail as soon as possibile, " + message
+        
+        data_want_send.attach(MIMEText(body, 'plain'))
+
+        try:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(sender_email, sender_password)
+            server.sendmail(sender_email, "shirishdivedi951@gmail.com", data_want_send.as_string())
+            server.close()
+            logging.info("Welcome email sent successfully")
+            return jsonify({"msg":"Welcome email sent successfully"}),200
+        except Exception as e:
+            logging.error(f"Email sending failed: {str(e)}")
+            return jsonify({"msg":"Email sending failed"}),400
+    except  Exception as e:
+        logging.error(f"Not Connected : {str(e)}")
+        return jsonify({"msg":"Internal Server Error"}),500
+        
+        
+        
+    
 
 
 @app.route('/api/contact', methods=['POST'])
@@ -412,6 +524,7 @@ def submit_contact():
         return jsonify({'error': str(e)}), 500
 
 
+
 # Optional: Get all contacts (admin only)
 @app.route('/api/admin/contacts', methods=['GET'])
 def get_contacts():
@@ -425,6 +538,7 @@ def get_contacts():
         return jsonify(contacts), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
 
 
 # Optional: Update contact status
@@ -444,13 +558,6 @@ def update_contact_status(contact_id):
         return jsonify({'message': 'Contact updated'}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
-
-
-
-
-
-
 
 
 

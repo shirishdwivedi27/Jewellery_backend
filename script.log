@@ -819,3 +819,23 @@
 2026-01-03 04:09:51,250 - INFO: 127.0.0.1 - - [03/Jan/2026 04:09:51] "POST /sendmail HTTP/1.1" 200 -
 2026-01-03 04:11:06,599 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
 2026-01-03 04:11:06,759 - INFO:  * Restarting with stat
+2026-01-03 04:11:07,571 - WARNING:  * Debugger is active!
+2026-01-03 04:11:07,571 - INFO:  * Debugger PIN: 125-337-187
+2026-01-03 04:14:39,386 - INFO: 127.0.0.1 - - [03/Jan/2026 04:14:39] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-03 04:14:39,386 - INFO: 127.0.0.1 - - [03/Jan/2026 04:14:39] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-03 04:14:39,635 - INFO: 127.0.0.1 - - [03/Jan/2026 04:14:39] "[31m[1mGET /cart HTTP/1.1[0m" 401 -
+2026-01-03 04:14:39,706 - INFO: 127.0.0.1 - - [03/Jan/2026 04:14:39] "[31m[1mGET /cart HTTP/1.1[0m" 401 -
+2026-01-03 04:18:26,852 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-03 04:18:27,190 - INFO:  * Restarting with stat
+2026-01-03 04:18:29,301 - WARNING:  * Debugger is active!
+2026-01-03 04:18:29,317 - INFO:  * Debugger PIN: 125-337-187
+2026-01-03 04:18:42,464 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-03 04:18:42,547 - INFO:  * Restarting with stat
+2026-01-03 04:18:43,294 - WARNING:  * Debugger is active!
+2026-01-03 04:18:43,294 - INFO:  * Debugger PIN: 125-337-187
+2026-01-03 04:21:08,172 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-03 04:21:08,243 - INFO:  * Restarting with stat
+2026-01-03 04:21:09,138 - WARNING:  * Debugger is active!
+2026-01-03 04:21:09,148 - INFO:  * Debugger PIN: 125-337-187
+2026-01-03 04:21:26,245 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-03 04:21:26,298 - INFO:  * Restarting with stat

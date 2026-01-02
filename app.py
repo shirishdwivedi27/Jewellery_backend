@@ -38,8 +38,8 @@ jwt = JWTManager(app)
 
 
 
-fir_tech=os.getenv('SENDER')
-sec_tech=os.getenv('PASSWORD')
+app.config['fir_tech']=os.getenv('SENDER')
+app.config['sec_tech']=os.getenv('PASSWORD')
 
 log_filename = "script.log"
 logging.basicConfig(
@@ -127,8 +127,8 @@ def register():
 
         # ---------------- SMTP EMAIL LOGIC (ADDED) ----------------
 
-        sender_email = fir_tech 
-        sender_password = sec_tech 
+        sender_email = app.config['fir_tech']
+        sender_password = app.config['sec_tech']
         subject = "Warm Welcome from Shirish and it's team side"
         logging.info(email)
         data_want_send = MIMEMultipart()
@@ -454,8 +454,8 @@ def send_mail():
         message=data.get('message')
         
         
-        sender_email = "pandatraja6@gmail.com"
-        sender_password = "hlzk vadk hdar lxit"
+        sender_email = app.config['fir_tech']
+        sender_password = app.config['sec_tech']
         
         
         logging.info(email)

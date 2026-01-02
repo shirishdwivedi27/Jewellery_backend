@@ -484,8 +484,6 @@ def send_mail():
         return jsonify({"msg":"Internal Server Error"}),500
         
         
-        
-    
 
 
 @app.route('/api/contact', methods=['POST'])

@@ -56,6 +56,7 @@ def get_db_cursor(dictionary=False):
         return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     return mysql.connection.cursor()
 
+
 @app.route('/testdb')    # end_point   app url ->  google.com
 def test_db():
     try:
@@ -176,6 +177,7 @@ Shirish Dwivedi
         }), 500
 
 
+
 @app.route('/login', methods=['POST'])
 def login():
     """
@@ -228,6 +230,36 @@ def get_profile():
 
 
 
+def get_current_gold_rate():
+    url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAU"
+    response = requests.get(url)
+    data = response.json()
+
+    # XAU is per ounce
+    price_per_gram = (1 / data["rates"]["XAU"]) / 31.1035
+    return round(price_per_gram, 2)
+
+
+@app.route('/calculate_price', methods=['POST'])
+@jwt_required()
+def calculate_price():
+    data = request.get_json()
+
+    quantity = data.get('quantity')
+
+    if not quantity:
+        return jsonify({"error": "Quantity is required"}), 400
+
+    gold_price_per_gram = get_current_gold_rate()
+    logging.info(gold_price_per_gram)
+    final_price = gold_price_per_gram * quantity
+
+    return jsonify({
+        "gold_price_per_gram": gold_price_per_gram,
+        "quantity": quantity,
+        "final_price": final_price
+    }), 200
+
 
 @app.route('/products', methods=['POST'])
 @jwt_required()
@@ -237,22 +269,26 @@ def create_product():
     Fields: name, category, price, description, stock, images
     """
     data = request.get_json()
+    qnt = data.get("quantity")
+    gold_price = get_current_gold_rate()
+    final_price = gold_price * qnt
     cursor = get_db_cursor()
     cursor.execute("""
-        INSERT INTO products (name, category, price, description, stock, images)
-        VALUES (%s,%s,%s,%s,%s,%s)
+        INSERT INTO products (name, category, price, description, stock, images, quantity)
+        VALUES (%s,%s,%s,%s,%s,%s,%s)
     """, (
         data['name'],
         data.get('category'),
-        data.get('price'),
+        final_price,
         data.get('description'),
         data.get('stock'),
-        data.get('images')  
-    ))
+        data.get('images'),
+        data.get('quantity') 
+    )
+    )
     mysql.connection.commit()
     cursor.close()
     return jsonify({"msg": "Product created successfully"}), 201
-
 
 
 @app.route('/products', methods=['GET'])
@@ -364,6 +400,7 @@ def remove_from_cart(product_id):
     mysql.connection.commit()
     cursor.close()
     return jsonify({"msg": "Removed from cart"}), 200
+
 
 
 @app.route('/orders', methods=['POST'])

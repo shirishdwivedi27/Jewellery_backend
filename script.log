@@ -839,3 +839,278 @@
 2026-01-03 04:21:09,148 - INFO:  * Debugger PIN: 125-337-187
 2026-01-03 04:21:26,245 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
 2026-01-03 04:21:26,298 - INFO:  * Restarting with stat
+2026-01-03 04:21:27,097 - WARNING:  * Debugger is active!
+2026-01-03 04:21:27,097 - INFO:  * Debugger PIN: 125-337-187
+2026-01-03 04:21:31,530 - INFO: shirishdivedi952@gmail.com
+2026-01-03 04:21:35,395 - INFO: Welcome email sent successfully
+2026-01-03 04:21:35,412 - INFO: 127.0.0.1 - - [03/Jan/2026 04:21:35] "POST /sendmail HTTP/1.1" 200 -
+2026-01-04 02:10:54,395 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-04 02:10:54,395 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-04 02:10:54,395 - INFO:  * Restarting with stat
+2026-01-04 02:10:55,226 - WARNING:  * Debugger is active!
+2026-01-04 02:10:55,236 - INFO:  * Debugger PIN: 125-337-187
+2026-01-04 02:11:15,280 - INFO: 127.0.0.1 - - [04/Jan/2026 02:11:15] "OPTIONS /products/5 HTTP/1.1" 200 -
+2026-01-04 02:11:15,283 - INFO: 127.0.0.1 - - [04/Jan/2026 02:11:15] "OPTIONS /products/5 HTTP/1.1" 200 -
+2026-01-04 02:11:16,919 - INFO: 127.0.0.1 - - [04/Jan/2026 02:11:16] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:11:17,223 - INFO: 127.0.0.1 - - [04/Jan/2026 02:11:17] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:11:19,750 - INFO: 127.0.0.1 - - [04/Jan/2026 02:11:19] "[35m[1mGET /products/5 HTTP/1.1[0m" 500 -
+2026-01-04 02:11:21,340 - INFO: 127.0.0.1 - - [04/Jan/2026 02:11:21] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-04 02:11:24,269 - INFO: 127.0.0.1 - - [04/Jan/2026 02:11:24] "[35m[1mGET /products/5 HTTP/1.1[0m" 500 -
+2026-01-04 02:11:25,726 - INFO: 127.0.0.1 - - [04/Jan/2026 02:11:25] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:11:49,700 - INFO: 127.0.0.1 - - [04/Jan/2026 02:11:49] "GET / HTTP/1.1" 200 -
+2026-01-04 02:11:55,629 - INFO: hello
+2026-01-04 02:11:55,629 - INFO: 127.0.0.1 - - [04/Jan/2026 02:11:55] "GET /testdb HTTP/1.1" 200 -
+2026-01-04 02:12:00,659 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:00] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:12:00,666 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:00] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:12:00,914 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:00] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:12:00,973 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:00] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:12:22,712 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:22] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-04 02:12:23,094 - INFO: User logged in: shreya (shreya@example.com)
+2026-01-04 02:12:23,095 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:23] "POST /login HTTP/1.1" 200 -
+2026-01-04 02:12:23,114 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:23] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:12:23,421 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:23] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-04 02:12:23,430 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:23] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-04 02:12:23,441 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:23] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:12:23,678 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:23] "GET /categories HTTP/1.1" 200 -
+2026-01-04 02:12:23,753 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:23] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:12:23,762 - INFO: 127.0.0.1 - - [04/Jan/2026 02:12:23] "GET /categories HTTP/1.1" 200 -
+2026-01-04 02:13:18,147 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:18] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:13:18,443 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:18] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:13:18,470 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:18] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:13:18,783 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:18] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:13:49,247 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:49] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-04 02:13:49,248 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:49] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-04 02:13:49,500 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:49] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-04 02:13:49,555 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:49] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-04 02:13:52,187 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:52] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:13:52,491 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:52] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:13:52,501 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:52] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:13:52,820 - INFO: 127.0.0.1 - - [04/Jan/2026 02:13:52] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:14:21,757 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:21] "OPTIONS /products/category/bracelets HTTP/1.1" 200 -
+2026-01-04 02:14:21,759 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:21] "OPTIONS /products/category/bracelets HTTP/1.1" 200 -
+2026-01-04 02:14:22,023 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:22] "GET /products/category/bracelets HTTP/1.1" 200 -
+2026-01-04 02:14:22,077 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:22] "GET /products/category/bracelets HTTP/1.1" 200 -
+2026-01-04 02:14:23,871 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:23] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:14:24,177 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:24] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:14:24,182 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:24] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:14:24,494 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:24] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:14:28,921 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:28] "OPTIONS /products/category/rings HTTP/1.1" 200 -
+2026-01-04 02:14:28,925 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:28] "OPTIONS /products/category/rings HTTP/1.1" 200 -
+2026-01-04 02:14:29,184 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:29] "GET /products/category/rings HTTP/1.1" 200 -
+2026-01-04 02:14:29,237 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:29] "GET /products/category/rings HTTP/1.1" 200 -
+2026-01-04 02:14:33,683 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:33] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:14:33,987 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:33] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:14:33,998 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:33] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:14:34,317 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:34] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:14:36,665 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:36] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-04 02:14:36,974 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:36] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-04 02:14:37,236 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:37] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-04 02:14:45,660 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:45] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:14:45,963 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:45] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:14:45,971 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:45] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:14:46,280 - INFO: 127.0.0.1 - - [04/Jan/2026 02:14:46] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:15:31,431 - INFO: 127.0.0.1 - - [04/Jan/2026 02:15:31] "OPTIONS /products/4 HTTP/1.1" 200 -
+2026-01-04 02:15:31,433 - INFO: 127.0.0.1 - - [04/Jan/2026 02:15:31] "OPTIONS /products/4 HTTP/1.1" 200 -
+2026-01-04 02:15:31,694 - INFO: 127.0.0.1 - - [04/Jan/2026 02:15:31] "GET /products/4 HTTP/1.1" 200 -
+2026-01-04 02:15:31,747 - INFO: 127.0.0.1 - - [04/Jan/2026 02:15:31] "GET /products/4 HTTP/1.1" 200 -
+2026-01-04 02:15:57,848 - INFO: 127.0.0.1 - - [04/Jan/2026 02:15:57] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:15:57,849 - INFO: 127.0.0.1 - - [04/Jan/2026 02:15:57] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:15:58,105 - INFO: 127.0.0.1 - - [04/Jan/2026 02:15:58] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:15:58,166 - INFO: 127.0.0.1 - - [04/Jan/2026 02:15:58] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:16:17,080 - INFO: 127.0.0.1 - - [04/Jan/2026 02:16:17] "OPTIONS /products/4 HTTP/1.1" 200 -
+2026-01-04 02:16:17,384 - INFO: 127.0.0.1 - - [04/Jan/2026 02:16:17] "OPTIONS /products/4 HTTP/1.1" 200 -
+2026-01-04 02:16:17,396 - INFO: 127.0.0.1 - - [04/Jan/2026 02:16:17] "GET /products/4 HTTP/1.1" 200 -
+2026-01-04 02:16:17,704 - INFO: 127.0.0.1 - - [04/Jan/2026 02:16:17] "GET /products/4 HTTP/1.1" 200 -
+2026-01-04 02:16:55,825 - INFO: 127.0.0.1 - - [04/Jan/2026 02:16:55] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:16:56,133 - INFO: 127.0.0.1 - - [04/Jan/2026 02:16:56] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:16:56,163 - INFO: 127.0.0.1 - - [04/Jan/2026 02:16:56] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:16:56,471 - INFO: 127.0.0.1 - - [04/Jan/2026 02:16:56] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:17:01,307 - INFO: 127.0.0.1 - - [04/Jan/2026 02:17:01] "OPTIONS /products/4 HTTP/1.1" 200 -
+2026-01-04 02:17:01,313 - INFO: 127.0.0.1 - - [04/Jan/2026 02:17:01] "OPTIONS /products/4 HTTP/1.1" 200 -
+2026-01-04 02:17:01,567 - INFO: 127.0.0.1 - - [04/Jan/2026 02:17:01] "GET /products/4 HTTP/1.1" 200 -
+2026-01-04 02:17:01,623 - INFO: 127.0.0.1 - - [04/Jan/2026 02:17:01] "GET /products/4 HTTP/1.1" 200 -
+2026-01-04 02:17:31,519 - INFO: 127.0.0.1 - - [04/Jan/2026 02:17:31] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:17:31,825 - INFO: 127.0.0.1 - - [04/Jan/2026 02:17:31] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:17:31,839 - INFO: 127.0.0.1 - - [04/Jan/2026 02:17:31] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:17:32,154 - INFO: 127.0.0.1 - - [04/Jan/2026 02:17:32] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:23:44,052 - INFO: 127.0.0.1 - - [04/Jan/2026 02:23:44] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:23:44,055 - INFO: 127.0.0.1 - - [04/Jan/2026 02:23:44] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:23:44,313 - INFO: 127.0.0.1 - - [04/Jan/2026 02:23:44] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:23:44,363 - INFO: 127.0.0.1 - - [04/Jan/2026 02:23:44] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:24:15,082 - INFO: 127.0.0.1 - - [04/Jan/2026 02:24:15] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:24:15,083 - INFO: 127.0.0.1 - - [04/Jan/2026 02:24:15] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:24:15,335 - INFO: 127.0.0.1 - - [04/Jan/2026 02:24:15] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:24:15,399 - INFO: 127.0.0.1 - - [04/Jan/2026 02:24:15] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:31:09,160 - INFO: 127.0.0.1 - - [04/Jan/2026 02:31:09] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-04 02:31:09,528 - INFO: User logged in: shreya (shreya@example.com)
+2026-01-04 02:31:09,529 - INFO: 127.0.0.1 - - [04/Jan/2026 02:31:09] "POST /login HTTP/1.1" 200 -
+2026-01-04 02:31:09,572 - INFO: 127.0.0.1 - - [04/Jan/2026 02:31:09] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-04 02:31:09,882 - INFO: 127.0.0.1 - - [04/Jan/2026 02:31:09] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-04 02:31:09,885 - INFO: 127.0.0.1 - - [04/Jan/2026 02:31:09] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-04 02:31:09,895 - INFO: 127.0.0.1 - - [04/Jan/2026 02:31:09] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:31:10,146 - INFO: 127.0.0.1 - - [04/Jan/2026 02:31:10] "GET /categories HTTP/1.1" 200 -
+2026-01-04 02:31:10,204 - INFO: 127.0.0.1 - - [04/Jan/2026 02:31:10] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:31:10,213 - INFO: 127.0.0.1 - - [04/Jan/2026 02:31:10] "GET /categories HTTP/1.1" 200 -
+2026-01-05 00:55:10,325 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:10] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 00:55:10,336 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:10] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-05 00:55:10,354 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:10] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 00:55:10,360 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:10] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-05 00:55:10,581 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:10] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:55:10,649 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:10] "GET /categories HTTP/1.1" 200 -
+2026-01-05 00:55:10,657 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:10] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:55:10,891 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:10] "GET /categories HTTP/1.1" 200 -
+2026-01-05 00:55:15,363 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:15] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:55:15,685 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:15] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:55:43,487 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:43] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 00:55:43,490 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:43] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 00:55:43,742 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:43] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:55:43,796 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:43] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:55:47,442 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:47] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:55:47,772 - INFO: 127.0.0.1 - - [05/Jan/2026 00:55:47] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:56:14,966 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:14] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 00:56:14,973 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:14] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 00:56:15,218 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:15] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:56:15,293 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:15] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:56:26,897 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:26] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 00:56:26,899 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:26] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 00:56:27,142 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:27] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:56:27,206 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:27] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:56:28,212 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:28] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:56:28,536 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:28] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:56:44,247 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:44] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 00:56:44,252 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:44] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 00:56:44,502 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:44] "GET /products HTTP/1.1" 200 -
+2026-01-05 00:56:44,564 - INFO: 127.0.0.1 - - [05/Jan/2026 00:56:44] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:01:59,589 - INFO: 127.0.0.1 - - [05/Jan/2026 01:01:59] "OPTIONS /products/4 HTTP/1.1" 200 -
+2026-01-05 01:01:59,591 - INFO: 127.0.0.1 - - [05/Jan/2026 01:01:59] "OPTIONS /products/4 HTTP/1.1" 200 -
+2026-01-05 01:01:59,860 - INFO: 127.0.0.1 - - [05/Jan/2026 01:01:59] "GET /products/4 HTTP/1.1" 200 -
+2026-01-05 01:01:59,902 - INFO: 127.0.0.1 - - [05/Jan/2026 01:01:59] "GET /products/4 HTTP/1.1" 200 -
+2026-01-05 01:02:01,816 - INFO: 127.0.0.1 - - [05/Jan/2026 01:02:01] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:02:02,131 - INFO: 127.0.0.1 - - [05/Jan/2026 01:02:02] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:02:02,387 - INFO: 127.0.0.1 - - [05/Jan/2026 01:02:02] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:04:04,043 - INFO: 127.0.0.1 - - [05/Jan/2026 01:04:04] "OPTIONS /products/10 HTTP/1.1" 200 -
+2026-01-05 01:04:04,044 - INFO: 127.0.0.1 - - [05/Jan/2026 01:04:04] "OPTIONS /products/10 HTTP/1.1" 200 -
+2026-01-05 01:04:04,290 - INFO: 127.0.0.1 - - [05/Jan/2026 01:04:04] "GET /products/10 HTTP/1.1" 200 -
+2026-01-05 01:04:04,357 - INFO: 127.0.0.1 - - [05/Jan/2026 01:04:04] "GET /products/10 HTTP/1.1" 200 -
+2026-01-05 01:28:01,239 - INFO: 127.0.0.1 - - [05/Jan/2026 01:28:01] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:28:01,246 - INFO: 127.0.0.1 - - [05/Jan/2026 01:28:01] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:28:01,549 - INFO: 127.0.0.1 - - [05/Jan/2026 01:28:01] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:28:01,570 - INFO: 127.0.0.1 - - [05/Jan/2026 01:28:01] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:28:07,723 - INFO: 127.0.0.1 - - [05/Jan/2026 01:28:07] "OPTIONS /products/6 HTTP/1.1" 200 -
+2026-01-05 01:28:07,744 - INFO: 127.0.0.1 - - [05/Jan/2026 01:28:07] "OPTIONS /products/6 HTTP/1.1" 200 -
+2026-01-05 01:28:07,983 - INFO: 127.0.0.1 - - [05/Jan/2026 01:28:07] "GET /products/6 HTTP/1.1" 200 -
+2026-01-05 01:28:08,064 - INFO: 127.0.0.1 - - [05/Jan/2026 01:28:08] "GET /products/6 HTTP/1.1" 200 -
+2026-01-05 01:31:34,207 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:34] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:31:34,224 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:34] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:31:34,472 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:34] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:31:34,584 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:34] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:31:47,899 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:47] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-05 01:31:48,474 - INFO: User logged in: shreya (shreya@example.com)
+2026-01-05 01:31:48,476 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:48] "POST /login HTTP/1.1" 200 -
+2026-01-05 01:31:48,536 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:48] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:31:48,845 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:48] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-05 01:31:48,851 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:48] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:31:48,868 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:48] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-05 01:31:48,894 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:48] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:31:49,183 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:49] "GET /categories HTTP/1.1" 200 -
+2026-01-05 01:31:49,232 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:49] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:31:49,502 - INFO: 127.0.0.1 - - [05/Jan/2026 01:31:49] "GET /categories HTTP/1.1" 200 -
+2026-01-05 01:32:50,731 - INFO: 127.0.0.1 - - [05/Jan/2026 01:32:50] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:32:50,747 - INFO: 127.0.0.1 - - [05/Jan/2026 01:32:50] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:32:50,994 - INFO: 127.0.0.1 - - [05/Jan/2026 01:32:50] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:32:51,053 - INFO: 127.0.0.1 - - [05/Jan/2026 01:32:51] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:32:59,274 - INFO: 127.0.0.1 - - [05/Jan/2026 01:32:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:32:59,287 - INFO: 127.0.0.1 - - [05/Jan/2026 01:32:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:32:59,529 - INFO: 127.0.0.1 - - [05/Jan/2026 01:32:59] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:32:59,602 - INFO: 127.0.0.1 - - [05/Jan/2026 01:32:59] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:47:13,005 - INFO: 127.0.0.1 - - [05/Jan/2026 01:47:13] "OPTIONS /products/7 HTTP/1.1" 200 -
+2026-01-05 01:47:13,009 - INFO: 127.0.0.1 - - [05/Jan/2026 01:47:13] "OPTIONS /products/7 HTTP/1.1" 200 -
+2026-01-05 01:47:13,246 - INFO: 127.0.0.1 - - [05/Jan/2026 01:47:13] "GET /products/7 HTTP/1.1" 200 -
+2026-01-05 01:47:13,339 - INFO: 127.0.0.1 - - [05/Jan/2026 01:47:13] "GET /products/7 HTTP/1.1" 200 -
+2026-01-05 01:47:16,827 - INFO: 127.0.0.1 - - [05/Jan/2026 01:47:16] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:47:17,134 - INFO: 127.0.0.1 - - [05/Jan/2026 01:47:17] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:47:17,151 - INFO: 127.0.0.1 - - [05/Jan/2026 01:47:17] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:47:17,481 - INFO: 127.0.0.1 - - [05/Jan/2026 01:47:17] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:49:59,323 - INFO: 127.0.0.1 - - [05/Jan/2026 01:49:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:49:59,335 - INFO: 127.0.0.1 - - [05/Jan/2026 01:49:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:49:59,590 - INFO: 127.0.0.1 - - [05/Jan/2026 01:49:59] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:49:59,657 - INFO: 127.0.0.1 - - [05/Jan/2026 01:49:59] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:50:04,738 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:04] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:50:04,748 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:04] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:50:05,004 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:05] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:50:05,072 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:05] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:50:11,207 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:11] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:50:11,208 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:11] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:50:11,474 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:11] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:50:11,536 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:11] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:50:17,718 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:17] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:50:17,726 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:17] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:50:17,984 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:17] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:50:18,040 - INFO: 127.0.0.1 - - [05/Jan/2026 01:50:18] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:51:04,485 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:04] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:51:04,490 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:04] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:51:04,742 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:04] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:51:04,802 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:04] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:51:22,214 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:22] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:51:22,223 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:22] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:51:22,482 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:22] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:51:22,531 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:22] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:51:28,991 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:28] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:51:28,996 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:28] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:51:29,258 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:29] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:51:29,308 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:29] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:51:36,386 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:36] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:51:36,396 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:36] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:51:36,642 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:36] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:51:36,714 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:36] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:51:47,978 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:47] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-05 01:51:47,984 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:47] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-05 01:51:48,238 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:48] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-05 01:51:48,298 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:48] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-05 01:51:55,288 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:55] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:51:55,594 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:55] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:51:55,612 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:55] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:51:55,929 - INFO: 127.0.0.1 - - [05/Jan/2026 01:51:55] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:52:04,714 - INFO: 127.0.0.1 - - [05/Jan/2026 01:52:04] "OPTIONS /products/category/pendant HTTP/1.1" 200 -
+2026-01-05 01:52:04,746 - INFO: 127.0.0.1 - - [05/Jan/2026 01:52:04] "OPTIONS /products/category/pendant HTTP/1.1" 200 -
+2026-01-05 01:52:04,968 - INFO: 127.0.0.1 - - [05/Jan/2026 01:52:04] "GET /products/category/pendant HTTP/1.1" 200 -
+2026-01-05 01:52:05,030 - INFO: 127.0.0.1 - - [05/Jan/2026 01:52:05] "GET /products/category/pendant HTTP/1.1" 200 -
+2026-01-05 01:52:07,621 - INFO: 127.0.0.1 - - [05/Jan/2026 01:52:07] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:52:07,951 - INFO: 127.0.0.1 - - [05/Jan/2026 01:52:07] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:52:08,232 - INFO: 127.0.0.1 - - [05/Jan/2026 01:52:08] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:56:28,064 - INFO: 127.0.0.1 - - [05/Jan/2026 01:56:28] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:56:28,074 - INFO: 127.0.0.1 - - [05/Jan/2026 01:56:28] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 01:56:28,322 - INFO: 127.0.0.1 - - [05/Jan/2026 01:56:28] "GET /products HTTP/1.1" 200 -
+2026-01-05 01:56:28,389 - INFO: 127.0.0.1 - - [05/Jan/2026 01:56:28] "GET /products HTTP/1.1" 200 -
+2026-01-05 03:02:12,048 - INFO: 127.0.0.1 - - [05/Jan/2026 03:02:12] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-05 03:02:12,051 - INFO: 127.0.0.1 - - [05/Jan/2026 03:02:12] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-05 03:02:12,304 - INFO: 127.0.0.1 - - [05/Jan/2026 03:02:12] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-05 03:02:12,372 - INFO: 127.0.0.1 - - [05/Jan/2026 03:02:12] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-05 03:02:14,789 - INFO: 127.0.0.1 - - [05/Jan/2026 03:02:14] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 03:02:15,099 - INFO: 127.0.0.1 - - [05/Jan/2026 03:02:15] "GET /products HTTP/1.1" 200 -
+2026-01-05 03:02:15,350 - INFO: 127.0.0.1 - - [05/Jan/2026 03:02:15] "GET /products HTTP/1.1" 200 -
+2026-01-05 14:18:15,122 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-05 14:18:15,972 - INFO:  * Restarting with stat
+2026-01-05 14:18:20,950 - WARNING:  * Debugger is active!
+2026-01-05 14:18:20,979 - INFO:  * Debugger PIN: 125-337-187
+2026-01-05 18:22:12,813 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-05 18:22:12,814 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-05 18:22:12,814 - INFO:  * Restarting with stat
+2026-01-05 18:22:13,583 - WARNING:  * Debugger is active!
+2026-01-05 18:22:13,593 - INFO:  * Debugger PIN: 125-337-187
+2026-01-05 20:33:36,108 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-05 20:33:36,763 - INFO:  * Restarting with stat
+2026-01-05 20:33:41,452 - WARNING:  * Debugger is active!
+2026-01-05 20:33:41,479 - INFO:  * Debugger PIN: 125-337-187
+2026-01-05 21:01:36,396 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-05 21:01:36,710 - INFO:  * Restarting with stat
+2026-01-05 21:01:37,935 - WARNING:  * Debugger is active!
+2026-01-05 21:01:37,946 - INFO:  * Debugger PIN: 125-337-187
+2026-01-05 21:01:57,546 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-05 21:01:57,616 - INFO:  * Restarting with stat
+2026-01-05 21:01:58,436 - WARNING:  * Debugger is active!
+2026-01-05 21:01:58,449 - INFO:  * Debugger PIN: 125-337-187
+2026-01-05 21:03:38,590 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-05 21:03:38,707 - INFO:  * Restarting with stat

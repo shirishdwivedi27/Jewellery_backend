@@ -12,7 +12,10 @@ import logging
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+<<<<<<< HEAD
 import requests
+=======
+>>>>>>> d0402177e59f186b5c38041209e3226255a712df
 
 
 load_dotenv()
@@ -44,6 +47,8 @@ jwt = JWTManager(app)
 
 
 
+app.config['fir_tech']=os.getenv('SENDER')
+app.config['sec_tech']=os.getenv('PASSWORD')
 
 log_filename = "script.log"
 logging.basicConfig(
@@ -60,12 +65,12 @@ def get_db_cursor(dictionary=False):
         return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     return mysql.connection.cursor()
 
-@app.route('/testdb')
+@app.route('/testdb')    # end_point   app url ->  google.com
 def test_db():
     try:
         cur = mysql.connection.cursor()
         cur.execute("SELECT 1")
-        logging.info("hello")
+        logging.info("hello")     
         #print("DB")
         return "DB Connected!"
     except Exception as e:
@@ -74,8 +79,9 @@ def test_db():
 
 @app.route('/',methods=['GET'])
 def home():
-    data={"message":"welcome to Jewell_shop","name":"shirish"}
+    data={"message":"welcome to Jewell_shop shreya ","name":"shirish"}
     return jsonify(data),200
+    
     
 @app.route('/protected', methods=['GET'])
 @jwt_required()
@@ -124,6 +130,7 @@ def register():
         mysql.connection.commit()
         cursor.close()
 
+<<<<<<< HEAD
         logging.info("New user registered: {username} ({email})")
 
         # ---------------- SMTP EMAIL LOGIC (ADDED) ----------------
@@ -131,6 +138,14 @@ def register():
         sender_email = app.config['SENDER']
         sender_password = app.config['PASSWORD']
 
+=======
+        logging.info(f"New user registered: {username} ({email})")
+
+        # ---------------- SMTP EMAIL LOGIC (ADDED) ----------------
+
+        sender_email = app.config['fir_tech']
+        sender_password = app.config['sec_tech']
+>>>>>>> d0402177e59f186b5c38041209e3226255a712df
         subject = "Warm Welcome from Shirish and it's team side"
         logging.info(email)
         data_want_send = MIMEMultipart()
@@ -350,6 +365,10 @@ def get_products():
     return jsonify(result), 200
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d0402177e59f186b5c38041209e3226255a712df
 @app.route('/products/<int:id>', methods=['GET'])
 def get_product(id):
     """
@@ -367,7 +386,6 @@ def get_product(id):
             "images": product[6]
         }), 200
     return jsonify({"message": "Product not found"}), 404
-
 
 
 
@@ -389,6 +407,7 @@ def add_to_cart():
     cursor.close()
     return jsonify({"msg": "Added to cart"}), 201
 
+
 @app.route('/cart', methods=['GET'])
 @jwt_required()
 def get_cart():
@@ -406,6 +425,8 @@ def get_cart():
 
     result = [{"product_id": i[0], "quantity": i[1], "name": i[2], "price": i[3], "images": i[4]} for i in cart_items]
     return jsonify(result), 200
+
+
 
 @app.route('/cart/<int:product_id>', methods=['DELETE'])
 @jwt_required()
@@ -454,6 +475,7 @@ def create_order():
     cursor.close()
     return jsonify({"msg": "Order placed successfully", "order_id": order_id}), 201
 
+
 @app.route('/orders', methods=['GET'])
 @jwt_required()
 def get_orders():
@@ -469,6 +491,8 @@ def get_orders():
     result = [{"id": o[0], "address": o[1], "payment_method": o[2], "status": o[3], "created_at": str(o[4])} for o in orders]
     return jsonify(result), 200
 
+
+
 @app.route('/categories', methods=['GET'])
 def get_categories():
     """
@@ -479,6 +503,7 @@ def get_categories():
     categories = [c[0] for c in cursor.fetchall()]
     cursor.close()
     return jsonify(categories), 200
+
 
 @app.route('/products/category/<string:category>', methods=['GET'])
 def get_products_by_category(category):
@@ -491,6 +516,124 @@ def get_products_by_category(category):
     cursor.close()
     result = [{"id": p[0], "name": p[1], "price": p[2], "images": p[3]} for p in products]
     return jsonify(result), 200
+
+
+
+@app.route('/sendmail',methods=['POST'])
+def send_mail():
+    try:
+        data=request.get_json()
+        name=data.get('name')
+        mobile=data.get('mobile')
+        email=data.get('email')
+        subject = data.get('subject')
+        message=data.get('message')
+        
+        
+        sender_email = app.config['fir_tech']
+        sender_password = app.config['sec_tech']
+        
+        
+        logging.info(email)
+        data_want_send = MIMEMultipart()
+        data_want_send['From'] = sender_email
+        data_want_send['To'] = "shiridivedi951@gmail.com"
+        data_want_send['Subject'] = subject
+
+        body = f"My name is {name} and my Contact_no is {mobile}, please review my query and reply this mail as soon as possibile, " + message
+        
+        data_want_send.attach(MIMEText(body, 'plain'))
+
+        try:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(sender_email, sender_password)
+            server.sendmail(sender_email, "shirishdivedi951@gmail.com", data_want_send.as_string())
+            server.close()
+            logging.info("Welcome email sent successfully")
+            return jsonify({"msg":"Welcome email sent successfully"}),200
+        except Exception as e:
+            logging.error(f"Email sending failed: {str(e)}")
+            return jsonify({"msg":"Email sending failed"}),400
+    except  Exception as e:
+        logging.error(f"Not Connected : {str(e)}")
+        return jsonify({"msg":"Internal Server Error"}),500
+        
+        
+
+
+@app.route('/api/contact', methods=['POST'])
+def submit_contact():
+    """Handle contact form submissions"""
+    try:
+        data = request.get_json()
+
+        # Validate required fields
+        if not data.get('name') or not data.get('email') or not data.get('message'):
+            return jsonify({'error': 'Missing required fields'}), 400
+
+        # Insert into database
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('''
+            INSERT INTO contacts (name, email, phone, message, status)
+            VALUES (%s, %s, %s, %s, %s)
+        ''', (
+            data['name'],
+            data['email'],
+            data.get('phone', ''),
+            data['message'],
+            'new'
+        ))
+        mysql.connection.commit()
+
+        contact_id = cursor.lastrowid
+        cursor.close()
+
+        return jsonify({
+            'message': 'Contact form submitted successfully',
+            'id': contact_id
+        }), 201
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+
+# Optional: Get all contacts (admin only)
+@app.route('/api/admin/contacts', methods=['GET'])
+def get_contacts():
+    """Get all contact form submissions"""
+    try:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM contacts ORDER BY created_at DESC')
+        contacts = cursor.fetchall()
+        cursor.close()
+
+        return jsonify(contacts), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+
+# Optional: Update contact status
+@app.route('/api/admin/contacts/<int:contact_id>', methods=['PATCH'])
+def update_contact_status(contact_id):
+    """Update contact status"""
+    try:
+        data = request.get_json()
+
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('''
+            UPDATE contacts SET status = %s WHERE id = %s
+        ''', (data.get('status', 'new'), contact_id))
+        mysql.connection.commit()
+        cursor.close()
+
+        return jsonify({'message': 'Contact updated'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 
 
 if __name__ == '__main__':

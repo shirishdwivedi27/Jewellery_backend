@@ -9,6 +9,11 @@ import os
 import MySQLdb.cursors
 from dotenv import load_dotenv
 import logging
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import requests
+
 
 load_dotenv()
 
@@ -27,6 +32,11 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['APP_URL'] = os.getenv('APP_URL')
 app.config['API_KEY'] = os.getenv('API_KEY')
 app.config['API_SECRET'] = os.getenv('API_SECRET')
+
+
+
+app.config['SENDER'] = os.getenv('SENDER')
+app.config['PASSWORD'] = os.getenv('PASSWORD')
 
 
 
@@ -74,8 +84,6 @@ def protected():
     print(current_user)
     return jsonify(logged_in_as=current_user)
 
-
-
 @app.route('/register', methods=['POST'])
 def register():
     """
@@ -83,39 +91,91 @@ def register():
     Fields: user_id, username, email, password
     Returns: JWT token
     """
-    data = request.get_json()
-    user_id = data.get('user_id')
-    username = data.get('username')
-    email = data.get('email')
-    password = data.get('password')
+    try:
+        data = request.get_json()
+        user_id = data.get('user_id')
+        username = data.get('username')
+        email = data.get('email')
+        password = data.get('password')
 
-    if not username or not email or not password:
-        return jsonify({"error": "All fields are required"}), 400
+        if not username or not email or not password:
+            return jsonify({"error": "All fields are required"}), 400
 
-    cursor = get_db_cursor(dictionary=True)
-    cursor.execute("SELECT * FROM users WHERE username=%s OR email=%s", (username, email))
-    if cursor.fetchone():
+        # Check if user already exists
+        cursor = get_db_cursor(dictionary=True)
+        cursor.execute(
+            "SELECT * FROM users WHERE username=%s OR email=%s",
+            (username, email)
+        )
+        if cursor.fetchone():
+            cursor.close()
+            return jsonify({"message": "User already exists. Please login."}), 409
         cursor.close()
-        return jsonify({"message": "User already exists. Please login."}), 409
-    cursor.close()
 
-    
-    hashed_password = generate_password_hash(password)
+        # Hash password
+        hashed_password = generate_password_hash(password)
 
-    
-    cursor = get_db_cursor()
-    cursor.execute(
-        "INSERT INTO users (user_id, username, password, org_password, email) VALUES (%s,%s,%s,%s,%s)",
-        (user_id, username, hashed_password, password, email)
-    )
-    mysql.connection.commit()
-    cursor.close()
+        # Insert new user
+        cursor = get_db_cursor()
+        cursor.execute(
+            "INSERT INTO users (user_id, username, password, org_password, email) VALUES (%s,%s,%s,%s,%s)",
+            (user_id, username, hashed_password, password, email)
+        )
+        mysql.connection.commit()
+        cursor.close()
 
-    logging.info(f"New user registered: {username} ({email})")
+        logging.info("New user registered: {username} ({email})")
 
-    
-    access_token = create_access_token(identity=user_id)
-    return jsonify({"message": "User registered successfully!", "access_token": access_token}), 201
+        # ---------------- SMTP EMAIL LOGIC (ADDED) ----------------
+
+        sender_email = app.config['SENDER']
+        sender_password = app.config['PASSWORD']
+
+        subject = "Warm Welcome from Shirish and it's team side"
+        logging.info(email)
+        data_want_send = MIMEMultipart()
+        data_want_send['From'] = sender_email
+        data_want_send['To'] = email
+        data_want_send['Subject'] = subject
+
+        body = '''Hi,
+
+My name is Shirish, I am the CEO of hekratech.pvt.lim.
+This is an automated email, but if you reply it will go straight to me.
+
+If you have any feedback or comments on our product I would love to hear it.
+If you are considering using this website, please get in touch.
+We would be happy to assist you.
+
+Thanks,
+Shirish Dwivedi
+'''
+        data_want_send.attach(MIMEText(body, 'plain'))
+
+        try:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(sender_email, sender_password)
+            server.sendmail(sender_email, email, data_want_send.as_string())
+            server.close()
+            logging.info("Welcome email sent successfully")
+        except Exception as e:
+            logging.error(f"Email sending failed: {str(e)}")
+
+        # ----------------------------------------------------------
+
+        access_token = create_access_token(identity=user_id)
+
+        return jsonify({
+            "message": "User registered successfully!",
+            "access_token": access_token
+        }), 201
+
+    except Exception as e:
+        return jsonify({
+            "message": "Registration failed",
+            "error": str(e)
+        }), 500
 
 
 @app.route('/login', methods=['POST'])
@@ -168,7 +228,47 @@ def get_profile():
     cursor.close()
     return jsonify(user), 200
 
+def get_current_gold_rate():
+    url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAU"
+    response = requests.get(url)
+    data = response.json()
 
+    # XAU is per ounce
+    price_per_gram = (1 / data["rates"]["XAU"]) / 31.1035
+    return round(price_per_gram, 2)
+
+
+
+def get_current_silver_rate():
+    url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAG"
+    response = requests.get(url)
+    data = response.json()
+
+    # XAG is per ounce
+    price_per_gram = (1 / data["rates"]["XAG"]) / 31.1035
+    return round(price_per_gram, 2)
+
+
+
+@app.route('/calculate_price', methods=['POST'])     # not  used api / only for testing
+@jwt_required()
+def calculate_price():
+    data = request.get_json()
+
+    quantity = data.get('quantity')
+
+    if not quantity:
+        return jsonify({"error": "Quantity is required"}), 400
+
+    gold_price_per_gram = get_current_gold_rate()
+    logging.info(gold_price_per_gram)
+    final_price = gold_price_per_gram * quantity
+
+    return jsonify({
+        "gold_price_per_gram": gold_price_per_gram,
+        "quantity": quantity,
+        "final_price": final_price
+    }), 200
 
 
 @app.route('/products', methods=['POST'])
@@ -179,21 +279,39 @@ def create_product():
     Fields: name, category, price, description, stock, images
     """
     data = request.get_json()
+    qnt = data.get("quantity")  
+    mt_cat=data.get("metal_cat")  # "Gold "  or "Silver"
+
+    logging.info(mt_cat)
+
+    final_price=0
+    if mt_cat=="Gold":
+        gold_price = get_current_gold_rate() 
+        final_price = gold_price * qnt
+    elif mt_cat=="Silver":
+        silver_rate = get_current_silver_rate()
+        final_price =silver_rate * qnt 
+
     cursor = get_db_cursor()
     cursor.execute("""
-        INSERT INTO products (name, category, price, description, stock, images)
-        VALUES (%s,%s,%s,%s,%s,%s)
+        INSERT INTO products (name, category, price, description, stock, images, quantity, metal_name)
+        VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
     """, (
         data['name'],
         data.get('category'),
-        data.get('price'),
+        final_price,
         data.get('description'),
         data.get('stock'),
-        data.get('images')  
-    ))
+        data.get('images'),
+        data.get('quantity'),
+        mt_cat
+    )
+    )
     mysql.connection.commit()
     cursor.close()
     return jsonify({"msg": "Product created successfully"}), 201
+
+
 
 @app.route('/products', methods=['GET'])
 def get_products():
@@ -221,15 +339,16 @@ def get_products():
     Get all products
     """
     cursor = get_db_cursor()
-    cursor.execute("SELECT id, name, category, price, description, stock, images FROM products")
+    cursor.execute("SELECT id, name, category, price, description, stock, images , quantity FROM products")
     products = cursor.fetchall()
     cursor.close()
 
     result = [
         {"id": p[0], "name": p[1], "category": p[2], "price": p[3],
-         "description": p[4], "stock": p[5], "images": p[6]} for p in products
+         "description": p[4], "stock": p[5], "images": p[6], "quantity": p[7]} for p in products
     ]
     return jsonify(result), 200
+
 
 @app.route('/products/<int:id>', methods=['GET'])
 def get_product(id):

@@ -339,3 +339,901 @@
 2025-12-28 22:22:54,087 - INFO: 127.0.0.1 - - [28/Dec/2025 22:22:54] "OPTIONS /products/5 HTTP/1.1" 200 -
 2025-12-28 22:22:54,346 - INFO: 127.0.0.1 - - [28/Dec/2025 22:22:54] "GET /products/5 HTTP/1.1" 200 -
 2025-12-28 22:22:54,399 - INFO: 127.0.0.1 - - [28/Dec/2025 22:22:54] "GET /products/5 HTTP/1.1" 200 -
+2025-12-31 14:37:56,316 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-31 14:37:56,317 - INFO: [33mPress CTRL+C to quit[0m
+2025-12-31 14:37:56,323 - INFO:  * Restarting with stat
+2025-12-31 14:37:57,270 - WARNING:  * Debugger is active!
+2025-12-31 14:37:57,274 - INFO:  * Debugger PIN: 145-848-560
+2025-12-31 14:56:32,215 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-31 14:56:32,216 - INFO: [33mPress CTRL+C to quit[0m
+2025-12-31 14:56:32,221 - INFO:  * Restarting with stat
+2025-12-31 14:56:33,245 - WARNING:  * Debugger is active!
+2025-12-31 14:56:33,248 - INFO:  * Debugger PIN: 145-848-560
+2025-12-31 14:56:39,921 - INFO: 127.0.0.1 - - [31/Dec/2025 14:56:39] "GET /products HTTP/1.1" 200 -
+2025-12-31 14:56:40,117 - INFO: 127.0.0.1 - - [31/Dec/2025 14:56:40] "GET /products HTTP/1.1" 200 -
+2025-12-31 15:00:07,584 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2025-12-31 15:00:07,749 - INFO:  * Restarting with stat
+2025-12-31 15:00:08,651 - WARNING:  * Debugger is active!
+2025-12-31 15:00:08,653 - INFO:  * Debugger PIN: 145-848-560
+2025-12-31 15:00:26,800 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2025-12-31 15:00:27,053 - INFO:  * Restarting with stat
+2025-12-31 15:00:28,691 - WARNING:  * Debugger is active!
+2025-12-31 15:00:28,697 - INFO:  * Debugger PIN: 145-848-560
+2025-12-31 15:01:05,946 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2025-12-31 15:01:06,103 - INFO:  * Restarting with stat
+2025-12-31 15:01:07,081 - WARNING:  * Debugger is active!
+2025-12-31 15:01:07,085 - INFO:  * Debugger PIN: 145-848-560
+2025-12-31 15:02:10,481 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2025-12-31 15:02:10,645 - INFO:  * Restarting with stat
+2025-12-31 15:06:11,702 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-31 15:06:11,704 - INFO: [33mPress CTRL+C to quit[0m
+2025-12-31 15:06:11,704 - INFO:  * Restarting with stat
+2025-12-31 15:06:12,757 - WARNING:  * Debugger is active!
+2025-12-31 15:06:12,763 - INFO:  * Debugger PIN: 145-848-560
+2025-12-31 15:06:49,493 - INFO: 127.0.0.1 - - [31/Dec/2025 15:06:49] "OPTIONS /register HTTP/1.1" 200 -
+2025-12-31 15:06:49,779 - INFO: 127.0.0.1 - - [31/Dec/2025 15:06:49] "[31m[1mPOST /register HTTP/1.1[0m" 409 -
+2025-12-31 15:07:07,343 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:07] "OPTIONS /register HTTP/1.1" 200 -
+2025-12-31 15:07:07,714 - INFO: New user registered: shreya123 (shreyatrivedi006@gmail.com)
+2025-12-31 15:07:07,714 - INFO: shreyatrivedi006@gmail.com
+2025-12-31 15:07:11,223 - INFO: Welcome email sent successfully
+2025-12-31 15:07:11,225 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:11] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
+2025-12-31 15:07:11,543 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:11] "OPTIONS /profile HTTP/1.1" 200 -
+2025-12-31 15:07:11,811 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:11] "GET /profile HTTP/1.1" 200 -
+2025-12-31 15:07:11,858 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:11] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 15:07:12,150 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:12] "OPTIONS /categories HTTP/1.1" 200 -
+2025-12-31 15:07:12,152 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:12] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 15:07:12,154 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:12] "OPTIONS /categories HTTP/1.1" 200 -
+2025-12-31 15:07:12,162 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:12] "GET /products HTTP/1.1" 200 -
+2025-12-31 15:07:12,168 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:12] "GET /categories HTTP/1.1" 200 -
+2025-12-31 15:07:12,463 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:12] "GET /products HTTP/1.1" 200 -
+2025-12-31 15:07:12,473 - INFO: 127.0.0.1 - - [31/Dec/2025 15:07:12] "GET /categories HTTP/1.1" 200 -
+2025-12-31 16:17:12,129 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-31 16:17:12,129 - INFO: [33mPress CTRL+C to quit[0m
+2025-12-31 16:17:12,131 - INFO:  * Restarting with stat
+2025-12-31 16:17:13,491 - WARNING:  * Debugger is active!
+2025-12-31 16:17:13,496 - INFO:  * Debugger PIN: 145-848-560
+2025-12-31 16:17:50,776 - INFO: 127.0.0.1 - - [31/Dec/2025 16:17:50] "GET / HTTP/1.1" 200 -
+2025-12-31 16:19:33,807 - INFO: 127.0.0.1 - - [31/Dec/2025 16:19:33] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
+2025-12-31 16:22:22,465 - INFO: hello
+2025-12-31 16:22:22,466 - INFO: 127.0.0.1 - - [31/Dec/2025 16:22:22] "GET /testdb HTTP/1.1" 200 -
+2025-12-31 16:29:16,906 - INFO: New user registered: xyz (janardanpandey892@gmail.com)
+2025-12-31 16:29:16,906 - INFO: janardanpandey892@gmail.com
+2025-12-31 16:29:20,752 - INFO: Welcome email sent successfully
+2025-12-31 16:29:20,754 - INFO: 127.0.0.1 - - [31/Dec/2025 16:29:20] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
+2025-12-31 16:33:47,744 - INFO: User logged in: xyz (janardanpandey892@gmail.com)
+2025-12-31 16:33:47,745 - INFO: 127.0.0.1 - - [31/Dec/2025 16:33:47] "POST /login HTTP/1.1" 200 -
+2025-12-31 16:35:29,931 - INFO: 127.0.0.1 - - [31/Dec/2025 16:35:29] "GET /products HTTP/1.1" 200 -
+2025-12-31 16:36:27,868 - INFO: 127.0.0.1 - - [31/Dec/2025 16:36:27] "GET /products HTTP/1.1" 200 -
+2025-12-31 16:43:55,021 - INFO: 127.0.0.1 - - [31/Dec/2025 16:43:55] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2025-12-31 16:44:16,307 - INFO: User logged in: xyz (janardanpandey892@gmail.com)
+2025-12-31 16:44:16,308 - INFO: 127.0.0.1 - - [31/Dec/2025 16:44:16] "POST /login HTTP/1.1" 200 -
+2025-12-31 16:45:54,613 - INFO: 127.0.0.1 - - [31/Dec/2025 16:45:54] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2025-12-31 16:47:04,416 - INFO: 127.0.0.1 - - [31/Dec/2025 16:47:04] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2025-12-31 16:47:45,045 - INFO: User logged in: xyz (janardanpandey892@gmail.com)
+2025-12-31 16:47:45,046 - INFO: 127.0.0.1 - - [31/Dec/2025 16:47:45] "POST /login HTTP/1.1" 200 -
+2025-12-31 16:48:07,824 - INFO: User logged in: xyz (janardanpandey892@gmail.com)
+2025-12-31 16:48:07,825 - INFO: 127.0.0.1 - - [31/Dec/2025 16:48:07] "POST /login HTTP/1.1" 200 -
+2025-12-31 16:48:56,612 - INFO: 127.0.0.1 - - [31/Dec/2025 16:48:56] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2025-12-31 16:49:49,870 - INFO: 127.0.0.1 - - [31/Dec/2025 16:49:49] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2025-12-31 16:51:11,969 - INFO: 127.0.0.1 - - [31/Dec/2025 16:51:11] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 16:51:11,974 - INFO: 127.0.0.1 - - [31/Dec/2025 16:51:11] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 16:51:12,232 - INFO: 127.0.0.1 - - [31/Dec/2025 16:51:12] "GET /products HTTP/1.1" 200 -
+2025-12-31 16:51:12,277 - INFO: 127.0.0.1 - - [31/Dec/2025 16:51:12] "GET /products HTTP/1.1" 200 -
+2025-12-31 16:56:57,924 - INFO: 127.0.0.1 - - [31/Dec/2025 16:56:57] "GET /products HTTP/1.1" 200 -
+2025-12-31 17:00:33,928 - INFO: User logged in: xyz (janardanpandey892@gmail.com)
+2025-12-31 17:00:33,929 - INFO: 127.0.0.1 - - [31/Dec/2025 17:00:33] "POST /login HTTP/1.1" 200 -
+2025-12-31 17:00:57,536 - INFO: 127.0.0.1 - - [31/Dec/2025 17:00:57] "[33mGET /products/<int:id> HTTP/1.1[0m" 404 -
+2025-12-31 17:05:45,076 - INFO: 127.0.0.1 - - [31/Dec/2025 17:05:45] "GET /profile HTTP/1.1" 200 -
+2025-12-31 18:36:03,278 - INFO: 127.0.0.1 - - [31/Dec/2025 18:36:03] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 18:36:03,319 - INFO: 127.0.0.1 - - [31/Dec/2025 18:36:03] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 18:36:03,541 - INFO: 127.0.0.1 - - [31/Dec/2025 18:36:03] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:36:03,642 - INFO: 127.0.0.1 - - [31/Dec/2025 18:36:03] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:38:29,232 - INFO: 127.0.0.1 - - [31/Dec/2025 18:38:29] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 18:38:29,235 - INFO: 127.0.0.1 - - [31/Dec/2025 18:38:29] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 18:38:29,503 - INFO: 127.0.0.1 - - [31/Dec/2025 18:38:29] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:38:29,554 - INFO: 127.0.0.1 - - [31/Dec/2025 18:38:29] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:44:13,942 - INFO: 127.0.0.1 - - [31/Dec/2025 18:44:13] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 18:44:14,202 - INFO: 127.0.0.1 - - [31/Dec/2025 18:44:14] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:44:17,344 - INFO: 127.0.0.1 - - [31/Dec/2025 18:44:17] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:44:20,140 - INFO: 127.0.0.1 - - [31/Dec/2025 18:44:20] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 18:44:20,388 - INFO: 127.0.0.1 - - [31/Dec/2025 18:44:20] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 18:44:20,472 - INFO: 127.0.0.1 - - [31/Dec/2025 18:44:20] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:44:20,480 - INFO: 127.0.0.1 - - [31/Dec/2025 18:44:20] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:45:11,863 - INFO: 127.0.0.1 - - [31/Dec/2025 18:45:11] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 18:45:12,125 - INFO: 127.0.0.1 - - [31/Dec/2025 18:45:12] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:45:15,062 - INFO: 127.0.0.1 - - [31/Dec/2025 18:45:15] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:45:15,661 - INFO: 127.0.0.1 - - [31/Dec/2025 18:45:15] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:45:15,920 - INFO: 127.0.0.1 - - [31/Dec/2025 18:45:15] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:45:15,983 - INFO: 127.0.0.1 - - [31/Dec/2025 18:45:15] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:45:16,230 - INFO: 127.0.0.1 - - [31/Dec/2025 18:45:16] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:45:16,296 - INFO: 127.0.0.1 - - [31/Dec/2025 18:45:16] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:45:47,414 - INFO: 127.0.0.1 - - [31/Dec/2025 18:45:47] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 18:45:47,679 - INFO: 127.0.0.1 - - [31/Dec/2025 18:45:47] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:46:10,669 - INFO: 127.0.0.1 - - [31/Dec/2025 18:46:10] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:46:10,931 - INFO: 127.0.0.1 - - [31/Dec/2025 18:46:10] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:46:41,024 - INFO: 127.0.0.1 - - [31/Dec/2025 18:46:41] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:46:41,277 - INFO: 127.0.0.1 - - [31/Dec/2025 18:46:41] "OPTIONS /products HTTP/1.1" 200 -
+2025-12-31 18:46:41,323 - INFO: 127.0.0.1 - - [31/Dec/2025 18:46:41] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:46:42,366 - INFO: 127.0.0.1 - - [31/Dec/2025 18:46:42] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:46:43,313 - INFO: 127.0.0.1 - - [31/Dec/2025 18:46:43] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:46:45,157 - INFO: 127.0.0.1 - - [31/Dec/2025 18:46:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:46:46,330 - INFO: 127.0.0.1 - - [31/Dec/2025 18:46:46] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:56:25,683 - INFO: 127.0.0.1 - - [31/Dec/2025 18:56:25] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:56:29,123 - INFO: 127.0.0.1 - - [31/Dec/2025 18:56:29] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:56:32,372 - INFO: 127.0.0.1 - - [31/Dec/2025 18:56:32] "GET /products HTTP/1.1" 200 -
+2025-12-31 18:56:35,929 - INFO: 127.0.0.1 - - [31/Dec/2025 18:56:35] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:11:53,536 - INFO: 127.0.0.1 - - [31/Dec/2025 19:11:53] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:11:54,197 - INFO: 127.0.0.1 - - [31/Dec/2025 19:11:54] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:12,127 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:12] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:15,546 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:15] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:43,627 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:43] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:43,899 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:43] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:43,978 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:43] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:44,269 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:44] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:44,444 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:44] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:44,654 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:44] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:44,856 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:44] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:45,085 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:45,209 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:45,473 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:45,653 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:45,876 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:46,078 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:46] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:46,246 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:46] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:46,477 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:46] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:54,808 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:54] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:12:55,067 - INFO: 127.0.0.1 - - [31/Dec/2025 19:12:55] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:14:55,332 - INFO: 127.0.0.1 - - [31/Dec/2025 19:14:55] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:15:06,341 - INFO: 127.0.0.1 - - [31/Dec/2025 19:15:06] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:15:15,343 - INFO: 127.0.0.1 - - [31/Dec/2025 19:15:15] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:15:43,330 - INFO: 127.0.0.1 - - [31/Dec/2025 19:15:43] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:15:50,343 - INFO: 127.0.0.1 - - [31/Dec/2025 19:15:50] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:15:55,022 - INFO: 127.0.0.1 - - [31/Dec/2025 19:15:55] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:15:59,333 - INFO: 127.0.0.1 - - [31/Dec/2025 19:15:59] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:16:03,017 - INFO: 127.0.0.1 - - [31/Dec/2025 19:16:03] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:16:07,331 - INFO: 127.0.0.1 - - [31/Dec/2025 19:16:07] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:16:09,324 - INFO: 127.0.0.1 - - [31/Dec/2025 19:16:09] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:16:18,323 - INFO: 127.0.0.1 - - [31/Dec/2025 19:16:18] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:16:37,336 - INFO: 127.0.0.1 - - [31/Dec/2025 19:16:37] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:16:42,311 - INFO: 127.0.0.1 - - [31/Dec/2025 19:16:42] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:16:48,004 - INFO: 127.0.0.1 - - [31/Dec/2025 19:16:48] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:16:57,313 - INFO: 127.0.0.1 - - [31/Dec/2025 19:16:57] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:17:09,311 - INFO: 127.0.0.1 - - [31/Dec/2025 19:17:09] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:17:20,338 - INFO: 127.0.0.1 - - [31/Dec/2025 19:17:20] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:27:02,649 - INFO: 127.0.0.1 - - [31/Dec/2025 19:27:02] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:27:12,671 - INFO: 127.0.0.1 - - [31/Dec/2025 19:27:12] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:27:12,935 - INFO: 127.0.0.1 - - [31/Dec/2025 19:27:12] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:27:13,075 - INFO: 127.0.0.1 - - [31/Dec/2025 19:27:13] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:42:09,175 - INFO: 127.0.0.1 - - [31/Dec/2025 19:42:09] "GET /products HTTP/1.1" 200 -
+2025-12-31 19:42:09,415 - INFO: 127.0.0.1 - - [31/Dec/2025 19:42:09] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:22:10,349 - INFO: 127.0.0.1 - - [31/Dec/2025 20:22:10] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:22:14,012 - INFO: 127.0.0.1 - - [31/Dec/2025 20:22:14] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:22:15,321 - INFO: 127.0.0.1 - - [31/Dec/2025 20:22:15] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:23:48,324 - INFO: 127.0.0.1 - - [31/Dec/2025 20:23:48] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:23:50,021 - INFO: 127.0.0.1 - - [31/Dec/2025 20:23:50] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:23:57,317 - INFO: 127.0.0.1 - - [31/Dec/2025 20:23:57] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:23:59,024 - INFO: 127.0.0.1 - - [31/Dec/2025 20:23:59] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:24:00,313 - INFO: 127.0.0.1 - - [31/Dec/2025 20:24:00] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:28:42,709 - INFO: 127.0.0.1 - - [31/Dec/2025 20:28:42] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:30:32,343 - INFO: 127.0.0.1 - - [31/Dec/2025 20:30:32] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:30:33,027 - INFO: 127.0.0.1 - - [31/Dec/2025 20:30:33] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:30:43,328 - INFO: 127.0.0.1 - - [31/Dec/2025 20:30:43] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:24,760 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:24] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:26,310 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:26] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:39,359 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:39] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:43,059 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:43] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:45,349 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:45,614 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:45,658 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:45,923 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:45,971 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:46,239 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:46] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:46,315 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:46] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:46,814 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:46] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:47,065 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:47] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:47,136 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:47] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:47,384 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:47] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:31:47,451 - INFO: 127.0.0.1 - - [31/Dec/2025 20:31:47] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:32:16,209 - INFO: 127.0.0.1 - - [31/Dec/2025 20:32:16] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:32:16,474 - INFO: 127.0.0.1 - - [31/Dec/2025 20:32:16] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:33:01,645 - INFO: 127.0.0.1 - - [31/Dec/2025 20:33:01] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:33:02,016 - INFO: 127.0.0.1 - - [31/Dec/2025 20:33:02] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:33:03,888 - INFO: 127.0.0.1 - - [31/Dec/2025 20:33:03] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:33:04,172 - INFO: 127.0.0.1 - - [31/Dec/2025 20:33:04] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:33:04,198 - INFO: 127.0.0.1 - - [31/Dec/2025 20:33:04] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:33:04,493 - INFO: 127.0.0.1 - - [31/Dec/2025 20:33:04] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:33:04,509 - INFO: 127.0.0.1 - - [31/Dec/2025 20:33:04] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:33:05,027 - INFO: 127.0.0.1 - - [31/Dec/2025 20:33:05] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:33:20,304 - INFO: 127.0.0.1 - - [31/Dec/2025 20:33:20] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:33:20,568 - INFO: 127.0.0.1 - - [31/Dec/2025 20:33:20] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:42:20,336 - INFO: 127.0.0.1 - - [31/Dec/2025 20:42:20] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:42:23,013 - INFO: 127.0.0.1 - - [31/Dec/2025 20:42:23] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:42:28,338 - INFO: 127.0.0.1 - - [31/Dec/2025 20:42:28] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:42:31,026 - INFO: 127.0.0.1 - - [31/Dec/2025 20:42:31] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:42:32,325 - INFO: 127.0.0.1 - - [31/Dec/2025 20:42:32] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:42:33,013 - INFO: 127.0.0.1 - - [31/Dec/2025 20:42:33] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:57:35,494 - INFO: 127.0.0.1 - - [31/Dec/2025 20:57:35] "GET /products HTTP/1.1" 200 -
+2025-12-31 20:57:35,765 - INFO: 127.0.0.1 - - [31/Dec/2025 20:57:35] "GET /products HTTP/1.1" 200 -
+2025-12-31 21:50:47,408 - INFO: 127.0.0.1 - - [31/Dec/2025 21:50:47] "GET /products HTTP/1.1" 200 -
+2025-12-31 21:50:47,652 - INFO: 127.0.0.1 - - [31/Dec/2025 21:50:47] "GET /products HTTP/1.1" 200 -
+2025-12-31 21:52:32,492 - INFO: 127.0.0.1 - - [31/Dec/2025 21:52:32] "GET /products HTTP/1.1" 200 -
+2025-12-31 21:52:32,751 - INFO: 127.0.0.1 - - [31/Dec/2025 21:52:32] "GET /products HTTP/1.1" 200 -
+2025-12-31 21:52:54,557 - INFO: 127.0.0.1 - - [31/Dec/2025 21:52:54] "GET /products HTTP/1.1" 200 -
+2025-12-31 21:52:54,821 - INFO: 127.0.0.1 - - [31/Dec/2025 21:52:54] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:02:46,634 - INFO: 127.0.0.1 - - [31/Dec/2025 22:02:46] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:02:46,886 - INFO: 127.0.0.1 - - [31/Dec/2025 22:02:46] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:06:57,523 - INFO: 127.0.0.1 - - [31/Dec/2025 22:06:57] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:06:57,785 - INFO: 127.0.0.1 - - [31/Dec/2025 22:06:57] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:15:37,409 - INFO: 127.0.0.1 - - [31/Dec/2025 22:15:37] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:15:37,636 - INFO: 127.0.0.1 - - [31/Dec/2025 22:15:37] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:16:22,321 - INFO: 127.0.0.1 - - [31/Dec/2025 22:16:22] "GET /products/1 HTTP/1.1" 200 -
+2025-12-31 22:16:22,558 - INFO: 127.0.0.1 - - [31/Dec/2025 22:16:22] "GET /products/1 HTTP/1.1" 200 -
+2025-12-31 22:16:27,951 - INFO: 127.0.0.1 - - [31/Dec/2025 22:16:27] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:16:28,271 - INFO: 127.0.0.1 - - [31/Dec/2025 22:16:28] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:19:38,332 - INFO: 127.0.0.1 - - [31/Dec/2025 22:19:38] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:19:40,009 - INFO: 127.0.0.1 - - [31/Dec/2025 22:19:40] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:19:45,316 - INFO: 127.0.0.1 - - [31/Dec/2025 22:19:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:19:46,009 - INFO: 127.0.0.1 - - [31/Dec/2025 22:19:46] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:33:33,491 - INFO: 127.0.0.1 - - [31/Dec/2025 22:33:33] "GET /products/2 HTTP/1.1" 200 -
+2025-12-31 22:33:33,739 - INFO: 127.0.0.1 - - [31/Dec/2025 22:33:33] "GET /products/2 HTTP/1.1" 200 -
+2025-12-31 22:33:45,324 - INFO: 127.0.0.1 - - [31/Dec/2025 22:33:45] "GET /products HTTP/1.1" 200 -
+2025-12-31 22:33:45,584 - INFO: 127.0.0.1 - - [31/Dec/2025 22:33:45] "GET /products HTTP/1.1" 200 -
+2026-01-01 12:44:23,367 - INFO: 127.0.0.1 - - [01/Jan/2026 12:44:23] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:44:23,371 - INFO: 127.0.0.1 - - [01/Jan/2026 12:44:23] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:44:23,638 - INFO: 127.0.0.1 - - [01/Jan/2026 12:44:23] "GET /products HTTP/1.1" 200 -
+2026-01-01 12:44:47,381 - INFO: 127.0.0.1 - - [01/Jan/2026 12:44:47] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:44:47,390 - INFO: 127.0.0.1 - - [01/Jan/2026 12:44:47] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:44:47,640 - INFO: 127.0.0.1 - - [01/Jan/2026 12:44:47] "GET /products HTTP/1.1" 200 -
+2026-01-01 12:44:47,698 - INFO: 127.0.0.1 - - [01/Jan/2026 12:44:47] "GET /products HTTP/1.1" 200 -
+2026-01-01 12:50:36,165 - INFO: 127.0.0.1 - - [01/Jan/2026 12:50:36] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:50:36,167 - INFO: 127.0.0.1 - - [01/Jan/2026 12:50:36] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:50:36,422 - INFO: 127.0.0.1 - - [01/Jan/2026 12:50:36] "GET /products HTTP/1.1" 200 -
+2026-01-01 12:50:36,485 - INFO: 127.0.0.1 - - [01/Jan/2026 12:50:36] "GET /products HTTP/1.1" 200 -
+2026-01-01 12:57:08,472 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:08] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-01 12:57:08,474 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:08] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-01 12:57:08,741 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:08] "GET /products/1 HTTP/1.1" 200 -
+2026-01-01 12:57:08,800 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:08] "GET /products/1 HTTP/1.1" 200 -
+2026-01-01 12:57:13,255 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:13] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:57:13,258 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:13] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:57:13,524 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:13] "GET /products HTTP/1.1" 200 -
+2026-01-01 12:57:13,573 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:13] "GET /products HTTP/1.1" 200 -
+2026-01-01 12:57:37,504 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:37] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:57:37,506 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:37] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:57:37,770 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:37] "GET /products HTTP/1.1" 200 -
+2026-01-01 12:57:37,818 - INFO: 127.0.0.1 - - [01/Jan/2026 12:57:37] "GET /products HTTP/1.1" 200 -
+2026-01-01 12:58:38,680 - INFO: 127.0.0.1 - - [01/Jan/2026 12:58:38] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-01 12:58:38,682 - INFO: 127.0.0.1 - - [01/Jan/2026 12:58:38] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-01 12:58:38,930 - INFO: 127.0.0.1 - - [01/Jan/2026 12:58:38] "GET /products/1 HTTP/1.1" 200 -
+2026-01-01 12:58:38,991 - INFO: 127.0.0.1 - - [01/Jan/2026 12:58:38] "GET /products/1 HTTP/1.1" 200 -
+2026-01-01 12:58:47,124 - INFO: 127.0.0.1 - - [01/Jan/2026 12:58:47] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:58:47,127 - INFO: 127.0.0.1 - - [01/Jan/2026 12:58:47] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 12:58:47,399 - INFO: 127.0.0.1 - - [01/Jan/2026 12:58:47] "GET /products HTTP/1.1" 200 -
+2026-01-01 12:58:47,442 - INFO: 127.0.0.1 - - [01/Jan/2026 12:58:47] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:01:39,631 - INFO: 127.0.0.1 - - [01/Jan/2026 13:01:39] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:01:39,635 - INFO: 127.0.0.1 - - [01/Jan/2026 13:01:39] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:01:39,895 - INFO: 127.0.0.1 - - [01/Jan/2026 13:01:39] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:01:39,957 - INFO: 127.0.0.1 - - [01/Jan/2026 13:01:39] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:02:52,074 - INFO: 127.0.0.1 - - [01/Jan/2026 13:02:52] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:02:52,077 - INFO: 127.0.0.1 - - [01/Jan/2026 13:02:52] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:02:52,341 - INFO: 127.0.0.1 - - [01/Jan/2026 13:02:52] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:02:52,387 - INFO: 127.0.0.1 - - [01/Jan/2026 13:02:52] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:03:00,679 - INFO: 127.0.0.1 - - [01/Jan/2026 13:03:00] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:03:00,984 - INFO: 127.0.0.1 - - [01/Jan/2026 13:03:00] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:03:00,990 - INFO: 127.0.0.1 - - [01/Jan/2026 13:03:00] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:03:01,311 - INFO: 127.0.0.1 - - [01/Jan/2026 13:03:01] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:04:22,925 - INFO: 127.0.0.1 - - [01/Jan/2026 13:04:22] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-01 13:04:22,928 - INFO: 127.0.0.1 - - [01/Jan/2026 13:04:22] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-01 13:04:23,195 - INFO: 127.0.0.1 - - [01/Jan/2026 13:04:23] "GET /products/1 HTTP/1.1" 200 -
+2026-01-01 13:04:23,241 - INFO: 127.0.0.1 - - [01/Jan/2026 13:04:23] "GET /products/1 HTTP/1.1" 200 -
+2026-01-01 13:04:25,242 - INFO: 127.0.0.1 - - [01/Jan/2026 13:04:25] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:04:25,562 - INFO: 127.0.0.1 - - [01/Jan/2026 13:04:25] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:04:25,824 - INFO: 127.0.0.1 - - [01/Jan/2026 13:04:25] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:04:46,899 - INFO: 127.0.0.1 - - [01/Jan/2026 13:04:46] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-01 13:04:47,187 - INFO: 127.0.0.1 - - [01/Jan/2026 13:04:47] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-01 13:04:47,229 - INFO: 127.0.0.1 - - [01/Jan/2026 13:04:47] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-01 13:04:47,551 - INFO: 127.0.0.1 - - [01/Jan/2026 13:04:47] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-01 13:05:59,979 - INFO: 127.0.0.1 - - [01/Jan/2026 13:05:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:05:59,983 - INFO: 127.0.0.1 - - [01/Jan/2026 13:05:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:06:00,247 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:00] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:06:00,293 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:00] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:06:10,735 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:10] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:06:10,736 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:10] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:06:10,985 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:10] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:06:11,046 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:11] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:06:16,236 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:16] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:06:16,566 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:16] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:06:16,809 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:16] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:06:25,285 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:25] "OPTIONS /products/2 HTTP/1.1" 200 -
+2026-01-01 13:06:25,286 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:25] "OPTIONS /products/2 HTTP/1.1" 200 -
+2026-01-01 13:06:25,534 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:25] "GET /products/2 HTTP/1.1" 200 -
+2026-01-01 13:06:25,597 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:25] "GET /products/2 HTTP/1.1" 200 -
+2026-01-01 13:06:28,933 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:28] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:06:28,934 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:28] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 13:06:29,182 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:29] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:06:29,251 - INFO: 127.0.0.1 - - [01/Jan/2026 13:06:29] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:08:32,544 - INFO: 127.0.0.1 - - [01/Jan/2026 13:08:32] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:08:32,803 - INFO: 127.0.0.1 - - [01/Jan/2026 13:08:32] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:08:39,254 - INFO: 127.0.0.1 - - [01/Jan/2026 13:08:39] "GET /products/1 HTTP/1.1" 200 -
+2026-01-01 13:08:39,518 - INFO: 127.0.0.1 - - [01/Jan/2026 13:08:39] "GET /products/1 HTTP/1.1" 200 -
+2026-01-01 13:08:41,723 - INFO: 127.0.0.1 - - [01/Jan/2026 13:08:41] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:08:42,034 - INFO: 127.0.0.1 - - [01/Jan/2026 13:08:42] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:08:53,922 - INFO: 127.0.0.1 - - [01/Jan/2026 13:08:53] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:08:54,185 - INFO: 127.0.0.1 - - [01/Jan/2026 13:08:54] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:10:53,318 - INFO: 127.0.0.1 - - [01/Jan/2026 13:10:53] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:10:53,582 - INFO: 127.0.0.1 - - [01/Jan/2026 13:10:53] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:14:15,501 - INFO: 127.0.0.1 - - [01/Jan/2026 13:14:15] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:14:15,757 - INFO: 127.0.0.1 - - [01/Jan/2026 13:14:15] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:14:40,839 - INFO: 127.0.0.1 - - [01/Jan/2026 13:14:40] "GET /products HTTP/1.1" 200 -
+2026-01-01 13:14:41,106 - INFO: 127.0.0.1 - - [01/Jan/2026 13:14:41] "GET /products HTTP/1.1" 200 -
+2026-01-01 14:15:07,992 - INFO: 127.0.0.1 - - [01/Jan/2026 14:15:07] "GET /products HTTP/1.1" 200 -
+2026-01-01 14:15:08,114 - INFO: 127.0.0.1 - - [01/Jan/2026 14:15:08] "GET /products HTTP/1.1" 200 -
+2026-01-01 14:15:20,047 - INFO: 127.0.0.1 - - [01/Jan/2026 14:15:20] "GET /products HTTP/1.1" 200 -
+2026-01-01 14:15:20,299 - INFO: 127.0.0.1 - - [01/Jan/2026 14:15:20] "GET /products HTTP/1.1" 200 -
+2026-01-01 14:15:21,338 - INFO: 127.0.0.1 - - [01/Jan/2026 14:15:21] "GET /products HTTP/1.1" 200 -
+2026-01-01 14:15:21,663 - INFO: 127.0.0.1 - - [01/Jan/2026 14:15:21] "GET /products HTTP/1.1" 200 -
+2026-01-01 14:15:31,766 - INFO: 127.0.0.1 - - [01/Jan/2026 14:15:31] "GET /products HTTP/1.1" 200 -
+2026-01-01 14:15:32,021 - INFO: 127.0.0.1 - - [01/Jan/2026 14:15:32] "GET /products HTTP/1.1" 200 -
+2026-01-01 15:25:32,483 - INFO: 127.0.0.1 - - [01/Jan/2026 15:25:32] "GET /products HTTP/1.1" 200 -
+2026-01-01 15:25:32,682 - INFO: 127.0.0.1 - - [01/Jan/2026 15:25:32] "GET /products HTTP/1.1" 200 -
+2026-01-01 16:58:42,276 - INFO: 127.0.0.1 - - [01/Jan/2026 16:58:42] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-01 16:58:42,626 - INFO: User logged in: shreya123 (shreyatrivedi006@gmail.com)
+2026-01-01 16:58:42,627 - INFO: 127.0.0.1 - - [01/Jan/2026 16:58:42] "POST /login HTTP/1.1" 200 -
+2026-01-01 16:58:42,645 - INFO: 127.0.0.1 - - [01/Jan/2026 16:58:42] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 16:58:42,956 - INFO: 127.0.0.1 - - [01/Jan/2026 16:58:42] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-01 16:58:42,959 - INFO: 127.0.0.1 - - [01/Jan/2026 16:58:42] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-01 16:58:42,961 - INFO: 127.0.0.1 - - [01/Jan/2026 16:58:42] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-01 16:58:42,980 - INFO: 127.0.0.1 - - [01/Jan/2026 16:58:42] "GET /products HTTP/1.1" 200 -
+2026-01-01 16:58:43,288 - INFO: 127.0.0.1 - - [01/Jan/2026 16:58:43] "GET /categories HTTP/1.1" 200 -
+2026-01-01 16:58:43,296 - INFO: 127.0.0.1 - - [01/Jan/2026 16:58:43] "GET /products HTTP/1.1" 200 -
+2026-01-01 16:58:43,614 - INFO: 127.0.0.1 - - [01/Jan/2026 16:58:43] "GET /categories HTTP/1.1" 200 -
+2026-01-01 16:59:05,544 - INFO: 127.0.0.1 - - [01/Jan/2026 16:59:05] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-01 16:59:05,546 - INFO: 127.0.0.1 - - [01/Jan/2026 16:59:05] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-01 16:59:05,813 - INFO: 127.0.0.1 - - [01/Jan/2026 16:59:05] "GET /products/1 HTTP/1.1" 200 -
+2026-01-01 16:59:05,875 - INFO: 127.0.0.1 - - [01/Jan/2026 16:59:05] "GET /products/1 HTTP/1.1" 200 -
+2026-01-01 17:06:50,655 - INFO: 127.0.0.1 - - [01/Jan/2026 17:06:50] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-01 17:06:50,659 - INFO: 127.0.0.1 - - [01/Jan/2026 17:06:50] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-01 17:06:50,947 - INFO: 127.0.0.1 - - [01/Jan/2026 17:06:50] "GET /cart HTTP/1.1" 200 -
+2026-01-01 17:06:50,973 - INFO: 127.0.0.1 - - [01/Jan/2026 17:06:50] "GET /cart HTTP/1.1" 200 -
+2026-01-01 17:22:25,752 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 17:22:26,367 - INFO:  * Restarting with stat
+2026-01-01 17:22:27,770 - WARNING:  * Debugger is active!
+2026-01-01 17:22:27,776 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 17:22:30,821 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 17:22:30,924 - INFO:  * Restarting with stat
+2026-01-01 17:22:31,594 - WARNING:  * Debugger is active!
+2026-01-01 17:22:31,595 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 17:22:32,607 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 17:22:32,696 - INFO:  * Restarting with stat
+2026-01-01 17:48:36,168 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-01 17:48:36,168 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-01 17:48:36,170 - INFO:  * Restarting with stat
+2026-01-01 17:48:36,816 - WARNING:  * Debugger is active!
+2026-01-01 17:48:36,820 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 17:49:15,163 - INFO: 127.0.0.1 - - [01/Jan/2026 17:49:15] "[31m[1mPOST /register HTTP/1.1[0m" 409 -
+2026-01-01 17:52:15,050 - INFO: New user registered: qwe (janardanpandey019@gmail.com)
+2026-01-01 17:52:15,050 - INFO: janardanpandey019@gmail.com
+2026-01-01 17:52:41,903 - ERROR: Email sending failed: 'NoneType' object has no attribute 'encode'
+2026-01-01 17:52:41,908 - INFO: 127.0.0.1 - - [01/Jan/2026 17:52:41] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
+2026-01-01 17:54:53,696 - INFO: User logged in: qwe (janardanpandey019@gmail.com)
+2026-01-01 17:54:53,696 - INFO: 127.0.0.1 - - [01/Jan/2026 17:54:53] "POST /login HTTP/1.1" 200 -
+2026-01-01 18:01:16,327 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:01:16,414 - INFO:  * Restarting with stat
+2026-01-01 18:10:49,301 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-01 18:10:49,302 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-01 18:10:49,303 - INFO:  * Restarting with stat
+2026-01-01 18:10:49,912 - WARNING:  * Debugger is active!
+2026-01-01 18:10:49,915 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:30:36,680 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:30:36,779 - INFO:  * Restarting with stat
+2026-01-01 18:30:37,394 - WARNING:  * Debugger is active!
+2026-01-01 18:30:37,396 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:30:40,421 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:30:40,525 - INFO:  * Restarting with stat
+2026-01-01 18:30:41,111 - WARNING:  * Debugger is active!
+2026-01-01 18:30:41,113 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:30:45,134 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:30:45,221 - INFO:  * Restarting with stat
+2026-01-01 18:30:45,893 - WARNING:  * Debugger is active!
+2026-01-01 18:30:45,895 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:31:09,985 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:31:10,081 - INFO:  * Restarting with stat
+2026-01-01 18:31:10,661 - WARNING:  * Debugger is active!
+2026-01-01 18:31:10,663 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:31:12,715 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:31:12,829 - INFO:  * Restarting with stat
+2026-01-01 18:31:13,440 - WARNING:  * Debugger is active!
+2026-01-01 18:31:13,441 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:33:17,979 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:33:18,061 - INFO:  * Restarting with stat
+2026-01-01 18:33:18,697 - WARNING:  * Debugger is active!
+2026-01-01 18:33:18,699 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:34:02,902 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:34:03,022 - INFO:  * Restarting with stat
+2026-01-01 18:34:03,720 - WARNING:  * Debugger is active!
+2026-01-01 18:34:03,722 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:34:15,768 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:34:15,864 - INFO:  * Restarting with stat
+2026-01-01 18:34:16,559 - WARNING:  * Debugger is active!
+2026-01-01 18:34:16,561 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:34:18,588 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:34:18,713 - INFO:  * Restarting with stat
+2026-01-01 18:34:19,294 - WARNING:  * Debugger is active!
+2026-01-01 18:34:19,296 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:34:30,358 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:34:30,447 - INFO:  * Restarting with stat
+2026-01-01 18:34:31,101 - WARNING:  * Debugger is active!
+2026-01-01 18:34:31,104 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:38:55,050 - INFO: New user registered: {username} ({email})
+2026-01-01 18:38:55,051 - INFO: 127.0.0.1 - - [01/Jan/2026 18:38:55] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2026-01-01 18:40:31,759 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:40:31,882 - INFO:  * Restarting with stat
+2026-01-01 18:40:32,536 - WARNING:  * Debugger is active!
+2026-01-01 18:40:32,538 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:40:35,562 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:40:35,669 - INFO:  * Restarting with stat
+2026-01-01 18:40:36,340 - WARNING:  * Debugger is active!
+2026-01-01 18:40:36,343 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:40:43,133 - INFO: 127.0.0.1 - - [01/Jan/2026 18:40:43] "[31m[1mPOST /register HTTP/1.1[0m" 409 -
+2026-01-01 18:40:45,512 - INFO: 127.0.0.1 - - [01/Jan/2026 18:40:45] "[31m[1mPOST /register HTTP/1.1[0m" 409 -
+2026-01-01 18:41:22,969 - INFO: 127.0.0.1 - - [01/Jan/2026 18:41:22] "[31m[1mPOST /register HTTP/1.1[0m" 409 -
+2026-01-01 18:42:13,250 - INFO: User logged in: JP (shreyatrivedi2701@gmail.com)
+2026-01-01 18:42:13,251 - INFO: 127.0.0.1 - - [01/Jan/2026 18:42:13] "POST /login HTTP/1.1" 200 -
+2026-01-01 18:43:26,159 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:43:26,290 - INFO:  * Restarting with stat
+2026-01-01 18:43:26,999 - WARNING:  * Debugger is active!
+2026-01-01 18:43:27,001 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:43:28,014 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:43:28,126 - INFO:  * Restarting with stat
+2026-01-01 18:43:28,885 - WARNING:  * Debugger is active!
+2026-01-01 18:43:28,887 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:43:29,954 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:43:30,071 - INFO:  * Restarting with stat
+2026-01-01 18:43:30,760 - WARNING:  * Debugger is active!
+2026-01-01 18:43:30,761 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:43:31,772 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:43:31,850 - INFO:  * Restarting with stat
+2026-01-01 18:43:32,449 - WARNING:  * Debugger is active!
+2026-01-01 18:43:32,451 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:43:41,500 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:43:41,590 - INFO:  * Restarting with stat
+2026-01-01 18:43:42,165 - WARNING:  * Debugger is active!
+2026-01-01 18:43:42,167 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:43:47,198 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:43:47,293 - INFO:  * Restarting with stat
+2026-01-01 18:43:47,849 - WARNING:  * Debugger is active!
+2026-01-01 18:43:47,851 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:44:02,876 - INFO: 127.0.0.1 - - [01/Jan/2026 18:44:02] "[31m[1mPOST /register HTTP/1.1[0m" 409 -
+2026-01-01 18:47:05,412 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-01 18:47:05,412 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-01 18:47:05,413 - INFO:  * Restarting with stat
+2026-01-01 18:47:06,039 - WARNING:  * Debugger is active!
+2026-01-01 18:47:06,042 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:48:51,244 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:48:51,327 - INFO:  * Restarting with stat
+2026-01-01 18:48:51,525 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:48:51,626 - INFO:  * Restarting with stat
+2026-01-01 18:48:52,352 - WARNING:  * Debugger is active!
+2026-01-01 18:48:52,356 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:48:52,563 - WARNING:  * Debugger is active!
+2026-01-01 18:48:52,566 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:48:54,371 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:48:54,467 - INFO:  * Restarting with stat
+2026-01-01 18:48:54,583 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:48:54,697 - INFO:  * Restarting with stat
+2026-01-01 18:48:55,218 - WARNING:  * Debugger is active!
+2026-01-01 18:48:55,222 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:48:55,396 - WARNING:  * Debugger is active!
+2026-01-01 18:48:55,398 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:49:00,257 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:49:00,371 - INFO:  * Restarting with stat
+2026-01-01 18:49:00,421 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 18:49:00,517 - INFO:  * Restarting with stat
+2026-01-01 18:49:01,096 - WARNING:  * Debugger is active!
+2026-01-01 18:49:01,099 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 18:49:01,196 - WARNING:  * Debugger is active!
+2026-01-01 18:49:01,198 - INFO:  * Debugger PIN: 145-848-560
+2026-01-01 19:01:26,168 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 19:01:26,177 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-01 19:01:26,477 - INFO:  * Restarting with stat
+2026-01-01 19:01:26,560 - INFO:  * Restarting with stat
+2026-01-01 19:04:04,817 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-01 19:04:04,817 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-01 19:04:04,818 - INFO:  * Restarting with stat
+2026-01-01 19:04:05,497 - WARNING:  * Debugger is active!
+2026-01-01 19:04:05,500 - INFO:  * Debugger PIN: 145-848-560
+2026-01-02 16:11:06,439 - INFO: 127.0.0.1 - - [02/Jan/2026 16:11:06] "GET /products HTTP/1.1" 200 -
+2026-01-02 16:15:31,605 - INFO: 127.0.0.1 - - [02/Jan/2026 16:15:31] "GET /products/1 HTTP/1.1" 200 -
+2026-01-02 16:15:31,852 - INFO: 127.0.0.1 - - [02/Jan/2026 16:15:31] "GET /products/1 HTTP/1.1" 200 -
+2026-01-02 16:15:40,004 - INFO: 127.0.0.1 - - [02/Jan/2026 16:15:40] "GET /products HTTP/1.1" 200 -
+2026-01-02 16:15:40,269 - INFO: 127.0.0.1 - - [02/Jan/2026 16:15:40] "GET /products HTTP/1.1" 200 -
+2026-01-02 16:16:11,519 - INFO: 127.0.0.1 - - [02/Jan/2026 16:16:11] "GET /products/1 HTTP/1.1" 200 -
+2026-01-02 16:16:11,784 - INFO: 127.0.0.1 - - [02/Jan/2026 16:16:11] "GET /products/1 HTTP/1.1" 200 -
+2026-01-02 16:16:18,802 - INFO: 127.0.0.1 - - [02/Jan/2026 16:16:18] "GET /products HTTP/1.1" 200 -
+2026-01-02 16:16:19,066 - INFO: 127.0.0.1 - - [02/Jan/2026 16:16:19] "GET /products HTTP/1.1" 200 -
+2026-01-02 16:16:59,307 - INFO: 127.0.0.1 - - [02/Jan/2026 16:16:59] "GET /products HTTP/1.1" 200 -
+2026-01-02 16:16:59,564 - INFO: 127.0.0.1 - - [02/Jan/2026 16:16:59] "GET /products HTTP/1.1" 200 -
+2026-01-02 16:17:48,084 - INFO: 127.0.0.1 - - [02/Jan/2026 16:17:48] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-02 16:17:48,084 - INFO: 127.0.0.1 - - [02/Jan/2026 16:17:48] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-02 16:17:48,345 - INFO: 127.0.0.1 - - [02/Jan/2026 16:17:48] "GET /products HTTP/1.1" 200 -
+2026-01-02 16:17:48,404 - INFO: 127.0.0.1 - - [02/Jan/2026 16:17:48] "GET /products HTTP/1.1" 200 -
+2026-01-02 16:18:33,137 - INFO: 127.0.0.1 - - [02/Jan/2026 16:18:33] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-02 16:18:33,138 - INFO: 127.0.0.1 - - [02/Jan/2026 16:18:33] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-02 16:18:33,405 - INFO: 127.0.0.1 - - [02/Jan/2026 16:18:33] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-02 16:18:33,461 - INFO: 127.0.0.1 - - [02/Jan/2026 16:18:33] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-02 16:18:53,529 - INFO: 127.0.0.1 - - [02/Jan/2026 16:18:53] "OPTIONS /products/category/bracelets HTTP/1.1" 200 -
+2026-01-02 16:18:53,797 - INFO: 127.0.0.1 - - [02/Jan/2026 16:18:53] "GET /products/category/bracelets HTTP/1.1" 200 -
+2026-01-03 16:07:43,295 - INFO: 127.0.0.1 - - [03/Jan/2026 16:07:43] "GET /products HTTP/1.1" 200 -
+2026-01-03 16:07:43,467 - INFO: 127.0.0.1 - - [03/Jan/2026 16:07:43] "GET /products HTTP/1.1" 200 -
+2026-01-03 16:08:46,823 - INFO: 127.0.0.1 - - [03/Jan/2026 16:08:46] "GET /products/1 HTTP/1.1" 200 -
+2026-01-03 16:08:47,081 - INFO: 127.0.0.1 - - [03/Jan/2026 16:08:47] "GET /products/1 HTTP/1.1" 200 -
+2026-01-03 16:08:52,599 - INFO: 127.0.0.1 - - [03/Jan/2026 16:08:52] "GET /products HTTP/1.1" 200 -
+2026-01-03 16:08:52,865 - INFO: 127.0.0.1 - - [03/Jan/2026 16:08:52] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:03:19,632 - INFO: 127.0.0.1 - - [03/Jan/2026 20:03:19] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:03:19,767 - INFO: 127.0.0.1 - - [03/Jan/2026 20:03:19] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:04:29,381 - INFO: 127.0.0.1 - - [03/Jan/2026 20:04:29] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:04:29,655 - INFO: 127.0.0.1 - - [03/Jan/2026 20:04:29] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:05:17,418 - INFO: 127.0.0.1 - - [03/Jan/2026 20:05:17] "GET /products/3 HTTP/1.1" 200 -
+2026-01-03 20:05:17,655 - INFO: 127.0.0.1 - - [03/Jan/2026 20:05:17] "GET /products/3 HTTP/1.1" 200 -
+2026-01-03 20:10:51,928 - INFO: 127.0.0.1 - - [03/Jan/2026 20:10:51] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:10:52,140 - INFO: 127.0.0.1 - - [03/Jan/2026 20:10:52] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:11:14,853 - INFO: 127.0.0.1 - - [03/Jan/2026 20:11:14] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:11:15,116 - INFO: 127.0.0.1 - - [03/Jan/2026 20:11:15] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:11:17,782 - INFO: 127.0.0.1 - - [03/Jan/2026 20:11:17] "GET /products/1 HTTP/1.1" 200 -
+2026-01-03 20:11:18,045 - INFO: 127.0.0.1 - - [03/Jan/2026 20:11:18] "GET /products/1 HTTP/1.1" 200 -
+2026-01-03 20:11:33,527 - INFO: 127.0.0.1 - - [03/Jan/2026 20:11:33] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:11:33,675 - INFO: 127.0.0.1 - - [03/Jan/2026 20:11:33] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:11:45,026 - INFO: 127.0.0.1 - - [03/Jan/2026 20:11:45] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:11:45,275 - INFO: 127.0.0.1 - - [03/Jan/2026 20:11:45] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:11:52,496 - INFO: 127.0.0.1 - - [03/Jan/2026 20:11:52] "GET /products HTTP/1.1" 200 -
+2026-01-03 20:11:52,763 - INFO: 127.0.0.1 - - [03/Jan/2026 20:11:52] "GET /products HTTP/1.1" 200 -
+2026-01-04 00:00:17,089 - INFO: 127.0.0.1 - - [04/Jan/2026 00:00:17] "GET /products HTTP/1.1" 200 -
+2026-01-04 00:00:17,117 - INFO: 127.0.0.1 - - [04/Jan/2026 00:00:17] "GET /products HTTP/1.1" 200 -
+2026-01-04 01:32:01,647 - INFO: hello
+2026-01-04 01:32:01,663 - INFO: 127.0.0.1 - - [04/Jan/2026 01:32:01] "GET /testdb HTTP/1.1" 200 -
+2026-01-04 02:50:51,629 - INFO: 127.0.0.1 - - [04/Jan/2026 02:50:51] "GET /products HTTP/1.1" 200 -
+2026-01-04 02:50:51,730 - INFO: 127.0.0.1 - - [04/Jan/2026 02:50:51] "GET /products HTTP/1.1" 200 -
+2026-01-05 14:48:44,229 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-05 14:48:44,229 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-05 14:48:44,237 - INFO:  * Restarting with stat
+2026-01-05 14:48:45,061 - WARNING:  * Debugger is active!
+2026-01-05 14:48:45,067 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 14:53:59,652 - INFO: 127.0.0.1 - - [05/Jan/2026 14:53:59] "[31m[1mGET /register HTTP/1.1[0m" 405 -
+2026-01-05 15:13:41,607 - INFO: 127.0.0.1 - - [05/Jan/2026 15:13:41] "OPTIONS /products/category/rings HTTP/1.1" 200 -
+2026-01-05 15:13:41,610 - INFO: 127.0.0.1 - - [05/Jan/2026 15:13:41] "OPTIONS /products/category/rings HTTP/1.1" 200 -
+2026-01-05 15:13:41,926 - INFO: 127.0.0.1 - - [05/Jan/2026 15:13:41] "GET /products/category/rings HTTP/1.1" 200 -
+2026-01-05 15:14:20,490 - INFO: 127.0.0.1 - - [05/Jan/2026 15:14:20] "OPTIONS /products/category/rings HTTP/1.1" 200 -
+2026-01-05 15:14:20,492 - INFO: 127.0.0.1 - - [05/Jan/2026 15:14:20] "OPTIONS /products/category/rings HTTP/1.1" 200 -
+2026-01-05 15:14:20,753 - INFO: 127.0.0.1 - - [05/Jan/2026 15:14:20] "GET /products/category/rings HTTP/1.1" 200 -
+2026-01-05 15:14:20,815 - INFO: 127.0.0.1 - - [05/Jan/2026 15:14:20] "GET /products/category/rings HTTP/1.1" 200 -
+2026-01-05 15:17:49,012 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 15:17:49,272 - INFO:  * Restarting with stat
+2026-01-05 15:17:52,343 - WARNING:  * Debugger is active!
+2026-01-05 15:17:52,349 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 15:18:29,522 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 15:18:29,616 - INFO:  * Restarting with stat
+2026-01-05 15:18:30,264 - WARNING:  * Debugger is active!
+2026-01-05 15:18:30,266 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 15:18:35,347 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 15:18:35,451 - INFO:  * Restarting with stat
+2026-01-05 15:18:36,326 - WARNING:  * Debugger is active!
+2026-01-05 15:18:36,328 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 15:18:37,339 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 15:18:37,420 - INFO:  * Restarting with stat
+2026-01-05 15:18:38,195 - WARNING:  * Debugger is active!
+2026-01-05 15:18:38,198 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 15:18:39,208 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 15:18:39,329 - INFO:  * Restarting with stat
+2026-01-05 15:18:39,945 - WARNING:  * Debugger is active!
+2026-01-05 15:18:39,947 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 15:18:41,978 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 15:18:42,060 - INFO:  * Restarting with stat
+2026-01-05 15:18:42,736 - WARNING:  * Debugger is active!
+2026-01-05 15:18:42,738 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 15:18:47,768 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 15:18:47,865 - INFO:  * Restarting with stat
+2026-01-05 15:18:48,437 - WARNING:  * Debugger is active!
+2026-01-05 15:18:48,440 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 15:18:49,451 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 15:18:49,546 - INFO:  * Restarting with stat
+2026-01-05 15:18:50,252 - WARNING:  * Debugger is active!
+2026-01-05 15:18:50,255 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 15:18:53,278 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 15:18:53,368 - INFO:  * Restarting with stat
+2026-01-05 15:18:54,001 - WARNING:  * Debugger is active!
+2026-01-05 15:18:54,004 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 15:19:04,049 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 15:19:04,152 - INFO:  * Restarting with stat
+2026-01-05 15:50:04,290 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-05 15:50:04,290 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-05 15:50:04,291 - INFO:  * Restarting with stat
+2026-01-05 15:50:04,925 - WARNING:  * Debugger is active!
+2026-01-05 15:50:04,928 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 15:50:08,015 - INFO: 127.0.0.1 - - [05/Jan/2026 15:50:08] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-05 15:53:19,017 - INFO: New user registered: {username} ({email})
+2026-01-05 15:53:19,017 - INFO: kratika1005@gmail.com
+2026-01-05 15:53:21,172 - ERROR: Email sending failed: 'NoneType' object has no attribute 'encode'
+2026-01-05 15:53:21,174 - INFO: 127.0.0.1 - - [05/Jan/2026 15:53:21] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
+2026-01-05 15:55:55,297 - INFO: User logged in: KM (kratika1005@gmail.com)
+2026-01-05 15:55:55,303 - INFO: 127.0.0.1 - - [05/Jan/2026 15:55:55] "POST /login HTTP/1.1" 200 -
+2026-01-05 15:56:36,521 - INFO: 127.0.0.1 - - [05/Jan/2026 15:56:36] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-05 15:57:18,017 - INFO: 127.0.0.1 - - [05/Jan/2026 15:57:18] "[31m[1mPOST /products HTTP/1.1[0m" 400 -
+2026-01-05 15:58:15,957 - INFO: 127.0.0.1 - - [05/Jan/2026 15:58:15] "[31m[1mPOST /products HTTP/1.1[0m" 400 -
+2026-01-05 16:04:26,286 - INFO: 127.0.0.1 - - [05/Jan/2026 16:04:26] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-05 16:06:33,821 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:06:34,025 - INFO:  * Restarting with stat
+2026-01-05 16:06:34,744 - WARNING:  * Debugger is active!
+2026-01-05 16:06:34,749 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:09:08,915 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:09:09,030 - INFO:  * Restarting with stat
+2026-01-05 16:09:09,739 - WARNING:  * Debugger is active!
+2026-01-05 16:09:09,742 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:12:09,622 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:12:09,746 - INFO:  * Restarting with stat
+2026-01-05 16:12:10,738 - WARNING:  * Debugger is active!
+2026-01-05 16:12:10,741 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:12:14,767 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:12:14,882 - INFO:  * Restarting with stat
+2026-01-05 16:19:41,297 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-05 16:19:41,297 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-05 16:19:41,299 - INFO:  * Restarting with stat
+2026-01-05 16:19:43,085 - WARNING:  * Debugger is active!
+2026-01-05 16:19:43,093 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:20:58,372 - INFO: 127.0.0.1 - - [05/Jan/2026 16:20:58] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:22:23,948 - INFO: 127.0.0.1 - - [05/Jan/2026 16:22:23] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:34:50,506 - INFO: 127.0.0.1 - - [05/Jan/2026 16:34:50] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 16:34:50,508 - INFO: 127.0.0.1 - - [05/Jan/2026 16:34:50] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 16:34:50,772 - INFO: 127.0.0.1 - - [05/Jan/2026 16:34:50] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:34:50,814 - INFO: 127.0.0.1 - - [05/Jan/2026 16:34:50] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:35:45,496 - INFO: 127.0.0.1 - - [05/Jan/2026 16:35:45] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 16:35:45,499 - INFO: 127.0.0.1 - - [05/Jan/2026 16:35:45] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 16:35:45,771 - INFO: 127.0.0.1 - - [05/Jan/2026 16:35:45] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:35:45,804 - INFO: 127.0.0.1 - - [05/Jan/2026 16:35:45] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:36:23,740 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:23] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 16:36:23,743 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:23] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 16:36:24,008 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:24] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:36:24,057 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:24] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:36:27,441 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:27] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:36:27,704 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:27] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:36:32,859 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:32] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 16:36:33,175 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:33] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:36:33,445 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:33] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:36:37,506 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:37] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:36:37,767 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:37] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:36:40,946 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:40] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-05 16:36:41,257 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:41] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-05 16:36:41,266 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:41] "GET /products/1 HTTP/1.1" 200 -
+2026-01-05 16:36:41,590 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:41] "GET /products/1 HTTP/1.1" 200 -
+2026-01-05 16:36:58,935 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:58] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 16:36:58,938 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:58] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-05 16:36:59,193 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:59] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:36:59,252 - INFO: 127.0.0.1 - - [05/Jan/2026 16:36:59] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:37:00,733 - INFO: 127.0.0.1 - - [05/Jan/2026 16:37:00] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:37:01,053 - INFO: 127.0.0.1 - - [05/Jan/2026 16:37:01] "GET /products HTTP/1.1" 200 -
+2026-01-05 16:57:44,869 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:57:45,334 - INFO:  * Restarting with stat
+2026-01-05 16:57:46,429 - WARNING:  * Debugger is active!
+2026-01-05 16:57:46,440 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:58:00,493 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:58:00,609 - INFO:  * Restarting with stat
+2026-01-05 16:58:01,492 - WARNING:  * Debugger is active!
+2026-01-05 16:58:01,494 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:58:05,519 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:58:05,632 - INFO:  * Restarting with stat
+2026-01-05 16:58:06,374 - WARNING:  * Debugger is active!
+2026-01-05 16:58:06,378 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:58:34,488 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:58:34,590 - INFO:  * Restarting with stat
+2026-01-05 16:58:35,339 - WARNING:  * Debugger is active!
+2026-01-05 16:58:35,342 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:58:49,416 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:58:49,581 - INFO:  * Restarting with stat
+2026-01-05 16:58:50,531 - WARNING:  * Debugger is active!
+2026-01-05 16:58:50,533 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:58:51,560 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:58:51,748 - INFO:  * Restarting with stat
+2026-01-05 16:58:52,501 - WARNING:  * Debugger is active!
+2026-01-05 16:58:52,504 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:58:53,516 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:58:53,646 - INFO:  * Restarting with stat
+2026-01-05 16:58:54,485 - WARNING:  * Debugger is active!
+2026-01-05 16:58:54,486 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:58:56,513 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:58:56,653 - INFO:  * Restarting with stat
+2026-01-05 16:58:57,586 - WARNING:  * Debugger is active!
+2026-01-05 16:58:57,588 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:59:05,622 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:59:05,736 - INFO:  * Restarting with stat
+2026-01-05 16:59:06,656 - WARNING:  * Debugger is active!
+2026-01-05 16:59:06,658 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 16:59:07,667 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 16:59:07,762 - INFO:  * Restarting with stat
+2026-01-05 16:59:08,491 - WARNING:  * Debugger is active!
+2026-01-05 16:59:08,493 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:03:21,627 - INFO: User logged in: JP (shreyatrivedi2701@gmail.com)
+2026-01-05 17:03:21,628 - INFO: 127.0.0.1 - - [05/Jan/2026 17:03:21] "POST /login HTTP/1.1" 200 -
+2026-01-05 17:03:42,813 - INFO: 12535.86
+2026-01-05 17:03:42,814 - INFO: 127.0.0.1 - - [05/Jan/2026 17:03:42] "POST /calculate_price HTTP/1.1" 200 -
+2026-01-05 17:04:40,975 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:04:41,174 - INFO:  * Restarting with stat
+2026-01-05 17:04:42,179 - WARNING:  * Debugger is active!
+2026-01-05 17:04:42,184 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:04:44,197 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:04:44,304 - INFO:  * Restarting with stat
+2026-01-05 17:04:45,060 - WARNING:  * Debugger is active!
+2026-01-05 17:04:45,063 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:04:52,108 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:04:52,237 - INFO:  * Restarting with stat
+2026-01-05 17:12:31,713 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-05 17:12:31,714 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-05 17:12:31,714 - INFO:  * Restarting with stat
+2026-01-05 17:12:32,555 - WARNING:  * Debugger is active!
+2026-01-05 17:12:32,563 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:12:38,465 - INFO: User logged in: JP (shreyatrivedi2701@gmail.com)
+2026-01-05 17:12:38,466 - INFO: 127.0.0.1 - - [05/Jan/2026 17:12:38] "POST /login HTTP/1.1" 200 -
+2026-01-05 17:13:06,312 - INFO: 127.0.0.1 - - [05/Jan/2026 17:13:06] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2026-01-05 17:14:34,974 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:14:35,083 - INFO:  * Restarting with stat
+2026-01-05 17:14:36,013 - WARNING:  * Debugger is active!
+2026-01-05 17:14:36,015 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:14:37,029 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:14:37,155 - INFO:  * Restarting with stat
+2026-01-05 17:14:38,024 - WARNING:  * Debugger is active!
+2026-01-05 17:14:38,027 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:14:54,084 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:14:54,182 - INFO:  * Restarting with stat
+2026-01-05 17:14:54,983 - WARNING:  * Debugger is active!
+2026-01-05 17:14:54,986 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:15:49,271 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:15:49,398 - INFO:  * Restarting with stat
+2026-01-05 17:15:50,357 - WARNING:  * Debugger is active!
+2026-01-05 17:15:50,359 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:15:55,400 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:15:55,570 - INFO:  * Restarting with stat
+2026-01-05 17:15:56,713 - WARNING:  * Debugger is active!
+2026-01-05 17:15:56,715 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:24:02,297 - INFO: 127.0.0.1 - - [05/Jan/2026 17:24:02] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2026-01-05 17:28:23,459 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:28:23,718 - INFO:  * Restarting with stat
+2026-01-05 17:28:24,708 - WARNING:  * Debugger is active!
+2026-01-05 17:28:24,715 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:28:26,737 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:28:26,848 - INFO:  * Restarting with stat
+2026-01-05 17:28:27,646 - WARNING:  * Debugger is active!
+2026-01-05 17:28:27,648 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:28:29,668 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:28:29,783 - INFO:  * Restarting with stat
+2026-01-05 17:28:30,654 - WARNING:  * Debugger is active!
+2026-01-05 17:28:30,656 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:31:01,155 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:31:01,313 - INFO:  * Restarting with stat
+2026-01-05 17:31:02,431 - WARNING:  * Debugger is active!
+2026-01-05 17:31:02,436 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 17:31:04,452 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 17:31:04,564 - INFO:  * Restarting with stat
+2026-01-05 18:02:01,978 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-05 18:02:01,978 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-05 18:02:01,982 - INFO:  * Restarting with stat
+2026-01-05 18:02:02,833 - WARNING:  * Debugger is active!
+2026-01-05 18:02:02,841 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:02:11,609 - INFO: 127.0.0.1 - - [05/Jan/2026 18:02:11] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-05 18:03:36,390 - INFO: User logged in: JP (shreyatrivedi2701@gmail.com)
+2026-01-05 18:03:36,392 - INFO: 127.0.0.1 - - [05/Jan/2026 18:03:36] "POST /login HTTP/1.1" 200 -
+2026-01-05 18:05:03,271 - INFO: User logged in: JP (shreyatrivedi2701@gmail.com)
+2026-01-05 18:05:03,271 - INFO: 127.0.0.1 - - [05/Jan/2026 18:05:03] "POST /login HTTP/1.1" 200 -
+2026-01-05 18:05:25,512 - INFO: 127.0.0.1 - - [05/Jan/2026 18:05:25] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2026-01-05 18:05:30,051 - INFO: 127.0.0.1 - - [05/Jan/2026 18:05:30] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2026-01-05 18:07:29,084 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:07:29,230 - INFO:  * Restarting with stat
+2026-01-05 18:07:30,014 - WARNING:  * Debugger is active!
+2026-01-05 18:07:30,018 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:07:32,034 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:07:32,146 - INFO:  * Restarting with stat
+2026-01-05 18:07:32,860 - WARNING:  * Debugger is active!
+2026-01-05 18:07:32,863 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:07:35,880 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:07:35,984 - INFO:  * Restarting with stat
+2026-01-05 18:07:36,889 - WARNING:  * Debugger is active!
+2026-01-05 18:07:36,892 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:07:40,914 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:07:41,054 - INFO:  * Restarting with stat
+2026-01-05 18:07:41,869 - WARNING:  * Debugger is active!
+2026-01-05 18:07:41,872 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:08:16,040 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:08:16,180 - INFO:  * Restarting with stat
+2026-01-05 18:08:16,925 - WARNING:  * Debugger is active!
+2026-01-05 18:08:16,930 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:08:51,250 - INFO: 127.0.0.1 - - [05/Jan/2026 18:08:51] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2026-01-05 18:11:02,584 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:11:02,723 - INFO:  * Restarting with stat
+2026-01-05 18:11:03,605 - WARNING:  * Debugger is active!
+2026-01-05 18:11:03,609 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:12:47,039 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:12:47,158 - INFO:  * Restarting with stat
+2026-01-05 18:12:47,937 - WARNING:  * Debugger is active!
+2026-01-05 18:12:47,942 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:15:26,536 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:15:26,645 - INFO:  * Restarting with stat
+2026-01-05 18:15:27,582 - WARNING:  * Debugger is active!
+2026-01-05 18:15:27,585 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:15:28,595 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:15:28,698 - INFO:  * Restarting with stat
+2026-01-05 18:15:29,564 - WARNING:  * Debugger is active!
+2026-01-05 18:15:29,566 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:15:31,588 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:15:31,793 - INFO:  * Restarting with stat
+2026-01-05 18:15:32,673 - WARNING:  * Debugger is active!
+2026-01-05 18:15:32,676 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:16:28,280 - INFO: 127.0.0.1 - - [05/Jan/2026 18:16:28] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-05 18:16:51,962 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:16:52,091 - INFO:  * Restarting with stat
+2026-01-05 18:16:52,929 - WARNING:  * Debugger is active!
+2026-01-05 18:16:52,933 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:16:58,958 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:16:59,076 - INFO:  * Restarting with stat
+2026-01-05 18:17:00,023 - WARNING:  * Debugger is active!
+2026-01-05 18:17:00,026 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:17:07,354 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-05 18:17:07,354 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-05 18:17:07,357 - INFO:  * Restarting with stat
+2026-01-05 18:17:08,102 - WARNING:  * Debugger is active!
+2026-01-05 18:17:08,105 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:17:10,032 - INFO: Gold
+2026-01-05 18:17:10,951 - INFO: 127.0.0.1 - - [05/Jan/2026 18:17:10] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2026-01-05 18:19:40,764 - INFO: New user registered: {username} ({email})
+2026-01-05 18:19:40,765 - INFO: kratika1005@gmail.com
+2026-01-05 18:19:42,991 - ERROR: Email sending failed: 'NoneType' object has no attribute 'encode'
+2026-01-05 18:19:42,992 - INFO: 127.0.0.1 - - [05/Jan/2026 18:19:42] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
+2026-01-05 18:23:30,508 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:23:30,636 - INFO:  * Restarting with stat
+2026-01-05 18:23:31,486 - WARNING:  * Debugger is active!
+2026-01-05 18:23:31,489 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:23:32,498 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:23:32,596 - INFO:  * Restarting with stat
+2026-01-05 18:23:33,344 - WARNING:  * Debugger is active!
+2026-01-05 18:23:33,346 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:35:28,855 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:35:28,964 - INFO:  * Restarting with stat
+2026-01-05 18:35:29,930 - WARNING:  * Debugger is active!
+2026-01-05 18:35:29,933 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:35:30,943 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:35:31,048 - INFO:  * Restarting with stat
+2026-01-05 18:35:31,913 - WARNING:  * Debugger is active!
+2026-01-05 18:35:31,917 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:35:33,932 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:35:34,053 - INFO:  * Restarting with stat
+2026-01-05 18:35:34,766 - WARNING:  * Debugger is active!
+2026-01-05 18:35:34,769 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:35:35,793 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:35:35,961 - INFO:  * Restarting with stat
+2026-01-05 18:35:36,892 - WARNING:  * Debugger is active!
+2026-01-05 18:35:36,897 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:35:37,913 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:35:38,016 - INFO:  * Restarting with stat
+2026-01-05 18:35:38,851 - WARNING:  * Debugger is active!
+2026-01-05 18:35:38,854 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:35:39,871 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:35:40,000 - INFO:  * Restarting with stat
+2026-01-05 18:35:40,845 - WARNING:  * Debugger is active!
+2026-01-05 18:35:40,848 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:36:02,922 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-05 18:36:03,036 - INFO:  * Restarting with stat
+2026-01-05 18:36:03,924 - WARNING:  * Debugger is active!
+2026-01-05 18:36:03,928 - INFO:  * Debugger PIN: 145-848-560
+2026-01-05 18:37:33,362 - INFO: New user registered: {username} ({email})
+2026-01-05 18:37:33,363 - INFO: kratika1005@gmail.com
+2026-01-05 18:37:37,381 - INFO: Welcome email sent successfully
+2026-01-05 18:37:37,385 - INFO: 127.0.0.1 - - [05/Jan/2026 18:37:37] "[35m[1mPOST /register HTTP/1.1[0m" 201 -

@@ -12,10 +12,6 @@ import logging
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-<<<<<<< HEAD
-import requests
-=======
->>>>>>> d0402177e59f186b5c38041209e3226255a712df
 
 
 load_dotenv()
@@ -35,11 +31,6 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['APP_URL'] = os.getenv('APP_URL')
 app.config['API_KEY'] = os.getenv('API_KEY')
 app.config['API_SECRET'] = os.getenv('API_SECRET')
-
-
-
-app.config['SENDER'] = os.getenv('SENDER')
-app.config['PASSWORD'] = os.getenv('PASSWORD')
 
 
 
@@ -90,6 +81,8 @@ def protected():
     print(current_user)
     return jsonify(logged_in_as=current_user)
 
+
+
 @app.route('/register', methods=['POST'])
 def register():
     """
@@ -130,22 +123,12 @@ def register():
         mysql.connection.commit()
         cursor.close()
 
-<<<<<<< HEAD
-        logging.info("New user registered: {username} ({email})")
-
-        # ---------------- SMTP EMAIL LOGIC (ADDED) ----------------
-
-        sender_email = app.config['SENDER']
-        sender_password = app.config['PASSWORD']
-
-=======
         logging.info(f"New user registered: {username} ({email})")
 
         # ---------------- SMTP EMAIL LOGIC (ADDED) ----------------
 
         sender_email = app.config['fir_tech']
         sender_password = app.config['sec_tech']
->>>>>>> d0402177e59f186b5c38041209e3226255a712df
         subject = "Warm Welcome from Shirish and it's team side"
         logging.info(email)
         data_want_send = MIMEMultipart()
@@ -243,6 +226,7 @@ def get_profile():
     cursor.close()
     return jsonify(user), 200
 
+
 def get_current_gold_rate():
     url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAU"
     response = requests.get(url)
@@ -254,6 +238,7 @@ def get_current_gold_rate():
 
 
 
+
 def get_current_silver_rate():
     url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAG"
     response = requests.get(url)
@@ -262,7 +247,6 @@ def get_current_silver_rate():
     # XAG is per ounce
     price_per_gram = (1 / data["rates"]["XAG"]) / 31.1035
     return round(price_per_gram, 2)
-
 
 
 @app.route('/calculate_price', methods=['POST'])     # not  used api / only for testing
@@ -354,21 +338,18 @@ def get_products():
     Get all products
     """
     cursor = get_db_cursor()
-    cursor.execute("SELECT id, name, category, price, description, stock, images , quantity FROM products")
+    cursor.execute("SELECT id, name, category, price, description, stock, images FROM products")
     products = cursor.fetchall()
     cursor.close()
 
     result = [
         {"id": p[0], "name": p[1], "category": p[2], "price": p[3],
-         "description": p[4], "stock": p[5], "images": p[6], "quantity": p[7]} for p in products
+         "description": p[4], "stock": p[5], "images": p[6]} for p in products
     ]
     return jsonify(result), 200
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> d0402177e59f186b5c38041209e3226255a712df
 @app.route('/products/<int:id>', methods=['GET'])
 def get_product(id):
     """

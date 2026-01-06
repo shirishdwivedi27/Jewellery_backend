@@ -1,0 +1,254 @@
+2026-01-05 21:21:03,923 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-05 21:21:04,325 - INFO:  * Restarting with stat
+2026-01-05 21:21:05,143 - WARNING:  * Debugger is active!
+2026-01-05 21:21:05,157 - INFO:  * Debugger PIN: 125-337-187
+2026-01-05 21:22:13,823 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-05 21:22:13,957 - INFO:  * Restarting with stat
+2026-01-05 21:22:14,874 - WARNING:  * Debugger is active!
+2026-01-05 21:22:14,885 - INFO:  * Debugger PIN: 125-337-187
+2026-01-06 01:56:42,676 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-06 01:56:42,676 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-06 01:56:42,680 - INFO:  * Restarting with stat
+2026-01-06 01:56:44,450 - WARNING:  * Debugger is active!
+2026-01-06 01:56:44,458 - INFO:  * Debugger PIN: 125-337-187
+2026-01-06 02:00:43,966 - INFO: 127.0.0.1 - - [06/Jan/2026 02:00:43] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:00:43,969 - INFO: 127.0.0.1 - - [06/Jan/2026 02:00:43] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:00:44,199 - INFO: 127.0.0.1 - - [06/Jan/2026 02:00:44] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:00:44,295 - INFO: 127.0.0.1 - - [06/Jan/2026 02:00:44] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:00:59,531 - INFO: 127.0.0.1 - - [06/Jan/2026 02:00:59] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-06 02:01:00,121 - INFO: User logged in: shreya (shreya@example.com)
+2026-01-06 02:01:00,123 - INFO: 127.0.0.1 - - [06/Jan/2026 02:01:00] "POST /login HTTP/1.1" 200 -
+2026-01-06 02:01:00,282 - INFO: 127.0.0.1 - - [06/Jan/2026 02:01:00] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:01:00,606 - INFO: 127.0.0.1 - - [06/Jan/2026 02:01:00] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:03:57,703 - INFO: 127.0.0.1 - - [06/Jan/2026 02:03:57] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:03:57,947 - INFO: 127.0.0.1 - - [06/Jan/2026 02:03:57] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:04:01,811 - INFO: 127.0.0.1 - - [06/Jan/2026 02:04:01] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:04:02,064 - INFO: 127.0.0.1 - - [06/Jan/2026 02:04:02] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:04:26,722 - INFO: 127.0.0.1 - - [06/Jan/2026 02:04:26] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:04:26,733 - INFO: 127.0.0.1 - - [06/Jan/2026 02:04:26] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:04:26,989 - INFO: 127.0.0.1 - - [06/Jan/2026 02:04:26] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:04:27,049 - INFO: 127.0.0.1 - - [06/Jan/2026 02:04:27] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:04:32,877 - INFO: 127.0.0.1 - - [06/Jan/2026 02:04:32] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:04:32,882 - INFO: 127.0.0.1 - - [06/Jan/2026 02:04:32] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:04:33,139 - INFO: 127.0.0.1 - - [06/Jan/2026 02:04:33] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:04:33,201 - INFO: 127.0.0.1 - - [06/Jan/2026 02:04:33] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:05:16,787 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-06 02:05:16,789 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-06 02:05:16,838 - INFO:  * Restarting with stat
+2026-01-06 02:05:18,140 - WARNING:  * Debugger is active!
+2026-01-06 02:05:18,154 - INFO:  * Debugger PIN: 125-337-187
+2026-01-06 02:05:26,865 - INFO: 127.0.0.1 - - [06/Jan/2026 02:05:26] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-06 02:05:27,113 - INFO: User logged in: shreya (shreya@example.com)
+2026-01-06 02:05:27,113 - INFO: 127.0.0.1 - - [06/Jan/2026 02:05:27] "POST /login HTTP/1.1" 200 -
+2026-01-06 02:05:27,459 - INFO: 127.0.0.1 - - [06/Jan/2026 02:05:27] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:05:27,724 - INFO: 127.0.0.1 - - [06/Jan/2026 02:05:27] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:09:05,437 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-06 02:09:05,438 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-06 02:09:05,445 - INFO:  * Restarting with stat
+2026-01-06 02:09:07,276 - WARNING:  * Debugger is active!
+2026-01-06 02:09:07,293 - INFO:  * Debugger PIN: 125-337-187
+2026-01-06 02:09:21,283 - INFO: 127.0.0.1 - - [06/Jan/2026 02:09:21] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:09:21,292 - INFO: 127.0.0.1 - - [06/Jan/2026 02:09:21] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:09:21,426 - INFO: 127.0.0.1 - - [06/Jan/2026 02:09:21] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:09:21,428 - INFO: 127.0.0.1 - - [06/Jan/2026 02:09:21] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:09:21,428 - INFO: 127.0.0.1 - - [06/Jan/2026 02:09:21] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:09:21,428 - INFO: 127.0.0.1 - - [06/Jan/2026 02:09:21] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:09:21,428 - INFO: 127.0.0.1 - - [06/Jan/2026 02:09:21] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:09:21,720 - INFO: 127.0.0.1 - - [06/Jan/2026 02:09:21] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:09:21,975 - INFO: 127.0.0.1 - - [06/Jan/2026 02:09:21] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:09:27,720 - INFO: 127.0.0.1 - - [06/Jan/2026 02:09:27] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:09:28,033 - INFO: 127.0.0.1 - - [06/Jan/2026 02:09:28] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:13:10,868 - INFO: 127.0.0.1 - - [06/Jan/2026 02:13:10] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:15:45,341 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:45] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:15:46,962 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:46] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:15:51,330 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:51] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:15:51,793 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:51] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:15:52,659 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:52] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:15:54,336 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:54] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:15:54,564 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:54] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:15:54,652 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:54] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:15:54,746 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:54] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:15:56,439 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:56] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:15:56,591 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:56] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:15:56,643 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:56] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:15:56,879 - INFO: 127.0.0.1 - - [06/Jan/2026 02:15:56] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:16:12,627 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:12] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-06 02:16:13,171 - INFO: User logged in: shreya (shreya@example.com)
+2026-01-06 02:16:13,171 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:13] "POST /login HTTP/1.1" 200 -
+2026-01-06 02:16:13,217 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:13] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:16:13,538 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:13] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:16:29,238 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:29] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:16:29,600 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:29] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:16:31,646 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:31] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:16:32,925 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:32] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:16:36,904 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:36] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:16:37,094 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:37] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:16:37,338 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:37] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:16:37,413 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:37] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:16:37,456 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:37] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:16:37,673 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:37] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:16:38,211 - INFO: 127.0.0.1 - - [06/Jan/2026 02:16:38] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:17:02,224 - INFO: 127.0.0.1 - - [06/Jan/2026 02:17:02] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:17:02,573 - INFO: 127.0.0.1 - - [06/Jan/2026 02:17:02] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:17:44,093 - INFO: 127.0.0.1 - - [06/Jan/2026 02:17:44] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:17:44,437 - INFO: 127.0.0.1 - - [06/Jan/2026 02:17:44] "[35m[1mPOST /products HTTP/1.1[0m" 500 -
+2026-01-06 02:21:40,960 - INFO: 127.0.0.1 - - [06/Jan/2026 02:21:40] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:21:41,120 - INFO: 127.0.0.1 - - [06/Jan/2026 02:21:41] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:23:22,456 - INFO: 127.0.0.1 - - [06/Jan/2026 02:23:22] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:23:22,491 - INFO: 127.0.0.1 - - [06/Jan/2026 02:23:22] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:25:51,374 - INFO: 127.0.0.1 - - [06/Jan/2026 02:25:51] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:25:51,617 - INFO: 127.0.0.1 - - [06/Jan/2026 02:25:51] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:26:15,575 - INFO: 127.0.0.1 - - [06/Jan/2026 02:26:15] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:26:15,887 - INFO: 127.0.0.1 - - [06/Jan/2026 02:26:15] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2026-01-06 02:26:15,910 - INFO: 127.0.0.1 - - [06/Jan/2026 02:26:15] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:26:37,086 - INFO: 127.0.0.1 - - [06/Jan/2026 02:26:37] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:26:37,096 - INFO: 127.0.0.1 - - [06/Jan/2026 02:26:37] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 02:26:37,366 - INFO: 127.0.0.1 - - [06/Jan/2026 02:26:37] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:26:37,411 - INFO: 127.0.0.1 - - [06/Jan/2026 02:26:37] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:32:18,268 - INFO: 127.0.0.1 - - [06/Jan/2026 02:32:18] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-06 02:32:18,910 - INFO: User logged in: shreya (shreya@example.com)
+2026-01-06 02:32:18,920 - INFO: 127.0.0.1 - - [06/Jan/2026 02:32:18] "POST /login HTTP/1.1" 200 -
+2026-01-06 02:32:19,215 - INFO: 127.0.0.1 - - [06/Jan/2026 02:32:19] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:32:19,543 - INFO: 127.0.0.1 - - [06/Jan/2026 02:32:19] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:50:09,590 - INFO: 127.0.0.1 - - [06/Jan/2026 02:50:09] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:50:09,615 - INFO: 127.0.0.1 - - [06/Jan/2026 02:50:09] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:52:16,709 - INFO: 127.0.0.1 - - [06/Jan/2026 02:52:16] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:52:16,932 - INFO: 127.0.0.1 - - [06/Jan/2026 02:52:16] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:57:27,990 - INFO: 127.0.0.1 - - [06/Jan/2026 02:57:27] "GET /products HTTP/1.1" 200 -
+2026-01-06 02:58:15,010 - INFO: 127.0.0.1 - - [06/Jan/2026 02:58:15] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:05:28,806 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:28] "OPTIONS /orders HTTP/1.1" 200 -
+2026-01-06 03:05:28,816 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:28] "OPTIONS /orders HTTP/1.1" 200 -
+2026-01-06 03:05:28,873 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:28] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:05:28,963 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:28] "[31m[1mGET /orders HTTP/1.1[0m" 401 -
+2026-01-06 03:05:28,965 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:28] "GET /api/admin/contacts HTTP/1.1" 200 -
+2026-01-06 03:05:29,124 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:29] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:05:29,187 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:29] "[31m[1mGET /orders HTTP/1.1[0m" 401 -
+2026-01-06 03:05:29,273 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:29] "GET /api/admin/contacts HTTP/1.1" 200 -
+2026-01-06 03:05:52,049 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:52] "OPTIONS /orders HTTP/1.1" 200 -
+2026-01-06 03:05:52,049 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:52] "OPTIONS /orders HTTP/1.1" 200 -
+2026-01-06 03:05:52,049 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:52] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:05:52,049 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:52] "GET /api/admin/contacts HTTP/1.1" 200 -
+2026-01-06 03:05:52,287 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:52] "[31m[1mGET /orders HTTP/1.1[0m" 401 -
+2026-01-06 03:05:52,375 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:52] "[31m[1mGET /orders HTTP/1.1[0m" 401 -
+2026-01-06 03:05:52,378 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:52] "GET /api/admin/contacts HTTP/1.1" 200 -
+2026-01-06 03:05:52,379 - INFO: 127.0.0.1 - - [06/Jan/2026 03:05:52] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:06:31,842 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:31] "OPTIONS /orders HTTP/1.1" 200 -
+2026-01-06 03:06:31,850 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:31] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:06:31,850 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:31] "GET /api/admin/contacts HTTP/1.1" 200 -
+2026-01-06 03:06:32,094 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:32] "[31m[1mGET /orders HTTP/1.1[0m" 401 -
+2026-01-06 03:06:57,064 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:57] "OPTIONS /orders HTTP/1.1" 200 -
+2026-01-06 03:06:57,064 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:57] "OPTIONS /orders HTTP/1.1" 200 -
+2026-01-06 03:06:57,079 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:57] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:06:57,083 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:57] "GET /api/admin/contacts HTTP/1.1" 200 -
+2026-01-06 03:06:57,316 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:57] "[31m[1mGET /orders HTTP/1.1[0m" 401 -
+2026-01-06 03:06:57,386 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:57] "[31m[1mGET /orders HTTP/1.1[0m" 401 -
+2026-01-06 03:06:57,386 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:57] "GET /api/admin/contacts HTTP/1.1" 200 -
+2026-01-06 03:06:57,386 - INFO: 127.0.0.1 - - [06/Jan/2026 03:06:57] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:12:52,515 - INFO: 127.0.0.1 - - [06/Jan/2026 03:12:52] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:12:52,517 - INFO: 127.0.0.1 - - [06/Jan/2026 03:12:52] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:12:52,802 - INFO: 127.0.0.1 - - [06/Jan/2026 03:12:52] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:12:52,835 - INFO: 127.0.0.1 - - [06/Jan/2026 03:12:52] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:13:00,692 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:00] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-06 03:13:00,695 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:00] "OPTIONS /products/category/bangles HTTP/1.1" 200 -
+2026-01-06 03:13:00,939 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:00] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-06 03:13:01,016 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:01] "GET /products/category/bangles HTTP/1.1" 200 -
+2026-01-06 03:13:03,403 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:03] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:13:03,709 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:03] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:13:03,709 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:03] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:13:04,028 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:04] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:13:06,635 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:06] "OPTIONS /products/category/earrings HTTP/1.1" 200 -
+2026-01-06 03:13:06,638 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:06] "OPTIONS /products/category/earrings HTTP/1.1" 200 -
+2026-01-06 03:13:06,902 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:06] "GET /products/category/earrings HTTP/1.1" 200 -
+2026-01-06 03:13:06,945 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:06] "GET /products/category/earrings HTTP/1.1" 200 -
+2026-01-06 03:13:08,773 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:08] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:13:09,089 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:09] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:13:09,089 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:09] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:13:09,409 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:09] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:13:12,922 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:12] "OPTIONS /products/category/rings HTTP/1.1" 200 -
+2026-01-06 03:13:12,923 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:12] "OPTIONS /products/category/rings HTTP/1.1" 200 -
+2026-01-06 03:13:13,198 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:13] "GET /products/category/rings HTTP/1.1" 200 -
+2026-01-06 03:13:13,231 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:13] "GET /products/category/rings HTTP/1.1" 200 -
+2026-01-06 03:13:22,793 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:22] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:13:23,103 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:23] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:13:23,103 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:23] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:13:23,419 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:23] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:13:32,633 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:32] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:13:32,635 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:32] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:13:32,902 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:32] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:13:32,940 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:32] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:13:45,852 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:45] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:13:46,159 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:46] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 03:13:46,159 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:46] "GET /products HTTP/1.1" 200 -
+2026-01-06 03:13:46,478 - INFO: 127.0.0.1 - - [06/Jan/2026 03:13:46] "GET /products HTTP/1.1" 200 -
+2026-01-06 16:13:21,504 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-06 16:13:21,504 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-06 16:13:21,508 - INFO:  * Restarting with stat
+2026-01-06 16:13:23,257 - WARNING:  * Debugger is active!
+2026-01-06 16:13:23,289 - INFO:  * Debugger PIN: 125-337-187
+2026-01-06 16:13:32,176 - INFO: 127.0.0.1 - - [06/Jan/2026 16:13:32] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 16:13:32,177 - INFO: 127.0.0.1 - - [06/Jan/2026 16:13:32] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 16:13:32,446 - INFO: 127.0.0.1 - - [06/Jan/2026 16:13:32] "GET /products HTTP/1.1" 200 -
+2026-01-06 16:13:32,745 - INFO: 127.0.0.1 - - [06/Jan/2026 16:13:32] "GET /products HTTP/1.1" 200 -
+2026-01-06 16:14:00,901 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:00] "OPTIONS /register HTTP/1.1" 200 -
+2026-01-06 16:14:01,342 - INFO: New user registered: Admin (admin123@gmail.com)
+2026-01-06 16:14:01,342 - INFO: admin123@gmail.com
+2026-01-06 16:14:05,535 - INFO: Welcome email sent successfully
+2026-01-06 16:14:05,537 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:05] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
+2026-01-06 16:14:05,540 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:05] "OPTIONS /profile HTTP/1.1" 200 -
+2026-01-06 16:14:05,846 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:05] "GET /profile HTTP/1.1" 200 -
+2026-01-06 16:14:06,119 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:06] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 16:14:06,182 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:06] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-06 16:14:06,182 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:06] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 16:14:06,182 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:06] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-06 16:14:06,198 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:06] "GET /products HTTP/1.1" 200 -
+2026-01-06 16:14:06,442 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:06] "GET /categories HTTP/1.1" 200 -
+2026-01-06 16:14:06,510 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:06] "GET /products HTTP/1.1" 200 -
+2026-01-06 16:14:06,518 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:06] "GET /categories HTTP/1.1" 200 -
+2026-01-06 16:14:26,406 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:26] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-06 16:14:26,806 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-06 16:14:26,806 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:26] "POST /login HTTP/1.1" 200 -
+2026-01-06 16:14:26,972 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:26] "GET /products HTTP/1.1" 200 -
+2026-01-06 16:14:27,138 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:27] "OPTIONS /orders HTTP/1.1" 200 -
+2026-01-06 16:14:27,138 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:27] "OPTIONS /orders HTTP/1.1" 200 -
+2026-01-06 16:14:27,169 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:27] "GET /products HTTP/1.1" 200 -
+2026-01-06 16:14:27,170 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:27] "GET /api/admin/contacts HTTP/1.1" 200 -
+2026-01-06 16:14:27,294 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:27] "GET /orders HTTP/1.1" 200 -
+2026-01-06 16:14:27,448 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:27] "GET /api/admin/contacts HTTP/1.1" 200 -
+2026-01-06 16:14:27,480 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:27] "GET /orders HTTP/1.1" 200 -
+2026-01-06 16:14:33,891 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:33] "GET /products HTTP/1.1" 200 -
+2026-01-06 16:14:34,142 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:34] "GET /products HTTP/1.1" 200 -
+2026-01-06 16:14:42,972 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:42] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-06 16:14:43,379 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:43] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2026-01-06 16:14:49,222 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:49] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-06 16:14:49,603 - INFO: User logged in: shreya (shreya@example.com)
+2026-01-06 16:14:49,619 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:49] "POST /login HTTP/1.1" 200 -
+2026-01-06 16:14:49,792 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:49] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 16:14:49,948 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:49] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-06 16:14:49,948 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:49] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-06 16:14:49,948 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:49] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-06 16:14:49,948 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:49] "GET /products HTTP/1.1" 200 -
+2026-01-06 16:14:50,108 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:50] "GET /categories HTTP/1.1" 200 -
+2026-01-06 16:14:50,275 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:50] "GET /products HTTP/1.1" 200 -
+2026-01-06 16:14:50,275 - INFO: 127.0.0.1 - - [06/Jan/2026 16:14:50] "GET /categories HTTP/1.1" 200 -
+2026-01-06 16:17:51,433 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-06 16:17:51,434 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-06 16:17:51,438 - INFO:  * Restarting with stat
+2026-01-06 16:17:52,385 - WARNING:  * Debugger is active!
+2026-01-06 16:17:52,396 - INFO:  * Debugger PIN: 125-337-187
+2026-01-06 17:41:23,369 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-06 17:41:23,912 - INFO:  * Restarting with stat
+2026-01-06 17:41:25,078 - WARNING:  * Debugger is active!
+2026-01-06 17:41:25,097 - INFO:  * Debugger PIN: 125-337-187
+2026-01-06 17:41:53,916 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-06 17:41:54,068 - INFO:  * Restarting with stat
+2026-01-06 17:41:55,153 - WARNING:  * Debugger is active!
+2026-01-06 17:41:55,171 - INFO:  * Debugger PIN: 125-337-187
+2026-01-06 17:43:29,609 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-06 17:43:29,850 - INFO:  * Restarting with stat
+2026-01-06 17:43:30,944 - WARNING:  * Debugger is active!
+2026-01-06 17:43:31,377 - INFO:  * Debugger PIN: 125-337-187

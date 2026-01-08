@@ -4,21 +4,27 @@ from flask_mysqldb import MySQL
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 import MySQLdb.cursors
 from dotenv import load_dotenv
+import secrets
 import logging
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+import requests
+import random 
+
 
 
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
-
+METAL_API_URL = "https://api.metalpriceapi.com/v1/latest"
+API_KEY = os.getenv("GOLD_API_KEY")
 
 app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST')
 app.config['MYSQL_USER'] = os.getenv('MYSQL_USER')
@@ -70,7 +76,7 @@ def test_db():
 
 @app.route('/',methods=['GET'])
 def home():
-    data={"message":"welcome to Jewell_shop shreya ","name":"shirish"}
+    data={"message":"welcome to Jewell_shop "}
     return jsonify(data),200
     
     
@@ -81,6 +87,27 @@ def protected():
     print(current_user)
     return jsonify(logged_in_as=current_user)
 
+def send_email(to_email, subject, body):
+    try:
+        sender_email = app.config['fir_tech']
+        sender_password = app.config['sec_tech']
+
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = to_email
+        msg['Subject'] = subject
+        msg.attach(MIMEText(body, 'plain'))
+
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.sendmail(sender_email, to_email, msg.as_string())
+        server.quit()
+
+        return True
+    except Exception as e:
+        logging.error(f"Email sending failed: {str(e)}")
+        return False
 
 
 @app.route('/register', methods=['POST'])
@@ -176,6 +203,63 @@ Shirish Dwivedi
         }), 500
 
 
+@app.route('/sendotp', methods=['POST'])
+def send_otp():
+    data = request.get_json()
+    mobile = data.get('mobile')
+    
+    if not mobile or len(mobile)!= 10:
+        return jsonify({"msg": "Invalid mobile number"}), 400
+    
+    otp = str(random.randint(100000,999999))
+    otp_expiry = datetime.now() + timedelta(minutes=5)
+
+    conn, cursor = get_db_cursor()
+    cursor.execute("""
+        UPDATE users
+        SET otp=%s, otp_expiry=%s
+        WHERE mobile=%s
+    """, (otp, otp_expiry, mobile))
+
+    if cursor.rowcount == 0:
+        return jsonify({"msg":"Mobile number not registered"}), 400
+    conn.commit()
+    print(f"OTP for {mobile} is {otp}")
+    return jsonify({"mssg":"OTP sent successfully"}), 200
+
+@app.route('/verifyotp', methods=['POST'])
+def verify_otp():
+    data = request.get_json()
+    mobile = data.get('mobile')
+    otp = data.get('otp')
+
+    if not mobile or not otp:
+        return jsonify({"msg":"Mobile and OTP required"}), 400
+    conn, cursor = get_db_cursor(dictionary=True)
+    cursor.execute(
+        "SELECT * FROM users WHERE mobile=%s AND otp=%s",
+        (mobile, otp)
+    )
+    user = cursor.fetchone()
+    if not user:
+        return jsonify({"msg": "Invalid OTP"}), 401
+    
+    if user['otp_expiry'] < datetime.now():
+        return jsonify({"msg": "OTP expired"}), 401
+
+    cursor.execute("""
+        UPDATE users
+        SET is_verified=1, otp=NULL, otp_expiry=NULL
+        WHERE mobile=%s
+        """, (mobile,))   
+    conn.commit()
+
+    return jsonify({
+        "msg": "Login Successful",
+        "user_id": user['id']
+    }), 200
+
+
 @app.route('/login', methods=['POST'])
 def login():
     """
@@ -209,9 +293,131 @@ def login():
 
     return jsonify({"msg": "Invalid email or password"}), 401
 
+@app.route('/forgetpassword', methods=['POST'])
+def forget_password():
+    try:
+        # Step 1: Get JSON data
+        try:
+            data = request.get_json()
+            if not data or 'email' not in data:
+                logging.warning("Email not provided in request")
+                return jsonify({"msg": "email is required"}), 400
+            email = data['email'].strip().lower()
+            logging.info("Received email: %s", email)
+        except Exception as e:
+            logging.exception("Error parsing JSON")
+            return jsonify({"msg": "invalid request format"}), 400
+
+        # Step 2: Get DB cursor
+        try:
+            cursor = get_db_cursor(dictionary=True)
+            if not cursor:
+                logging.error("Database cursor not created")
+                return jsonify({"msg": "DB error"}), 500
+        except Exception as e:
+            logging.exception("DB connection failed")
+            return jsonify({"msg": "DB connection failed"}), 500
+
+        # Step 3: Check if user exists
+        try:
+            cursor.execute("SELECT user_id FROM users WHERE LOWER(email)=%s", (email,))
+            user = cursor.fetchone()
+            if not user:
+                logging.info("User not found: %s", email)
+                cursor.close()
+                return jsonify({"msg": "user not exists"}), 404
+        except Exception as e:
+            logging.exception("Error querying user")
+            cursor.close()
+            return jsonify({"msg": "DB query error"}), 500
+
+        # Step 4: Generate reset token
+        try:
+            reset_token = secrets.token_urlsafe(32)
+            expiry_time = datetime.utcnow() + timedelta(minutes=15)
+            logging.info("Generated reset token for: %s", email)
+        except Exception as e:
+            logging.exception("Error generating reset token")
+            return jsonify({"msg": "token generation error"}), 500
+
+        # Step 5: Update user with token
+        try:
+            cursor.execute(
+                "UPDATE users SET reset_token=%s, reset_token_expiry=%s WHERE email=%s",
+                (reset_token, expiry_time, email)
+            )
+            cursor.connection.commit()
+            cursor.close()
+        except Exception as e:
+            logging.exception("Error updating user reset token")
+            cursor.close()
+            return jsonify({"msg": "DB update error"}), 500
+
+        # Step 6: Send email
+        try:
+            reset_link = f"http://localhost:5173/reset-password?token={reset_token}"
 
 
+            subject = "Reset Your Password"
+            body = f"Hi,\n\nClick to reset your password: {reset_link}\nLink valid for 15 minutes."
+            send_email(email, subject, body)
+            logging.info("Reset email sent to: %s", email)
+        except Exception as e:
+            logging.exception("Failed to send reset email")
+            return jsonify({"msg": "Failed to send email"}), 500
 
+        return jsonify({"msg": "Reset password link sent to your email","token":reset_token}), 200
+
+    except Exception as e:
+        logging.exception("Unhandled forget password error")
+        return jsonify({"msg": "internal server error"}), 500
+
+@app.route('/resetpassword', methods=['POST'])
+def reset_password():
+    try:
+        data = request.get_json()
+        token = data.get('token')
+        new_password = data.get('password')
+        #confirm_password = data.get
+
+        if not token or not new_password:
+            return jsonify({"msg": "token and new_password required"}), 400
+
+        cursor = get_db_cursor(dictionary=True)
+        cursor.execute(
+            """
+            SELECT user_id FROM users 
+            WHERE reset_token=%s 
+            AND reset_token_expiry > UTC_TIMESTAMP()
+            """,
+            (token,)
+        )
+        user = cursor.fetchone()
+        logging.info(user)
+        if not user:
+            cursor.close()
+            return jsonify({"msg": "Invalid or expired token"}), 400
+
+        hashed_password = generate_password_hash(new_password)
+
+        cursor.execute(
+            """
+            UPDATE users 
+            SET password=%s, org_password=%s, reset_token=NULL, reset_token_expiry=NULL
+            WHERE user_id=%s
+            """,
+            (hashed_password, new_password, user['user_id'])
+        )
+        cursor.connection.commit()
+        cursor.close()
+
+        return jsonify({"msg": "Password reset successful"}), 200
+
+    except Exception:
+        logging.exception("Reset password error")
+        return jsonify({"msg": "internal server error"}), 500
+
+    
 @app.route('/profile', methods=['GET'])
 @jwt_required()
 def get_profile():
@@ -277,38 +483,49 @@ def create_product():
     Admin only
     Fields: name, category, price, description, stock, images
     """
-    data = request.get_json()
-    qnt = data.get("quantity")  
-    mt_cat=data.get("metal_cat")  # "Gold "  or "Silver"
+    try:
+    
+    
+    
+        data = request.get_json()
+        qnt = data.get("quantity")  
+        mt_cat=data.get("metal_cat")  # "Gold "  or "Silver"
 
-    logging.info(mt_cat)
+        logging.info(mt_cat)
 
-    final_price=0
-    if mt_cat=="Gold":
-        gold_price = get_current_gold_rate() 
-        final_price = gold_price * qnt
-    elif mt_cat=="Silver":
-        silver_rate = get_current_silver_rate()
-        final_price =silver_rate * qnt 
+        final_price=0
+        if mt_cat=="Gold":
+            gold_price = get_current_gold_rate() 
+            final_price = int(gold_price)* qnt
+        elif mt_cat=="Silver":
+            silver_rate = get_current_silver_rate()
+            final_price =int(silver_rate) * qnt 
+        try:
+            cursor = get_db_cursor()
+            cursor.execute("""
+                INSERT INTO products (name, category, price, description, stock, images, quantity, metal_name)
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
+            """, (
+                data['name'],
+                data.get('category'),
+                final_price,
+                data.get('description'),
+                data.get('stock'),
+                data.get('images'),
+                data.get('quantity'),
+                mt_cat
+            )
+            )
+            mysql.connection.commit()
+            cursor.close()
+            return jsonify({"msg": "Product created successfully"}), 201
+        except Exception as e:
+            logging.info("Hello",str(e))
+            return jsonify({"msg":"Product not created","error":str(e)}), 401 
+    except Exception as e:
+        logging.info("Hello",str(e))
+        return jsonify({"msg":"Product not created","error":str(e)}), 401 
 
-    cursor = get_db_cursor()
-    cursor.execute("""
-        INSERT INTO products (name, category, price, description, stock, images, quantity, metal_name)
-        VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
-    """, (
-        data['name'],
-        data.get('category'),
-        final_price,
-        data.get('description'),
-        data.get('stock'),
-        data.get('images'),
-        data.get('quantity'),
-        mt_cat
-    )
-    )
-    mysql.connection.commit()
-    cursor.close()
-    return jsonify({"msg": "Product created successfully"}), 201
 
 
 

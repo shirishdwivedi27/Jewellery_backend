@@ -177,29 +177,6 @@ Shirish Dwivedi
         }), 500
 
 
-@app.route('/forgetpassword',methods=['POST'])
-def forget_password():
-    try:
-        data=request.get_json()
-        user_email=data.get('email') 
-        
-        logging.info(user_email)
-        cursor = get_db_cursor(dictionary=True)
-        temp=cursor.execute("select * from users where email = %s ",(user_email,))
-        cursor.close()
-        print(type(temp))
-        logging.info(type(temp),temp)
-        
-        if not temp:
-            return jsonify({"msg":"user not exists"}),301
-        
-        return jsonify({"msg":"intial"}),200
-    except Exception as e:
-        logging.info(str(e))
-        return jsonify({"msg":"error"}),400
-
-
-
 
 @app.route('/login', methods=['POST'])
 def login():

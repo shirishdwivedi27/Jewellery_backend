@@ -13,6 +13,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+import requests
 
 load_dotenv()
 
@@ -176,6 +177,30 @@ Shirish Dwivedi
         }), 500
 
 
+@app.route('/forgetpassword',methods=['POST'])
+def forget_password():
+    try:
+        data=request.get_json()
+        user_email=data.get('email') 
+        
+        logging.info(user_email)
+        cursor = get_db_cursor(dictionary=True)
+        temp=cursor.execute("select * from users where email = %s ",(user_email,))
+        cursor.close()
+        print(type(temp))
+        logging.info(type(temp),temp)
+        
+        if not temp:
+            return jsonify({"msg":"user not exists"}),301
+        
+        return jsonify({"msg":"intial"}),200
+    except Exception as e:
+        logging.info(str(e))
+        return jsonify({"msg":"error"}),400
+
+
+
+
 @app.route('/login', methods=['POST'])
 def login():
     """
@@ -286,10 +311,10 @@ def create_product():
     final_price=0
     if mt_cat=="Gold":
         gold_price = get_current_gold_rate() 
-        final_price = gold_price * qnt
+        final_price = int(gold_price) * qnt
     elif mt_cat=="Silver":
         silver_rate = get_current_silver_rate()
-        final_price =silver_rate * qnt 
+        final_price = int(silver_rate) * qnt 
 
     cursor = get_db_cursor()
     cursor.execute("""
@@ -367,7 +392,6 @@ def get_product(id):
             "images": product[6]
         }), 200
     return jsonify({"message": "Product not found"}), 404
-
 
 
 @app.route('/cart', methods=['POST'])

@@ -5,6 +5,7 @@ from flask_cors import CORS
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timedelta
+from twilio.rest import Client
 import os
 import MySQLdb.cursors
 from dotenv import load_dotenv
@@ -23,6 +24,9 @@ load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
+
+
+
 METAL_API_URL = "https://api.metalpriceapi.com/v1/latest"
 API_KEY = os.getenv("GOLD_API_KEY")
 
@@ -202,62 +206,54 @@ Shirish Dwivedi
             "error": str(e)
         }), 500
 
+account_sid = os.getenv("TWILIO_ACCOUNT_SID")
+auth_token = os.getenv("TWILIO_AUTH_TOKEN")
+twilio_number = os.getenv("TWILIO_PHONE_NUMBER")
 
-@app.route('/sendotp', methods=['POST'])
+client = Client(account_sid, auth_token)
+
+otp_store = {}
+
+
+@app.route('/send-otp', methods=['POST'])
 def send_otp():
     data = request.get_json()
-    mobile = data.get('mobile')
-    
-    if not mobile or len(mobile)!= 10:
-        return jsonify({"msg": "Invalid mobile number"}), 400
-    
-    otp = str(random.randint(100000,999999))
-    otp_expiry = datetime.now() + timedelta(minutes=5)
+    mobile = data.get("mobile")
 
-    conn, cursor = get_db_cursor()
-    cursor.execute("""
-        UPDATE users
-        SET otp=%s, otp_expiry=%s
-        WHERE mobile=%s
-    """, (otp, otp_expiry, mobile))
+    if not mobile:
+        return jsonify({"msg": "Mobile number required"}), 400
 
-    if cursor.rowcount == 0:
-        return jsonify({"msg":"Mobile number not registered"}), 400
-    conn.commit()
-    print(f"OTP for {mobile} is {otp}")
-    return jsonify({"mssg":"OTP sent successfully"}), 200
+    otp = random.randint(100000, 999999)
+    otp_store[mobile] = otp
 
-@app.route('/verifyotp', methods=['POST'])
+    try:
+        message = client.messages.create(
+            body=f"Your OTP is {otp}. Valid for 5 minutes.",
+            from_=twilio_number,
+            to=mobile
+        )
+        return jsonify({"msg": "OTP sent successfully"}), 200
+
+    except Exception as e:
+        return jsonify({"msg": str(e)}), 500
+
+
+@app.route('/verify-otp', methods=['POST'])
 def verify_otp():
     data = request.get_json()
-    mobile = data.get('mobile')
-    otp = data.get('otp')
+    mobile = data.get("mobile")
+    otp = data.get("otp")
 
     if not mobile or not otp:
-        return jsonify({"msg":"Mobile and OTP required"}), 400
-    conn, cursor = get_db_cursor(dictionary=True)
-    cursor.execute(
-        "SELECT * FROM users WHERE mobile=%s AND otp=%s",
-        (mobile, otp)
-    )
-    user = cursor.fetchone()
-    if not user:
-        return jsonify({"msg": "Invalid OTP"}), 401
-    
-    if user['otp_expiry'] < datetime.now():
-        return jsonify({"msg": "OTP expired"}), 401
+        return jsonify({"msg": "Mobile and OTP required"}), 400
 
-    cursor.execute("""
-        UPDATE users
-        SET is_verified=1, otp=NULL, otp_expiry=NULL
-        WHERE mobile=%s
-        """, (mobile,))   
-    conn.commit()
+    if otp_store.get(mobile) == int(otp):
+        del otp_store[mobile]
+        return jsonify({"msg": "OTP verified successfully"}), 200
 
-    return jsonify({
-        "msg": "Login Successful",
-        "user_id": user['id']
-    }), 200
+    return jsonify({"msg": "Invalid OTP"}), 400
+
+
 
 
 @app.route('/login', methods=['POST'])
@@ -406,7 +402,7 @@ def reset_password():
             SET password=%s, org_password=%s, reset_token=NULL, reset_token_expiry=NULL
             WHERE user_id=%s
             """,
-            (hashed_password, new_password, user['user_id'])
+            (hashed_password,new_password, user['user_id'])
         )
         cursor.connection.commit()
         cursor.close()
@@ -830,8 +826,6 @@ def update_contact_status(contact_id):
         return jsonify({'message': 'Contact updated'}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
-
 
 
 if __name__ == '__main__':

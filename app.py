@@ -739,20 +739,20 @@ def get_orders_admin():
     return jsonify(result), 200
 
 
-@app.route('/api/admin/orders', methods=['GET'])
-@jwt_required()
-def get_orders_admin():
-    """
-    Get all orders for a user
-    """
-    user_id = get_jwt_identity()
-    cursor = get_db_cursor()
-    cursor.execute("SELECT id, address, payment_method, status, created_at FROM orders")
-    orders = cursor.fetchall()
-    cursor.close()
+# @app.route('/api/admin/orders', methods=['GET'])
+# @jwt_required()
+# def get_orders_admin():
+#     """
+#     Get all orders for a user
+#     """
+#     user_id = get_jwt_identity()
+#     cursor = get_db_cursor()
+#     cursor.execute("SELECT id, address, payment_method, status, created_at FROM orders")
+#     orders = cursor.fetchall()
+#     cursor.close()
 
-    result = [{"id": o[0], "address": o[1], "payment_method": o[2], "status": o[3], "created_at": str(o[4])} for o in orders]
-    return jsonify(result), 200
+#     result = [{"id": o[0], "address": o[1], "payment_method": o[2], "status": o[3], "created_at": str(o[4])} for o in orders]
+#     return jsonify(result), 200
 
 
 @app.route('/orders', methods=['GET'])

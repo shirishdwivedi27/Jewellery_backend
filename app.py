@@ -16,6 +16,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 import requests
+
+
 import random 
 
 
@@ -91,6 +93,7 @@ def protected():
     print(current_user)
     return jsonify(logged_in_as=current_user)
 
+
 def send_email(to_email, subject, body):
     try:
         sender_email = app.config['fir_tech']
@@ -148,8 +151,8 @@ def register():
         # Insert new user
         cursor = get_db_cursor()
         cursor.execute(
-            "INSERT INTO users (user_id, username, password, org_password, email) VALUES (%s,%s,%s,%s,%s)",
-            (user_id, username, hashed_password, password, email)
+            "INSERT INTO users (user_id, username, password, org_password, email ,role) VALUES (%s,%s,%s,%s,%s)",
+            (user_id, username, hashed_password, password, email ,'user')
         )
         mysql.connection.commit()
         cursor.close()
@@ -206,16 +209,21 @@ Shirish Dwivedi
             "error": str(e)
         }), 500
 
+
 account_sid = os.getenv("TWILIO_ACCOUNT_SID")
 auth_token = os.getenv("TWILIO_AUTH_TOKEN")
 twilio_number = os.getenv("TWILIO_PHONE_NUMBER")
+
 
 client = Client(account_sid, auth_token)
 
 otp_store = {}
 
 
-@app.route('/send-otp', methods=['POST'])
+
+
+
+@app.route('/sendotp', methods=['POST'])
 def send_otp():
     data = request.get_json()
     mobile = data.get("mobile")
@@ -255,7 +263,6 @@ def verify_otp():
 
 
 
-
 @app.route('/login', methods=['POST'])
 def login():
     """
@@ -270,6 +277,12 @@ def login():
     if not email or not password:
         return jsonify({"error": "Email and password required"}), 400
 
+    if email.strip()=="admin123@gmail.com":
+        cursor=get_db_cursor(dictionary=True)
+        cursor.execute("update users set role='admin' where email=%s",(email,))
+        mysql.connection.commit()
+        cursor.close()
+         
     cursor = get_db_cursor(dictionary=True)
     cursor.execute("SELECT * FROM users WHERE email=%s", (email,))
     user = cursor.fetchone()
@@ -283,11 +296,14 @@ def login():
             "access_token": access_token,
             "user": {
                 "id": user['username'],
-                "email": user['email']
+                "email": user['email'],
+                "role":user['role']
             }
         }), 200
 
     return jsonify({"msg": "Invalid email or password"}), 401
+
+
 
 @app.route('/forgetpassword', methods=['POST'])
 def forget_password():
@@ -368,6 +384,7 @@ def forget_password():
         logging.exception("Unhandled forget password error")
         return jsonify({"msg": "internal server error"}), 500
 
+
 @app.route('/resetpassword', methods=['POST'])
 def reset_password():
     try:
@@ -414,19 +431,14 @@ def reset_password():
         return jsonify({"msg": "internal server error"}), 500
 
     
-@app.route('/profile', methods=['GET'])
+@app.route('/api/admin/users', methods=['GET'])
 @jwt_required()
-def get_profile():
-    """
-    Get user profile
-    Returns: user info
-    """
-    user_id = get_jwt_identity()
+def get_all_users():
     cursor = get_db_cursor(dictionary=True)
-    cursor.execute("SELECT user_id, username, email FROM users WHERE user_id=%s", (user_id,))
-    user = cursor.fetchone()
+    cursor.execute("SELECT user_id, username, email , phone FROM users")
+    users = cursor.fetchall()
     cursor.close()
-    return jsonify(user), 200
+    return jsonify(users), 200
 
 
 def get_current_gold_rate():
@@ -479,10 +491,41 @@ def create_product():
     Admin only
     Fields: name, category, price, description, stock, images
     """
+
+    # data = request.get_json()
+    # qnt = data.get("quantity")  
+    # mt_cat=data.get("metal_cat")  # "Gold "  or "Silver"
+
+    # logging.info(mt_cat)
+
+    # final_price=0
+    # if mt_cat=="Gold":
+    #     gold_price = get_current_gold_rate() 
+    #     final_price = int(gold_price) * qnt
+    # elif mt_cat=="Silver":
+    #     silver_rate = get_current_silver_rate()
+    #     final_price = int(silver_rate) * qnt 
+
+    # cursor = get_db_cursor()
+    # cursor.execute("""
+    #     INSERT INTO products (name, category, price, description, stock, images, quantity, metal_name)
+    #     VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
+    # """, (
+    #     data['name'],
+    #     data.get('category'),
+    #     final_price,
+    #     data.get('description'),
+    #     data.get('stock'),
+    #     data.get('images'),
+    #     data.get('quantity'),
+    #     mt_cat
+    # )
+    # )
+    # mysql.connection.commit()
+    # cursor.close()
+    # return jsonify({"msg": "Product created successfully"}), 201
+
     try:
-    
-    
-    
         data = request.get_json()
         qnt = data.get("quantity")  
         mt_cat=data.get("metal_cat")  # "Gold "  or "Silver"
@@ -514,13 +557,14 @@ def create_product():
             )
             mysql.connection.commit()
             cursor.close()
-            return jsonify({"msg": "Product created successfully"}), 201
+            return jsonify({"msg": "Product created successfully"}), 201 
         except Exception as e:
             logging.info("Hello",str(e))
             return jsonify({"msg":"Product not created","error":str(e)}), 401 
     except Exception as e:
         logging.info("Hello",str(e))
         return jsonify({"msg":"Product not created","error":str(e)}), 401 
+
 
 
 
@@ -582,6 +626,12 @@ def get_product(id):
     return jsonify({"message": "Product not found"}), 404
 
 
+@app.route('/profile', methods=['GET'])
+@jwt_required()
+def profile():
+    user_id = get_jwt_identity()
+    return jsonify({"user_id": user_id}), 200
+
 
 @app.route('/cart', methods=['POST'])
 @jwt_required()
@@ -593,6 +643,7 @@ def add_to_cart():
     user_id = get_jwt_identity()
     data = request.get_json()
     cursor = get_db_cursor()
+    
     cursor.execute("""
         INSERT INTO cart (user_id, product_id, quantity) VALUES (%s,%s,%s)
         ON DUPLICATE KEY UPDATE quantity = quantity + %s
@@ -645,6 +696,7 @@ def create_order():
     """
     user_id = get_jwt_identity()
     data = request.get_json()
+    logging.info(data)
     cursor = get_db_cursor()
     
     cursor.execute("SELECT product_id, quantity FROM cart WHERE user_id=%s", (user_id,))
@@ -670,6 +722,24 @@ def create_order():
     return jsonify({"msg": "Order placed successfully", "order_id": order_id}), 201
 
 
+
+
+@app.route('/api/admin/orders', methods=['GET'])
+@jwt_required()
+def get_orders_admin():
+    """
+    Get all orders for a user
+    """
+    user_id = get_jwt_identity()
+    cursor = get_db_cursor()
+    cursor.execute("SELECT id, address, payment_method, status, created_at FROM orders")
+    orders = cursor.fetchall()
+    cursor.close()
+
+    result = [{"id": o[0], "address": o[1], "payment_method": o[2], "status": o[3], "created_at": str(o[4])} for o in orders]
+    return jsonify(result), 200
+
+
 @app.route('/orders', methods=['GET'])
 @jwt_required()
 def get_orders():
@@ -684,6 +754,65 @@ def get_orders():
 
     result = [{"id": o[0], "address": o[1], "payment_method": o[2], "status": o[3], "created_at": str(o[4])} for o in orders]
     return jsonify(result), 200
+
+# @app.route('/api/admin/orders/<int:order_id>', methods=['PUT'])
+# @jwt_required()
+# def update_order_status(order_id):
+#     data = request.get_json()
+#     cursor = get_db_cursor()
+#     cursor.execute(
+#         "UPDATE orders SET status=%s WHERE id=%s",
+#         (data['status'], order_id)
+#     )
+#     mysql.connection.commit()
+#     cursor.close()
+#     return jsonify({"msg": "Order updated"}), 200
+
+
+
+# @app.route('/api/orders/<int:order_id>', methods=['GET'])
+# @jwt_required()
+# def get_order(order_id):
+#     cursor = get_db_cursor(dictionary=True)
+#     cursor.execute("SELECT * FROM orders WHERE id=%s", (order_id,))
+#     order = cursor.fetchone()
+#     cursor.close()
+
+#     if not order:
+#         return jsonify({"msg": "Order not found"}), 404
+
+#     return jsonify(order), 200
+
+@app.route('/api/orders/<int:order_id>', methods=['GET'])
+@jwt_required()
+def get_order(order_id):
+    user_id = get_jwt_identity()  # ensure the order belongs to logged in user
+    cursor = get_db_cursor(dictionary=True)
+
+    # Get order details
+    cursor.execute(
+        "SELECT o.id, o.address, o.payment_method, o.status, o.created_at, u.name AS customer_name, u.email AS customer_email, u.phone AS customer_phone "
+        "FROM orders o JOIN users u ON o.user_id = u.id WHERE o.id=%s AND o.user_id=%s",
+        (order_id, user_id)
+    )
+    order = cursor.fetchone()
+
+    if not order:
+        cursor.close()
+        return jsonify({"msg": "Order not found"}), 404
+
+    # Get order items
+    cursor.execute(
+        "SELECT p.id, p.name, p.price, oi.quantity "
+        "FROM order_items oi JOIN products p ON oi.product_id = p.id "
+        "WHERE oi.order_id=%s",
+        (order_id,)
+    )
+    items = cursor.fetchall()
+    order['items'] = items
+
+    cursor.close()
+    return jsonify(order), 200
 
 
 

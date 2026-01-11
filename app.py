@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_mysqldb import MySQL
 from flask_cors import CORS
-from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity,get_jwt
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import os
@@ -12,6 +12,7 @@ import logging
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import requests
 
 
 load_dotenv()
@@ -96,15 +97,16 @@ def register():
         username = data.get('username')
         email = data.get('email')
         password = data.get('password')
+        phone=data.get('phone')
 
-        if not username or not email or not password:
+        if not username or not email or not password or not phone:
             return jsonify({"error": "All fields are required"}), 400
 
         # Check if user already exists
         cursor = get_db_cursor(dictionary=True)
         cursor.execute(
-            "SELECT * FROM users WHERE username=%s OR email=%s",
-            (username, email)
+            "SELECT * FROM users WHERE username=%s OR email=%s or phone=%s",
+            (username, email,phone)
         )
         if cursor.fetchone():
             cursor.close()
@@ -117,8 +119,8 @@ def register():
         # Insert new user
         cursor = get_db_cursor()
         cursor.execute(
-            "INSERT INTO users (user_id, username, password, org_password, email) VALUES (%s,%s,%s,%s,%s)",
-            (user_id, username, hashed_password, password, email)
+            "INSERT INTO users (user_id, username, password, org_password,phone, email, role) VALUES (%s,%s,%s,%s,%s,%s,%s)",
+            (user_id, username, hashed_password, password, phone, email, "user")
         )
         mysql.connection.commit()
         cursor.close()
@@ -175,6 +177,62 @@ Shirish Dwivedi
             "error": str(e)
         }), 500
 
+@app.route("/login/otp", methods=["POST"])
+def login_with_otp():
+
+    data = request.json
+    phone = data.get("phone")
+    otp_access_token = data.get("accessToken")
+
+    if not phone or not otp_access_token:
+        return jsonify({"error": "Phone and OTP token required"}), 400
+
+    # VERIFY OTP TOKEN FROM MSG91
+    url = "https://control.msg91.com/api/v5/widget/verifyAccessToken"
+    payload = {
+        "authkey": os.getenv("MSG91_AUTHKEY"),   # put in .env
+        "access-token": otp_access_token
+    }
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    }
+
+    resp = requests.post(url, json=payload, headers=headers)
+
+    if resp.status_code != 200:
+        return jsonify({"error": "OTP verification failed"}), 401
+
+    # CHECK USER EXISTS
+    cursor = get_db_cursor(dictionary=True)
+    cursor.execute("SELECT * FROM users WHERE phone=%s", (phone,))
+    user = cursor.fetchone()
+    cursor.close()
+
+    if not user:
+        return jsonify({"error": "Phone not registered"}), 404
+
+    #Admin OTP login block
+    if user["role"] == "admin":
+        return jsonify({"error": "Admin must login via email"}), 403
+
+    # JWT
+    access_token = create_access_token(
+        identity=str(user["user_id"]),
+        additional_claims={"role": user["role"]}
+    )
+
+    return jsonify({
+        "access_token": access_token,
+        "user": {
+            "id": user["user_id"],
+            "email": user["email"],
+            "phone": user["phone"],
+            "role": user["role"]
+        }
+    }), 200
+
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -187,28 +245,138 @@ def login():
     email = data.get('email')
     password = data.get('password')
 
+    
     if not email or not password:
         return jsonify({"error": "Email and password required"}), 400
 
+    if email.strip()=="admin123@gmail.com":
+        cursor=get_db_cursor(dictionary=True)
+        cursor.execute("update users set role='admin' where email=%s",(email,))
+        mysql.connection.commit()
+        cursor.close()
+        
+    
     cursor = get_db_cursor(dictionary=True)
     cursor.execute("SELECT * FROM users WHERE email=%s", (email,))
     user = cursor.fetchone()
     cursor.close()
 
     if user and check_password_hash(user['password'], password):
-        
-        access_token = create_access_token(identity=user['user_id'])
+        identity = {
+                    "user_id": user['user_id'],
+                    "role": user['role']
+                }
+        access_token = create_access_token(
+                        identity=str(user["user_id"]),     # ✅ ONLY STRING
+                        additional_claims={
+                            "role": user["role"]           # ✅ role goes here
+                        }
+                    )
         logging.info(f"User logged in: {user['username']} ({user['email']})")
+        
         return jsonify({
             "access_token": access_token,
             "user": {
-                "id": user['username'],
-                "email": user['email']
+                "id": user['user_id'],
+                "email": user['email'],
+                "role": user['role']
             }
         }), 200
-
     return jsonify({"msg": "Invalid email or password"}), 401
 
+@app.route('/otp/send', methods=['POST'])
+def send_otp():
+    phone = request.json.get("phone")
+
+    if not phone:
+        return jsonify({"error": "Phone required"}), 400
+
+    cursor = get_db_cursor(dictionary=True)
+    cursor.execute("SELECT * FROM users WHERE phone=%s", (phone,))
+    user = cursor.fetchone()
+
+    if not user:
+        return jsonify({"error": "Phone not registered"}), 404   # 🔥 BLOCK RANDOM USERS
+
+    return jsonify({
+        "msg": "User verified. OTP can be sent via MSG91 widget"
+    }), 200
+
+import requests
+
+@app.route('/otp/verify', methods=['POST'])
+def verify_otp():
+    access_token = request.json.get("access_token")
+
+    if not access_token:
+        return jsonify({"error": "access_token required"}), 400
+
+    payload = {
+        "authkey": os.getenv("MSG91_AUTH_KEY"),
+        "access-token": access_token
+    }
+
+    res = requests.post(
+        "https://control.msg91.com/api/v5/widget/verifyAccessToken",
+        json=payload
+    )
+
+    data = res.json()
+
+    if data.get("type") != "success":
+        return jsonify({"error": "OTP verification failed"}), 401
+
+    phone = data["message"]["phone"]
+
+    cursor = get_db_cursor(dictionary=True)
+    cursor.execute("SELECT * FROM users WHERE phone=%s", (phone,))
+    user = cursor.fetchone()
+
+    if not user:
+        return jsonify({"error": "User not registered"}), 404
+
+    token = create_access_token(
+        identity=user["user_id"],
+        additional_claims={"role": user["role"]}
+    )
+
+    return jsonify({
+        "access_token": token,
+        "user": {
+            "id": user["user_id"],
+            "phone": user["phone"],
+            "role": user["role"]
+        }
+    }), 200
+
+
+@app.route('/forgetpassword', methods=['POST'])
+def forget_password():
+    try:
+        data = request.get_json()
+        if not data or 'email' not in data:
+            return jsonify({"msg": "email is required"}), 400
+
+        user_email = data['email'].strip().lower()
+        logging.info(f"Forget password request for: {user_email}")
+
+        cursor = get_db_cursor(dictionary=True)
+        cursor.execute(
+            "SELECT org_password FROM users WHERE LOWER(email) = %s",
+            (user_email,)
+        )
+
+        user = cursor.fetchone()
+        cursor.close()
+
+        if user is None:
+            return jsonify({"msg": "user not exists"}), 404
+
+        return jsonify({"msg": "user found"}), 200
+
+    except Exception:
+        logging.exception("Forget password API error")
+        return jsonify({"msg": "internal server error"}), 500
 
 
 
@@ -227,6 +395,47 @@ def get_profile():
     return jsonify(user), 200
 
 
+def get_current_gold_rate():
+    url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAU"
+    response = requests.get(url)
+    data = response.json()
+
+    # XAU is per ounce
+    price_per_gram = (1 / data["rates"]["XAU"]) / 31.1035
+    return round(price_per_gram, 2)
+
+
+
+
+def get_current_silver_rate():
+    url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAG"
+    response = requests.get(url)
+    data = response.json()
+
+    # XAG is per ounce
+    price_per_gram = (1 / data["rates"]["XAG"]) / 31.1035
+    return round(price_per_gram, 2)
+
+
+@app.route('/calculate_price', methods=['POST'])     # not  used api / only for testing
+@jwt_required()
+def calculate_price():
+    data = request.get_json()
+
+    quantity = data.get('quantity')
+
+    if not quantity:
+        return jsonify({"error": "Quantity is required"}), 400
+
+    gold_price_per_gram = get_current_gold_rate()
+    logging.info(gold_price_per_gram)
+    final_price = gold_price_per_gram * quantity
+
+    return jsonify({
+        "gold_price_per_gram": gold_price_per_gram,
+        "quantity": quantity,
+        "final_price": final_price
+    }), 200
 
 
 @app.route('/products', methods=['POST'])
@@ -236,19 +445,39 @@ def create_product():
     Admin only
     Fields: name, category, price, description, stock, images
     """
+    user = get_jwt_identity()
+    if user["role"] != "admin":
+        return jsonify({"error": "Admin access required"}), 403
+    
     data = request.get_json()
+    qnt = data.get("quantity")  
+    mt_cat=data.get("metal_cat")  # "Gold "  or "Silver"
+
+    logging.info(mt_cat)
+
+    final_price=0
+    if mt_cat=="Gold":
+        gold_price = get_current_gold_rate() 
+        final_price = gold_price * qnt
+    elif mt_cat=="Silver":
+        silver_rate = get_current_silver_rate()
+        final_price =silver_rate * qnt 
+
     cursor = get_db_cursor()
     cursor.execute("""
-        INSERT INTO products (name, category, price, description, stock, images)
-        VALUES (%s,%s,%s,%s,%s,%s)
+        INSERT INTO products (name, category, price, description, stock, images, quantity, metal_name)
+        VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
     """, (
         data['name'],
         data.get('category'),
-        data.get('price'),
+        final_price,
         data.get('description'),
         data.get('stock'),
-        data.get('images')  
-    ))
+        data.get('images'),
+        data.get('quantity'),
+        mt_cat
+    )
+    )
     mysql.connection.commit()
     cursor.close()
     return jsonify({"msg": "Product created successfully"}), 201
@@ -294,10 +523,12 @@ def get_products():
 
 
 @app.route('/products/<int:id>', methods=['GET'])
+@jwt_required()
 def get_product(id):
     """
     Get product by id
     """
+    user_id=get_jwt_identity()
     cursor = get_db_cursor()
     cursor.execute("SELECT id, name, category, price, description, stock, images FROM products WHERE id=%s", (id,))
     product = cursor.fetchone()
@@ -525,8 +756,14 @@ def submit_contact():
 
 # Optional: Get all contacts (admin only)
 @app.route('/api/admin/contacts', methods=['GET'])
+@jwt_required()
 def get_contacts():
     """Get all contact form submissions"""
+    user_id=get_jwt_identity()
+    claims=get_jwt()
+    
+    if claims.get("role") != "admin":
+        return jsonify({"error": "Admin access required"}), 403
     try:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM contacts ORDER BY created_at DESC')
@@ -543,6 +780,10 @@ def get_contacts():
 @app.route('/api/admin/contacts/<int:contact_id>', methods=['PATCH'])
 def update_contact_status(contact_id):
     """Update contact status"""
+    
+    user=get_jwt_identity()
+    if user["role"] != "admin":
+        return jsonify({"error": "Admin access required"}), 403
     try:
         data = request.get_json()
 

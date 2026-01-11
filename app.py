@@ -121,11 +121,12 @@ def register():
     """
     try:
         data = request.get_json()
-        user_id = data.get('user_id')
+        
         username = data.get('username')
         email = data.get('email')
         password = data.get('password')
-
+        user_id = data.get('user_id')  or username
+        
         if not username or not email or not password:
             return jsonify({"error": "All fields are required"}), 400
 
@@ -142,12 +143,12 @@ def register():
 
         # Hash password
         hashed_password = generate_password_hash(password)
-
+        logging.info(hashed_password)
         # Insert new user
         cursor = get_db_cursor()
         cursor.execute(
-            "INSERT INTO users (user_id, username, password, org_password, email, role) VALUES (%s,%s,%s,%s,%s)",
-            (user_id, username, hashed_password, password, email, 'users')
+            "INSERT INTO users (user_id, username, password, org_password, email, role) VALUES (%s,%s,%s,%s,%s,%s)",
+            (user_id, username, hashed_password, password, email, 'user')
         )
         mysql.connection.commit()
         cursor.close()
@@ -193,10 +194,21 @@ Shirish Dwivedi
 
         access_token = create_access_token(identity=user_id)
 
+        # return jsonify({
+        #     "message": "User registered successfully!",
+        #     "access_token": access_token,
+        #     "role":"user"
+        # }), 201
         return jsonify({
-            "message": "User registered successfully!",
-            "access_token": access_token
+                "access_token": access_token,
+                    "user": {
+                    "user_id": user_id,
+                    "username": username,
+                    "email": email,
+                    "role": "user"
+                }
         }), 201
+
 
     except Exception as e:
         return jsonify({

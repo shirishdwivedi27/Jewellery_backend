@@ -2191,3 +2191,7 @@
 2026-01-11 17:25:32,870 - INFO: hello
 2026-01-11 17:25:32,871 - INFO: 127.0.0.1 - - [11/Jan/2026 17:25:32] "GET /testdb HTTP/1.1" 200 -
 2026-01-11 17:26:36,706 - INFO: 127.0.0.1 - - [11/Jan/2026 17:26:36] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2026-01-11 17:31:33,402 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-11 17:31:33,828 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
+2026-01-11 17:31:33,955 - INFO:  * Restarting with stat
+2026-01-11 17:31:34,602 - INFO:  * Restarting with stat

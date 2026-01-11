@@ -14,7 +14,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-import requests
+# import requests
 
 
 import random 
@@ -451,26 +451,26 @@ def get_all_users():
     return jsonify(users), 200
 
 
-def get_current_gold_rate():
-    url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAU"
-    response = requests.get(url)
-    data = response.json()
+# def get_current_gold_rate():
+#     url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAU"
+#     response = requests.get(url)
+#     data = response.json()
 
-    # XAU is per ounce
-    price_per_gram = (1 / data["rates"]["XAU"]) / 31.1035
-    return round(price_per_gram, 2)
-
-
+#     # XAU is per ounce
+#     price_per_gram = (1 / data["rates"]["XAU"]) / 31.1035
+#     return round(price_per_gram, 2)
 
 
-def get_current_silver_rate():
-    url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAG"
-    response = requests.get(url)
-    data = response.json()
 
-    # XAG is per ounce
-    price_per_gram = (1 / data["rates"]["XAG"]) / 31.1035
-    return round(price_per_gram, 2)
+
+# def get_current_silver_rate():
+#     url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAG"
+#     response = requests.get(url)
+#     data = response.json()
+
+#     # XAG is per ounce
+#     price_per_gram = (1 / data["rates"]["XAG"]) / 31.1035
+#     return round(price_per_gram, 2)
 
 
 @app.route('/calculate_price', methods=['POST'])     # not  used api / only for testing
@@ -483,7 +483,7 @@ def calculate_price():
     if not quantity:
         return jsonify({"error": "Quantity is required"}), 400
 
-    gold_price_per_gram = get_current_gold_rate()
+    gold_price_per_gram = 12
     logging.info(gold_price_per_gram)
     final_price = gold_price_per_gram * quantity
 
@@ -544,10 +544,10 @@ def create_product():
 
         final_price=0
         if mt_cat=="Gold":
-            gold_price = get_current_gold_rate() 
+            gold_price = 12
             final_price = int(gold_price)* qnt
         elif mt_cat=="Silver":
-            silver_rate = get_current_silver_rate()
+            silver_rate = 12
             final_price =int(silver_rate) * qnt 
         try:
             cursor = get_db_cursor()

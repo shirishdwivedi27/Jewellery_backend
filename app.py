@@ -146,8 +146,8 @@ def register():
         # Insert new user
         cursor = get_db_cursor()
         cursor.execute(
-            "INSERT INTO users (user_id, username, password, org_password, email) VALUES (%s,%s,%s,%s,%s)",
-            (user_id, username, hashed_password, password, email)
+            "INSERT INTO users (user_id, username, password, org_password, email, role) VALUES (%s,%s,%s,%s,%s)",
+            (user_id, username, hashed_password, password, email, 'users')
         )
         mysql.connection.commit()
         cursor.close()
@@ -278,6 +278,12 @@ def login():
     if not email or not password:
         return jsonify({"error": "Email and password required"}), 400
 
+    if email.strip()=="admin123@gmail.com":
+        cursor=get_db_cursor(dictionary=True)
+        cursor.execute("update users set role='admin' where email=%s",(email,))
+        mysql.connection.commit()
+        cursor.close()
+         
     cursor = get_db_cursor(dictionary=True)
     cursor.execute("SELECT * FROM users WHERE email=%s", (email,))
     user = cursor.fetchone()
@@ -291,7 +297,8 @@ def login():
             "access_token": access_token,
             "user": {
                 "id": user['username'],
-                "email": user['email']
+                "email": user['email'],
+                "role":user['role']
             }
         }), 200
 
@@ -426,7 +433,7 @@ def reset_password():
 @jwt_required()
 def get_all_users():
     cursor = get_db_cursor(dictionary=True)
-    cursor.execute("SELECT user_id, username, email FROM users")
+    cursor.execute("SELECT user_id, username, email , Phone FROM users")
     users = cursor.fetchall()
     cursor.close()
     return jsonify(users), 200
@@ -713,6 +720,20 @@ def create_order():
     return jsonify({"msg": "Order placed successfully", "order_id": order_id}), 201
 
 
+@app.route('/api/admin/orders',methods=['GET'])
+@jwt_required()
+def get_orders_admin():
+    """
+    Get all orders for a user
+    """
+    user_id = get_jwt_identity()
+    cursor = get_db_cursor()
+    cursor.execute("SELECT id, address, payment_method, status, created_at FROM orders ")
+    orders = cursor.fetchall()
+    cursor.close()
+
+    result = [{"id": o[0], "address": o[1], "payment_method": o[2], "status": o[3], "created_at": str(o[4])} for o in orders]
+    return jsonify(result), 200
 
 
 @app.route('/orders', methods=['GET'])

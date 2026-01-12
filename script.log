@@ -1938,3 +1938,4 @@
 2026-01-12 15:26:14,623 - INFO: hello
 2026-01-12 15:26:14,627 - INFO: 127.0.0.1 - - [12/Jan/2026 15:26:14] "GET /testdb HTTP/1.1" 200 -
 2026-01-12 20:34:59,487 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
+2026-01-12 20:35:00,307 - INFO:  * Restarting with stat

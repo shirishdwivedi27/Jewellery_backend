@@ -605,7 +605,7 @@ def get_products():
     Get all products
     """
     cursor = get_db_cursor()
-    cursor.execute("SELECT id, name, category, price, description, stock, quantity images FROM products")
+    cursor.execute("SELECT id, name, category, price, description, stock, images , quantity FROM products")
     products = cursor.fetchall()
     cursor.close()
 

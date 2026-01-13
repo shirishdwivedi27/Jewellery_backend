@@ -542,13 +542,13 @@ def create_product():
 
         logging.info(mt_cat)
 
-        final_price=0
-        if mt_cat=="Gold":
-            gold_price = 12
-            final_price = int(gold_price)* qnt
-        elif mt_cat=="Silver":
-            silver_rate = 12
-            final_price =int(silver_rate) * qnt 
+        # final_price=0
+        # if mt_cat=="Gold":
+        #     gold_price = 12
+        #     final_price = int(gold_price)* qnt
+        # elif mt_cat=="Silver":
+        #     silver_rate = 12
+        #     final_price =int(silver_rate) * qnt 
         try:
             cursor = get_db_cursor()
             cursor.execute("""
@@ -557,7 +557,7 @@ def create_product():
             """, (
                 data['name'],
                 data.get('category'),
-                final_price,
+                data.get('price'),
                 data.get('description'),
                 data.get('stock'),
                 data.get('images'),
@@ -605,13 +605,13 @@ def get_products():
     Get all products
     """
     cursor = get_db_cursor()
-    cursor.execute("SELECT id, name, category, price, description, stock, images FROM products")
+    cursor.execute("SELECT id, name, category, price, description, stock, quantity images FROM products")
     products = cursor.fetchall()
     cursor.close()
 
     result = [
         {"id": p[0], "name": p[1], "category": p[2], "price": p[3],
-         "description": p[4], "stock": p[5], "images": p[6]} for p in products
+         "description": p[4], "stock": p[5], "images": p[6],"quantity":p[7] } for p in products
     ]
     return jsonify(result), 200
 

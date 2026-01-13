@@ -378,7 +378,7 @@ def forget_password():
 
         # Step 6: Send email
         try:
-            reset_link = f"http://localhost:5173/reset-password?token={reset_token}"
+            reset_link = f"https://696514e00b2ec20c00c27df1--hridikajewellers.netlify.app/reset-password?token={reset_token}"
 
 
             subject = "Reset Your Password"

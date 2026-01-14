@@ -615,6 +615,37 @@ def get_products():
     ]
     return jsonify(result), 200
 
+@app.route("/products/<int:id>", methods=["DELETE"])
+@jwt_required()
+def delete_product(id):
+    cursor = get_db_cursor()
+    cursor.execute("DELETE FROM products WHERE id=%s", (id,))
+    mysql.connection.commit()
+    cursor.close()
+    return jsonify({"message": "Product deleted"})
+
+@app.route("/products/<int:id>", methods=["PUT"])
+@jwt_required()
+def update_product(id):
+    data = request.json
+    cursor = get_db_cursor()
+
+    cursor.execute("""
+        UPDATE products SET
+        name=%s, category=%s, description=%s,
+        stock=%s, quantity=%s, metal_cat=%s,
+        images=%s, price=%s
+        WHERE id=%s
+    """, (
+        data["name"], data["category"], data["description"],
+        data["stock"], data["quantity"], data["metal_cat"],
+        data["images"], data["price"], id
+    ))
+    
+    mysql.connection.commit()
+    cursor.close()
+    return jsonify({"message": "Product updated"})
+
 
 
 @app.route('/products/<int:id>', methods=['GET'])

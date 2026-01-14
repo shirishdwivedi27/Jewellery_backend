@@ -6,6 +6,7 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timedelta
 import os
+import threading
 import MySQLdb.cursors
 from dotenv import load_dotenv
 import secrets
@@ -112,25 +113,59 @@ def send_email(to_email, subject, body):
         return False
 
 
+
+def send_welcome_email(app, receiver_email):
+    try:
+        sender_email = app.config['fir_tech']
+        sender_password = app.config['sec_tech']
+        subject = "Warm Welcome from Shirish and it's team side"
+
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = receiver_email
+        msg['Subject'] = subject
+
+        body = """Hi,
+
+My name is Shirish, I am the CEO of hekratech.pvt.lim.
+This is an automated email, but if you reply it will go straight to me.
+
+If you have any feedback or comments on our product I would love to hear it.
+If you are considering using this website, please get in touch.
+We would be happy to assist you.
+
+Thanks,
+Shirish Dwivedi
+"""
+        msg.attach(MIMEText(body, 'plain'))
+
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.sendmail(sender_email, receiver_email, msg.as_string())
+        server.quit()
+
+        logging.info("Welcome email sent successfully")
+
+    except Exception as e:
+        logging.error(f"Email sending failed: {str(e)}")
+        
+        
+        
 @app.route('/register', methods=['POST'])
 def register():
-    """
-    Register a new user
-    Fields: user_id, username, email, password
-    Returns: JWT token
-    """
     try:
         data = request.get_json()
-        
+
         username = data.get('username')
         email = data.get('email')
         password = data.get('password')
-        user_id = data.get('user_id')  or username
-        
+        user_id = data.get('user_id') or username
+
         if not username or not email or not password:
             return jsonify({"error": "All fields are required"}), 400
 
-        # Check if user already exists
+        # Check existing user
         cursor = get_db_cursor(dictionary=True)
         cursor.execute(
             "SELECT * FROM users WHERE username=%s OR email=%s",
@@ -143,74 +178,45 @@ def register():
 
         # Hash password
         hashed_password = generate_password_hash(password)
-        logging.info(hashed_password)
-        # Insert new user
+
+        # Insert user
         cursor = get_db_cursor()
         cursor.execute(
-            "INSERT INTO users (user_id, username, password, org_password, email, role) VALUES (%s,%s,%s,%s,%s,%s)",
+            """INSERT INTO users 
+               (user_id, username, password, org_password, email, role) 
+               VALUES (%s,%s,%s,%s,%s,%s)""",
             (user_id, username, hashed_password, password, email, 'user')
         )
         mysql.connection.commit()
         cursor.close()
 
-        logging.info(f"New user registered: {username} ({email})")
+        logging.info(f"New user registered: {username}")
 
-        # ---------------- SMTP EMAIL LOGIC (ADDED) ----------------
+        # 🔥 START EMAIL THREAD (NON-BLOCKING)
+        email_thread = threading.Thread(
+            target=send_welcome_email,
+            args=(app, email),
+            daemon=True
+        )
+        email_thread.start()
 
-        sender_email = app.config['fir_tech']
-        sender_password = app.config['sec_tech']
-        subject = "Warm Welcome from Shirish and it's team side"
-        logging.info(email)
-        data_want_send = MIMEMultipart()
-        data_want_send['From'] = sender_email
-        data_want_send['To'] = email
-        data_want_send['Subject'] = subject
-
-        body = '''Hi,
-
-My name is Shirish, I am the CEO of hekratech.pvt.lim.
-This is an automated email, but if you reply it will go straight to me.
-
-If you have any feedback or comments on our product I would love to hear it.
-If you are considering using this website, please get in touch.
-We would be happy to assist you.
-
-Thanks,
-Shirish Dwivedi
-'''
-        data_want_send.attach(MIMEText(body, 'plain'))
-
-        try:
-            server = smtplib.SMTP('smtp.gmail.com', 587)
-            server.starttls()
-            server.login(sender_email, sender_password)
-            server.sendmail(sender_email, email, data_want_send.as_string())
-            server.close()
-            logging.info("Welcome email sent successfully")
-        except Exception as e:
-            logging.error(f"Email sending failed: {str(e)}")
-
-        # ----------------------------------------------------------
-
+        # Create JWT
         access_token = create_access_token(identity=user_id)
 
-        # return jsonify({
-        #     "message": "User registered successfully!",
-        #     "access_token": access_token,
-        #     "role":"user"
-        # }), 201
+        # 🔥 IMMEDIATE RESPONSE TO UI
         return jsonify({
-                "access_token": access_token,
-                    "user": {
-                    "user_id": user_id,
-                    "username": username,
-                    "email": email,
-                    "role": "user"
-                }
+            "message": "User registered successfully",
+            "access_token": access_token,
+            "user": {
+                "user_id": user_id,
+                "username": username,
+                "email": email,
+                "role": "user"
+            }
         }), 201
 
-
     except Exception as e:
+        logging.error(str(e))
         return jsonify({
             "message": "Registration failed",
             "error": str(e)

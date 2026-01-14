@@ -5,7 +5,6 @@ from flask_cors import CORS
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timedelta
-from twilio.rest import Client
 import os
 import MySQLdb.cursors
 from dotenv import load_dotenv
@@ -15,7 +14,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-import requests
+# import requests
 
 
 import random 
@@ -26,9 +25,6 @@ load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
-
-
-
 METAL_API_URL = "https://api.metalpriceapi.com/v1/latest"
 API_KEY = os.getenv("GOLD_API_KEY")
 
@@ -36,7 +32,7 @@ app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST')
 app.config['MYSQL_USER'] = os.getenv('MYSQL_USER')
 app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD')
 app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
-app.config['MYSQL_PORT'] = int(os.getenv('MYSQL_PORT', 3306))
+app.config['MYSQL_PORT'] = int(os.getenv('MYSQL_PORT'))
 
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
@@ -93,7 +89,6 @@ def protected():
     print(current_user)
     return jsonify(logged_in_as=current_user)
 
-
 def send_email(to_email, subject, body):
     try:
         sender_email = app.config['fir_tech']
@@ -126,11 +121,12 @@ def register():
     """
     try:
         data = request.get_json()
-        user_id = data.get('user_id')
+        
         username = data.get('username')
         email = data.get('email')
         password = data.get('password')
-
+        user_id = data.get('user_id')  or username
+        
         if not username or not email or not password:
             return jsonify({"error": "All fields are required"}), 400
 
@@ -147,12 +143,12 @@ def register():
 
         # Hash password
         hashed_password = generate_password_hash(password)
-
+        logging.info(hashed_password)
         # Insert new user
         cursor = get_db_cursor()
         cursor.execute(
-            "INSERT INTO users (user_id, username, password, org_password, email, role) VALUES (%s,%s,%s,%s,%s)",
-            (user_id, username, hashed_password, password, email, 'users')
+            "INSERT INTO users (user_id, username, password, org_password, email, role) VALUES (%s,%s,%s,%s,%s,%s)",
+            (user_id, username, hashed_password, password, email, 'user')
         )
         mysql.connection.commit()
         cursor.close()
@@ -198,10 +194,21 @@ Shirish Dwivedi
 
         access_token = create_access_token(identity=user_id)
 
+        # return jsonify({
+        #     "message": "User registered successfully!",
+        #     "access_token": access_token,
+        #     "role":"user"
+        # }), 201
         return jsonify({
-            "message": "User registered successfully!",
-            "access_token": access_token
+                "access_token": access_token,
+                    "user": {
+                    "user_id": user_id,
+                    "username": username,
+                    "email": email,
+                    "role": "user"
+                }
         }), 201
+
 
     except Exception as e:
         return jsonify({
@@ -210,56 +217,62 @@ Shirish Dwivedi
         }), 500
 
 
-account_sid = os.getenv("TWILIO_ACCOUNT_SID")
-auth_token = os.getenv("TWILIO_AUTH_TOKEN")
-twilio_number = os.getenv("TWILIO_PHONE_NUMBER")
-
-
-client = Client(account_sid, auth_token)
-
-otp_store = {}
-
-
-
-
 
 @app.route('/sendotp', methods=['POST'])
 def send_otp():
     data = request.get_json()
-    mobile = data.get("mobile")
+    mobile = data.get('mobile')
+    
+    if not mobile or len(mobile)!= 10:
+        return jsonify({"msg": "Invalid mobile number"}), 400
+    
+    otp = str(random.randint(100000,999999))
+    otp_expiry = datetime.now() + timedelta(minutes=5)
 
-    if not mobile:
-        return jsonify({"msg": "Mobile number required"}), 400
+    conn, cursor = get_db_cursor()
+    cursor.execute("""
+        UPDATE users
+        SET otp=%s, otp_expiry=%s
+        WHERE mobile=%s
+    """, (otp, otp_expiry, mobile))
 
-    otp = random.randint(100000, 999999)
-    otp_store[mobile] = otp
+    if cursor.rowcount == 0:
+        return jsonify({"msg":"Mobile number not registered"}), 400
+    conn.commit()
+    print(f"OTP for {mobile} is {otp}")
+    return jsonify({"mssg":"OTP sent successfully"}), 200
 
-    try:
-        message = client.messages.create(
-            body=f"Your OTP is {otp}. Valid for 5 minutes.",
-            from_=twilio_number,
-            to=mobile
-        )
-        return jsonify({"msg": "OTP sent successfully"}), 200
-
-    except Exception as e:
-        return jsonify({"msg": str(e)}), 500
-
-
-@app.route('/verify-otp', methods=['POST'])
+@app.route('/verifyotp', methods=['POST'])
 def verify_otp():
     data = request.get_json()
-    mobile = data.get("mobile")
-    otp = data.get("otp")
+    mobile = data.get('mobile')
+    otp = data.get('otp')
 
     if not mobile or not otp:
-        return jsonify({"msg": "Mobile and OTP required"}), 400
+        return jsonify({"msg":"Mobile and OTP required"}), 400
+    conn, cursor = get_db_cursor(dictionary=True)
+    cursor.execute(
+        "SELECT * FROM users WHERE mobile=%s AND otp=%s",
+        (mobile, otp)
+    )
+    user = cursor.fetchone()
+    if not user:
+        return jsonify({"msg": "Invalid OTP"}), 401
+    
+    if user['otp_expiry'] < datetime.now():
+        return jsonify({"msg": "OTP expired"}), 401
 
-    if otp_store.get(mobile) == int(otp):
-        del otp_store[mobile]
-        return jsonify({"msg": "OTP verified successfully"}), 200
+    cursor.execute("""
+        UPDATE users
+        SET is_verified=1, otp=NULL, otp_expiry=NULL
+        WHERE mobile=%s
+        """, (mobile,))   
+    conn.commit()
 
-    return jsonify({"msg": "Invalid OTP"}), 400
+    return jsonify({
+        "msg": "Login Successful",
+        "user_id": user['id']
+    }), 200
 
 
 
@@ -302,8 +315,6 @@ def login():
         }), 200
 
     return jsonify({"msg": "Invalid email or password"}), 401
-
-
 
 @app.route('/forgetpassword', methods=['POST'])
 def forget_password():
@@ -367,7 +378,7 @@ def forget_password():
 
         # Step 6: Send email
         try:
-            reset_link = f"http://localhost:5173/reset-password?token={reset_token}"
+            reset_link = f"https://696514e00b2ec20c00c27df1--hridikajewellers.netlify.app/reset-password?token={reset_token}"
 
 
             subject = "Reset Your Password"
@@ -383,7 +394,6 @@ def forget_password():
     except Exception as e:
         logging.exception("Unhandled forget password error")
         return jsonify({"msg": "internal server error"}), 500
-
 
 @app.route('/resetpassword', methods=['POST'])
 def reset_password():
@@ -419,7 +429,7 @@ def reset_password():
             SET password=%s, org_password=%s, reset_token=NULL, reset_token_expiry=NULL
             WHERE user_id=%s
             """,
-            (hashed_password,new_password, user['user_id'])
+            (hashed_password, new_password, user['user_id'])
         )
         cursor.connection.commit()
         cursor.close()
@@ -435,33 +445,32 @@ def reset_password():
 @jwt_required()
 def get_all_users():
     cursor = get_db_cursor(dictionary=True)
-    #cursor.execute("SELECT user_id, username, email , phone FROM users")
     cursor.execute("SELECT user_id, username, email , Phone FROM users")
     users = cursor.fetchall()
     cursor.close()
     return jsonify(users), 200
 
 
-def get_current_gold_rate():
-    url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAU"
-    response = requests.get(url)
-    data = response.json()
+# def get_current_gold_rate():
+#     url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAU"
+#     response = requests.get(url)
+#     data = response.json()
 
-    # XAU is per ounce
-    price_per_gram = (1 / data["rates"]["XAU"]) / 31.1035
-    return round(price_per_gram, 2)
-
-
+#     # XAU is per ounce
+#     price_per_gram = (1 / data["rates"]["XAU"]) / 31.1035
+#     return round(price_per_gram, 2)
 
 
-def get_current_silver_rate():
-    url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAG"
-    response = requests.get(url)
-    data = response.json()
 
-    # XAG is per ounce
-    price_per_gram = (1 / data["rates"]["XAG"]) / 31.1035
-    return round(price_per_gram, 2)
+
+# def get_current_silver_rate():
+#     url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAG"
+#     response = requests.get(url)
+#     data = response.json()
+
+#     # XAG is per ounce
+#     price_per_gram = (1 / data["rates"]["XAG"]) / 31.1035
+#     return round(price_per_gram, 2)
 
 
 @app.route('/calculate_price', methods=['POST'])     # not  used api / only for testing
@@ -474,7 +483,7 @@ def calculate_price():
     if not quantity:
         return jsonify({"error": "Quantity is required"}), 400
 
-    gold_price_per_gram = get_current_gold_rate()
+    gold_price_per_gram = 12
     logging.info(gold_price_per_gram)
     final_price = gold_price_per_gram * quantity
 
@@ -533,13 +542,13 @@ def create_product():
 
         logging.info(mt_cat)
 
-        final_price=0
-        if mt_cat=="Gold":
-            gold_price = get_current_gold_rate() 
-            final_price = int(gold_price)* qnt
-        elif mt_cat=="Silver":
-            silver_rate = get_current_silver_rate()
-            final_price =int(silver_rate) * qnt 
+        # final_price=0
+        # if mt_cat=="Gold":
+        #     gold_price = 12
+        #     final_price = int(gold_price)* qnt
+        # elif mt_cat=="Silver":
+        #     silver_rate = 12
+        #     final_price =int(silver_rate) * qnt 
         try:
             cursor = get_db_cursor()
             cursor.execute("""
@@ -548,7 +557,7 @@ def create_product():
             """, (
                 data['name'],
                 data.get('category'),
-                final_price,
+                data.get('price'),
                 data.get('description'),
                 data.get('stock'),
                 data.get('images'),
@@ -596,15 +605,46 @@ def get_products():
     Get all products
     """
     cursor = get_db_cursor()
-    cursor.execute("SELECT id, name, category, price, description, stock, images FROM products")
+    cursor.execute("SELECT id, name, category, price, description, stock, images , quantity FROM products")
     products = cursor.fetchall()
     cursor.close()
 
     result = [
         {"id": p[0], "name": p[1], "category": p[2], "price": p[3],
-         "description": p[4], "stock": p[5], "images": p[6]} for p in products
+         "description": p[4], "stock": p[5], "images": p[6],"quantity":p[7] } for p in products
     ]
     return jsonify(result), 200
+
+@app.route("/products/<int:id>", methods=["DELETE"])
+@jwt_required()
+def delete_product(id):
+    cursor = get_db_cursor()
+    cursor.execute("DELETE FROM products WHERE id=%s", (id,))
+    mysql.connection.commit()
+    cursor.close()
+    return jsonify({"message": "Product deleted"})
+
+@app.route("/products/<int:id>", methods=["PUT"])
+@jwt_required()
+def update_product(id):
+    data = request.json
+    cursor = get_db_cursor()
+
+    cursor.execute("""
+        UPDATE products SET
+        name=%s, category=%s, description=%s,
+        stock=%s, quantity=%s, metal_cat=%s,
+        images=%s, price=%s
+        WHERE id=%s
+    """, (
+        data["name"], data["category"], data["description"],
+        data["stock"], data["quantity"], data["metal_cat"],
+        data["images"], data["price"], id
+    ))
+    
+    mysql.connection.commit()
+    cursor.close()
+    return jsonify({"message": "Product updated"})
 
 
 
@@ -739,22 +779,6 @@ def get_orders_admin():
     return jsonify(result), 200
 
 
-# @app.route('/api/admin/orders', methods=['GET'])
-# @jwt_required()
-# def get_orders_admin():
-#     """
-#     Get all orders for a user
-#     """
-#     user_id = get_jwt_identity()
-#     cursor = get_db_cursor()
-#     cursor.execute("SELECT id, address, payment_method, status, created_at FROM orders")
-#     orders = cursor.fetchall()
-#     cursor.close()
-
-#     result = [{"id": o[0], "address": o[1], "payment_method": o[2], "status": o[3], "created_at": str(o[4])} for o in orders]
-#     return jsonify(result), 200
-
-
 @app.route('/orders', methods=['GET'])
 @jwt_required()
 def get_orders():
@@ -770,65 +794,18 @@ def get_orders():
     result = [{"id": o[0], "address": o[1], "payment_method": o[2], "status": o[3], "created_at": str(o[4])} for o in orders]
     return jsonify(result), 200
 
-# @app.route('/api/admin/orders/<int:order_id>', methods=['PUT'])
-# @jwt_required()
-# def update_order_status(order_id):
-#     data = request.get_json()
-#     cursor = get_db_cursor()
-#     cursor.execute(
-#         "UPDATE orders SET status=%s WHERE id=%s",
-#         (data['status'], order_id)
-#     )
-#     mysql.connection.commit()
-#     cursor.close()
-#     return jsonify({"msg": "Order updated"}), 200
-
-
-
-# @app.route('/api/orders/<int:order_id>', methods=['GET'])
-# @jwt_required()
-# def get_order(order_id):
-#     cursor = get_db_cursor(dictionary=True)
-#     cursor.execute("SELECT * FROM orders WHERE id=%s", (order_id,))
-#     order = cursor.fetchone()
-#     cursor.close()
-
-#     if not order:
-#         return jsonify({"msg": "Order not found"}), 404
-
-#     return jsonify(order), 200
-
-@app.route('/api/orders/<int:order_id>', methods=['GET'])
+@app.route('/api/admin/orders/<int:order_id>', methods=['PUT'])
 @jwt_required()
-def get_order(order_id):
-    user_id = get_jwt_identity()  # ensure the order belongs to logged in user
-    cursor = get_db_cursor(dictionary=True)
-
-    # Get order details
+def update_order_status(order_id):
+    data = request.get_json()
+    cursor = get_db_cursor()
     cursor.execute(
-        "SELECT o.id, o.address, o.payment_method, o.status, o.created_at, u.name AS customer_name, u.email AS customer_email, u.phone AS customer_phone "
-        "FROM orders o JOIN users u ON o.user_id = u.id WHERE o.id=%s AND o.user_id=%s",
-        (order_id, user_id)
+        "UPDATE orders SET status=%s WHERE id=%s",
+        (data['status'], order_id)
     )
-    order = cursor.fetchone()
-
-    if not order:
-        cursor.close()
-        return jsonify({"msg": "Order not found"}), 404
-
-    # Get order items
-    cursor.execute(
-        "SELECT p.id, p.name, p.price, oi.quantity "
-        "FROM order_items oi JOIN products p ON oi.product_id = p.id "
-        "WHERE oi.order_id=%s",
-        (order_id,)
-    )
-    items = cursor.fetchall()
-    order['items'] = items
-
+    mysql.connection.commit()
     cursor.close()
-    return jsonify(order), 200
-
+    return jsonify({"msg": "Order updated"}), 200
 
 
 @app.route('/categories', methods=['GET'])
@@ -972,5 +949,7 @@ def update_contact_status(contact_id):
         return jsonify({'error': str(e)}), 500
 
 
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))

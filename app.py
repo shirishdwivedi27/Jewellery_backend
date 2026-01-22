@@ -14,7 +14,8 @@ import logging
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
+from flask import send_from_directory
+from werkzeug.utils import secure_filename
 
 import requests
 
@@ -909,6 +910,56 @@ def update_contact_status(contact_id):
         return jsonify({'message': 'Contact updated'}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+
+
+# Upload folder
+UPLOAD_FOLDER = "Bespoke_Images"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+
+
+@app.route("/api/bespoke-request", methods=["POST"])
+@jwt_required()
+def save_bespoke():
+    try:
+        name = request.form.get("name")
+        phone = request.form.get("phone")
+        product = request.form.get("product")
+        details = request.form.get("details")
+        size = request.form.get("size")
+
+        image = request.files.get("image")
+        image_url = None
+
+        if image:
+            filename = secure_filename(image.filename)
+            image.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+            image_url = f"http://localhost:5000/uploads/{filename}"
+
+        cursor = mysql.connection.cursor()
+        cursor.execute("""
+            INSERT INTO bespoke_requests
+            (full_name, phone, product_type, design_details, size, image_url)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """, (name, phone, product, details, size, image_url))
+
+        mysql.connection.commit()
+        cursor.close()
+
+        return jsonify({
+            "message": "Data saved",
+            "image_url": image_url
+        }), 201
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/Bespoke_Images/<filename>")
+def view_image(filename):
+    return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
+
 
 
 

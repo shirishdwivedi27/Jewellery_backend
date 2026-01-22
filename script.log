@@ -1939,3 +1939,57 @@
 2026-01-12 15:26:14,627 - INFO: 127.0.0.1 - - [12/Jan/2026 15:26:14] "GET /testdb HTTP/1.1" 200 -
 2026-01-12 20:34:59,487 - INFO:  * Detected change in 'D:\\Jewellers\\app.py', reloading
 2026-01-12 20:35:00,307 - INFO:  * Restarting with stat
+2026-01-14 15:12:20,156 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-14 15:12:20,160 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-14 15:12:36,952 - INFO: hello
+2026-01-14 15:12:36,954 - INFO: 127.0.0.1 - - [14/Jan/2026 15:12:36] "GET /testdb HTTP/1.1" 200 -
+2026-01-14 16:38:59,969 - INFO: 127.0.0.1 - - [14/Jan/2026 16:38:59] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-14 16:38:59,972 - INFO: 127.0.0.1 - - [14/Jan/2026 16:38:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-14 16:38:59,981 - INFO: 127.0.0.1 - - [14/Jan/2026 16:38:59] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-14 16:39:02,023 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:02] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-14 16:39:02,033 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:02] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-14 16:39:02,210 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:02] "GET /products HTTP/1.1" 200 -
+2026-01-14 16:39:06,848 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:06] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-14 16:39:06,853 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:06] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-14 16:39:06,854 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:06] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-14 16:39:06,867 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:06] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-14 16:39:06,868 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:06] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-14 16:39:06,869 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:06] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-14 16:39:08,762 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:08] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-14 16:39:08,934 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:08] "GET /products HTTP/1.1" 200 -
+2026-01-14 16:39:09,590 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:09] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-14 16:39:10,199 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:10] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-14 16:39:10,878 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:10] "GET /products HTTP/1.1" 200 -
+2026-01-14 16:39:11,328 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:11] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-14 16:39:24,173 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:24] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-14 16:39:24,436 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:24] "[31m[1mPUT /products/1 HTTP/1.1[0m" 405 -
+2026-01-14 16:39:24,476 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:24] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-14 16:39:26,560 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:26] "GET /products HTTP/1.1" 200 -
+2026-01-14 16:39:29,656 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:29] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-14 16:39:29,659 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:29] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-14 16:39:29,661 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:29] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-14 16:39:29,665 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:29] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-14 16:39:30,958 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:30] "GET /products HTTP/1.1" 200 -
+2026-01-14 16:39:31,403 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:31] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-14 16:39:31,425 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:31] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-14 16:39:32,911 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:32] "GET /products HTTP/1.1" 200 -
+2026-01-14 16:39:33,162 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:33] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-14 16:39:33,170 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:33] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-14 16:39:54,679 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:54] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-14 16:39:54,931 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:54] "[31m[1mPUT /products/1 HTTP/1.1[0m" 405 -
+2026-01-14 16:39:54,984 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:54] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-14 16:39:56,862 - INFO: 127.0.0.1 - - [14/Jan/2026 16:39:56] "GET /products HTTP/1.1" 200 -
+2026-01-23 00:57:38,548 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-23 00:57:38,549 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-23 00:58:07,137 - INFO: 127.0.0.1 - - [23/Jan/2026 00:58:07] "GET /products HTTP/1.1" 200 -
+2026-01-23 00:58:14,107 - INFO: 127.0.0.1 - - [23/Jan/2026 00:58:14] "GET /products/1 HTTP/1.1" 200 -
+2026-01-23 00:58:32,522 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-23 00:58:32,522 - INFO: 127.0.0.1 - - [23/Jan/2026 00:58:32] "POST /login HTTP/1.1" 200 -
+2026-01-23 00:59:16,084 - INFO: 127.0.0.1 - - [23/Jan/2026 00:59:16] "DELETE /products/1 HTTP/1.1" 200 -
+2026-01-23 00:59:29,671 - INFO: 127.0.0.1 - - [23/Jan/2026 00:59:29] "[33mGET /products/1 HTTP/1.1[0m" 404 -

@@ -17,7 +17,7 @@ from email.mime.multipart import MIMEMultipart
 from flask import send_from_directory
 from werkzeug.utils import secure_filename
 
-import requests
+# import requests
 
 
 import random 

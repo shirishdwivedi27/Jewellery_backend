@@ -9,12 +9,14 @@ import os
 import MySQLdb.cursors
 from dotenv import load_dotenv
 import secrets
+import threading
 import logging
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# import requests
+
+import requests
 
 
 import random 
@@ -112,25 +114,56 @@ def send_email(to_email, subject, body):
         return False
 
 
+def send_welcome_email(app, receiver_email):
+    try:
+        sender_email = app.config['fir_tech']
+        sender_password = app.config['sec_tech']
+        subject = "Warm Welcome from Shirish and it's team side"
+
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = receiver_email
+        msg['Subject'] = subject
+
+        body = """Hi,
+
+My name is Shirish, I am the CEO of hekratech.pvt.lim.
+This is an automated email, but if you reply it will go straight to me.
+
+If you have any feedback or comments on our product I would love to hear it.
+If you are considering using this website, please get in touch.
+We would be happy to assist you.
+
+Thanks,
+Shirish Dwivedi
+"""
+        msg.attach(MIMEText(body, 'plain'))
+
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.sendmail(sender_email, receiver_email, msg.as_string())
+        server.quit()
+
+        logging.info("Welcome email sent successfully")
+
+    except Exception as e:
+        logging.error(f"Email sending failed: {str(e)}")
+        
 @app.route('/register', methods=['POST'])
 def register():
-    """
-    Register a new user
-    Fields: user_id, username, email, password
-    Returns: JWT token
-    """
     try:
         data = request.get_json()
-        
+
         username = data.get('username')
         email = data.get('email')
         password = data.get('password')
-        user_id = data.get('user_id')  or username
-        
+        user_id = data.get('user_id') or username
+
         if not username or not email or not password:
             return jsonify({"error": "All fields are required"}), 400
 
-        # Check if user already exists
+        # Check existing user
         cursor = get_db_cursor(dictionary=True)
         cursor.execute(
             "SELECT * FROM users WHERE username=%s OR email=%s",
@@ -143,136 +176,50 @@ def register():
 
         # Hash password
         hashed_password = generate_password_hash(password)
-        logging.info(hashed_password)
-        # Insert new user
+
+        # Insert user
         cursor = get_db_cursor()
         cursor.execute(
-            "INSERT INTO users (user_id, username, password, org_password, email, role) VALUES (%s,%s,%s,%s,%s,%s)",
+            """INSERT INTO users 
+               (user_id, username, password, org_password, email, role) 
+               VALUES (%s,%s,%s,%s,%s,%s)""",
             (user_id, username, hashed_password, password, email, 'user')
         )
         mysql.connection.commit()
         cursor.close()
 
-        logging.info(f"New user registered: {username} ({email})")
+        logging.info(f"New user registered: {username}")
 
-        # ---------------- SMTP EMAIL LOGIC (ADDED) ----------------
+        # START EMAIL THREAD (NON-BLOCKING)
+        email_thread = threading.Thread(
+            target=send_welcome_email,
+            args=(app, email),
+            daemon=True
+        )
+        email_thread.start()
 
-        sender_email = app.config['fir_tech']
-        sender_password = app.config['sec_tech']
-        subject = "Warm Welcome from Shirish and it's team side"
-        logging.info(email)
-        data_want_send = MIMEMultipart()
-        data_want_send['From'] = sender_email
-        data_want_send['To'] = email
-        data_want_send['Subject'] = subject
-
-        body = '''Hi,
-
-My name is Shirish, I am the CEO of hekratech.pvt.lim.
-This is an automated email, but if you reply it will go straight to me.
-
-If you have any feedback or comments on our product I would love to hear it.
-If you are considering using this website, please get in touch.
-We would be happy to assist you.
-
-Thanks,
-Shirish Dwivedi
-'''
-        data_want_send.attach(MIMEText(body, 'plain'))
-
-        try:
-            server = smtplib.SMTP('smtp.gmail.com', 587)
-            server.starttls()
-            server.login(sender_email, sender_password)
-            server.sendmail(sender_email, email, data_want_send.as_string())
-            server.close()
-            logging.info("Welcome email sent successfully")
-        except Exception as e:
-            logging.error(f"Email sending failed: {str(e)}")
-
-        # ----------------------------------------------------------
-
+        # Create JWT
         access_token = create_access_token(identity=user_id)
 
-        # return jsonify({
-        #     "message": "User registered successfully!",
-        #     "access_token": access_token,
-        #     "role":"user"
-        # }), 201
+        #  IMMEDIATE RESPONSE TO UI
         return jsonify({
-                "access_token": access_token,
-                    "user": {
-                    "user_id": user_id,
-                    "username": username,
-                    "email": email,
-                    "role": "user"
-                }
+            "message": "User registered successfully",
+            "access_token": access_token,
+            "user": {
+                "user_id": user_id,
+                "username": username,
+                "email": email,
+                "role": "user"
+            }
         }), 201
 
-
     except Exception as e:
+        logging.error(str(e))
         return jsonify({
             "message": "Registration failed",
             "error": str(e)
         }), 500
 
-
-
-@app.route('/sendotp', methods=['POST'])
-def send_otp():
-    data = request.get_json()
-    mobile = data.get('mobile')
-    
-    if not mobile or len(mobile)!= 10:
-        return jsonify({"msg": "Invalid mobile number"}), 400
-    
-    otp = str(random.randint(100000,999999))
-    otp_expiry = datetime.now() + timedelta(minutes=5)
-
-    conn, cursor = get_db_cursor()
-    cursor.execute("""
-        UPDATE users
-        SET otp=%s, otp_expiry=%s
-        WHERE mobile=%s
-    """, (otp, otp_expiry, mobile))
-
-    if cursor.rowcount == 0:
-        return jsonify({"msg":"Mobile number not registered"}), 400
-    conn.commit()
-    print(f"OTP for {mobile} is {otp}")
-    return jsonify({"mssg":"OTP sent successfully"}), 200
-
-@app.route('/verifyotp', methods=['POST'])
-def verify_otp():
-    data = request.get_json()
-    mobile = data.get('mobile')
-    otp = data.get('otp')
-
-    if not mobile or not otp:
-        return jsonify({"msg":"Mobile and OTP required"}), 400
-    conn, cursor = get_db_cursor(dictionary=True)
-    cursor.execute(
-        "SELECT * FROM users WHERE mobile=%s AND otp=%s",
-        (mobile, otp)
-    )
-    user = cursor.fetchone()
-    if not user:
-        return jsonify({"msg": "Invalid OTP"}), 401
-    
-    if user['otp_expiry'] < datetime.now():
-        return jsonify({"msg": "OTP expired"}), 401
-
-    cursor.execute("""
-        UPDATE users
-        SET is_verified=1, otp=NULL, otp_expiry=NULL
-        WHERE mobile=%s
-        """, (mobile,))   
-    conn.commit()
-
-    return jsonify({
-        "msg": "Login Successful",
-        "user_id": user['id']
-    }), 200
 
 
 
@@ -451,48 +398,6 @@ def get_all_users():
     return jsonify(users), 200
 
 
-# def get_current_gold_rate():
-#     url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAU"
-#     response = requests.get(url)
-#     data = response.json()
-
-#     # XAU is per ounce
-#     price_per_gram = (1 / data["rates"]["XAU"]) / 31.1035
-#     return round(price_per_gram, 2)
-
-
-
-
-# def get_current_silver_rate():
-#     url = "https://api.metalpriceapi.com/v1/latest?api_key=25d798ade854da6d5d58b410b72a5e89&base=INR&currencies=XAG"
-#     response = requests.get(url)
-#     data = response.json()
-
-#     # XAG is per ounce
-#     price_per_gram = (1 / data["rates"]["XAG"]) / 31.1035
-#     return round(price_per_gram, 2)
-
-
-@app.route('/calculate_price', methods=['POST'])     # not  used api / only for testing
-@jwt_required()
-def calculate_price():
-    data = request.get_json()
-
-    quantity = data.get('quantity')
-
-    if not quantity:
-        return jsonify({"error": "Quantity is required"}), 400
-
-    gold_price_per_gram = 12
-    logging.info(gold_price_per_gram)
-    final_price = gold_price_per_gram * quantity
-
-    return jsonify({
-        "gold_price_per_gram": gold_price_per_gram,
-        "quantity": quantity,
-        "final_price": final_price
-    }), 200
-
 
 @app.route('/products', methods=['POST'])
 @jwt_required()
@@ -501,54 +406,8 @@ def create_product():
     Admin only
     Fields: name, category, price, description, stock, images
     """
-
-    # data = request.get_json()
-    # qnt = data.get("quantity")  
-    # mt_cat=data.get("metal_cat")  # "Gold "  or "Silver"
-
-    # logging.info(mt_cat)
-
-    # final_price=0
-    # if mt_cat=="Gold":
-    #     gold_price = get_current_gold_rate() 
-    #     final_price = int(gold_price) * qnt
-    # elif mt_cat=="Silver":
-    #     silver_rate = get_current_silver_rate()
-    #     final_price = int(silver_rate) * qnt 
-
-    # cursor = get_db_cursor()
-    # cursor.execute("""
-    #     INSERT INTO products (name, category, price, description, stock, images, quantity, metal_name)
-    #     VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
-    # """, (
-    #     data['name'],
-    #     data.get('category'),
-    #     final_price,
-    #     data.get('description'),
-    #     data.get('stock'),
-    #     data.get('images'),
-    #     data.get('quantity'),
-    #     mt_cat
-    # )
-    # )
-    # mysql.connection.commit()
-    # cursor.close()
-    # return jsonify({"msg": "Product created successfully"}), 201
-
     try:
         data = request.get_json()
-        qnt = data.get("quantity")  
-        mt_cat=data.get("metal_cat")  # "Gold "  or "Silver"
-
-        logging.info(mt_cat)
-
-        # final_price=0
-        # if mt_cat=="Gold":
-        #     gold_price = 12
-        #     final_price = int(gold_price)* qnt
-        # elif mt_cat=="Silver":
-        #     silver_rate = 12
-        #     final_price =int(silver_rate) * qnt 
         try:
             cursor = get_db_cursor()
             cursor.execute("""
@@ -562,7 +421,7 @@ def create_product():
                 data.get('stock'),
                 data.get('images'),
                 data.get('quantity'),
-                mt_cat
+                data.get('metal_name')
             )
             )
             mysql.connection.commit()
@@ -581,26 +440,6 @@ def create_product():
 
 @app.route('/products', methods=['GET'])
 def get_products():
-    # return jsonify([
-    #     {
-    #         "id": 1,
-    #         "name": "Gold Coin",
-    #         "price": "₹1,20,000",
-    #         "image": "https://png.pngtree.com/png-clipart/20190520/original/pngtree-gold-coin-png-image_3779125.jpg"
-    #     },
-    #     {
-    #         "id": 2,
-    #         "name": "Silver Coin",
-    #         "price": "₹6,000",
-    #         "image": "https://silvera.co.in/app/uploaded/product/silvera-5784531681558188318.png"
-    #     },
-    #     {
-    #         "id":3,
-    #         "name": "Gold Necklace",
-    #         "price": "₹6,999",
-    #         "image": "https://m.media-amazon.com/images/I/711gUVvYePL._AC_UY300_.jpg"  
-    #     }
-    # ])
     """
     Get all products
     """
@@ -615,6 +454,8 @@ def get_products():
     ]
     return jsonify(result), 200
 
+
+
 @app.route("/products/<int:id>", methods=["DELETE"])
 @jwt_required()
 def delete_product(id):
@@ -624,28 +465,50 @@ def delete_product(id):
     cursor.close()
     return jsonify({"message": "Product deleted"})
 
+
 @app.route("/products/<int:id>", methods=["PUT"])
 @jwt_required()
 def update_product(id):
-    data = request.json
-    cursor = get_db_cursor()
+    try:
+        data = request.get_json()
+        cursor = get_db_cursor(dictionary=True)
 
-    cursor.execute("""
-        UPDATE products SET
-        name=%s, category=%s, description=%s,
-        stock=%s, quantity=%s, metal_cat=%s,
-        images=%s, price=%s
-        WHERE id=%s
-    """, (
-        data["name"], data["category"], data["description"],
-        data["stock"], data["quantity"], data["metal_cat"],
-        data["images"], data["price"], id
-    ))
-    
-    mysql.connection.commit()
-    cursor.close()
-    return jsonify({"message": "Product updated"})
+        cursor.execute("SELECT * FROM products WHERE id=%s", (id,))
+        product = cursor.fetchone()
 
+        if not product:
+            return jsonify({"msg": "Product not found"}), 404
+
+        cursor.execute("""
+            UPDATE products SET
+            name=%s,
+            category=%s,
+            description=%s,
+            stock=%s,
+            quantity=%s,
+            metal_name=%s,
+            images=%s,
+            price=%s
+            WHERE id=%s
+        """, (
+            data.get("name", product["name"]),
+            data.get("category", product["category"]),
+            data.get("description", product["description"]),
+            int(data.get("stock", product["stock"])),
+            data.get("quantity", product["quantity"]),
+            data.get("metal_name") or product["metal_name"] or "Gold",
+            data.get("images", product["images"]),
+            float(data.get("price", product["price"])),
+            id
+        ))
+
+        mysql.connection.commit()
+        cursor.close()
+        return jsonify({"msg": "Product updated successfully"}), 200
+
+    except Exception as e:
+        print("UPDATE ERROR =", e)
+        return jsonify({"error": str(e)}), 500
 
 
 @app.route('/products/<int:id>', methods=['GET'])
@@ -654,7 +517,7 @@ def get_product(id):
     Get product by id
     """
     cursor = get_db_cursor()
-    cursor.execute("SELECT id, name, category, price, description, stock, images FROM products WHERE id=%s", (id,))
+    cursor.execute("SELECT id, name, category, price, description, stock, images , quantity FROM products WHERE id=%s", (id,))
     product = cursor.fetchone()
     cursor.close()
 
@@ -662,7 +525,7 @@ def get_product(id):
         return jsonify({
             "id": product[0], "name": product[1], "category": product[2],
             "price": product[3], "description": product[4], "stock": product[5],
-            "images": product[6]
+            "images": product[6] , "quantity":product[7]
         }), 200
     return jsonify({"message": "Product not found"}), 404
 
@@ -674,24 +537,63 @@ def profile():
     return jsonify({"user_id": user_id}), 200
 
 
+# @app.route('/cart', methods=['POST'])
+# @jwt_required()
+# def add_to_cart():
+#     """
+#     Add product to cart
+#     Fields: product_id, quantity
+#     """
+#     user_id = get_jwt_identity()
+#     data = request.get_json()
+    
+#     cursor = get_db_cursor()
+    
+#     cursor.execute("""
+#         INSERT INTO cart (user_id, product_id, quantity) VALUES (%s,%s,%s)
+#         ON DUPLICATE KEY UPDATE quantity = quantity + %s
+#     """, (user_id, data['product_id'], data['quantity'], data['quantity']))
+#     mysql.connection.commit()
+#     cursor.close()
+#     return jsonify({"msg": "Added to cart"}), 201
+
 @app.route('/cart', methods=['POST'])
 @jwt_required()
 def add_to_cart():
-    """
-    Add product to cart
-    Fields: product_id, quantity
-    """
     user_id = get_jwt_identity()
     data = request.get_json()
-    cursor = get_db_cursor()
-    
-    cursor.execute("""
-        INSERT INTO cart (user_id, product_id, quantity) VALUES (%s,%s,%s)
-        ON DUPLICATE KEY UPDATE quantity = quantity + %s
-    """, (user_id, data['product_id'], data['quantity'], data['quantity']))
+
+    product_id = data.get("product_id")  
+    quantity = data.get("quantity", 1)  
+
+    # # Force minimum quantity = 10 
+    # if quantity < 10: 
+    #     quantity = 10 
+
+    cursor = get_db_cursor()  
+
+    cursor.execute(
+        "SELECT quantity FROM cart WHERE user_id=%s AND product_id=%s",
+        (user_id, product_id)
+    )
+    existing = cursor.fetchone()
+
+    if existing:
+        cursor.execute(
+            "UPDATE cart SET quantity=quantity+%s WHERE user_id=%s AND product_id=%s",
+            (1, user_id, product_id)
+        )
+    else:
+        cursor.execute(
+            "INSERT INTO cart (user_id, product_id, quantity) VALUES (%s,%s,%s)",
+            (user_id, product_id, 1)
+        )
+
     mysql.connection.commit()
     cursor.close()
-    return jsonify({"msg": "Added to cart"}), 201
+
+    return jsonify({"msg": "Product added to cart", "quantity": quantity}), 201
+
 
 
 @app.route('/cart', methods=['GET'])
@@ -712,6 +614,65 @@ def get_cart():
     result = [{"product_id": i[0], "quantity": i[1], "name": i[2], "price": i[3], "images": i[4]} for i in cart_items]
     return jsonify(result), 200
 
+@app.route('/cart/update', methods=['PUT'])
+@jwt_required()
+def update_cart_quantity():
+    """
+    Update cart item quantity (minimum 10)
+    """
+    user_id = get_jwt_identity()
+    data = request.get_json()
+
+    product_id = data.get('product_id')
+    quantity = data.get('quantity')
+
+    if not product_id or not quantity:
+        return jsonify({"msg": "Product ID and quantity required"}), 400
+
+    # if quantity < 10:
+    #     return jsonify({"msg": "Minimum quantity is 10"}), 400
+    
+    logging.info(data)
+    cursor = get_db_cursor()
+    cursor.execute(
+        "UPDATE cart SET quantity=quantity+%s WHERE user_id=%s AND product_id=%s",
+        (1, user_id, product_id)
+    )
+
+    mysql.connection.commit()
+    cursor.close()
+
+    return jsonify({"msg": "Quantity updated successfully"}), 200
+
+@app.route('/cart/update/min', methods=['PUT'])
+@jwt_required()
+def update_cart_quantity_min():
+    """
+    Update cart item quantity (minimum 10)
+    """
+    user_id = get_jwt_identity()
+    data = request.get_json()
+
+    product_id = data.get('product_id')
+    quantity = data.get('quantity')
+
+    if not product_id or not quantity:
+        return jsonify({"msg": "Product ID and quantity required"}), 400
+
+    # if quantity < 10:
+    #     return jsonify({"msg": "Minimum quantity is 10"}), 400
+    
+    logging.info(data)
+    cursor = get_db_cursor()
+    cursor.execute(
+        "UPDATE cart SET quantity=quantity-%s WHERE user_id=%s AND product_id=%s",
+        (1, user_id, product_id)
+    )
+
+    mysql.connection.commit()
+    cursor.close()
+
+    return jsonify({"msg": "Quantity updated successfully"}), 200
 
 
 @app.route('/cart/<int:product_id>', methods=['DELETE'])
@@ -726,6 +687,7 @@ def remove_from_cart(product_id):
     mysql.connection.commit()
     cursor.close()
     return jsonify({"msg": "Removed from cart"}), 200
+
 
 
 @app.route('/orders', methods=['POST'])

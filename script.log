@@ -1,1129 +1,664 @@
-2026-01-11 23:24:11,599 - INFO: 127.0.0.1 - - [11/Jan/2026 23:24:11] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-11 23:24:11,857 - INFO: 127.0.0.1 - - [11/Jan/2026 23:24:11] "GET /products HTTP/1.1" 200 -
-2026-01-11 23:24:30,902 - INFO: 127.0.0.1 - - [11/Jan/2026 23:24:30] "GET /products HTTP/1.1" 200 -
-2026-01-11 23:26:19,260 - INFO: 127.0.0.1 - - [11/Jan/2026 23:26:19] "GET /products HTTP/1.1" 200 -
-2026-01-11 23:49:11,872 - INFO: 127.0.0.1 - - [11/Jan/2026 23:49:11] "GET /products HTTP/1.1" 200 -
-2026-01-12 01:09:15,608 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2026-01-23 03:01:17,176 - INFO: 127.0.0.1 - - [23/Jan/2026 03:01:17] "GET /products/2 HTTP/1.1" 200 -
+2026-01-23 03:01:18,110 - INFO: 127.0.0.1 - - [23/Jan/2026 03:01:18] "GET /products/2 HTTP/1.1" 200 -
+2026-01-23 03:02:57,413 - INFO: 127.0.0.1 - - [23/Jan/2026 03:02:57] "[31m[1mGET /cart HTTP/1.1[0m" 401 -
+2026-01-23 03:03:05,071 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-23 03:03:05,072 - INFO: 127.0.0.1 - - [23/Jan/2026 03:03:05] "POST /login HTTP/1.1" 200 -
+2026-01-23 03:03:36,709 - INFO: 127.0.0.1 - - [23/Jan/2026 03:03:36] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:05:45,736 - INFO: 127.0.0.1 - - [23/Jan/2026 03:05:45] "[31m[1mPUT /cart/update HTTP/1.1[0m" 400 -
+2026-01-23 03:06:05,281 - INFO: 127.0.0.1 - - [23/Jan/2026 03:06:05] "[31m[1mPUT /cart/update HTTP/1.1[0m" 400 -
+2026-01-23 03:06:17,350 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
-2026-01-12 01:09:15,608 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 01:09:15,609 - INFO:  * Restarting with stat
-2026-01-12 01:09:16,546 - WARNING:  * Debugger is active!
-2026-01-12 01:09:16,551 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 13:14:47,084 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://10.116.87.230:5000
+2026-01-23 03:06:17,351 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-23 03:06:19,307 - INFO: {'product_id': '1', 'quantity': 1}
+2026-01-23 03:06:19,371 - INFO: 127.0.0.1 - - [23/Jan/2026 03:06:19] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:06:34,092 - INFO: 127.0.0.1 - - [23/Jan/2026 03:06:34] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:06:55,666 - INFO: {'product_id': '1', 'quantity': 1}
+2026-01-23 03:06:55,674 - INFO: 127.0.0.1 - - [23/Jan/2026 03:06:55] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:05,739 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:05] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:07:20,093 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:20] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:07:20,120 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:20] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:07:20,348 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:20] "[31m[1mGET /cart HTTP/1.1[0m" 401 -
+2026-01-23 03:07:20,408 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:20] "[31m[1mGET /cart HTTP/1.1[0m" 401 -
+2026-01-23 03:07:28,381 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:28] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-23 03:07:28,893 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-23 03:07:28,894 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:28] "POST /login HTTP/1.1" 200 -
+2026-01-23 03:07:28,988 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:28] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:07:29,313 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:29] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-23 03:07:29,329 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:29] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-23 03:07:29,337 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:29] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-23 03:07:29,347 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:29] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-23 03:07:29,351 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:29] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:07:29,555 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:29] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-23 03:07:29,649 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:29] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-23 03:07:29,672 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:29] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:07:29,693 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:29] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-23 03:07:29,882 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:29] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-23 03:07:32,856 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:32] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:07:33,185 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:33] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:07:34,159 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:34] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:07:34,174 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:34] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:07:34,414 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:34] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:07:34,479 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:34] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:07:36,535 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:36] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:36,843 - INFO: {'product_id': 1, 'quantity': 5}
+2026-01-23 03:07:36,853 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:36] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:37,997 - INFO: {'product_id': 1, 'quantity': 6}
+2026-01-23 03:07:38,003 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:38] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:38,902 - INFO: {'product_id': 1, 'quantity': 7}
+2026-01-23 03:07:38,911 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:38] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:38,972 - INFO: {'product_id': 1, 'quantity': 7}
+2026-01-23 03:07:38,977 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:38] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:39,157 - INFO: {'product_id': 1, 'quantity': 8}
+2026-01-23 03:07:39,163 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:39] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:39,270 - INFO: {'product_id': 1, 'quantity': 8}
+2026-01-23 03:07:39,278 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:39] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:39,342 - INFO: {'product_id': 1, 'quantity': 9}
+2026-01-23 03:07:39,348 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:39] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:39,615 - INFO: {'product_id': 1, 'quantity': 10}
+2026-01-23 03:07:39,622 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:39] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:39,706 - INFO: {'product_id': 1, 'quantity': 11}
+2026-01-23 03:07:39,715 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:39] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:41,182 - INFO: {'product_id': 1, 'quantity': 10}
+2026-01-23 03:07:41,192 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:41] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:41,260 - INFO: {'product_id': 1, 'quantity': 10}
+2026-01-23 03:07:41,265 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:41] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:42,384 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:42] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:42,693 - INFO: {'product_id': 1, 'quantity': 11}
+2026-01-23 03:07:42,699 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:42] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:42,782 - INFO: {'product_id': 1, 'quantity': 11}
+2026-01-23 03:07:42,793 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:42] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:42,950 - INFO: {'product_id': 1, 'quantity': 12}
+2026-01-23 03:07:42,957 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:42] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:43,042 - INFO: {'product_id': 1, 'quantity': 12}
+2026-01-23 03:07:43,048 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:43,092 - INFO: {'product_id': 1, 'quantity': 13}
+2026-01-23 03:07:43,097 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:43,385 - INFO: {'product_id': 1, 'quantity': 14}
+2026-01-23 03:07:43,392 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:43,453 - INFO: {'product_id': 1, 'quantity': 14}
+2026-01-23 03:07:43,460 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:43,694 - INFO: {'product_id': 1, 'quantity': 15}
+2026-01-23 03:07:43,700 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:43,757 - INFO: {'product_id': 1, 'quantity': 15}
+2026-01-23 03:07:43,762 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:44,011 - INFO: {'product_id': 1, 'quantity': 16}
+2026-01-23 03:07:44,021 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:44] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:44,232 - INFO: {'product_id': 1, 'quantity': 17}
+2026-01-23 03:07:44,239 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:44] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:45,876 - INFO: {'product_id': 1, 'quantity': 16}
+2026-01-23 03:07:45,878 - INFO: {'product_id': 1, 'quantity': 16}
+2026-01-23 03:07:45,890 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:45] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:45,891 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:45] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:46,137 - INFO: {'product_id': 1, 'quantity': 16}
+2026-01-23 03:07:46,143 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:46] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:46,200 - INFO: {'product_id': 1, 'quantity': 16}
+2026-01-23 03:07:46,207 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:46] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:46,275 - INFO: {'product_id': 1, 'quantity': 15}
+2026-01-23 03:07:46,282 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:46] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:46,612 - INFO: {'product_id': 1, 'quantity': 14}
+2026-01-23 03:07:46,620 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:46] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:46,761 - INFO: {'product_id': 1, 'quantity': 14}
+2026-01-23 03:07:46,766 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:46] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:47,948 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:47] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:48,262 - INFO: {'product_id': 1, 'quantity': 13}
+2026-01-23 03:07:48,269 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:48] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:48,298 - INFO: {'product_id': 1, 'quantity': 13}
+2026-01-23 03:07:48,311 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:48] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:48,512 - INFO: {'product_id': 1, 'quantity': 12}
+2026-01-23 03:07:48,519 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:48] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:51,827 - INFO: {'product_id': 1, 'quantity': 11}
+2026-01-23 03:07:51,859 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:51] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:53,379 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:53] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:53,630 - INFO: {'product_id': 1, 'quantity': 12}
+2026-01-23 03:07:53,636 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:53] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:58,805 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:58] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:59,113 - INFO: {'product_id': 1, 'quantity': 11}
+2026-01-23 03:07:59,121 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:59] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:07:59,964 - INFO: {'product_id': 1, 'quantity': 10}
+2026-01-23 03:07:59,972 - INFO: 127.0.0.1 - - [23/Jan/2026 03:07:59] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:08:03,284 - INFO: {'product_id': 1, 'quantity': 11}
+2026-01-23 03:08:03,294 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:03] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:08:04,426 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:04] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:08:04,734 - INFO: {'product_id': 1, 'quantity': 10}
+2026-01-23 03:08:04,743 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:04] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:08:07,449 - INFO: {'product_id': 1, 'quantity': 11}
+2026-01-23 03:08:07,456 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:07] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:08:12,151 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:12] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:08:12,153 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:12] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:08:12,426 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:12] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:08:12,501 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:12] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:08:15,462 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:15] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:08:15,776 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:15] "[35m[1mPOST /cart HTTP/1.1[0m" 201 -
+2026-01-23 03:08:18,866 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:18] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:08:19,178 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:19] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:08:38,396 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:38] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:08:38,702 - INFO: {'product_id': 1, 'quantity': 45}
+2026-01-23 03:08:38,709 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:38] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:08:39,984 - INFO: {'product_id': 1, 'quantity': 44}
+2026-01-23 03:08:39,992 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:39] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:08:41,109 - INFO: {'product_id': 1, 'quantity': 45}
+2026-01-23 03:08:41,118 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:41] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:08:42,302 - INFO: {'product_id': 1, 'quantity': 44}
+2026-01-23 03:08:42,308 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:42] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:08:42,370 - INFO: {'product_id': 1, 'quantity': 44}
+2026-01-23 03:08:42,377 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:42] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:08:51,989 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:51] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:08:52,303 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:52] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:08:52,553 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:52] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:08:55,735 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:55] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:08:55,991 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:55] "[35m[1mPOST /cart HTTP/1.1[0m" 201 -
+2026-01-23 03:08:58,950 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:58] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:08:59,266 - INFO: 127.0.0.1 - - [23/Jan/2026 03:08:59] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:09:07,593 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:07] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:09:07,595 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:07] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:09:07,846 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:07] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:09:07,908 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:07] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:09:11,493 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:11] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:09:11,807 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:11] "[35m[1mPOST /cart HTTP/1.1[0m" 201 -
+2026-01-23 03:09:15,272 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:15] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:09:15,521 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:15] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:09:21,018 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:21] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:09:21,350 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:21] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:09:21,588 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:21] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:09:25,550 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:25] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-23 03:09:25,551 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:25] "OPTIONS /products/1 HTTP/1.1" 200 -
+2026-01-23 03:09:25,813 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:25] "GET /products/1 HTTP/1.1" 200 -
+2026-01-23 03:09:25,867 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:25] "GET /products/1 HTTP/1.1" 200 -
+2026-01-23 03:09:29,356 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:29] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:09:29,666 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:29] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:09:29,928 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:29] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:09:32,060 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:32] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:09:32,382 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:32] "[35m[1mPOST /cart HTTP/1.1[0m" 201 -
+2026-01-23 03:09:36,015 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:36] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:09:36,276 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:36] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:09:42,636 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:42] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:42,953 - INFO: {'product_id': 1, 'quantity': 51}
+2026-01-23 03:09:42,962 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:42] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:43,013 - INFO: {'product_id': 1, 'quantity': 51}
+2026-01-23 03:09:43,019 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:43,202 - INFO: {'product_id': 1, 'quantity': 51}
+2026-01-23 03:09:43,207 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:43,261 - INFO: {'product_id': 1, 'quantity': 50}
+2026-01-23 03:09:43,267 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:43,411 - INFO: {'product_id': 1, 'quantity': 49}
+2026-01-23 03:09:43,417 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:43,586 - INFO: {'product_id': 1, 'quantity': 49}
+2026-01-23 03:09:43,607 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:43,672 - INFO: {'product_id': 1, 'quantity': 48}
+2026-01-23 03:09:43,677 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:43,908 - INFO: {'product_id': 1, 'quantity': 48}
+2026-01-23 03:09:43,915 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:43] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:44,104 - INFO: {'product_id': 1, 'quantity': 47}
+2026-01-23 03:09:44,111 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:44] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:44,477 - INFO: {'product_id': 1, 'quantity': 46}
+2026-01-23 03:09:44,483 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:44] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:44,725 - INFO: {'product_id': 1, 'quantity': 46}
+2026-01-23 03:09:44,730 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:44] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:44,774 - INFO: {'product_id': 1, 'quantity': 45}
+2026-01-23 03:09:44,782 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:44] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:44,813 - INFO: {'product_id': 1, 'quantity': 44}
+2026-01-23 03:09:44,818 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:44] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:45,106 - INFO: {'product_id': 1, 'quantity': 43}
+2026-01-23 03:09:45,111 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:45] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:45,177 - INFO: {'product_id': 1, 'quantity': 42}
+2026-01-23 03:09:45,188 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:45] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:45,440 - INFO: {'product_id': 1, 'quantity': 42}
+2026-01-23 03:09:45,448 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:45] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:45,496 - INFO: {'product_id': 1, 'quantity': 41}
+2026-01-23 03:09:45,503 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:45] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:45,764 - INFO: {'product_id': 1, 'quantity': 40}
+2026-01-23 03:09:45,769 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:45] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:46,777 - INFO: {'product_id': 1, 'quantity': 39}
+2026-01-23 03:09:46,784 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:46] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:47,287 - INFO: {'product_id': 1, 'quantity': 38}
+2026-01-23 03:09:47,293 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:47] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:47,543 - INFO: {'product_id': 1, 'quantity': 37}
+2026-01-23 03:09:47,548 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:47] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:53,358 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:53] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:53,663 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:53] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:53,664 - INFO: {'product_id': 1, 'quantity': 36}
+2026-01-23 03:09:53,671 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:53] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:53,807 - INFO: {'product_id': 1, 'quantity': 36}
+2026-01-23 03:09:53,813 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:53] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:53,976 - INFO: {'product_id': 1, 'quantity': 36}
+2026-01-23 03:09:53,981 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:53] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:54,088 - INFO: {'product_id': 1, 'quantity': 35}
+2026-01-23 03:09:54,092 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:54,150 - INFO: {'product_id': 1, 'quantity': 35}
+2026-01-23 03:09:54,155 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:54,210 - INFO: {'product_id': 1, 'quantity': 35}
+2026-01-23 03:09:54,216 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:54,586 - INFO: {'product_id': 1, 'quantity': 34}
+2026-01-23 03:09:54,588 - INFO: {'product_id': 1, 'quantity': 34}
+2026-01-23 03:09:54,592 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:54,594 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:54,844 - INFO: {'product_id': 1, 'quantity': 33}
+2026-01-23 03:09:54,849 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:54,922 - INFO: {'product_id': 1, 'quantity': 33}
+2026-01-23 03:09:54,927 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:55,818 - INFO: {'product_id': 1, 'quantity': 32}
+2026-01-23 03:09:55,836 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:55] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:56,132 - INFO: {'product_id': 1, 'quantity': 32}
+2026-01-23 03:09:56,133 - INFO: {'product_id': 1, 'quantity': 32}
+2026-01-23 03:09:56,134 - INFO: {'product_id': 1, 'quantity': 32}
+2026-01-23 03:09:56,137 - INFO: {'product_id': 1, 'quantity': 32}
+2026-01-23 03:09:56,140 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:56,143 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:56,150 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:56,152 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:56,160 - INFO: {'product_id': 1, 'quantity': 31}
+2026-01-23 03:09:56,167 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:56,303 - INFO: {'product_id': 1, 'quantity': 31}
+2026-01-23 03:09:56,309 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:09:56,454 - INFO: {'product_id': 1, 'quantity': 31}
+2026-01-23 03:09:56,458 - INFO: 127.0.0.1 - - [23/Jan/2026 03:09:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:10:02,532 - INFO: 127.0.0.1 - - [23/Jan/2026 03:10:02] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:10:02,535 - INFO: 127.0.0.1 - - [23/Jan/2026 03:10:02] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:10:02,790 - INFO: 127.0.0.1 - - [23/Jan/2026 03:10:02] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:10:02,843 - INFO: 127.0.0.1 - - [23/Jan/2026 03:10:02] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:10:09,490 - INFO: 127.0.0.1 - - [23/Jan/2026 03:10:09] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:10:09,802 - INFO: 127.0.0.1 - - [23/Jan/2026 03:10:09] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:10:09,820 - INFO: 127.0.0.1 - - [23/Jan/2026 03:10:09] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:10:10,160 - INFO: 127.0.0.1 - - [23/Jan/2026 03:10:10] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:10:12,976 - INFO: 127.0.0.1 - - [23/Jan/2026 03:10:12] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:10:13,298 - INFO: 127.0.0.1 - - [23/Jan/2026 03:10:13] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:11:51,412 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
-2026-01-12 13:14:47,085 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 13:14:47,095 - INFO:  * Restarting with stat
-2026-01-12 13:14:47,828 - WARNING:  * Debugger is active!
-2026-01-12 13:14:47,830 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 13:20:25,704 - INFO: 127.0.0.1 - - [12/Jan/2026 13:20:25] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:20:25,926 - INFO: 127.0.0.1 - - [12/Jan/2026 13:20:25] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:21:03,276 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-12 13:21:03,277 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 13:21:03,279 - INFO:  * Restarting with stat
-2026-01-12 13:21:03,987 - WARNING:  * Debugger is active!
-2026-01-12 13:21:03,991 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 13:21:12,347 - INFO: 127.0.0.1 - - [12/Jan/2026 13:21:12] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:21:12,594 - INFO: 127.0.0.1 - - [12/Jan/2026 13:21:12] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:31:26,945 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-12 13:31:26,945 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 13:31:26,947 - INFO:  * Restarting with stat
-2026-01-12 13:31:27,701 - WARNING:  * Debugger is active!
-2026-01-12 13:31:27,706 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 13:31:39,963 - INFO: 127.0.0.1 - - [12/Jan/2026 13:31:39] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:31:40,222 - INFO: 127.0.0.1 - - [12/Jan/2026 13:31:40] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:33:35,198 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-12 13:33:35,198 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 13:33:35,200 - INFO:  * Restarting with stat
-2026-01-12 13:33:35,960 - WARNING:  * Debugger is active!
-2026-01-12 13:33:35,963 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 13:34:02,627 - INFO: 127.0.0.1 - - [12/Jan/2026 13:34:02] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:34:02,884 - INFO: 127.0.0.1 - - [12/Jan/2026 13:34:02] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:36:09,095 - INFO: 127.0.0.1 - - [12/Jan/2026 13:36:09] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 13:36:09,353 - INFO: 127.0.0.1 - - [12/Jan/2026 13:36:09] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
-2026-01-12 13:42:01,717 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-12 13:42:01,717 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 13:42:01,718 - INFO:  * Restarting with stat
-2026-01-12 13:42:02,424 - WARNING:  * Debugger is active!
-2026-01-12 13:42:02,429 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 13:42:19,616 - INFO: 127.0.0.1 - - [12/Jan/2026 13:42:19] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:42:19,857 - INFO: 127.0.0.1 - - [12/Jan/2026 13:42:19] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:42:21,553 - INFO: 127.0.0.1 - - [12/Jan/2026 13:42:21] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:42:21,885 - INFO: 127.0.0.1 - - [12/Jan/2026 13:42:21] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:54:26,134 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-12 13:54:26,134 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 13:54:26,135 - INFO:  * Restarting with stat
-2026-01-12 13:54:27,010 - WARNING:  * Debugger is active!
-2026-01-12 13:54:27,014 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 13:54:42,483 - INFO: 127.0.0.1 - - [12/Jan/2026 13:54:42] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:54:42,733 - INFO: 127.0.0.1 - - [12/Jan/2026 13:54:42] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 13:55:23,600 - INFO: 127.0.0.1 - - [12/Jan/2026 13:55:23] "GET / HTTP/1.1" 200 -
-2026-01-12 13:55:38,655 - INFO: 127.0.0.1 - - [12/Jan/2026 13:55:38] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 13:57:24,653 - INFO: 127.0.0.1 - - [12/Jan/2026 13:57:24] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 13:57:56,079 - INFO: 127.0.0.1 - - [12/Jan/2026 13:57:56] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
-2026-01-12 14:05:49,122 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 14:05:49,125 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 14:05:49,343 - INFO:  * Restarting with stat
-2026-01-12 14:05:49,477 - INFO:  * Restarting with stat
-2026-01-12 14:09:55,988 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-12 14:09:55,989 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 14:09:55,991 - INFO:  * Restarting with stat
-2026-01-12 14:09:57,708 - WARNING:  * Debugger is active!
-2026-01-12 14:09:57,715 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 14:10:16,737 - INFO: 127.0.0.1 - - [12/Jan/2026 14:10:16] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 14:10:42,009 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 14:10:42,235 - INFO:  * Restarting with stat
-2026-01-12 14:10:43,344 - WARNING:  * Debugger is active!
-2026-01-12 14:10:43,347 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 14:15:32,374 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 14:15:32,528 - INFO:  * Restarting with stat
-2026-01-12 14:15:33,514 - WARNING:  * Debugger is active!
-2026-01-12 14:15:33,516 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 14:15:35,539 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 14:15:35,737 - INFO:  * Restarting with stat
-2026-01-12 14:15:36,499 - WARNING:  * Debugger is active!
-2026-01-12 14:15:36,503 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 14:15:40,180 - INFO: 127.0.0.1 - - [12/Jan/2026 14:15:40] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 14:15:41,249 - INFO: 127.0.0.1 - - [12/Jan/2026 14:15:41] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 14:15:55,629 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 14:15:55,896 - INFO:  * Restarting with stat
-2026-01-12 14:15:56,714 - WARNING:  * Debugger is active!
-2026-01-12 14:15:56,716 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 14:18:01,652 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 14:18:01,845 - INFO:  * Restarting with stat
-2026-01-12 14:18:02,657 - WARNING:  * Debugger is active!
-2026-01-12 14:18:02,661 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 14:18:16,790 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 14:18:16,971 - INFO:  * Restarting with stat
-2026-01-12 14:18:17,811 - WARNING:  * Debugger is active!
-2026-01-12 14:18:17,816 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 14:19:35,311 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 14:19:35,439 - INFO:  * Restarting with stat
-2026-01-12 14:19:36,264 - WARNING:  * Debugger is active!
-2026-01-12 14:19:36,268 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 14:19:43,125 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-12 14:19:43,125 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 14:19:43,128 - INFO:  * Restarting with stat
-2026-01-12 14:19:43,886 - WARNING:  * Debugger is active!
-2026-01-12 14:19:43,890 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 14:19:50,632 - INFO: 127.0.0.1 - - [12/Jan/2026 14:19:50] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 14:19:51,905 - INFO: 127.0.0.1 - - [12/Jan/2026 14:19:51] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 14:20:10,061 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 14:20:10,203 - INFO:  * Restarting with stat
-2026-01-12 14:20:10,979 - WARNING:  * Debugger is active!
-2026-01-12 14:20:10,982 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 14:20:14,020 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 14:20:14,224 - INFO:  * Restarting with stat
-2026-01-12 14:20:14,996 - WARNING:  * Debugger is active!
-2026-01-12 14:20:14,999 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 14:28:26,250 - INFO: 127.0.0.1 - - [12/Jan/2026 14:28:26] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:28:26,504 - INFO: 127.0.0.1 - - [12/Jan/2026 14:28:26] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:28:29,046 - INFO: 127.0.0.1 - - [12/Jan/2026 14:28:29] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:28:29,389 - INFO: 127.0.0.1 - - [12/Jan/2026 14:28:29] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:32:15,464 - INFO: 127.0.0.1 - - [12/Jan/2026 14:32:15] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:32:15,736 - INFO: 127.0.0.1 - - [12/Jan/2026 14:32:15] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:33:05,125 - INFO: 127.0.0.1 - - [12/Jan/2026 14:33:05] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:33:05,458 - INFO: 127.0.0.1 - - [12/Jan/2026 14:33:05] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:33:07,672 - INFO: 127.0.0.1 - - [12/Jan/2026 14:33:07] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:33:08,005 - INFO: 127.0.0.1 - - [12/Jan/2026 14:33:08] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:36:41,383 - INFO: 127.0.0.1 - - [12/Jan/2026 14:36:41] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:36:41,646 - INFO: 127.0.0.1 - - [12/Jan/2026 14:36:41] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:37:51,823 - INFO: 127.0.0.1 - - [12/Jan/2026 14:37:51] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:37:52,079 - INFO: 127.0.0.1 - - [12/Jan/2026 14:37:52] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:37:53,067 - INFO: 127.0.0.1 - - [12/Jan/2026 14:37:53] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:37:53,410 - INFO: 127.0.0.1 - - [12/Jan/2026 14:37:53] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:47:13,214 - INFO: 127.0.0.1 - - [12/Jan/2026 14:47:13] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:47:13,482 - INFO: 127.0.0.1 - - [12/Jan/2026 14:47:13] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:47:40,908 - INFO: 127.0.0.1 - - [12/Jan/2026 14:47:40] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:47:41,255 - INFO: 127.0.0.1 - - [12/Jan/2026 14:47:41] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:47:41,993 - INFO: 127.0.0.1 - - [12/Jan/2026 14:47:41] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:47:42,329 - INFO: 127.0.0.1 - - [12/Jan/2026 14:47:42] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:48:17,539 - INFO: 127.0.0.1 - - [12/Jan/2026 14:48:17] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:48:17,883 - INFO: 127.0.0.1 - - [12/Jan/2026 14:48:17] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:48:21,013 - INFO: 127.0.0.1 - - [12/Jan/2026 14:48:21] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:48:21,343 - INFO: 127.0.0.1 - - [12/Jan/2026 14:48:21] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:48:55,495 - INFO: 127.0.0.1 - - [12/Jan/2026 14:48:55] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:48:55,825 - INFO: 127.0.0.1 - - [12/Jan/2026 14:48:55] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:49:21,568 - INFO: 127.0.0.1 - - [12/Jan/2026 14:49:21] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:49:21,909 - INFO: 127.0.0.1 - - [12/Jan/2026 14:49:21] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:51:32,982 - INFO: 127.0.0.1 - - [12/Jan/2026 14:51:32] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 14:51:33,235 - INFO: 127.0.0.1 - - [12/Jan/2026 14:51:33] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 15:01:40,360 - INFO: 127.0.0.1 - - [12/Jan/2026 15:01:40] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 15:01:40,624 - INFO: 127.0.0.1 - - [12/Jan/2026 15:01:40] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 15:01:44,208 - INFO: 127.0.0.1 - - [12/Jan/2026 15:01:44] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 15:01:44,538 - INFO: 127.0.0.1 - - [12/Jan/2026 15:01:44] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 15:19:56,243 - INFO: 127.0.0.1 - - [12/Jan/2026 15:19:56] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 15:19:56,447 - INFO: 127.0.0.1 - - [12/Jan/2026 15:19:56] "[35m[1mGET /products HTTP/1.1[0m" 500 -
-2026-01-12 15:27:19,969 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-12 15:27:19,969 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 15:27:19,971 - INFO:  * Restarting with stat
-2026-01-12 15:27:20,843 - WARNING:  * Debugger is active!
-2026-01-12 15:27:20,848 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 15:27:35,359 - INFO: 127.0.0.1 - - [12/Jan/2026 15:27:35] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:29:00,132 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-12 15:29:00,132 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 15:29:00,134 - INFO:  * Restarting with stat
-2026-01-12 15:29:00,998 - WARNING:  * Debugger is active!
-2026-01-12 15:29:01,002 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 15:29:13,487 - INFO: 127.0.0.1 - - [12/Jan/2026 15:29:13] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:29:19,179 - INFO: 127.0.0.1 - - [12/Jan/2026 15:29:19] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:00,741 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-12 15:32:00,871 - INFO:  * Restarting with stat
-2026-01-12 15:32:01,789 - WARNING:  * Debugger is active!
-2026-01-12 15:32:01,791 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 15:32:05,304 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-12 15:32:05,304 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 15:32:05,307 - INFO:  * Restarting with stat
-2026-01-12 15:32:06,359 - WARNING:  * Debugger is active!
-2026-01-12 15:32:06,361 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 15:32:09,869 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:09] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:11,422 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:11] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:12,197 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:12] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:12,835 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:12] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:13,168 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:13] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:13,465 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:13] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:13,525 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:13] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:13,725 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:13] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:13,967 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:13] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:13,985 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:13] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:14,054 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:14] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:14,127 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:14] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:32:14,452 - INFO: 127.0.0.1 - - [12/Jan/2026 15:32:14] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
-2026-01-12 15:34:51,394 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-12 15:34:51,394 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-12 15:34:51,395 - INFO:  * Restarting with stat
-2026-01-12 15:34:52,738 - WARNING:  * Debugger is active!
-2026-01-12 15:34:52,746 - INFO:  * Debugger PIN: 145-848-560
-2026-01-12 15:34:56,940 - INFO: hello
-2026-01-12 15:34:56,941 - INFO: 127.0.0.1 - - [12/Jan/2026 15:34:56] "GET /testdb HTTP/1.1" 200 -
-2026-01-12 15:40:46,414 - INFO: 127.0.0.1 - - [12/Jan/2026 15:40:46] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 15:40:46,799 - INFO: 127.0.0.1 - - [12/Jan/2026 15:40:46] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-01-12 15:41:50,516 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:50] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 15:41:50,873 - INFO: User logged in: Admin (admin123@gmail.com)
-2026-01-12 15:41:50,874 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:50] "POST /login HTTP/1.1" 200 -
-2026-01-12 15:41:50,919 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:50] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 15:41:51,244 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:51] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 15:41:51,248 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:51] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 15:41:51,253 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:51] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 15:41:51,255 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:51] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 15:41:51,278 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:51] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:41:51,505 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:51] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 15:41:51,569 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:51] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 15:41:51,587 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:51] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:41:51,607 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:51] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 15:41:51,835 - INFO: 127.0.0.1 - - [12/Jan/2026 15:41:51] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 15:44:57,959 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:57] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 15:44:57,960 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:57] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 15:44:57,961 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:57] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 15:44:57,962 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:57] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 15:44:57,965 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:57] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 15:44:57,968 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:57] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 15:44:58,301 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:58] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 15:44:58,313 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:58] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 15:44:58,316 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:58] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:44:58,556 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:58] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 15:44:58,645 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:58] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:44:58,703 - INFO: 127.0.0.1 - - [12/Jan/2026 15:44:58] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 15:46:59,068 - INFO: 127.0.0.1 - - [12/Jan/2026 15:46:59] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 15:46:59,068 - INFO: 127.0.0.1 - - [12/Jan/2026 15:46:59] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 15:46:59,336 - INFO: 127.0.0.1 - - [12/Jan/2026 15:46:59] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:46:59,379 - INFO: 127.0.0.1 - - [12/Jan/2026 15:46:59] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:47:48,802 - INFO: 127.0.0.1 - - [12/Jan/2026 15:47:48] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:48:11,956 - INFO: 127.0.0.1 - - [12/Jan/2026 15:48:11] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:48:12,208 - INFO: 127.0.0.1 - - [12/Jan/2026 15:48:12] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:48:23,409 - INFO: 127.0.0.1 - - [12/Jan/2026 15:48:23] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:48:23,826 - INFO: 127.0.0.1 - - [12/Jan/2026 15:48:23] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:48:36,642 - INFO: 127.0.0.1 - - [12/Jan/2026 15:48:36] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:48:36,898 - INFO: 127.0.0.1 - - [12/Jan/2026 15:48:36] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:50:31,168 - INFO: 127.0.0.1 - - [12/Jan/2026 15:50:31] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 15:50:31,525 - INFO: 127.0.0.1 - - [12/Jan/2026 15:50:31] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-01-12 15:50:59,658 - INFO: 127.0.0.1 - - [12/Jan/2026 15:50:59] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 15:51:00,063 - INFO: User logged in: shreya (shreya@example.com)
-2026-01-12 15:51:00,064 - INFO: 127.0.0.1 - - [12/Jan/2026 15:51:00] "POST /login HTTP/1.1" 200 -
-2026-01-12 15:51:00,220 - INFO: 127.0.0.1 - - [12/Jan/2026 15:51:00] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 15:51:00,385 - INFO: 127.0.0.1 - - [12/Jan/2026 15:51:00] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 15:51:00,385 - INFO: 127.0.0.1 - - [12/Jan/2026 15:51:00] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 15:51:00,387 - INFO: 127.0.0.1 - - [12/Jan/2026 15:51:00] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 15:51:00,394 - INFO: 127.0.0.1 - - [12/Jan/2026 15:51:00] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:51:00,540 - INFO: 127.0.0.1 - - [12/Jan/2026 15:51:00] "GET /categories HTTP/1.1" 200 -
-2026-01-12 15:51:00,706 - INFO: 127.0.0.1 - - [12/Jan/2026 15:51:00] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:51:00,726 - INFO: 127.0.0.1 - - [12/Jan/2026 15:51:00] "GET /categories HTTP/1.1" 200 -
-2026-01-12 15:58:44,665 - INFO: 127.0.0.1 - - [12/Jan/2026 15:58:44] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 15:58:44,669 - INFO: 127.0.0.1 - - [12/Jan/2026 15:58:44] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 15:58:44,927 - INFO: 127.0.0.1 - - [12/Jan/2026 15:58:44] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:58:44,982 - INFO: 127.0.0.1 - - [12/Jan/2026 15:58:44] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:58:58,110 - INFO: 127.0.0.1 - - [12/Jan/2026 15:58:58] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 15:58:58,112 - INFO: 127.0.0.1 - - [12/Jan/2026 15:58:58] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 15:58:58,328 - INFO: 127.0.0.1 - - [12/Jan/2026 15:58:58] "GET /products HTTP/1.1" 200 -
-2026-01-12 15:58:58,422 - INFO: 127.0.0.1 - - [12/Jan/2026 15:58:58] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:03:23,083 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:23] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:03:23,086 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:23] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:03:23,338 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:23] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:03:23,403 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:23] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:03:47,534 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:47] "OPTIONS /products/2 HTTP/1.1" 200 -
-2026-01-12 16:03:47,535 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:47] "OPTIONS /products/2 HTTP/1.1" 200 -
-2026-01-12 16:03:47,784 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:47] "GET /products/2 HTTP/1.1" 200 -
-2026-01-12 16:03:47,861 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:47] "GET /products/2 HTTP/1.1" 200 -
-2026-01-12 16:03:51,257 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:51] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:03:51,572 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:51] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:03:51,584 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:51] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:03:51,916 - INFO: 127.0.0.1 - - [12/Jan/2026 16:03:51] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:04:33,064 - INFO: 127.0.0.1 - - [12/Jan/2026 16:04:33] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:04:33,066 - INFO: 127.0.0.1 - - [12/Jan/2026 16:04:33] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:04:33,333 - INFO: 127.0.0.1 - - [12/Jan/2026 16:04:33] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:04:33,393 - INFO: 127.0.0.1 - - [12/Jan/2026 16:04:33] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:10:08,251 - INFO: 127.0.0.1 - - [12/Jan/2026 16:10:08] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:10:08,253 - INFO: 127.0.0.1 - - [12/Jan/2026 16:10:08] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:10:08,504 - INFO: 127.0.0.1 - - [12/Jan/2026 16:10:08] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:10:08,569 - INFO: 127.0.0.1 - - [12/Jan/2026 16:10:08] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:12:41,667 - INFO: 127.0.0.1 - - [12/Jan/2026 16:12:41] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:12:41,669 - INFO: 127.0.0.1 - - [12/Jan/2026 16:12:41] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:12:41,928 - INFO: 127.0.0.1 - - [12/Jan/2026 16:12:41] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:12:41,994 - INFO: 127.0.0.1 - - [12/Jan/2026 16:12:41] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:15:06,688 - INFO: 127.0.0.1 - - [12/Jan/2026 16:15:06] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:15:06,692 - INFO: 127.0.0.1 - - [12/Jan/2026 16:15:06] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:15:06,961 - INFO: 127.0.0.1 - - [12/Jan/2026 16:15:06] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:15:07,014 - INFO: 127.0.0.1 - - [12/Jan/2026 16:15:07] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:16:44,275 - INFO: 127.0.0.1 - - [12/Jan/2026 16:16:44] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:16:44,277 - INFO: 127.0.0.1 - - [12/Jan/2026 16:16:44] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:16:44,548 - INFO: 127.0.0.1 - - [12/Jan/2026 16:16:44] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:16:44,594 - INFO: 127.0.0.1 - - [12/Jan/2026 16:16:44] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:17:53,582 - INFO: 127.0.0.1 - - [12/Jan/2026 16:17:53] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:17:53,582 - INFO: 127.0.0.1 - - [12/Jan/2026 16:17:53] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:17:53,850 - INFO: 127.0.0.1 - - [12/Jan/2026 16:17:53] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:17:53,911 - INFO: 127.0.0.1 - - [12/Jan/2026 16:17:53] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:21:03,099 - INFO: 127.0.0.1 - - [12/Jan/2026 16:21:03] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:21:03,102 - INFO: 127.0.0.1 - - [12/Jan/2026 16:21:03] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:21:03,367 - INFO: 127.0.0.1 - - [12/Jan/2026 16:21:03] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:21:03,444 - INFO: 127.0.0.1 - - [12/Jan/2026 16:21:03] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:23:09,163 - INFO: 127.0.0.1 - - [12/Jan/2026 16:23:09] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:23:09,164 - INFO: 127.0.0.1 - - [12/Jan/2026 16:23:09] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:23:09,427 - INFO: 127.0.0.1 - - [12/Jan/2026 16:23:09] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:23:09,477 - INFO: 127.0.0.1 - - [12/Jan/2026 16:23:09] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:24:51,238 - INFO: 127.0.0.1 - - [12/Jan/2026 16:24:51] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:24:51,241 - INFO: 127.0.0.1 - - [12/Jan/2026 16:24:51] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:24:51,513 - INFO: 127.0.0.1 - - [12/Jan/2026 16:24:51] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:24:51,555 - INFO: 127.0.0.1 - - [12/Jan/2026 16:24:51] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:31:43,866 - INFO: 127.0.0.1 - - [12/Jan/2026 16:31:43] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:31:43,870 - INFO: 127.0.0.1 - - [12/Jan/2026 16:31:43] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:31:44,143 - INFO: 127.0.0.1 - - [12/Jan/2026 16:31:44] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:31:44,194 - INFO: 127.0.0.1 - - [12/Jan/2026 16:31:44] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:32:42,438 - INFO: 127.0.0.1 - - [12/Jan/2026 16:32:42] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:32:42,441 - INFO: 127.0.0.1 - - [12/Jan/2026 16:32:42] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:32:42,703 - INFO: 127.0.0.1 - - [12/Jan/2026 16:32:42] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:32:42,780 - INFO: 127.0.0.1 - - [12/Jan/2026 16:32:42] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:37:30,358 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:30] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:37:30,361 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:30] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:37:30,635 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:30] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:37:30,687 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:30] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:37:37,128 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:37] "OPTIONS /products/9 HTTP/1.1" 200 -
-2026-01-12 16:37:37,442 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:37] "OPTIONS /products/9 HTTP/1.1" 200 -
-2026-01-12 16:37:37,458 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:37] "GET /products/9 HTTP/1.1" 200 -
-2026-01-12 16:37:37,776 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:37] "GET /products/9 HTTP/1.1" 200 -
-2026-01-12 16:37:41,790 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:41] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:37:42,103 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:42] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:37:42,116 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:42] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:37:42,439 - INFO: 127.0.0.1 - - [12/Jan/2026 16:37:42] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:39:08,714 - INFO: 127.0.0.1 - - [12/Jan/2026 16:39:08] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:39:08,716 - INFO: 127.0.0.1 - - [12/Jan/2026 16:39:08] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:39:08,987 - INFO: 127.0.0.1 - - [12/Jan/2026 16:39:08] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:39:09,032 - INFO: 127.0.0.1 - - [12/Jan/2026 16:39:09] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:40:13,931 - INFO: 127.0.0.1 - - [12/Jan/2026 16:40:13] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:40:13,936 - INFO: 127.0.0.1 - - [12/Jan/2026 16:40:13] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:40:14,199 - INFO: 127.0.0.1 - - [12/Jan/2026 16:40:14] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:40:14,266 - INFO: 127.0.0.1 - - [12/Jan/2026 16:40:14] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:40:58,944 - INFO: 127.0.0.1 - - [12/Jan/2026 16:40:58] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:40:58,946 - INFO: 127.0.0.1 - - [12/Jan/2026 16:40:58] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:40:59,212 - INFO: 127.0.0.1 - - [12/Jan/2026 16:40:59] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:40:59,271 - INFO: 127.0.0.1 - - [12/Jan/2026 16:40:59] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:42:09,031 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:09] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:42:09,032 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:09] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:42:09,310 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:09] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:42:09,358 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:09] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:42:23,552 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:23] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:42:23,895 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:23] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:42:24,153 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:24] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:42:32,782 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:32] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:42:33,118 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:33] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:42:40,528 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:40] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 16:42:41,045 - INFO: User logged in: shreya (shreya@example.com)
-2026-01-12 16:42:41,046 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:41] "POST /login HTTP/1.1" 200 -
-2026-01-12 16:42:41,064 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:41] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:42:41,384 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:41] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:42:41,386 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:41] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:42:41,388 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:41] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:42:41,398 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:41] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:42:41,731 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:41] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:42:41,736 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:41] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:42:42,051 - INFO: 127.0.0.1 - - [12/Jan/2026 16:42:42] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:45:48,394 - INFO: 127.0.0.1 - - [12/Jan/2026 16:45:48] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:45:48,394 - INFO: 127.0.0.1 - - [12/Jan/2026 16:45:48] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:45:48,661 - INFO: 127.0.0.1 - - [12/Jan/2026 16:45:48] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:45:48,723 - INFO: 127.0.0.1 - - [12/Jan/2026 16:45:48] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:45:52,095 - INFO: 127.0.0.1 - - [12/Jan/2026 16:45:52] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:45:52,411 - INFO: 127.0.0.1 - - [12/Jan/2026 16:45:52] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:46:53,887 - INFO: 127.0.0.1 - - [12/Jan/2026 16:46:53] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:46:53,888 - INFO: 127.0.0.1 - - [12/Jan/2026 16:46:53] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:46:53,994 - INFO: 127.0.0.1 - - [12/Jan/2026 16:46:53] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:46:53,994 - INFO: 127.0.0.1 - - [12/Jan/2026 16:46:53] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:46:54,158 - INFO: 127.0.0.1 - - [12/Jan/2026 16:46:54] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:46:54,231 - INFO: 127.0.0.1 - - [12/Jan/2026 16:46:54] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:46:54,231 - INFO: 127.0.0.1 - - [12/Jan/2026 16:46:54] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:46:54,478 - INFO: 127.0.0.1 - - [12/Jan/2026 16:46:54] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:47:32,398 - INFO: 127.0.0.1 - - [12/Jan/2026 16:47:32] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:47:32,400 - INFO: 127.0.0.1 - - [12/Jan/2026 16:47:32] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:47:32,665 - INFO: 127.0.0.1 - - [12/Jan/2026 16:47:32] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:47:32,733 - INFO: 127.0.0.1 - - [12/Jan/2026 16:47:32] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:48:13,085 - INFO: 127.0.0.1 - - [12/Jan/2026 16:48:13] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:48:13,405 - INFO: 127.0.0.1 - - [12/Jan/2026 16:48:13] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:48:13,411 - INFO: 127.0.0.1 - - [12/Jan/2026 16:48:13] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:48:13,735 - INFO: 127.0.0.1 - - [12/Jan/2026 16:48:13] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:49:58,375 - INFO: 127.0.0.1 - - [12/Jan/2026 16:49:58] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:49:58,376 - INFO: 127.0.0.1 - - [12/Jan/2026 16:49:58] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:49:58,646 - INFO: 127.0.0.1 - - [12/Jan/2026 16:49:58] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:49:58,700 - INFO: 127.0.0.1 - - [12/Jan/2026 16:49:58] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:50:02,089 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:02] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:50:02,412 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:02] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:50:03,421 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:03] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:50:03,423 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:03] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:50:21,792 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:21] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:50:21,793 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:21] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:50:21,796 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:21] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:50:21,797 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:21] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:50:22,039 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:22] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:50:22,137 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:22] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:50:22,137 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:22] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:50:22,366 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:22] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:50:28,201 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:28] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:50:28,202 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:28] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:50:28,468 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:28] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:50:28,515 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:28] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:50:33,023 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:33] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:50:33,346 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:33] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:50:45,116 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:45] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 16:50:45,594 - INFO: User logged in: shreya (shreya@example.com)
-2026-01-12 16:50:45,596 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:45] "POST /login HTTP/1.1" 200 -
-2026-01-12 16:50:45,628 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:45] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:50:45,947 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:45] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:50:45,949 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:45] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:50:45,949 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:45] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:50:45,963 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:45] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:50:46,299 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:46] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:50:46,300 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:46] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:50:46,621 - INFO: 127.0.0.1 - - [12/Jan/2026 16:50:46] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:51:08,406 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:08] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:51:08,414 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:08] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:51:08,670 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:08] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:51:08,754 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:08] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:51:10,092 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:10] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:51:10,402 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:10] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:51:14,688 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:14] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:51:14,691 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:14] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:51:14,692 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:14] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:51:14,694 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:14] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:51:14,938 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:14] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:51:15,019 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:15] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:51:15,019 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:15] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:51:15,266 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:15] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:51:55,435 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:55] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:51:55,436 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:55] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:51:55,761 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:55] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:51:55,763 - INFO: 127.0.0.1 - - [12/Jan/2026 16:51:55] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:52:00,418 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:00] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:52:00,418 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:00] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:52:20,402 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:20] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:52:20,406 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:20] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:52:20,670 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:20] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:52:20,749 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:20] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:52:21,089 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:21] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:52:21,408 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:21] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:52:24,400 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:24] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:52:24,401 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:24] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:52:24,661 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:24] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:52:24,725 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:24] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:52:41,298 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:41] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 16:52:41,856 - INFO: User logged in: shreya (shreya@example.com)
-2026-01-12 16:52:41,858 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:41] "POST /login HTTP/1.1" 200 -
-2026-01-12 16:52:41,889 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:41] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:52:42,216 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:42] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:52:42,217 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:42] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:52:42,220 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:42] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:52:42,232 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:42] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:52:42,561 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:42] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:52:42,564 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:42] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:52:42,886 - INFO: 127.0.0.1 - - [12/Jan/2026 16:52:42] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:53:04,407 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:04] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:53:04,408 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:04] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:53:04,687 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:04] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:53:04,733 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:04] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:53:23,080 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:23] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:53:23,389 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:23] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:53:23,397 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:23] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:53:23,705 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:23] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:53:25,425 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:25] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:53:25,428 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:25] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:53:26,088 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:26] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:53:26,402 - INFO: 127.0.0.1 - - [12/Jan/2026 16:53:26] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:54:49,954 - INFO: 127.0.0.1 - - [12/Jan/2026 16:54:49] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:54:49,956 - INFO: 127.0.0.1 - - [12/Jan/2026 16:54:49] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:54:50,198 - INFO: 127.0.0.1 - - [12/Jan/2026 16:54:50] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:54:50,275 - INFO: 127.0.0.1 - - [12/Jan/2026 16:54:50] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:54:54,111 - INFO: 127.0.0.1 - - [12/Jan/2026 16:54:54] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:54:54,483 - INFO: 127.0.0.1 - - [12/Jan/2026 16:54:54] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:55:30,935 - INFO: 127.0.0.1 - - [12/Jan/2026 16:55:30] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:55:30,937 - INFO: 127.0.0.1 - - [12/Jan/2026 16:55:30] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:55:31,212 - INFO: 127.0.0.1 - - [12/Jan/2026 16:55:31] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:55:31,263 - INFO: 127.0.0.1 - - [12/Jan/2026 16:55:31] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:56:42,454 - INFO: 127.0.0.1 - - [12/Jan/2026 16:56:42] "OPTIONS /register HTTP/1.1" 200 -
-2026-01-12 16:56:43,249 - INFO: pbkdf2:sha256:600000$3TrtCEZmSDqyqilL$3203f857a7e956b1d642d6f172721311bef4263352d97bea6c0c4a45c4949081
-2026-01-12 16:56:43,264 - INFO: New user registered: kratika (mishkratika10@gmail.com)
-2026-01-12 16:56:43,264 - INFO: mishkratika10@gmail.com
-2026-01-12 16:56:48,349 - INFO: Welcome email sent successfully
-2026-01-12 16:56:48,354 - INFO: 127.0.0.1 - - [12/Jan/2026 16:56:48] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
-2026-01-12 16:56:48,393 - INFO: 127.0.0.1 - - [12/Jan/2026 16:56:48] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:56:48,701 - INFO: 127.0.0.1 - - [12/Jan/2026 16:56:48] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:56:48,702 - INFO: 127.0.0.1 - - [12/Jan/2026 16:56:48] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:56:48,704 - INFO: 127.0.0.1 - - [12/Jan/2026 16:56:48] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 16:56:48,714 - INFO: 127.0.0.1 - - [12/Jan/2026 16:56:48] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:56:49,018 - INFO: 127.0.0.1 - - [12/Jan/2026 16:56:49] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:56:49,035 - INFO: 127.0.0.1 - - [12/Jan/2026 16:56:49] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:56:49,341 - INFO: 127.0.0.1 - - [12/Jan/2026 16:56:49] "GET /categories HTTP/1.1" 200 -
-2026-01-12 16:57:09,439 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:09] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 16:57:09,928 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:09] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-01-12 16:57:32,814 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:32] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 16:57:33,357 - INFO: User logged in: Admin (admin123@gmail.com)
-2026-01-12 16:57:33,358 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:33] "POST /login HTTP/1.1" 200 -
-2026-01-12 16:57:33,414 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:33] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:57:33,739 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:33] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 16:57:33,741 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:33] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:57:33,742 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:33] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 16:57:33,744 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:33] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 16:57:33,744 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:33] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 16:57:33,754 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:33] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:57:34,065 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:34] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 16:57:34,087 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:34] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 16:57:34,087 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:34] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:57:34,406 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:34] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 16:57:34,422 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:34] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 16:57:41,885 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:41] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:57:41,886 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:41] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 16:57:42,152 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:42] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:57:42,215 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:42] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:57:46,780 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:46] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 16:57:47,088 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:47] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 16:57:47,090 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:47] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 16:57:47,094 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:47] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 16:57:47,113 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:47] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:57:47,115 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:47] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 16:57:47,427 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:47] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 16:57:47,448 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:47] "GET /products HTTP/1.1" 200 -
-2026-01-12 16:57:47,454 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:47] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 16:57:47,757 - INFO: 127.0.0.1 - - [12/Jan/2026 16:57:47] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 16:58:31,299 - INFO: 127.0.0.1 - - [12/Jan/2026 16:58:31] "OPTIONS /orders HTTP/1.1" 200 -
-2026-01-12 16:58:31,301 - INFO: 127.0.0.1 - - [12/Jan/2026 16:58:31] "OPTIONS /orders HTTP/1.1" 200 -
-2026-01-12 16:58:31,570 - INFO: 127.0.0.1 - - [12/Jan/2026 16:58:31] "GET /orders HTTP/1.1" 200 -
-2026-01-12 16:58:31,629 - INFO: 127.0.0.1 - - [12/Jan/2026 16:58:31] "GET /orders HTTP/1.1" 200 -
-2026-01-12 19:55:36,125 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:36] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 19:55:36,517 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:36] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-01-12 19:55:49,367 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:49] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 19:55:49,867 - INFO: User logged in: Admin (admin123@gmail.com)
-2026-01-12 19:55:49,868 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:49] "POST /login HTTP/1.1" 200 -
-2026-01-12 19:55:49,911 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:49] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 19:55:50,216 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:50] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 19:55:50,224 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:50] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 19:55:50,235 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:50] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 19:55:50,236 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:50] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 19:55:50,237 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:50] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 19:55:50,256 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:50] "GET /products HTTP/1.1" 200 -
-2026-01-12 19:55:50,533 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:50] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 19:55:50,546 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:50] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 19:55:50,575 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:50] "GET /products HTTP/1.1" 200 -
-2026-01-12 19:55:50,847 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:50] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 19:55:50,864 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:50] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 19:55:54,095 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:54] "GET /products HTTP/1.1" 200 -
-2026-01-12 19:55:54,339 - INFO: 127.0.0.1 - - [12/Jan/2026 19:55:54] "GET /products HTTP/1.1" 200 -
-2026-01-12 20:00:31,772 - INFO: 127.0.0.1 - - [12/Jan/2026 20:00:31] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 20:00:32,046 - INFO: 127.0.0.1 - - [12/Jan/2026 20:00:32] "GET /products HTTP/1.1" 200 -
-2026-01-12 20:00:56,575 - INFO: 127.0.0.1 - - [12/Jan/2026 20:00:56] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 20:00:56,590 - INFO: 127.0.0.1 - - [12/Jan/2026 20:00:56] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 20:00:56,832 - INFO: 127.0.0.1 - - [12/Jan/2026 20:00:56] "GET /products HTTP/1.1" 200 -
-2026-01-12 20:00:56,911 - INFO: 127.0.0.1 - - [12/Jan/2026 20:00:56] "GET /products HTTP/1.1" 200 -
-2026-01-12 20:18:19,523 - INFO: 127.0.0.1 - - [12/Jan/2026 20:18:19] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 20:18:19,532 - INFO: 127.0.0.1 - - [12/Jan/2026 20:18:19] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 20:18:19,797 - INFO: 127.0.0.1 - - [12/Jan/2026 20:18:19] "GET /products HTTP/1.1" 200 -
-2026-01-12 20:18:19,878 - INFO: 127.0.0.1 - - [12/Jan/2026 20:18:19] "GET /products HTTP/1.1" 200 -
-2026-01-12 20:37:53,964 - INFO: 127.0.0.1 - - [12/Jan/2026 20:37:53] "GET /products HTTP/1.1" 200 -
-2026-01-12 20:37:54,124 - INFO: 127.0.0.1 - - [12/Jan/2026 20:37:54] "GET /products HTTP/1.1" 200 -
-2026-01-12 21:16:55,780 - INFO: 127.0.0.1 - - [12/Jan/2026 21:16:55] "GET /products HTTP/1.1" 200 -
-2026-01-12 21:16:55,949 - INFO: 127.0.0.1 - - [12/Jan/2026 21:16:55] "GET /products HTTP/1.1" 200 -
-2026-01-12 22:58:46,108 - INFO: 127.0.0.1 - - [12/Jan/2026 22:58:46] "GET /products HTTP/1.1" 200 -
-2026-01-12 22:58:46,369 - INFO: 127.0.0.1 - - [12/Jan/2026 22:58:46] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:08:11,199 - INFO: 127.0.0.1 - - [12/Jan/2026 23:08:11] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:08:11,441 - INFO: 127.0.0.1 - - [12/Jan/2026 23:08:11] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:24:10,757 - INFO: 127.0.0.1 - - [12/Jan/2026 23:24:10] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:24:11,025 - INFO: 127.0.0.1 - - [12/Jan/2026 23:24:11] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:25:53,476 - INFO: 127.0.0.1 - - [12/Jan/2026 23:25:53] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:25:53,479 - INFO: 127.0.0.1 - - [12/Jan/2026 23:25:53] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:25:54,015 - INFO: 127.0.0.1 - - [12/Jan/2026 23:25:54] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:25:54,025 - INFO: 127.0.0.1 - - [12/Jan/2026 23:25:54] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:30:02,444 - INFO: 127.0.0.1 - - [12/Jan/2026 23:30:02] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:30:02,446 - INFO: 127.0.0.1 - - [12/Jan/2026 23:30:02] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:30:02,725 - INFO: 127.0.0.1 - - [12/Jan/2026 23:30:02] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:30:02,766 - INFO: 127.0.0.1 - - [12/Jan/2026 23:30:02] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:30:15,758 - INFO: 127.0.0.1 - - [12/Jan/2026 23:30:15] "OPTIONS /products/1 HTTP/1.1" 200 -
-2026-01-12 23:30:15,759 - INFO: 127.0.0.1 - - [12/Jan/2026 23:30:15] "OPTIONS /products/1 HTTP/1.1" 200 -
-2026-01-12 23:30:16,022 - INFO: 127.0.0.1 - - [12/Jan/2026 23:30:16] "GET /products/1 HTTP/1.1" 200 -
-2026-01-12 23:30:16,072 - INFO: 127.0.0.1 - - [12/Jan/2026 23:30:16] "GET /products/1 HTTP/1.1" 200 -
-2026-01-12 23:31:08,391 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:08] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:31:08,392 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:08] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:31:08,645 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:08] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:31:08,709 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:08] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:31:13,481 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:13] "OPTIONS /products/1 HTTP/1.1" 200 -
-2026-01-12 23:31:13,788 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:13] "OPTIONS /products/1 HTTP/1.1" 200 -
-2026-01-12 23:31:13,798 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:13] "GET /products/1 HTTP/1.1" 200 -
-2026-01-12 23:31:14,111 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:14] "GET /products/1 HTTP/1.1" 200 -
-2026-01-12 23:31:30,541 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:30] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:31:30,851 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:30] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:31:30,865 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:30] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:31:31,173 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:31] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:31:33,903 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:33] "OPTIONS /cart HTTP/1.1" 200 -
-2026-01-12 23:31:34,186 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:34] "[31m[1mPOST /cart HTTP/1.1[0m" 401 -
-2026-01-12 23:31:40,310 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:40] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:31:40,634 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:40] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:31:54,650 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:54] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 23:31:55,000 - INFO: 127.0.0.1 - - [12/Jan/2026 23:31:55] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-01-12 23:32:07,973 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:07] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 23:32:08,373 - INFO: User logged in: Admin (admin123@gmail.com)
-2026-01-12 23:32:08,374 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:08] "POST /login HTTP/1.1" 200 -
-2026-01-12 23:32:08,540 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:08] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:32:08,710 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:08] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 23:32:08,720 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:08] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 23:32:08,721 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:08] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:32:08,724 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:08] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 23:32:08,730 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:08] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 23:32:08,856 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:08] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:32:09,019 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:09] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 23:32:09,043 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:09] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 23:32:09,165 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:09] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:32:09,332 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:09] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 23:32:09,353 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:09] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 23:32:13,115 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:13] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:32:13,367 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:13] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:32:16,837 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:16] "OPTIONS /cart HTTP/1.1" 200 -
-2026-01-12 23:32:17,170 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:17] "[35m[1mPOST /cart HTTP/1.1[0m" 201 -
-2026-01-12 23:32:25,448 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:25] "OPTIONS /products/2 HTTP/1.1" 200 -
-2026-01-12 23:32:25,758 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:25] "OPTIONS /products/2 HTTP/1.1" 200 -
-2026-01-12 23:32:25,775 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:25] "GET /products/2 HTTP/1.1" 200 -
-2026-01-12 23:32:26,080 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:26] "GET /products/2 HTTP/1.1" 200 -
-2026-01-12 23:32:43,784 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:43] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:32:43,788 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:43] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:32:44,043 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:44] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:32:44,110 - INFO: 127.0.0.1 - - [12/Jan/2026 23:32:44] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:34:36,787 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:36] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:34:36,790 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:36] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:34:37,044 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:37] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:34:37,101 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:37] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:34:43,268 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:34:43,276 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 23:34:43,277 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:34:43,278 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 23:34:43,280 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 23:34:43,284 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-12 23:34:43,588 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:34:43,591 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 23:34:43,593 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 23:34:43,781 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:34:43,905 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-12 23:34:43,906 - INFO: 127.0.0.1 - - [12/Jan/2026 23:34:43] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-12 23:36:12,474 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:12] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-12 23:36:12,809 - INFO: User logged in: shreya (shreya@example.com)
-2026-01-12 23:36:12,810 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:12] "POST /login HTTP/1.1" 200 -
-2026-01-12 23:36:12,820 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:12] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:36:13,128 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:13] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 23:36:13,129 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:13] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:36:13,130 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:13] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 23:36:13,136 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:13] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:36:13,440 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:13] "GET /categories HTTP/1.1" 200 -
-2026-01-12 23:36:13,449 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:13] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:36:13,753 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:13] "GET /categories HTTP/1.1" 200 -
-2026-01-12 23:36:24,745 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:24] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:36:24,746 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:24] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:36:24,991 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:24] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:36:25,058 - INFO: 127.0.0.1 - - [12/Jan/2026 23:36:25] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:37:18,394 - INFO: 127.0.0.1 - - [12/Jan/2026 23:37:18] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:37:18,717 - INFO: 127.0.0.1 - - [12/Jan/2026 23:37:18] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:38:11,760 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:11] "OPTIONS /register HTTP/1.1" 200 -
-2026-01-12 23:38:12,220 - INFO: pbkdf2:sha256:600000$4nygqte1zCzmSuyN$f7b57ec1989ec72561f4068fc3ab7f2a81279fd0d8b809e192d4998694524ec4
-2026-01-12 23:38:12,225 - INFO: New user registered: janardan (janardanpanday892@gmail.com)
-2026-01-12 23:38:12,225 - INFO: janardanpanday892@gmail.com
-2026-01-12 23:38:16,989 - INFO: Welcome email sent successfully
-2026-01-12 23:38:16,991 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:16] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
-2026-01-12 23:38:17,003 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:17] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:38:17,317 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:17] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 23:38:17,317 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:17] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-12 23:38:17,334 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:17] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:38:17,563 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:17] "GET /categories HTTP/1.1" 200 -
-2026-01-12 23:38:17,639 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:17] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:38:17,655 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:17] "GET /categories HTTP/1.1" 200 -
-2026-01-12 23:38:25,220 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:25] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:38:25,530 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:25] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-12 23:38:25,549 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:25] "GET /products HTTP/1.1" 200 -
-2026-01-12 23:38:25,861 - INFO: 127.0.0.1 - - [12/Jan/2026 23:38:25] "GET /products HTTP/1.1" 200 -
-2026-01-13 03:13:32,224 - INFO: 127.0.0.1 - - [13/Jan/2026 03:13:32] "GET /products HTTP/1.1" 200 -
-2026-01-13 03:35:07,532 - INFO: 127.0.0.1 - - [13/Jan/2026 03:35:07] "GET /products HTTP/1.1" 200 -
-2026-01-13 03:35:07,766 - INFO: 127.0.0.1 - - [13/Jan/2026 03:35:07] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:40:38,342 - INFO: 127.0.0.1 - - [13/Jan/2026 19:40:38] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:40:38,345 - INFO: 127.0.0.1 - - [13/Jan/2026 19:40:38] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:40:38,624 - INFO: 127.0.0.1 - - [13/Jan/2026 19:40:38] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:40:38,842 - INFO: 127.0.0.1 - - [13/Jan/2026 19:40:38] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:41:51,849 - INFO: 127.0.0.1 - - [13/Jan/2026 19:41:51] "OPTIONS /register HTTP/1.1" 200 -
-2026-01-13 19:41:52,735 - INFO: pbkdf2:sha256:600000$kLeakYqgdCwnCh7C$9d01c5ae9cf4f9fe33fa9fbd01c67a9f6b28b33acb2777949691665bec605b2d
-2026-01-13 19:41:52,755 - INFO: New user registered: Kratika Mishra (kratika1005@gmail.com)
-2026-01-13 19:41:52,755 - INFO: kratika1005@gmail.com
-2026-01-13 19:41:57,998 - INFO: Welcome email sent successfully
-2026-01-13 19:41:58,005 - INFO: 127.0.0.1 - - [13/Jan/2026 19:41:58] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
-2026-01-13 19:41:58,358 - INFO: 127.0.0.1 - - [13/Jan/2026 19:41:58] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:41:58,363 - INFO: 127.0.0.1 - - [13/Jan/2026 19:41:58] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:41:58,365 - INFO: 127.0.0.1 - - [13/Jan/2026 19:41:58] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-13 19:41:58,367 - INFO: 127.0.0.1 - - [13/Jan/2026 19:41:58] "OPTIONS /categories HTTP/1.1" 200 -
-2026-01-13 19:41:58,625 - INFO: 127.0.0.1 - - [13/Jan/2026 19:41:58] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:41:58,692 - INFO: 127.0.0.1 - - [13/Jan/2026 19:41:58] "GET /categories HTTP/1.1" 200 -
-2026-01-13 19:41:58,708 - INFO: 127.0.0.1 - - [13/Jan/2026 19:41:58] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:41:58,950 - INFO: 127.0.0.1 - - [13/Jan/2026 19:41:58] "GET /categories HTTP/1.1" 200 -
-2026-01-13 19:42:23,213 - INFO: 127.0.0.1 - - [13/Jan/2026 19:42:23] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:42:23,215 - INFO: 127.0.0.1 - - [13/Jan/2026 19:42:23] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:42:23,480 - INFO: 127.0.0.1 - - [13/Jan/2026 19:42:23] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:42:23,554 - INFO: 127.0.0.1 - - [13/Jan/2026 19:42:23] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:42:38,243 - INFO: 127.0.0.1 - - [13/Jan/2026 19:42:38] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:42:38,487 - INFO: 127.0.0.1 - - [13/Jan/2026 19:42:38] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:42:58,672 - INFO: 127.0.0.1 - - [13/Jan/2026 19:42:58] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-13 19:42:59,218 - INFO: 127.0.0.1 - - [13/Jan/2026 19:42:59] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-01-13 19:43:13,643 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:13] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-13 19:43:14,189 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:14] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-01-13 19:43:26,545 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:26] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-13 19:43:27,071 - INFO: User logged in: Admin (admin123@gmail.com)
-2026-01-13 19:43:27,073 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:27] "POST /login HTTP/1.1" 200 -
-2026-01-13 19:43:27,120 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:27] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:43:27,413 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:27] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:43:27,415 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:27] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:43:27,417 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:27] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-13 19:43:27,420 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:27] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-13 19:43:27,421 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:27] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:43:27,443 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:27] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:43:27,748 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:27] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:43:27,760 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:27] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-13 19:43:27,767 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:27] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:43:28,101 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:28] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:43:28,105 - INFO: 127.0.0.1 - - [13/Jan/2026 19:43:28] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-13 19:44:10,341 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:10] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:44:10,342 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:10] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:44:10,620 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:10] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:44:10,668 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:10] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:44:12,174 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:12] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:44:12,498 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:12] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-13 19:44:12,500 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:12] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:44:12,504 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:12] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-13 19:44:12,512 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:12] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:44:12,515 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:12] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:44:12,846 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:12] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-13 19:44:12,846 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:12] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:44:12,850 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:12] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:44:13,178 - INFO: 127.0.0.1 - - [13/Jan/2026 19:44:13] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-13 19:45:29,039 - INFO: 127.0.0.1 - - [13/Jan/2026 19:45:29] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:45:29,305 - INFO: Gold
-2026-01-13 19:45:29,319 - INFO: 127.0.0.1 - - [13/Jan/2026 19:45:29] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
-2026-01-13 19:45:29,355 - INFO: 127.0.0.1 - - [13/Jan/2026 19:45:29] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:45:45,589 - INFO: 127.0.0.1 - - [13/Jan/2026 19:45:45] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:45:45,591 - INFO: 127.0.0.1 - - [13/Jan/2026 19:45:45] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:45:45,854 - INFO: 127.0.0.1 - - [13/Jan/2026 19:45:45] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:45:45,918 - INFO: 127.0.0.1 - - [13/Jan/2026 19:45:45] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:47:23,526 - INFO: 127.0.0.1 - - [13/Jan/2026 19:47:23] "OPTIONS /orders HTTP/1.1" 200 -
-2026-01-13 19:47:23,530 - INFO: 127.0.0.1 - - [13/Jan/2026 19:47:23] "OPTIONS /orders HTTP/1.1" 200 -
-2026-01-13 19:47:23,805 - INFO: 127.0.0.1 - - [13/Jan/2026 19:47:23] "GET /orders HTTP/1.1" 200 -
-2026-01-13 19:47:23,863 - INFO: 127.0.0.1 - - [13/Jan/2026 19:47:23] "GET /orders HTTP/1.1" 200 -
-2026-01-13 19:47:26,885 - INFO: 127.0.0.1 - - [13/Jan/2026 19:47:26] "OPTIONS /cart HTTP/1.1" 200 -
-2026-01-13 19:47:27,193 - INFO: 127.0.0.1 - - [13/Jan/2026 19:47:27] "OPTIONS /cart HTTP/1.1" 200 -
-2026-01-13 19:47:27,224 - INFO: 127.0.0.1 - - [13/Jan/2026 19:47:27] "GET /cart HTTP/1.1" 200 -
-2026-01-13 19:47:27,541 - INFO: 127.0.0.1 - - [13/Jan/2026 19:47:27] "GET /cart HTTP/1.1" 200 -
-2026-01-13 19:48:34,606 - INFO: 127.0.0.1 - - [13/Jan/2026 19:48:34] "OPTIONS /cart HTTP/1.1" 200 -
-2026-01-13 19:48:34,607 - INFO: 127.0.0.1 - - [13/Jan/2026 19:48:34] "OPTIONS /cart HTTP/1.1" 200 -
-2026-01-13 19:48:34,877 - INFO: 127.0.0.1 - - [13/Jan/2026 19:48:34] "GET /cart HTTP/1.1" 200 -
-2026-01-13 19:48:34,940 - INFO: 127.0.0.1 - - [13/Jan/2026 19:48:34] "GET /cart HTTP/1.1" 200 -
-2026-01-13 19:55:16,517 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:16] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:55:16,520 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:16] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:55:16,520 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:16] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-13 19:55:16,522 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:16] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 19:55:16,523 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:16] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:55:16,524 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:16] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-13 19:55:16,866 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:16] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-13 19:55:16,866 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:16] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:55:16,870 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:16] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:55:17,102 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:17] "GET /products HTTP/1.1" 200 -
-2026-01-13 19:55:17,192 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:17] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 19:55:17,193 - INFO: 127.0.0.1 - - [13/Jan/2026 19:55:17] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-13 23:35:38,627 - INFO: 127.0.0.1 - - [13/Jan/2026 23:35:38] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 23:35:38,633 - INFO: 127.0.0.1 - - [13/Jan/2026 23:35:38] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 23:35:38,900 - INFO: 127.0.0.1 - - [13/Jan/2026 23:35:38] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:35:38,969 - INFO: 127.0.0.1 - - [13/Jan/2026 23:35:38] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:36:01,110 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:01] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 23:36:01,417 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:01] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 23:36:01,418 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:01] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-13 23:36:01,418 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:01] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 23:36:01,427 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:01] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 23:36:01,430 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:01] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-13 23:36:01,433 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:01] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:36:01,779 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:01] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-13 23:36:01,779 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:01] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-13 23:36:01,781 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:01] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:36:02,100 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:02] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-13 23:36:02,101 - INFO: 127.0.0.1 - - [13/Jan/2026 23:36:02] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-13 23:43:04,167 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-13 23:43:04,169 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 23:43:04,170 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 23:43:04,173 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 23:43:04,176 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-13 23:43:04,180 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-13 23:43:04,489 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-13 23:43:04,492 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-13 23:43:04,505 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:43:04,803 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-13 23:43:04,807 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-13 23:43:04,831 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:04] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:43:06,158 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:06] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-13 23:43:06,159 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:06] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-13 23:43:06,168 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:06] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:43:06,407 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:06] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-13 23:43:06,469 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:06] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-13 23:43:06,477 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:06] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:43:07,276 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:07] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-13 23:43:07,586 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:07] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-13 23:43:07,588 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:07] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-13 23:43:07,592 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:07] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:43:07,899 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:07] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-13 23:43:07,915 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:07] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:43:09,396 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:09] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-13 23:43:09,398 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:09] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-13 23:43:09,411 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:09] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:43:09,656 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:09] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-13 23:43:09,720 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:09] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-13 23:43:09,726 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:09] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:43:14,088 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:14] "OPTIONS /cart HTTP/1.1" 200 -
-2026-01-13 23:43:14,405 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:14] "OPTIONS /cart HTTP/1.1" 200 -
-2026-01-13 23:43:14,409 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:14] "[31m[1mGET /cart HTTP/1.1[0m" 401 -
-2026-01-13 23:43:14,717 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:14] "[31m[1mGET /cart HTTP/1.1[0m" 401 -
-2026-01-13 23:43:20,498 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:20] "OPTIONS /orders HTTP/1.1" 200 -
-2026-01-13 23:43:20,802 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:20] "OPTIONS /orders HTTP/1.1" 200 -
-2026-01-13 23:43:20,819 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:20] "[31m[1mGET /orders HTTP/1.1[0m" 401 -
-2026-01-13 23:43:21,130 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:21] "[31m[1mGET /orders HTTP/1.1[0m" 401 -
-2026-01-13 23:43:45,566 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:45] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 23:43:45,880 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:45] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-13 23:43:45,915 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:45] "GET /products HTTP/1.1" 200 -
-2026-01-13 23:43:46,237 - INFO: 127.0.0.1 - - [13/Jan/2026 23:43:46] "GET /products HTTP/1.1" 200 -
-2026-01-14 00:00:48,890 - INFO: 127.0.0.1 - - [14/Jan/2026 00:00:48] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 00:00:48,891 - INFO: 127.0.0.1 - - [14/Jan/2026 00:00:48] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 00:00:49,152 - INFO: 127.0.0.1 - - [14/Jan/2026 00:00:49] "GET /products HTTP/1.1" 200 -
-2026-01-14 00:00:49,217 - INFO: 127.0.0.1 - - [14/Jan/2026 00:00:49] "GET /products HTTP/1.1" 200 -
-2026-01-14 00:39:44,373 - INFO: 127.0.0.1 - - [14/Jan/2026 00:39:44] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 00:39:44,375 - INFO: 127.0.0.1 - - [14/Jan/2026 00:39:44] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 00:39:44,621 - INFO: 127.0.0.1 - - [14/Jan/2026 00:39:44] "GET /products HTTP/1.1" 200 -
-2026-01-14 00:39:44,700 - INFO: 127.0.0.1 - - [14/Jan/2026 00:39:44] "GET /products HTTP/1.1" 200 -
-2026-01-14 01:21:35,199 - INFO: 127.0.0.1 - - [14/Jan/2026 01:21:35] "GET /products HTTP/1.1" 200 -
-2026-01-14 01:22:56,037 - INFO: 127.0.0.1 - - [14/Jan/2026 01:22:56] "GET /products HTTP/1.1" 200 -
-2026-01-14 01:28:09,731 - INFO: 127.0.0.1 - - [14/Jan/2026 01:28:09] "GET /products HTTP/1.1" 200 -
-2026-01-14 01:50:59,415 - INFO: 127.0.0.1 - - [14/Jan/2026 01:50:59] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-14 01:50:59,869 - INFO: User logged in: Admin (admin123@gmail.com)
-2026-01-14 01:50:59,871 - INFO: 127.0.0.1 - - [14/Jan/2026 01:50:59] "POST /login HTTP/1.1" 200 -
-2026-01-14 01:50:59,936 - INFO: 127.0.0.1 - - [14/Jan/2026 01:50:59] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 01:51:00,197 - INFO: 127.0.0.1 - - [14/Jan/2026 01:51:00] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 01:51:00,198 - INFO: 127.0.0.1 - - [14/Jan/2026 01:51:00] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 01:51:00,263 - INFO: 127.0.0.1 - - [14/Jan/2026 01:51:00] "GET /products HTTP/1.1" 200 -
-2026-01-14 01:51:00,526 - INFO: 127.0.0.1 - - [14/Jan/2026 01:51:00] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 01:51:00,526 - INFO: 127.0.0.1 - - [14/Jan/2026 01:51:00] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 14:54:06,681 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:06] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 14:54:06,691 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:06] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 14:54:06,991 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:06] "GET /products HTTP/1.1" 200 -
-2026-01-14 14:54:07,008 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:07] "GET /products HTTP/1.1" 200 -
-2026-01-14 14:54:13,677 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:13] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 14:54:13,684 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:13] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 14:54:13,684 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:13] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 14:54:13,685 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:13] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 14:54:13,690 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:13] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 14:54:13,697 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:13] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 14:54:14,039 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:14] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 14:54:14,041 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:14] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 14:54:14,053 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:14] "GET /products HTTP/1.1" 200 -
-2026-01-14 14:54:14,183 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:14] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 14:54:14,346 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:14] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 14:54:14,370 - INFO: 127.0.0.1 - - [14/Jan/2026 14:54:14] "GET /products HTTP/1.1" 200 -
-2026-01-14 14:56:09,796 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:09] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 14:56:10,050 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:10] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
-2026-01-14 14:56:10,107 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:10] "GET /products HTTP/1.1" 200 -
-2026-01-14 14:56:17,502 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:17] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 14:56:17,504 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:17] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 14:56:17,505 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:17] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 14:56:17,506 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:17] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 14:56:17,508 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:17] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 14:56:17,515 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:17] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 14:56:17,826 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:17] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 14:56:17,828 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:17] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 14:56:17,845 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:17] "GET /products HTTP/1.1" 200 -
-2026-01-14 14:56:18,096 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:18] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 14:56:18,153 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:18] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 14:56:18,157 - INFO: 127.0.0.1 - - [14/Jan/2026 14:56:18] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:21:52,458 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:52] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:21:52,463 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:52] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:21:52,466 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:52] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:21:52,687 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:52] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 15:21:52,824 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:52] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 15:21:52,890 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:52] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:21:56,160 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:56] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:21:56,455 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:56] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 15:21:56,457 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:56] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 15:21:57,376 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:57] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 15:21:57,378 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:57] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 15:21:57,381 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:57] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:21:58,082 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:58] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:21:58,526 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:58] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:21:58,538 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:58] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:21:58,543 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:58] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:21:58,730 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:58] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 15:21:58,855 - INFO: 127.0.0.1 - - [14/Jan/2026 15:21:58] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 15:25:09,183 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:09] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:25:09,185 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:09] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:25:09,439 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:09] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:25:09,515 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:09] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:25:12,257 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:12] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:25:12,258 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:12] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:25:12,258 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:12] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:25:12,259 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:12] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:25:12,308 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:12] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:25:12,517 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:12] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 15:25:12,570 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:12] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 15:25:12,578 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:12] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:25:12,617 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:12] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 15:25:12,831 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:12] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 15:25:17,745 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:17] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:25:18,059 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:18] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:25:18,060 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:18] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:25:18,061 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:18] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:25:18,067 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:18] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:25:18,072 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:18] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:25:18,078 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:18] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:25:18,381 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:18] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 15:25:18,383 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:18] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 15:25:18,402 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:18] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:25:18,696 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:18] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 15:25:18,699 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:18] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 15:25:48,157 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:48] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:25:48,402 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:48] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
-2026-01-14 15:25:48,467 - INFO: 127.0.0.1 - - [14/Jan/2026 15:25:48] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:28:33,325 - INFO: 127.0.0.1 - - [14/Jan/2026 15:28:33] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-14 15:28:33,689 - INFO: 127.0.0.1 - - [14/Jan/2026 15:28:33] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-01-14 15:29:02,420 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:02] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-14 15:29:02,770 - INFO: User logged in: Admin (admin123@gmail.com)
-2026-01-14 15:29:02,770 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:02] "POST /login HTTP/1.1" 200 -
-2026-01-14 15:29:02,783 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:02] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:29:03,092 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:03] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:29:03,093 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:03] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:29:03,094 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:03] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:29:03,102 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:03] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:29:03,102 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:03] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:29:03,129 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:03] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:29:03,410 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:03] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:29:03,411 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:03] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:29:03,448 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:03] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:29:03,732 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:03] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:29:03,733 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:03] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:29:41,155 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:41] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:29:41,418 - INFO: Gold
-2026-01-14 15:29:41,427 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:41] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
-2026-01-14 15:29:41,478 - INFO: 127.0.0.1 - - [14/Jan/2026 15:29:41] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:36:13,714 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:13] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:36:13,728 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:13] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:36:13,733 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:13] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:36:14,035 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:14] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:36:14,159 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:14] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:36:14,287 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:14] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:36:15,081 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:15] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:36:15,427 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:15] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:36:15,429 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:15] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:36:22,378 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:22] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:36:22,378 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:22] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:36:22,380 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:22] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:36:22,635 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:22] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:36:22,691 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:22] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:36:22,692 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:22] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:36:24,262 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:24] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:36:24,544 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:24] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:36:24,581 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:24] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:36:25,393 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:25] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 15:36:25,394 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:25] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:36:25,395 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:25] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 15:36:46,563 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:46] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:36:46,816 - INFO: Gold
-2026-01-14 15:36:46,823 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:46] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
-2026-01-14 15:36:46,878 - INFO: 127.0.0.1 - - [14/Jan/2026 15:36:46] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:44:09,973 - INFO: 127.0.0.1 - - [14/Jan/2026 15:44:09] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:44:09,974 - INFO: 127.0.0.1 - - [14/Jan/2026 15:44:09] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 15:44:10,223 - INFO: 127.0.0.1 - - [14/Jan/2026 15:44:10] "GET /products HTTP/1.1" 200 -
-2026-01-14 15:44:10,301 - INFO: 127.0.0.1 - - [14/Jan/2026 15:44:10] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:02:03,389 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2026-01-14 16:02:03,389 - INFO: [33mPress CTRL+C to quit[0m
-2026-01-14 16:02:03,399 - INFO:  * Restarting with stat
-2026-01-14 16:02:04,481 - WARNING:  * Debugger is active!
-2026-01-14 16:02:04,490 - INFO:  * Debugger PIN: 145-848-560
-2026-01-14 16:02:27,204 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:27] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:02:27,414 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:27] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:02:55,221 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:55] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-14 16:02:55,572 - INFO: User logged in: Admin (admin123@gmail.com)
-2026-01-14 16:02:55,573 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:55] "POST /login HTTP/1.1" 200 -
-2026-01-14 16:02:55,589 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:55] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:02:55,901 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:55] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:02:55,901 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:55] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:02:55,902 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:55] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:02:55,903 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:55] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:02:55,914 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:55] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:02:56,161 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:56] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:02:56,213 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:56] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:02:56,213 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:56] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:02:56,229 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:56] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:02:56,480 - INFO: 127.0.0.1 - - [14/Jan/2026 16:02:56] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:03:54,663 - INFO: 127.0.0.1 - - [14/Jan/2026 16:03:54] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:03:54,913 - INFO: Gold
-2026-01-14 16:03:54,933 - INFO: 127.0.0.1 - - [14/Jan/2026 16:03:54] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
-2026-01-14 16:03:54,978 - INFO: 127.0.0.1 - - [14/Jan/2026 16:03:54] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:26:21,557 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:21] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:26:21,564 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:21] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:26:21,802 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:21] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:26:21,881 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:21] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:26:26,679 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:26] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:26:26,993 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:26] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:26:26,995 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:26] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:26:26,997 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:26] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:26:27,000 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:27] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:26:27,022 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:27] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:26:27,057 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:27] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:26:27,314 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:27] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 16:26:27,317 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:27] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 16:26:27,369 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:27] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:26:27,622 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:27] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
-2026-01-14 16:26:27,633 - INFO: 127.0.0.1 - - [14/Jan/2026 16:26:27] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
-2026-01-14 16:40:42,222 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:42] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-14 16:40:42,590 - INFO: User logged in: Admin (admin123@gmail.com)
-2026-01-14 16:40:42,591 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:42] "POST /login HTTP/1.1" 200 -
-2026-01-14 16:40:52,362 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:52] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:40:52,680 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:52] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:40:52,682 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:52] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:40:52,682 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:52] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:40:52,683 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:52] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:40:52,685 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:52] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:40:52,694 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:52] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:40:52,994 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:52] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:40:52,996 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:52] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:40:53,018 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:53] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:40:53,304 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:53] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:40:53,305 - INFO: 127.0.0.1 - - [14/Jan/2026 16:40:53] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:41:38,602 - INFO: 127.0.0.1 - - [14/Jan/2026 16:41:38] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:41:38,862 - INFO: Gold
-2026-01-14 16:41:38,877 - INFO: 127.0.0.1 - - [14/Jan/2026 16:41:38] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
-2026-01-14 16:41:38,916 - INFO: 127.0.0.1 - - [14/Jan/2026 16:41:38] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:42:16,998 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:16] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:42:17,014 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:17] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:42:17,260 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:17] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:42:17,320 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:17] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:42:30,653 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:30] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:42:30,654 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:30] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:42:30,654 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:30] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:42:30,657 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:30] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:42:30,661 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:30] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:42:30,662 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:30] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:42:30,969 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:30] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:42:30,969 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:30] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:42:30,970 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:30] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:42:31,281 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:31] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:42:31,281 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:31] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:42:31,291 - INFO: 127.0.0.1 - - [14/Jan/2026 16:42:31] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:47:43,703 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:43] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:47:43,705 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:43] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:47:43,969 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:43] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:47:44,026 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:44] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:47:52,584 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:52] "OPTIONS /products/7 HTTP/1.1" 200 -
-2026-01-14 16:47:52,587 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:52] "OPTIONS /products/7 HTTP/1.1" 200 -
-2026-01-14 16:47:52,838 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:52] "GET /products/7 HTTP/1.1" 200 -
-2026-01-14 16:47:52,895 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:52] "GET /products/7 HTTP/1.1" 200 -
-2026-01-14 16:47:57,068 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:57] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:47:57,388 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:57] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:47:57,643 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:57] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:47:58,915 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:58] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:47:59,224 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:59] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:47:59,226 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:59] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:47:59,227 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:59] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:47:59,241 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:59] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:47:59,243 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:59] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:47:59,548 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:59] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:47:59,562 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:59] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:47:59,576 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:59] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:47:59,883 - INFO: 127.0.0.1 - - [14/Jan/2026 16:47:59] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:48:07,025 - INFO: 127.0.0.1 - - [14/Jan/2026 16:48:07] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:48:07,271 - INFO: 127.0.0.1 - - [14/Jan/2026 16:48:07] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:48:33,798 - INFO: 127.0.0.1 - - [14/Jan/2026 16:48:33] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-14 16:48:34,268 - INFO: 127.0.0.1 - - [14/Jan/2026 16:48:34] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-01-14 16:48:52,879 - INFO: 127.0.0.1 - - [14/Jan/2026 16:48:52] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:48:53,207 - INFO: 127.0.0.1 - - [14/Jan/2026 16:48:53] "GET /categories HTTP/1.1" 200 -
-2026-01-14 16:48:53,266 - INFO: 127.0.0.1 - - [14/Jan/2026 16:48:53] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:48:53,523 - INFO: 127.0.0.1 - - [14/Jan/2026 16:48:53] "GET /categories HTTP/1.1" 200 -
-2026-01-14 16:48:55,655 - INFO: 127.0.0.1 - - [14/Jan/2026 16:48:55] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:48:55,902 - INFO: 127.0.0.1 - - [14/Jan/2026 16:48:55] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:49:41,487 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:41] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-14 16:49:41,948 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:41] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-01-14 16:49:55,448 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:55] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-14 16:49:55,902 - INFO: User logged in: Admin (admin123@gmail.com)
-2026-01-14 16:49:55,903 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:55] "POST /login HTTP/1.1" 200 -
-2026-01-14 16:49:56,020 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:49:56,223 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:49:56,224 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:49:56,225 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:49:56,237 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:49:56,238 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:49:56,370 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:49:56,549 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:49:56,552 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:49:56,686 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:49:56,869 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:49:56,869 - INFO: 127.0.0.1 - - [14/Jan/2026 16:49:56] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:50:10,569 - INFO: 127.0.0.1 - - [14/Jan/2026 16:50:10] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:50:10,579 - INFO: 127.0.0.1 - - [14/Jan/2026 16:50:10] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:50:10,845 - INFO: 127.0.0.1 - - [14/Jan/2026 16:50:10] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:50:10,880 - INFO: 127.0.0.1 - - [14/Jan/2026 16:50:10] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:50:22,147 - INFO: 127.0.0.1 - - [14/Jan/2026 16:50:22] "OPTIONS /cart HTTP/1.1" 200 -
-2026-01-14 16:50:22,471 - INFO: 127.0.0.1 - - [14/Jan/2026 16:50:22] "[35m[1mPOST /cart HTTP/1.1[0m" 201 -
-2026-01-14 16:52:16,428 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:16] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-14 16:52:16,779 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:16] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
-2026-01-14 16:52:27,243 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:27] "OPTIONS /login HTTP/1.1" 200 -
-2026-01-14 16:52:27,650 - INFO: User logged in: Admin (admin123@gmail.com)
-2026-01-14 16:52:27,650 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:27] "POST /login HTTP/1.1" 200 -
-2026-01-14 16:52:27,804 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:27] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:52:27,968 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:27] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:52:27,968 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:27] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:52:27,975 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:27] "OPTIONS /products HTTP/1.1" 200 -
-2026-01-14 16:52:27,981 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:27] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:52:27,982 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:27] "OPTIONS /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:52:28,117 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:28] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:52:28,293 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:28] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:52:28,294 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:28] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:52:28,444 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:28] "GET /products HTTP/1.1" 200 -
-2026-01-14 16:52:28,605 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:28] "GET /api/admin/users HTTP/1.1" 200 -
-2026-01-14 16:52:28,605 - INFO: 127.0.0.1 - - [14/Jan/2026 16:52:28] "GET /api/admin/orders HTTP/1.1" 200 -
-2026-01-14 16:54:23,082 - INFO:  * Detected change in 'C:\\jewels\\backend\\Jewellery_backend\\app.py', reloading
-2026-01-14 16:54:23,736 - INFO:  * Restarting with stat
+ * Running on http://10.116.87.230:5000
+2026-01-23 03:11:51,413 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-23 03:12:00,524 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:00] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:12:00,530 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:00] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:12:00,796 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:00] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:12:00,898 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:00] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:12:02,459 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:02] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:12:02,794 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:02] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:12:05,517 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:05] "OPTIONS /cart/1 HTTP/1.1" 200 -
+2026-01-23 03:12:05,788 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:05] "DELETE /cart/1 HTTP/1.1" 200 -
+2026-01-23 03:12:07,129 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:07] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:12:07,442 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:07] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-23 03:12:07,451 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:07] "OPTIONS /categories HTTP/1.1" 200 -
+2026-01-23 03:12:07,467 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:07] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:12:07,758 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:07] "GET /categories HTTP/1.1" 200 -
+2026-01-23 03:12:07,790 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:07] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:12:08,071 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:08] "GET /categories HTTP/1.1" 200 -
+2026-01-23 03:12:20,852 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:20] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:12:21,117 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:21] "[35m[1mPOST /cart HTTP/1.1[0m" 201 -
+2026-01-23 03:12:24,410 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:24] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:12:24,722 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:24] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:12:53,686 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:53] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:12:54,005 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:54] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:12:54,262 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:54] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:12:56,845 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:56] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:12:57,168 - INFO: 127.0.0.1 - - [23/Jan/2026 03:12:57] "[35m[1mPOST /cart HTTP/1.1[0m" 201 -
+2026-01-23 03:13:00,131 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:00] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:13:00,445 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:00] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:13:03,361 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:03] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:13:03,364 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:03] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:13:03,607 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:03] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:13:03,681 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:03] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:13:24,428 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:24] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:13:24,738 - INFO: {'product_id': 1, 'quantity': 3}
+2026-01-23 03:13:24,746 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:24] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:13:35,535 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:35] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:13:35,844 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:35] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:13:35,861 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:35] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:13:36,172 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:36] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:13:40,361 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:40] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:13:40,682 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:40] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:13:40,934 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:40] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:13:45,905 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:45] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:13:46,220 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:46] "[35m[1mPOST /cart HTTP/1.1[0m" 201 -
+2026-01-23 03:13:49,675 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:49] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:13:49,988 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:49] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:13:52,918 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:52] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:13:53,226 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:53] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:13:53,250 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:53] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:13:53,579 - INFO: 127.0.0.1 - - [23/Jan/2026 03:13:53] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:14:08,017 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:08] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:08,324 - INFO: {'product_id': 1, 'quantity': 5}
+2026-01-23 03:14:08,333 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:08] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:09,608 - INFO: {'product_id': 1, 'quantity': 6}
+2026-01-23 03:14:09,615 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:09] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:10,562 - INFO: {'product_id': 1, 'quantity': 7}
+2026-01-23 03:14:10,568 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:10] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:11,032 - INFO: {'product_id': 1, 'quantity': 8}
+2026-01-23 03:14:11,037 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:11] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:12,114 - INFO: {'product_id': 1, 'quantity': 9}
+2026-01-23 03:14:12,121 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:12] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:13,067 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:13] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:13,374 - INFO: {'product_id': 1, 'quantity': 10}
+2026-01-23 03:14:13,380 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:13] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:15,182 - INFO: {'product_id': 1, 'quantity': 11}
+2026-01-23 03:14:15,188 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:15] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:17,958 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:17] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:14:17,959 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:17] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:14:18,214 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:18] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:14:18,270 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:18] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:14:28,069 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:28] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:14:28,386 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:28] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:14:28,637 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:28] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:14:31,080 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:31] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:14:31,403 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:31] "[35m[1mPOST /cart HTTP/1.1[0m" 201 -
+2026-01-23 03:14:34,596 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:34] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:14:34,914 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:34] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:14:37,296 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:37] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:14:37,608 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:37] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:14:37,623 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:37] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:14:37,938 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:37] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:14:49,856 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:49] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:50,165 - INFO: {'product_id': 1, 'quantity': 13}
+2026-01-23 03:14:50,171 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:50] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:50,232 - INFO: {'product_id': 1, 'quantity': 13}
+2026-01-23 03:14:50,239 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:50] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:50,413 - INFO: {'product_id': 1, 'quantity': 13}
+2026-01-23 03:14:50,420 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:50] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:50,475 - INFO: {'product_id': 1, 'quantity': 14}
+2026-01-23 03:14:50,480 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:50] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:50,573 - INFO: {'product_id': 1, 'quantity': 15}
+2026-01-23 03:14:50,578 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:50] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:50,805 - INFO: {'product_id': 1, 'quantity': 16}
+2026-01-23 03:14:50,812 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:50] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:50,935 - INFO: {'product_id': 1, 'quantity': 16}
+2026-01-23 03:14:50,940 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:50] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:51,100 - INFO: {'product_id': 1, 'quantity': 17}
+2026-01-23 03:14:51,107 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:51] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:51,157 - INFO: {'product_id': 1, 'quantity': 17}
+2026-01-23 03:14:51,163 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:51] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:51,386 - INFO: {'product_id': 1, 'quantity': 18}
+2026-01-23 03:14:51,393 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:51] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:51,451 - INFO: {'product_id': 1, 'quantity': 19}
+2026-01-23 03:14:51,457 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:51] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:51,719 - INFO: {'product_id': 1, 'quantity': 20}
+2026-01-23 03:14:51,726 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:51] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:51,784 - INFO: {'product_id': 1, 'quantity': 20}
+2026-01-23 03:14:51,789 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:51] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:52,012 - INFO: {'product_id': 1, 'quantity': 21}
+2026-01-23 03:14:52,018 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:52] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:52,083 - INFO: {'product_id': 1, 'quantity': 22}
+2026-01-23 03:14:52,088 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:52] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:14:57,032 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:57] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:14:57,346 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:57] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:14:57,606 - INFO: 127.0.0.1 - - [23/Jan/2026 03:14:57] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:15:02,226 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:02] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:15:02,539 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:02] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:15:02,796 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:02] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:15:05,787 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:05] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:06,094 - INFO: {'product_id': 1, 'quantity': 28}
+2026-01-23 03:15:06,101 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:06] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:06,189 - INFO: {'product_id': 1, 'quantity': 28}
+2026-01-23 03:15:06,194 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:06] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:06,426 - INFO: {'product_id': 1, 'quantity': 29}
+2026-01-23 03:15:06,431 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:06] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:06,791 - INFO: {'product_id': 1, 'quantity': 30}
+2026-01-23 03:15:06,797 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:06] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:07,050 - INFO: {'product_id': 1, 'quantity': 31}
+2026-01-23 03:15:07,057 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:07] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:07,239 - INFO: {'product_id': 1, 'quantity': 31}
+2026-01-23 03:15:07,245 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:07] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:07,390 - INFO: {'product_id': 1, 'quantity': 32}
+2026-01-23 03:15:07,397 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:07] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:07,731 - INFO: {'product_id': 1, 'quantity': 33}
+2026-01-23 03:15:07,739 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:07] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:07,986 - INFO: {'product_id': 1, 'quantity': 34}
+2026-01-23 03:15:07,991 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:07] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:08,102 - INFO: {'product_id': 1, 'quantity': 34}
+2026-01-23 03:15:08,104 - INFO: {'product_id': 1, 'quantity': 35}
+2026-01-23 03:15:08,108 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:08] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:08,113 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:08] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:08,376 - INFO: {'product_id': 1, 'quantity': 35}
+2026-01-23 03:15:08,383 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:08] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:08,582 - INFO: {'product_id': 1, 'quantity': 36}
+2026-01-23 03:15:08,590 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:08] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:08,887 - INFO: {'product_id': 1, 'quantity': 36}
+2026-01-23 03:15:08,894 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:08] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:08,996 - INFO: {'product_id': 1, 'quantity': 37}
+2026-01-23 03:15:09,003 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:09] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:09,068 - INFO: {'product_id': 1, 'quantity': 37}
+2026-01-23 03:15:09,076 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:09] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:09,301 - INFO: {'product_id': 1, 'quantity': 37}
+2026-01-23 03:15:09,307 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:09] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:09,371 - INFO: {'product_id': 1, 'quantity': 38}
+2026-01-23 03:15:09,377 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:09] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:09,626 - INFO: {'product_id': 1, 'quantity': 38}
+2026-01-23 03:15:09,634 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:09] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:09,683 - INFO: {'product_id': 1, 'quantity': 38}
+2026-01-23 03:15:09,687 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:09] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:09,950 - INFO: {'product_id': 1, 'quantity': 39}
+2026-01-23 03:15:09,957 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:09] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:10,011 - INFO: {'product_id': 1, 'quantity': 39}
+2026-01-23 03:15:10,018 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:10] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:15:16,213 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:16] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:15:16,217 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:16] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:15:16,472 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:16] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:15:16,527 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:16] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:15:20,434 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:20] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:15:20,755 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:20] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:15:23,464 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:23] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:15:23,782 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:23] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:15:24,031 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:24] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:15:26,875 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:26] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:15:27,191 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:27] "[35m[1mPOST /cart HTTP/1.1[0m" 201 -
+2026-01-23 03:15:30,931 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:30] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:15:31,247 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:31] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:15:31,500 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:31] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:15:33,548 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:33] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:15:33,872 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:33] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:15:34,108 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:34] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:15:36,826 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:36] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:15:37,134 - INFO: 127.0.0.1 - - [23/Jan/2026 03:15:37] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:17:18,303 - INFO: 127.0.0.1 - - [23/Jan/2026 03:17:18] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:17:18,538 - INFO: 127.0.0.1 - - [23/Jan/2026 03:17:18] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:17:21,906 - INFO: 127.0.0.1 - - [23/Jan/2026 03:17:21] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:17:34,917 - INFO: 127.0.0.1 - - [23/Jan/2026 03:17:34] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:17:35,184 - INFO: 127.0.0.1 - - [23/Jan/2026 03:17:35] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:17:45,893 - INFO: 127.0.0.1 - - [23/Jan/2026 03:17:45] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:17:46,254 - INFO: 127.0.0.1 - - [23/Jan/2026 03:17:46] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:17:51,879 - INFO: 127.0.0.1 - - [23/Jan/2026 03:17:51] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:17:52,196 - INFO: 127.0.0.1 - - [23/Jan/2026 03:17:52] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:17:55,883 - INFO: 127.0.0.1 - - [23/Jan/2026 03:17:55] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:18:07,224 - INFO: 127.0.0.1 - - [23/Jan/2026 03:18:07] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:18:07,483 - INFO: 127.0.0.1 - - [23/Jan/2026 03:18:07] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:18:20,908 - INFO: 127.0.0.1 - - [23/Jan/2026 03:18:20] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:18:21,228 - INFO: 127.0.0.1 - - [23/Jan/2026 03:18:21] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:19:31,200 - INFO: 127.0.0.1 - - [23/Jan/2026 03:19:31] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:19:31,464 - INFO: 127.0.0.1 - - [23/Jan/2026 03:19:31] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:19:52,259 - INFO: 127.0.0.1 - - [23/Jan/2026 03:19:52] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:19:52,507 - INFO: 127.0.0.1 - - [23/Jan/2026 03:19:52] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:20:06,219 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:06] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:20:06,487 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:06] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:20:13,196 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:13] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:20:13,457 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:13] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:20:15,903 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:15] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:20:20,194 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:20] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:20:20,453 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:20] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:20:23,904 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:23] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:20:28,250 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:28] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:20:28,505 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:28] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:20:31,192 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:31] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:20:46,949 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:46] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:20:46,956 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:46] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:20:47,202 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:47] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:20:47,275 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:47] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:20:50,623 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:50] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:50,878 - INFO: {'product_id': 1, 'quantity': 51}
+2026-01-23 03:20:50,886 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:50] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:51,855 - INFO: {'product_id': 1, 'quantity': 52}
+2026-01-23 03:20:51,862 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:51] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:53,306 - INFO: {'product_id': 1, 'quantity': 51}
+2026-01-23 03:20:53,314 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:53] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:53,370 - INFO: {'product_id': 1, 'quantity': 51}
+2026-01-23 03:20:53,379 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:53] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:53,568 - INFO: {'product_id': 1, 'quantity': 50}
+2026-01-23 03:20:53,574 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:53] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:53,657 - INFO: {'product_id': 1, 'quantity': 50}
+2026-01-23 03:20:53,663 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:53] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:53,712 - INFO: {'product_id': 1, 'quantity': 49}
+2026-01-23 03:20:53,718 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:53] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:53,997 - INFO: {'product_id': 1, 'quantity': 48}
+2026-01-23 03:20:54,013 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:54,073 - INFO: {'product_id': 1, 'quantity': 47}
+2026-01-23 03:20:54,083 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:54,331 - INFO: {'product_id': 1, 'quantity': 47}
+2026-01-23 03:20:54,337 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:54,376 - INFO: {'product_id': 1, 'quantity': 46}
+2026-01-23 03:20:54,381 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:54,640 - INFO: {'product_id': 1, 'quantity': 45}
+2026-01-23 03:20:54,646 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:54,718 - INFO: {'product_id': 1, 'quantity': 44}
+2026-01-23 03:20:54,724 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:54] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:55,009 - INFO: {'product_id': 1, 'quantity': 43}
+2026-01-23 03:20:55,015 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:55] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:55,054 - INFO: {'product_id': 1, 'quantity': 43}
+2026-01-23 03:20:55,061 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:55] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:55,331 - INFO: {'product_id': 1, 'quantity': 42}
+2026-01-23 03:20:55,337 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:55] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:55,379 - INFO: {'product_id': 1, 'quantity': 42}
+2026-01-23 03:20:55,385 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:55] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:55,636 - INFO: {'product_id': 1, 'quantity': 41}
+2026-01-23 03:20:55,644 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:55] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:55,718 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:55] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:55,972 - INFO: {'product_id': 1, 'quantity': 40}
+2026-01-23 03:20:55,979 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:55] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:56,035 - INFO: {'product_id': 1, 'quantity': 40}
+2026-01-23 03:20:56,040 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:56,051 - INFO: {'product_id': 1, 'quantity': 40}
+2026-01-23 03:20:56,057 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:56,274 - INFO: {'product_id': 1, 'quantity': 39}
+2026-01-23 03:20:56,282 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:56,356 - INFO: {'product_id': 1, 'quantity': 38}
+2026-01-23 03:20:56,360 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:56,606 - INFO: {'product_id': 1, 'quantity': 37}
+2026-01-23 03:20:56,612 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:56,673 - INFO: {'product_id': 1, 'quantity': 36}
+2026-01-23 03:20:56,678 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:56,948 - INFO: {'product_id': 1, 'quantity': 35}
+2026-01-23 03:20:56,961 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:56] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:57,012 - INFO: {'product_id': 1, 'quantity': 34}
+2026-01-23 03:20:57,016 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:57] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:57,282 - INFO: {'product_id': 1, 'quantity': 33}
+2026-01-23 03:20:57,289 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:57] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:57,352 - INFO: {'product_id': 1, 'quantity': 33}
+2026-01-23 03:20:57,365 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:57] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:57,597 - INFO: {'product_id': 1, 'quantity': 32}
+2026-01-23 03:20:57,602 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:57] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:57,675 - INFO: {'product_id': 1, 'quantity': 32}
+2026-01-23 03:20:57,680 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:57] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:57,906 - INFO: {'product_id': 1, 'quantity': 31}
+2026-01-23 03:20:57,915 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:57] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:57,970 - INFO: {'product_id': 1, 'quantity': 31}
+2026-01-23 03:20:57,976 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:57] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:58,190 - INFO: {'product_id': 1, 'quantity': 30}
+2026-01-23 03:20:58,196 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:58] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:58,267 - INFO: {'product_id': 1, 'quantity': 29}
+2026-01-23 03:20:58,274 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:58] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:58,574 - INFO: {'product_id': 1, 'quantity': 28}
+2026-01-23 03:20:58,579 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:58] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:20:59,948 - INFO: {'product_id': 1, 'quantity': 27}
+2026-01-23 03:20:59,954 - INFO: 127.0.0.1 - - [23/Jan/2026 03:20:59] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:00,307 - INFO: {'product_id': 1, 'quantity': 26}
+2026-01-23 03:21:00,311 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:00] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:00,526 - INFO: {'product_id': 1, 'quantity': 26}
+2026-01-23 03:21:00,532 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:00] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:00,557 - INFO: {'product_id': 1, 'quantity': 26}
+2026-01-23 03:21:00,564 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:00] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:01,064 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:01] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:01,372 - INFO: {'product_id': 1, 'quantity': 25}
+2026-01-23 03:21:01,378 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:01] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:01,426 - INFO: {'product_id': 1, 'quantity': 25}
+2026-01-23 03:21:01,432 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:01] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:03,407 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:03] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:21:03,720 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:03] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:21:03,987 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:03] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:21:26,360 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:26] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:26,454 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:26] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:26,608 - INFO: {'product_id': 1, 'quantity': 91}
+2026-01-23 03:21:26,616 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:26] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:26,668 - INFO: {'product_id': 1, 'quantity': 91}
+2026-01-23 03:21:26,675 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:26] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:26,684 - INFO: {'product_id': 1, 'quantity': 91}
+2026-01-23 03:21:26,691 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:26] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:26,760 - INFO: {'product_id': 1, 'quantity': 91}
+2026-01-23 03:21:26,769 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:26] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:26,781 - INFO: {'product_id': 1, 'quantity': 90}
+2026-01-23 03:21:26,788 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:26] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:27,912 - INFO: {'product_id': 1, 'quantity': 89}
+2026-01-23 03:21:27,919 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:27] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:28,061 - INFO: {'product_id': 1, 'quantity': 89}
+2026-01-23 03:21:28,068 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:28] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:28,163 - INFO: {'product_id': 1, 'quantity': 88}
+2026-01-23 03:21:28,167 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:28] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:29,126 - INFO: {'product_id': 1, 'quantity': 87}
+2026-01-23 03:21:29,131 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:29] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:29,532 - INFO: {'product_id': 1, 'quantity': 86}
+2026-01-23 03:21:29,538 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:29] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:29,789 - INFO: {'product_id': 1, 'quantity': 85}
+2026-01-23 03:21:29,796 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:29] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:29,976 - INFO: {'product_id': 1, 'quantity': 84}
+2026-01-23 03:21:29,981 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:29] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:30,668 - INFO: {'product_id': 1, 'quantity': 83}
+2026-01-23 03:21:30,674 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:30] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:30,930 - INFO: {'product_id': 1, 'quantity': 82}
+2026-01-23 03:21:30,936 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:30] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:32,143 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:32] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:32,454 - INFO: {'product_id': 1, 'quantity': 81}
+2026-01-23 03:21:32,461 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:32] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:32,928 - INFO: {'product_id': 1, 'quantity': 80}
+2026-01-23 03:21:32,933 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:32] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:21:35,634 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:35] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:21:35,641 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:35] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:21:35,890 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:35] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:21:35,948 - INFO: 127.0.0.1 - - [23/Jan/2026 03:21:35] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:22:08,945 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:08] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:22:09,203 - INFO: {'product_id': 1, 'quantity': 107}
+2026-01-23 03:22:09,213 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:09] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:22:09,275 - INFO: {'product_id': 1, 'quantity': 106}
+2026-01-23 03:22:09,283 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:09] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:22:10,111 - INFO: {'product_id': 1, 'quantity': 105}
+2026-01-23 03:22:10,120 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:10] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:22:10,339 - INFO: {'product_id': 1, 'quantity': 105}
+2026-01-23 03:22:10,352 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:10] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:22:10,759 - INFO: {'product_id': 1, 'quantity': 104}
+2026-01-23 03:22:10,766 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:10] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:22:11,567 - INFO: {'product_id': 1, 'quantity': 103}
+2026-01-23 03:22:11,574 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:11] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:22:12,557 - INFO: {'product_id': 1, 'quantity': 102}
+2026-01-23 03:22:12,564 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:12] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:22:13,682 - INFO: {'product_id': 1, 'quantity': 101}
+2026-01-23 03:22:13,688 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:13] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:22:15,808 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:15] "OPTIONS /cart/update HTTP/1.1" 200 -
+2026-01-23 03:22:16,114 - INFO: {'product_id': 1, 'quantity': 100}
+2026-01-23 03:22:16,121 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:16] "PUT /cart/update HTTP/1.1" 200 -
+2026-01-23 03:22:29,478 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:29] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:22:29,481 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:29] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:22:29,736 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:29] "[31m[1mGET /cart HTTP/1.1[0m" 401 -
+2026-01-23 03:22:29,784 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:29] "[31m[1mGET /cart HTTP/1.1[0m" 401 -
+2026-01-23 03:22:38,096 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:38] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-23 03:22:38,526 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-23 03:22:38,527 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:38] "POST /login HTTP/1.1" 200 -
+2026-01-23 03:22:38,606 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:38] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-23 03:22:38,919 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:38] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-23 03:22:38,920 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:38] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-23 03:22:38,921 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:38] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-23 03:22:38,931 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:38] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-23 03:22:38,944 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:38] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:22:39,171 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:39] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-23 03:22:39,237 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:39] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-23 03:22:39,258 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:39] "GET /products HTTP/1.1" 200 -
+2026-01-23 03:22:39,259 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:39] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-23 03:22:39,485 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:39] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-23 03:22:40,993 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:40] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:22:41,320 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:41] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:22:41,581 - INFO: 127.0.0.1 - - [23/Jan/2026 03:22:41] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:24:11,653 - INFO: 127.0.0.1 - - [23/Jan/2026 03:24:11] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:24:11,893 - INFO: 127.0.0.1 - - [23/Jan/2026 03:24:11] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:24:11,981 - INFO: 127.0.0.1 - - [23/Jan/2026 03:24:11] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:24:19,189 - INFO: 127.0.0.1 - - [23/Jan/2026 03:24:19] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:24:19,442 - INFO: 127.0.0.1 - - [23/Jan/2026 03:24:19] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:24:27,192 - INFO: 127.0.0.1 - - [23/Jan/2026 03:24:27] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:24:27,450 - INFO: 127.0.0.1 - - [23/Jan/2026 03:24:27] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:24:47,195 - INFO: 127.0.0.1 - - [23/Jan/2026 03:24:47] "OPTIONS /cart HTTP/1.1" 200 -
+2026-01-23 03:24:47,453 - INFO: 127.0.0.1 - - [23/Jan/2026 03:24:47] "GET /cart HTTP/1.1" 200 -
+2026-01-23 03:24:47,887 - INFO: 127.0.0.1 - - [23/Jan/2026 03:24:47] "GET /cart HTTP/1.1" 200 -

@@ -42,6 +42,9 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['APP_URL'] = os.getenv('APP_URL')
 app.config['API_KEY'] = os.getenv('API_KEY')
 app.config['API_SECRET'] = os.getenv('API_SECRET')
+app.config['MSG91_AUTH_KEY'] = os.getenv("MSG91_AUTH_KEY")
+app.config['MSG91_SENDER_ID'] = os.getenv("MSG91_SENDER_ID")
+
 
 
 
@@ -222,6 +225,70 @@ def register():
         }), 500
 
 
+@app.route("/auth/send-otp", methods=["POST"])
+def send_otp():
+    data = request.get_json()
+    phone = data.get("phone")
+
+    if not phone:
+        return jsonify({"msg": "Phone number required"}), 400
+
+    url = "https://api.msg91.com/api/v5/otp"
+    payload = {
+        "authkey": app.config['MSG91_AUTH_KEY'],
+        "mobile": f"91{phone}",
+        "sender": app.config['MSG91_SENDER_ID'],
+        "otp_length": 6
+    }
+
+    response = requests.post(url, json=payload)
+    return jsonify(response.json()), 200
+
+@app.route("/auth/verify-otp", methods=["POST"])
+def verify_otp():
+    data = request.get_json()
+    phone = data.get("phone")
+    otp = data.get("otp")
+
+    if not phone or not otp:
+        return jsonify({"msg": "Phone & OTP required"}), 400
+
+    url = "https://api.msg91.com/api/v5/otp/verify"
+    payload = {
+        "authkey": app.config['MSG91_AUTH_KEY'],
+        "mobile": f"91{phone}",
+        "otp": otp
+    }
+
+    response = requests.post(url, json=payload)
+    res = response.json()
+
+    if res.get("type") != "success":
+        return jsonify({"msg": "Invalid OTP"}), 401
+
+    cursor = get_db_cursor(dictionary=True)
+    cursor.execute("SELECT * FROM users WHERE phone=%s", (phone,))
+    user = cursor.fetchone()
+
+    # 🔹 New user → auto register
+    if not user:
+        user_id = f"user_{phone}"
+        cursor.execute("""
+            INSERT INTO users (user_id, phone, phone_verified, role)
+            VALUES (%s,%s,1,'user')
+        """, (user_id, phone))
+        mysql.connection.commit()
+    else:
+        user_id = user['user_id']
+
+    cursor.close()
+
+    access_token = create_access_token(identity=user_id)
+
+    return jsonify({
+        "msg": "Login successful",
+        "access_token": access_token
+    }), 200
 
 
 @app.route('/login', methods=['POST'])

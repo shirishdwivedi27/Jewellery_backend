@@ -433,6 +433,24 @@ def create_product():
 
 
 @app.route('/products', methods=['GET'])
+def get_products_dash():
+    """
+    Get all products
+    """
+    cursor = get_db_cursor()
+    cursor.execute("SELECT id, name, category, price, description, stock, images , quantity FROM products")
+    products = cursor.fetchall()
+    cursor.close()
+
+    result = [
+        {"id": p[0], "name": p[1], "category": p[2], "price": p[3],
+         "description": p[4], "stock": p[5], "images": p[6],"quantity":p[7] } for p in products
+    ]
+    return jsonify(result), 200
+
+
+
+@app.route('/api/products', methods=['GET'])
 def get_products():
     cursor = get_db_cursor(dictionary=True)
 

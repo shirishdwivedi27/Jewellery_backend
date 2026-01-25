@@ -183,9 +183,9 @@ def register():
         cursor = get_db_cursor()
         cursor.execute(
             """INSERT INTO users 
-               (user_id, username, password, org_password, email, role,Phone) 
+               (user_id, username, password, org_password, email, role) 
                VALUES (%s,%s,%s,%s,%s,%s,%s)""",
-            (user_id, username, hashed_password, password, email, 'user',phone)
+            (user_id, username, hashed_password, password, email, 'user')
         )
         mysql.connection.commit()
         cursor.close()

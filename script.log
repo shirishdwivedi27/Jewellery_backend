@@ -1123,3 +1123,19 @@ MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,
  * Running on http://127.0.0.1:5000
  * Running on http://192.168.0.159:5000
 2026-01-25 22:48:29,044 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 22:56:16,381 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 22:56:16,384 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-25 22:56:16,387 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 22:56:16,392 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 22:56:16,396 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-25 22:56:16,397 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 22:56:16,690 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 22:56:16,693 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 22:56:16,707 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 22:56:16,712 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 22:56:16,716 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 22:56:16,879 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:16] "GET /api/products HTTP/1.1" 200 -
+2026-01-25 22:56:17,016 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:17] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 22:56:17,019 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:17] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 22:56:17,024 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:17] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 22:56:17,219 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:17] "GET /api/products HTTP/1.1" 200 -

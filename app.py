@@ -184,7 +184,7 @@ def register():
         cursor.execute(
             """INSERT INTO users 
                (user_id, username, password, org_password, email, role) 
-               VALUES (%s,%s,%s,%s,%s,%s,%s)""",
+               VALUES (%s,%s,%s,%s,%s,%s)""",
             (user_id, username, hashed_password, password, email, 'user')
         )
         mysql.connection.commit()

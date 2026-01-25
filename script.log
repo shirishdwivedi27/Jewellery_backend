@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2026-01-25 01:53:07,176 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
@@ -7,3 +8,975 @@
 2026-01-25 01:57:04,408 - INFO: 127.0.0.1 - - [25/Jan/2026 01:57:04] "[33mPOST /send-otp HTTP/1.1[0m" 404 -
 2026-01-25 01:58:02,448 - INFO: 127.0.0.1 - - [25/Jan/2026 01:58:02] "POST /auth/send-otp HTTP/1.1" 200 -
 2026-01-25 02:02:14,046 - INFO: 127.0.0.1 - - [25/Jan/2026 02:02:14] "POST /auth/send-otp HTTP/1.1" 200 -
+=======
+2026-01-25 03:30:08,108 - INFO: ({'metal_type': 'gold', 'base_rate': Decimal('0.00'), 'premium': Decimal('0.00')}, {'metal_type': 'silver', 'base_rate': Decimal('0.00'), 'premium': Decimal('0.00')})
+2026-01-25 03:30:08,108 - ERROR: Exception on /api/admin/metal-rates [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "D:\Jewellers\app.py", line 890, in get_metal_rates
+    "base_rate": float(row[1]),
+KeyError: 1
+2026-01-25 03:30:08,108 - INFO: 127.0.0.1 - - [25/Jan/2026 03:30:08] "[35m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 500 -
+2026-01-25 03:30:33,193 - INFO: ({'metal_type': 'gold', 'base_rate': Decimal('0.00'), 'premium': Decimal('0.00')}, {'metal_type': 'silver', 'base_rate': Decimal('0.00'), 'premium': Decimal('0.00')})
+2026-01-25 03:30:33,193 - ERROR: Exception on /api/admin/metal-rates [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "D:\Jewellers\app.py", line 890, in get_metal_rates
+    "base_rate": float(row[1]),
+KeyError: 1
+2026-01-25 03:30:33,193 - INFO: 127.0.0.1 - - [25/Jan/2026 03:30:33] "[35m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 500 -
+2026-01-25 03:31:36,259 - INFO: ({'metal_type': 'gold', 'base_rate': Decimal('0.00'), 'premium': Decimal('0.00')}, {'metal_type': 'silver', 'base_rate': Decimal('0.00'), 'premium': Decimal('0.00')})
+2026-01-25 03:31:36,259 - ERROR: Exception on /api/admin/metal-rates [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "D:\Jewellers\app.py", line 890, in get_metal_rates
+    for row in rows:
+KeyError: 1
+2026-01-25 03:31:36,293 - INFO: 127.0.0.1 - - [25/Jan/2026 03:31:36] "[35m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 500 -
+2026-01-25 03:33:00,796 - INFO: 127.0.0.1 - - [25/Jan/2026 03:33:00] "POST /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 03:35:29,564 - INFO: ({'metal_type': 'gold', 'base_rate': Decimal('12.00'), 'premium': Decimal('222.00')}, {'metal_type': 'silver', 'base_rate': Decimal('0.00'), 'premium': Decimal('0.00')})
+2026-01-25 03:35:29,564 - ERROR: Exception on /api/admin/metal-rates [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "D:\Jewellers\app.py", line 890, in get_metal_rates
+    rates = {}
+KeyError: 1
+2026-01-25 03:35:29,602 - INFO: 127.0.0.1 - - [25/Jan/2026 03:35:29] "[35m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 500 -
+2026-01-25 03:37:30,815 - INFO: ({'metal_type': 'gold', 'base_rate': Decimal('12.00'), 'premium': Decimal('222.00')}, {'metal_type': 'silver', 'base_rate': Decimal('0.00'), 'premium': Decimal('0.00')})
+2026-01-25 03:37:30,815 - ERROR: Exception on /api/admin/metal-rates [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "D:\Jewellers\app.py", line 890, in get_metal_rates
+    rates = {}
+KeyError: 1
+2026-01-25 03:37:30,865 - INFO: 127.0.0.1 - - [25/Jan/2026 03:37:30] "[35m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 500 -
+2026-01-25 03:37:43,142 - INFO: ({'metal_type': 'gold', 'base_rate': Decimal('12.00'), 'premium': Decimal('222.00')}, {'metal_type': 'silver', 'base_rate': Decimal('0.00'), 'premium': Decimal('0.00')})
+2026-01-25 03:37:43,142 - ERROR: Exception on /api/admin/metal-rates [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "D:\Jewellers\app.py", line 890, in get_metal_rates
+    rates = {}
+KeyError: 1
+2026-01-25 03:37:43,142 - INFO: 127.0.0.1 - - [25/Jan/2026 03:37:43] "[35m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 500 -
+2026-01-25 03:38:19,189 - INFO: ({'metal_type': 'gold', 'base_rate': Decimal('12.00'), 'premium': Decimal('222.00')}, {'metal_type': 'silver', 'base_rate': Decimal('0.00'), 'premium': Decimal('0.00')})
+2026-01-25 03:38:19,189 - ERROR: Exception on /api/admin/metal-rates [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "D:\Jewellers\app.py", line 890, in get_metal_rates
+    print(rows)
+KeyError: 1
+2026-01-25 03:38:19,208 - INFO: 127.0.0.1 - - [25/Jan/2026 03:38:19] "[35m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 500 -
+2026-01-25 03:38:27,307 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-25 03:38:27,309 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 03:38:29,217 - ERROR: Exception on /api/admin/metal-rates [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 895, in get_metal_rates
+    "base_rate": float(row["base_rate"]),
+TypeError: tuple indices must be integers or slices, not str
+2026-01-25 03:38:29,233 - INFO: 127.0.0.1 - - [25/Jan/2026 03:38:29] "[35m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 500 -
+2026-01-25 03:39:30,861 - ERROR: Exception on /api/admin/metal-rates [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 895, in get_metal_rates
+    "base_rate": float(row["base_rate"]),
+TypeError: tuple indices must be integers or slices, not str
+2026-01-25 03:39:30,904 - INFO: 127.0.0.1 - - [25/Jan/2026 03:39:30] "[35m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 500 -
+2026-01-25 03:39:39,015 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-25 03:39:39,015 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 03:39:42,444 - ERROR: Exception on /api/admin/metal-rates [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 895, in get_metal_rates
+    "base_rate": float(row["base_rate"]),
+TypeError: tuple indices must be integers or slices, not str
+2026-01-25 03:39:42,444 - INFO: 127.0.0.1 - - [25/Jan/2026 03:39:42] "[35m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 500 -
+2026-01-25 03:41:24,139 - ERROR: Exception on /api/admin/metal-rates [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 895, in get_metal_rates
+    "base_rate": float(row[1]), # base_rate
+TypeError: tuple indices must be integers or slices, not str
+2026-01-25 03:41:24,197 - INFO: 127.0.0.1 - - [25/Jan/2026 03:41:24] "[35m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 500 -
+2026-01-25 03:42:40,826 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-25 03:42:40,826 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 03:42:43,114 - INFO: 127.0.0.1 - - [25/Jan/2026 03:42:43] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 03:54:12,607 - INFO: 127.0.0.1 - - [25/Jan/2026 03:54:12] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 03:54:12,607 - INFO: 127.0.0.1 - - [25/Jan/2026 03:54:12] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 03:54:12,624 - INFO: 127.0.0.1 - - [25/Jan/2026 03:54:12] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 03:54:12,624 - INFO: 127.0.0.1 - - [25/Jan/2026 03:54:12] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 03:54:12,849 - INFO: 127.0.0.1 - - [25/Jan/2026 03:54:12] "GET /products HTTP/1.1" 200 -
+2026-01-25 03:54:12,959 - INFO: 127.0.0.1 - - [25/Jan/2026 03:54:12] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 03:54:12,960 - INFO: 127.0.0.1 - - [25/Jan/2026 03:54:12] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 03:54:12,963 - INFO: 127.0.0.1 - - [25/Jan/2026 03:54:12] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 03:54:30,449 - INFO: 127.0.0.1 - - [25/Jan/2026 03:54:30] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 03:54:30,787 - INFO: 127.0.0.1 - - [25/Jan/2026 03:54:30] "POST /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 03:54:31,019 - INFO: 127.0.0.1 - - [25/Jan/2026 03:54:31] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 03:56:03,868 - INFO: 127.0.0.1 - - [25/Jan/2026 03:56:03] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 03:56:04,149 - INFO: 127.0.0.1 - - [25/Jan/2026 03:56:04] "POST /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 03:56:04,193 - INFO: 127.0.0.1 - - [25/Jan/2026 03:56:04] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:00:35,168 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:00:35,470 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:00:35,475 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:00:35,481 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:00:35,481 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:00:35,488 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:00:35,501 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:00:35,800 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:00:35,825 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:00:35,831 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:00:35,833 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:00:35,834 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:00:35,983 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:35] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:00:36,146 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:36] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:00:36,157 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:36] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:00:36,166 - INFO: 127.0.0.1 - - [25/Jan/2026 04:00:36] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:02:06,429 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:02:06,429 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:02:06,429 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:02:06,433 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:02:06,438 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:02:06,440 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:02:06,750 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:02:06,750 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:02:06,768 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:02:06,768 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:02:06,768 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:02:06,774 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:06] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:02:07,085 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:07] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:02:07,085 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:07] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:02:07,085 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:07] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:02:07,085 - INFO: 127.0.0.1 - - [25/Jan/2026 04:02:07] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:03:20,434 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:20] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:03:20,434 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:20] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:03:20,434 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:20] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:03:20,434 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:20] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:03:20,698 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:20] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:03:20,749 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:20] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:03:20,749 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:20] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:03:20,749 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:20] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:03:59,162 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:03:59,162 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:03:59,162 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:03:59,162 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:03:59,162 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:03:59,162 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:03:59,475 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:03:59,477 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:03:59,483 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:03:59,486 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:03:59,493 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:03:59,494 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:03:59,790 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:03:59,800 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:03:59,800 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:03:59,814 - INFO: 127.0.0.1 - - [25/Jan/2026 04:03:59] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:10:31,418 - INFO: 127.0.0.1 - - [25/Jan/2026 04:10:31] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:10:31,562 - INFO: 127.0.0.1 - - [25/Jan/2026 04:10:31] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-25 04:10:31,968 - INFO: 127.0.0.1 - - [25/Jan/2026 04:10:31] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:11:18,900 - INFO: 127.0.0.1 - - [25/Jan/2026 04:11:18] "OPTIONS /products/28 HTTP/1.1" 200 -
+2026-01-25 04:11:19,139 - INFO: 127.0.0.1 - - [25/Jan/2026 04:11:19] "[31m[1mPUT /products/28 HTTP/1.1[0m" 401 -
+2026-01-25 04:11:19,226 - INFO: 127.0.0.1 - - [25/Jan/2026 04:11:19] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:11:19,467 - INFO: 127.0.0.1 - - [25/Jan/2026 04:11:19] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:11:25,132 - INFO: 127.0.0.1 - - [25/Jan/2026 04:11:25] "OPTIONS /products/28 HTTP/1.1" 200 -
+2026-01-25 04:11:25,390 - INFO: 127.0.0.1 - - [25/Jan/2026 04:11:25] "[31m[1mPUT /products/28 HTTP/1.1[0m" 401 -
+2026-01-25 04:11:25,455 - INFO: 127.0.0.1 - - [25/Jan/2026 04:11:25] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:11:25,714 - INFO: 127.0.0.1 - - [25/Jan/2026 04:11:25] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:28:17,648 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:17] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:28:17,648 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:17] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:28:17,632 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:17] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:28:17,671 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:17] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:28:17,677 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:17] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:28:17,680 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:17] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:28:17,978 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:17] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:28:17,978 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:17] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:28:18,010 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:18] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 04:28:18,010 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:18] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 04:28:18,026 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:18] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 04:28:18,175 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:18] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:28:18,330 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:18] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 04:28:18,332 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:18] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 04:28:18,334 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:18] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 04:28:18,518 - INFO: 127.0.0.1 - - [25/Jan/2026 04:28:18] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:29:02,140 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:29:02,140 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:29:02,140 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:29:02,155 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:29:02,155 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:29:02,155 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:29:02,477 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:29:02,477 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:29:02,502 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:29:02,504 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:29:02,507 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:29:02,507 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:29:02,823 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:29:02,830 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:29:02,830 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:29:02,843 - INFO: 127.0.0.1 - - [25/Jan/2026 04:29:02] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:30:21,071 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:21] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:30:21,401 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:21] "POST /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:30:21,426 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:21] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:30:26,931 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:26] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:30:26,931 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:26] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:30:26,931 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:26] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:30:26,931 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:26] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:30:26,931 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:26] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:30:26,931 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:26] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:30:27,249 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:27] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:30:27,249 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:27] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:30:27,261 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:27] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:30:27,267 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:27] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:30:27,267 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:27] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:30:27,267 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:27] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:30:27,568 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:27] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:30:27,589 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:27] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:30:27,589 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:27] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:30:27,594 - INFO: 127.0.0.1 - - [25/Jan/2026 04:30:27] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:40:42,281 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:40:42,277 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:40:42,285 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:40:42,290 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:40:42,291 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:40:42,300 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:40:42,591 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:40:42,591 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:40:42,700 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:40:42,700 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:40:42,710 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:40:42,710 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:42] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:40:43,008 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:43] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:40:43,008 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:43] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:40:43,024 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:43] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:40:43,044 - INFO: 127.0.0.1 - - [25/Jan/2026 04:40:43] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:42:55,438 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:42:55,446 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:42:55,452 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:42:55,455 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:42:55,460 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:42:55,469 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:42:55,770 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:42:55,771 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:42:55,881 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:42:55,881 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:42:55,885 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:42:55,893 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:55] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:42:56,207 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:56] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:42:56,207 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:56] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:42:56,212 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:56] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:42:56,225 - INFO: 127.0.0.1 - - [25/Jan/2026 04:42:56] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:48:19,363 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:48:19,376 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:48:19,381 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:48:19,381 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:48:19,381 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:48:19,381 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:48:19,684 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:48:19,684 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:48:19,711 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 04:48:19,714 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 04:48:19,716 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 04:48:19,751 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:19] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:48:20,060 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:20] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 04:48:20,060 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:20] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 04:48:20,060 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:20] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 04:48:20,076 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:20] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:48:32,323 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:48:32,323 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:48:32,323 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:48:32,323 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:48:32,323 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:48:32,377 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:48:32,645 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:48:32,647 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:48:32,671 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:48:32,687 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 04:48:32,687 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 04:48:32,687 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:32] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 04:48:33,004 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:33] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 04:48:33,004 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:33] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 04:48:33,004 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:33] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 04:48:33,020 - INFO: 127.0.0.1 - - [25/Jan/2026 04:48:33] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:51:17,316 - INFO: 127.0.0.1 - - [25/Jan/2026 04:51:17] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:51:17,316 - INFO: 127.0.0.1 - - [25/Jan/2026 04:51:17] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:51:17,316 - INFO: 127.0.0.1 - - [25/Jan/2026 04:51:17] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:51:17,316 - INFO: 127.0.0.1 - - [25/Jan/2026 04:51:17] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:51:17,594 - INFO: 127.0.0.1 - - [25/Jan/2026 04:51:17] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:51:17,627 - INFO: 127.0.0.1 - - [25/Jan/2026 04:51:17] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 04:51:17,627 - INFO: 127.0.0.1 - - [25/Jan/2026 04:51:17] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 04:51:17,627 - INFO: 127.0.0.1 - - [25/Jan/2026 04:51:17] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 04:53:23,323 - INFO: 127.0.0.1 - - [25/Jan/2026 04:53:23] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:53:23,329 - INFO: 127.0.0.1 - - [25/Jan/2026 04:53:23] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:53:23,329 - INFO: 127.0.0.1 - - [25/Jan/2026 04:53:23] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:53:23,329 - INFO: 127.0.0.1 - - [25/Jan/2026 04:53:23] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:53:23,596 - INFO: 127.0.0.1 - - [25/Jan/2026 04:53:23] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:53:23,638 - INFO: 127.0.0.1 - - [25/Jan/2026 04:53:23] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 04:53:23,639 - INFO: 127.0.0.1 - - [25/Jan/2026 04:53:23] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 04:53:23,641 - INFO: 127.0.0.1 - - [25/Jan/2026 04:53:23] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 04:54:39,402 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:54:39,414 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:54:39,414 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:54:39,414 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:54:39,414 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:54:39,414 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:54:39,716 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:54:39,732 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:54:39,748 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:54:39,767 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:54:39,770 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:54:39,770 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:39] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:54:40,064 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:40] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:54:40,080 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:40] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:54:40,080 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:40] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:54:40,080 - INFO: 127.0.0.1 - - [25/Jan/2026 04:54:40] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:55:48,708 - INFO: 127.0.0.1 - - [25/Jan/2026 04:55:48] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:55:49,006 - INFO: 127.0.0.1 - - [25/Jan/2026 04:55:49] "POST /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:55:49,027 - INFO: 127.0.0.1 - - [25/Jan/2026 04:55:49] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:57:09,922 - INFO: 127.0.0.1 - - [25/Jan/2026 04:57:09] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:57:09,923 - INFO: 127.0.0.1 - - [25/Jan/2026 04:57:09] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:57:09,925 - INFO: 127.0.0.1 - - [25/Jan/2026 04:57:09] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:57:09,928 - INFO: 127.0.0.1 - - [25/Jan/2026 04:57:09] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:57:10,213 - INFO: 127.0.0.1 - - [25/Jan/2026 04:57:10] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:57:10,242 - INFO: 127.0.0.1 - - [25/Jan/2026 04:57:10] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:57:10,245 - INFO: 127.0.0.1 - - [25/Jan/2026 04:57:10] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:57:10,248 - INFO: 127.0.0.1 - - [25/Jan/2026 04:57:10] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:59:26,131 - INFO: 127.0.0.1 - - [25/Jan/2026 04:59:26] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 04:59:26,131 - INFO: 127.0.0.1 - - [25/Jan/2026 04:59:26] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:59:26,131 - INFO: 127.0.0.1 - - [25/Jan/2026 04:59:26] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:59:26,131 - INFO: 127.0.0.1 - - [25/Jan/2026 04:59:26] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 04:59:26,391 - INFO: 127.0.0.1 - - [25/Jan/2026 04:59:26] "GET /products HTTP/1.1" 200 -
+2026-01-25 04:59:26,451 - INFO: 127.0.0.1 - - [25/Jan/2026 04:59:26] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 04:59:26,451 - INFO: 127.0.0.1 - - [25/Jan/2026 04:59:26] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 04:59:26,451 - INFO: 127.0.0.1 - - [25/Jan/2026 04:59:26] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:02:03,410 - INFO: 127.0.0.1 - - [25/Jan/2026 05:02:03] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:02:03,410 - INFO: 127.0.0.1 - - [25/Jan/2026 05:02:03] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:02:03,410 - INFO: 127.0.0.1 - - [25/Jan/2026 05:02:03] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:02:03,410 - INFO: 127.0.0.1 - - [25/Jan/2026 05:02:03] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:02:03,661 - INFO: 127.0.0.1 - - [25/Jan/2026 05:02:03] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:02:03,731 - INFO: 127.0.0.1 - - [25/Jan/2026 05:02:03] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:02:03,731 - INFO: 127.0.0.1 - - [25/Jan/2026 05:02:03] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:02:03,731 - INFO: 127.0.0.1 - - [25/Jan/2026 05:02:03] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:03:41,614 - INFO: 127.0.0.1 - - [25/Jan/2026 05:03:41] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:03:41,614 - INFO: 127.0.0.1 - - [25/Jan/2026 05:03:41] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:03:41,614 - INFO: 127.0.0.1 - - [25/Jan/2026 05:03:41] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:03:41,614 - INFO: 127.0.0.1 - - [25/Jan/2026 05:03:41] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:03:41,896 - INFO: 127.0.0.1 - - [25/Jan/2026 05:03:41] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:03:41,928 - INFO: 127.0.0.1 - - [25/Jan/2026 05:03:41] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:03:41,928 - INFO: 127.0.0.1 - - [25/Jan/2026 05:03:41] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:03:41,928 - INFO: 127.0.0.1 - - [25/Jan/2026 05:03:41] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:04:13,973 - INFO: 127.0.0.1 - - [25/Jan/2026 05:04:13] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:04:13,974 - INFO: 127.0.0.1 - - [25/Jan/2026 05:04:13] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:04:13,974 - INFO: 127.0.0.1 - - [25/Jan/2026 05:04:13] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:04:13,975 - INFO: 127.0.0.1 - - [25/Jan/2026 05:04:13] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:04:14,237 - INFO: 127.0.0.1 - - [25/Jan/2026 05:04:14] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:04:14,285 - INFO: 127.0.0.1 - - [25/Jan/2026 05:04:14] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:04:14,285 - INFO: 127.0.0.1 - - [25/Jan/2026 05:04:14] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:04:14,285 - INFO: 127.0.0.1 - - [25/Jan/2026 05:04:14] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:05:57,541 - INFO: 127.0.0.1 - - [25/Jan/2026 05:05:57] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:05:58,722 - INFO: 127.0.0.1 - - [25/Jan/2026 05:05:58] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-25 05:05:58,738 - INFO: 127.0.0.1 - - [25/Jan/2026 05:05:58] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:06:07,599 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:06:07,599 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:06:07,600 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:06:07,600 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:06:07,602 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:06:07,604 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:06:07,908 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:06:07,908 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:06:07,934 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:06:07,935 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:06:07,936 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:06:07,943 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:07] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:06:08,264 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:08] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:06:08,264 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:08] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:06:08,264 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:08] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:06:08,264 - INFO: 127.0.0.1 - - [25/Jan/2026 05:06:08] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:07:02,149 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:02] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:07:02,149 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:02] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:07:02,149 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:02] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:07:02,149 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:02] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:07:02,388 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:02] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:07:02,472 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:02] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:07:02,472 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:02] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:07:02,482 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:02] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:07:17,857 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:17] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:07:18,160 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:18] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:07:18,160 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:18] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:07:18,160 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:18] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:07:18,160 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:18] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:07:18,480 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:18] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:07:18,482 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:18] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:07:18,484 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:18] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:07:26,342 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:26] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:07:26,342 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:26] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:07:26,342 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:26] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:07:26,342 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:26] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:07:26,593 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:26] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:07:26,669 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:26] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:07:26,669 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:26] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:07:26,669 - INFO: 127.0.0.1 - - [25/Jan/2026 05:07:26] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:08:30,705 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:30] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:08:30,979 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:30] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-25 05:08:31,028 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:31] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:08:37,289 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:08:37,610 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:08:37,610 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:08:37,610 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:08:37,610 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:08:37,610 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:08:37,631 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:08:37,923 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:08:37,923 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:08:37,923 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:08:37,923 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:08:37,954 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:37] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:08:38,244 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:38] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:08:38,244 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:38] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:08:38,244 - INFO: 127.0.0.1 - - [25/Jan/2026 05:08:38] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:34:32,949 - INFO: User logged in: shirish8172 (praveengupta221715@gmail.com)
+2026-01-25 05:34:32,981 - INFO: 127.0.0.1 - - [25/Jan/2026 05:34:32] "POST /login HTTP/1.1" 200 -
+2026-01-25 05:34:55,068 - INFO: 127.0.0.1 - - [25/Jan/2026 05:34:55] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-25 05:39:59,435 - INFO: 127.0.0.1 - - [25/Jan/2026 05:39:59] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:39:59,419 - INFO: 127.0.0.1 - - [25/Jan/2026 05:39:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:39:59,452 - INFO: 127.0.0.1 - - [25/Jan/2026 05:39:59] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:39:59,457 - INFO: 127.0.0.1 - - [25/Jan/2026 05:39:59] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:39:59,577 - INFO: 127.0.0.1 - - [25/Jan/2026 05:39:59] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 05:39:59,768 - INFO: 127.0.0.1 - - [25/Jan/2026 05:39:59] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 05:39:59,768 - INFO: 127.0.0.1 - - [25/Jan/2026 05:39:59] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 05:39:59,856 - INFO: 127.0.0.1 - - [25/Jan/2026 05:39:59] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:41:04,122 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:41:04,122 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:41:04,122 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:41:04,122 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:41:04,122 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:41:04,145 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:41:04,440 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:41:04,446 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:41:04,470 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:41:04,486 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:41:04,489 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:41:04,507 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:41:04,829 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:41:04,829 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:41:04,843 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:41:04,870 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:04] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:41:16,388 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:16] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:41:16,710 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:16] "POST /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:41:16,747 - INFO: 127.0.0.1 - - [25/Jan/2026 05:41:16] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:42:22,413 - INFO: 127.0.0.1 - - [25/Jan/2026 05:42:22] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:42:22,765 - INFO: 127.0.0.1 - - [25/Jan/2026 05:42:22] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-25 05:42:22,819 - INFO: 127.0.0.1 - - [25/Jan/2026 05:42:22] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:43:39,160 - INFO: 127.0.0.1 - - [25/Jan/2026 05:43:39] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:43:39,447 - INFO: 127.0.0.1 - - [25/Jan/2026 05:43:39] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-25 05:43:39,509 - INFO: 127.0.0.1 - - [25/Jan/2026 05:43:39] "GET /products HTTP/1.1" 200 -
+2026-01-25 05:45:30,467 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:45:30,463 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:45:30,471 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:45:30,471 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:45:30,480 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:45:30,482 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:45:30,783 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:45:30,798 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:45:30,834 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 449, in get_products
+    rows = cursor.fetchall()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1054, "Unknown column 'price' in 'field list'")
+2026-01-25 05:45:30,834 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:45:30,846 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:45:30,860 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:45:30,889 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:30] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 05:45:31,232 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:31] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:45:31,235 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:31] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:45:31,237 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 449, in get_products
+    rows = cursor.fetchall()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1054, "Unknown column 'price' in 'field list'")
+2026-01-25 05:45:31,241 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:31] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:45:31,249 - INFO: 127.0.0.1 - - [25/Jan/2026 05:45:31] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 05:46:44,738 - INFO: 127.0.0.1 - - [25/Jan/2026 05:46:44] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 05:46:44,738 - INFO: 127.0.0.1 - - [25/Jan/2026 05:46:44] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:46:44,741 - INFO: 127.0.0.1 - - [25/Jan/2026 05:46:44] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:46:44,742 - INFO: 127.0.0.1 - - [25/Jan/2026 05:46:44] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:46:45,016 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 449, in get_products
+    rows = cursor.fetchall()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1054, "Unknown column 'price' in 'field list'")
+2026-01-25 05:46:45,023 - INFO: 127.0.0.1 - - [25/Jan/2026 05:46:45] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 05:46:45,109 - INFO: 127.0.0.1 - - [25/Jan/2026 05:46:45] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 05:46:45,112 - INFO: 127.0.0.1 - - [25/Jan/2026 05:46:45] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:46:45,118 - INFO: 127.0.0.1 - - [25/Jan/2026 05:46:45] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 05:47:46,209 - INFO: User logged in: shirish8172 (praveengupta221715@gmail.com)
+2026-01-25 05:47:46,209 - INFO: 127.0.0.1 - - [25/Jan/2026 05:47:46] "POST /login HTTP/1.1" 200 -
+2026-01-25 05:48:03,113 - INFO: 127.0.0.1 - - [25/Jan/2026 05:48:03] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 05:49:09,496 - INFO: 127.0.0.1 - - [25/Jan/2026 05:49:09] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-25 05:49:57,102 - INFO: 127.0.0.1 - - [25/Jan/2026 05:49:57] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-25 05:50:06,162 - INFO: User logged in: shirish8172 (praveengupta221715@gmail.com)
+2026-01-25 05:50:06,175 - INFO: 127.0.0.1 - - [25/Jan/2026 05:50:06] "POST /login HTTP/1.1" 200 -
+2026-01-25 05:50:21,848 - INFO: 127.0.0.1 - - [25/Jan/2026 05:50:21] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-25 05:52:10,918 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-25 05:52:10,918 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 05:52:16,354 - INFO: 127.0.0.1 - - [25/Jan/2026 05:52:16] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2026-01-25 05:52:43,269 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 439, in get_products
+    cursor.execute("""
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='")
+2026-01-25 05:52:43,280 - INFO: 127.0.0.1 - - [25/Jan/2026 05:52:43] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 05:52:48,435 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 439, in get_products
+    cursor.execute("""
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='")
+2026-01-25 05:52:48,440 - INFO: 127.0.0.1 - - [25/Jan/2026 05:52:48] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 05:58:32,960 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 439, in get_products
+    cursor.execute("""
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='")
+2026-01-25 05:58:33,110 - INFO: 127.0.0.1 - - [25/Jan/2026 05:58:33] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 05:58:44,473 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-25 05:58:44,475 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 05:58:45,361 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 439, in get_products
+    cursor.execute("""
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='")
+2026-01-25 05:58:45,581 - INFO: 127.0.0.1 - - [25/Jan/2026 05:58:45] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 05:58:50,490 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 439, in get_products
+    cursor.execute("""
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='")
+2026-01-25 05:58:50,490 - INFO: 127.0.0.1 - - [25/Jan/2026 05:58:50] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 13:46:18,312 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 13:46:18,312 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 13:46:18,312 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 13:46:18,333 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 13:46:18,335 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 13:46:18,335 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 13:46:18,641 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 13:46:18,642 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 13:46:18,677 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 13:46:18,677 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 13:46:18,691 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 13:46:18,825 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 439, in get_products
+    cursor.execute("""
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='")
+2026-01-25 13:46:18,825 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 13:46:18,989 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 13:46:18,989 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 13:46:18,997 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:18] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
+2026-01-25 13:46:19,151 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 439, in get_products
+    cursor.execute("""
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='")
+2026-01-25 13:46:19,153 - INFO: 127.0.0.1 - - [25/Jan/2026 13:46:19] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 13:51:23,836 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:23] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 13:51:23,852 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:23] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 13:51:23,852 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:23] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 13:51:23,852 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:23] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 13:51:23,852 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:23] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 13:51:23,852 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:23] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 13:51:24,170 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:24] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 13:51:24,170 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:24] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 13:51:24,354 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 439, in get_products
+    cursor.execute("""
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='")
+2026-01-25 13:51:24,369 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:24] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 13:51:24,385 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:24] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 13:51:24,387 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:24] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 13:51:24,387 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:24] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 13:51:24,697 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 439, in get_products
+    cursor.execute("""
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='")
+2026-01-25 13:51:24,699 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:24] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 13:51:24,700 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:24] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 13:51:24,702 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:24] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 13:51:24,704 - INFO: 127.0.0.1 - - [25/Jan/2026 13:51:24] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 13:52:12,815 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-25 13:52:12,815 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 14:01:14,136 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-25 14:01:14,136 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 14:01:29,266 - INFO: 127.0.0.1 - - [25/Jan/2026 14:01:29] "GET /products HTTP/1.1" 200 -
+2026-01-25 14:01:41,594 - ERROR: Exception on /products/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 533, in get_product
+    cursor.execute("""
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='")
+2026-01-25 14:01:41,594 - INFO: 127.0.0.1 - - [25/Jan/2026 14:01:41] "[35m[1mGET /products/1 HTTP/1.1[0m" 500 -
+2026-01-25 14:02:56,478 - INFO: 127.0.0.1 - - [25/Jan/2026 14:02:56] "GET /products HTTP/1.1" 200 -
+2026-01-25 14:03:08,219 - ERROR: Exception on /products/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 533, in get_product
+    cursor.execute("""
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='")
+2026-01-25 14:03:08,263 - INFO: 127.0.0.1 - - [25/Jan/2026 14:03:08] "[35m[1mGET /products/1 HTTP/1.1[0m" 500 -
+>>>>>>> origin/master

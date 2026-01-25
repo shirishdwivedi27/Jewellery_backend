@@ -17,7 +17,7 @@ from email.mime.multipart import MIMEMultipart
 from flask import send_from_directory
 from werkzeug.utils import secure_filename
 
-import requests
+# import requests
 
 
 import random 
@@ -42,9 +42,6 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['APP_URL'] = os.getenv('APP_URL')
 app.config['API_KEY'] = os.getenv('API_KEY')
 app.config['API_SECRET'] = os.getenv('API_SECRET')
-app.config['MSG91_AUTH_KEY'] = os.getenv("MSG91_AUTH_KEY")
-app.config['MSG91_SENDER_ID'] = os.getenv("MSG91_SENDER_ID")
-
 
 
 
@@ -163,7 +160,8 @@ def register():
         email = data.get('email')
         password = data.get('password')
         user_id = data.get('user_id') or username
-
+        phone=data.get('Phone')
+        
         if not username or not email or not password:
             return jsonify({"error": "All fields are required"}), 400
 
@@ -185,9 +183,9 @@ def register():
         cursor = get_db_cursor()
         cursor.execute(
             """INSERT INTO users 
-               (user_id, username, password, org_password, email, role) 
-               VALUES (%s,%s,%s,%s,%s,%s)""",
-            (user_id, username, hashed_password, password, email, 'user')
+               (user_id, username, password, org_password, email, role,Phone) 
+               VALUES (%s,%s,%s,%s,%s,%s,%s)""",
+            (user_id, username, hashed_password, password, email, 'user',phone)
         )
         mysql.connection.commit()
         cursor.close()
@@ -225,70 +223,6 @@ def register():
         }), 500
 
 
-@app.route("/auth/send-otp", methods=["POST"])
-def send_otp():
-    data = request.get_json()
-    phone = data.get("phone")
-
-    if not phone:
-        return jsonify({"msg": "Phone number required"}), 400
-
-    url = "https://api.msg91.com/api/v5/otp"
-    payload = {
-        "authkey": app.config['MSG91_AUTH_KEY'],
-        "mobile": f"91{phone}",
-        "sender": app.config['MSG91_SENDER_ID'],
-        "otp_length": 6
-    }
-
-    response = requests.post(url, json=payload)
-    return jsonify(response.json()), 200
-
-@app.route("/auth/verify-otp", methods=["POST"])
-def verify_otp():
-    data = request.get_json()
-    phone = data.get("phone")
-    otp = data.get("otp")
-
-    if not phone or not otp:
-        return jsonify({"msg": "Phone & OTP required"}), 400
-
-    url = "https://api.msg91.com/api/v5/otp/verify"
-    payload = {
-        "authkey": app.config['MSG91_AUTH_KEY'],
-        "mobile": f"91{phone}",
-        "otp": otp
-    }
-
-    response = requests.post(url, json=payload)
-    res = response.json()
-
-    if res.get("type") != "success":
-        return jsonify({"msg": "Invalid OTP"}), 401
-
-    cursor = get_db_cursor(dictionary=True)
-    cursor.execute("SELECT * FROM users WHERE phone=%s", (phone,))
-    user = cursor.fetchone()
-
-    # 🔹 New user → auto register
-    if not user:
-        user_id = f"user_{phone}"
-        cursor.execute("""
-            INSERT INTO users (user_id, phone, phone_verified, role)
-            VALUES (%s,%s,1,'user')
-        """, (user_id, phone))
-        mysql.connection.commit()
-    else:
-        user_id = user['user_id']
-
-    cursor.close()
-
-    access_token = create_access_token(identity=user_id)
-
-    return jsonify({
-        "msg": "Login successful",
-        "access_token": access_token
-    }), 200
 
 
 @app.route('/login', methods=['POST'])
@@ -466,62 +400,79 @@ def get_all_users():
     return jsonify(users), 200
 
 
-
 @app.route('/products', methods=['POST'])
 @jwt_required()
 def create_product():
-    """
-    Admin only
-    Fields: name, category, price, description, stock, images
-    """
     try:
         data = request.get_json()
-        try:
-            cursor = get_db_cursor()
-            cursor.execute("""
-                INSERT INTO products (name, category, price, description, stock, images, quantity, metal_name)
-                VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
-            """, (
-                data['name'],
-                data.get('category'),
-                data.get('price'),
-                data.get('description'),
-                data.get('stock'),
-                data.get('images'),
-                data.get('quantity'),
-                data.get('metal_name')
-            )
-            )
-            mysql.connection.commit()
-            cursor.close()
-            return jsonify({"msg": "Product created successfully"}), 201 
-        except Exception as e:
-            logging.info("Hello",str(e))
-            return jsonify({"msg":"Product not created","error":str(e)}), 401 
+        cursor = get_db_cursor()
+
+        cursor.execute("""
+            INSERT INTO products 
+            (name, category, description, stock, images, quantity, metal_name, weight, making_charge)
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        """, (
+            data['name'],
+            data.get('category'),
+            data.get('description'),
+            data.get('stock'),
+            data.get('images'),
+            data.get('quantity'),
+            data.get('metal_name'),
+            data.get('weight'),
+            data.get('making_charge')
+        ))
+
+        mysql.connection.commit()
+        cursor.close()
+        return jsonify({"msg": "Product created successfully"}), 201
+
     except Exception as e:
-        logging.info("Hello",str(e))
-        return jsonify({"msg":"Product not created","error":str(e)}), 401 
-
-
+        return jsonify({"error": str(e)}), 500
 
 
 
 @app.route('/products', methods=['GET'])
 def get_products():
-    """
-    Get all products
-    """
-    cursor = get_db_cursor()
-    cursor.execute("SELECT id, name, category, price, description, stock, images , quantity FROM products")
-    products = cursor.fetchall()
+    cursor = get_db_cursor(dictionary=True)
+
+    cursor.execute("""
+  SELECT 
+    p.id, p.name, p.category, p.description, p.stock, p.images,
+    p.quantity, p.metal_name, p.weight, p.making_charge,
+    m.base_rate, m.premium
+FROM products p
+JOIN metal_rates m 
+  ON LOWER(p.metal_name) COLLATE utf8mb4_0900_ai_ci
+   = LOWER(m.metal_type) COLLATE utf8mb4_0900_ai_ci;
+    """)
+
+    rows = cursor.fetchall()
     cursor.close()
+    print(rows)
+    result = []
 
-    result = [
-        {"id": p[0], "name": p[1], "category": p[2], "price": p[3],
-         "description": p[4], "stock": p[5], "images": p[6],"quantity":p[7] } for p in products
-    ]
+    for p in rows:
+        final_price = (
+            float(p["weight"]) *
+            (float(p["base_rate"]) + float(p["premium"]))
+        ) + float(p["making_charge"])
+
+        result.append({
+            "id": p["id"],
+            "name": p["name"],
+            "category": p["category"],
+            "description": p["description"],
+            "stock": p["stock"],
+            "images": p["images"],
+            "quantity": p["quantity"],
+            "metal_name": p["metal_name"],
+            "weight": p["weight"],
+            "making_charge": p["making_charge"],
+            "price": round(final_price, 2)
+        })
+
     return jsonify(result), 200
-
 
 
 @app.route("/products/<int:id>", methods=["DELETE"])
@@ -537,65 +488,107 @@ def delete_product(id):
 @app.route("/products/<int:id>", methods=["PUT"])
 @jwt_required()
 def update_product(id):
-    try:
-        data = request.get_json()
-        cursor = get_db_cursor(dictionary=True)
+    data = request.get_json()
+    cursor = get_db_cursor(dictionary=True)
 
-        cursor.execute("SELECT * FROM products WHERE id=%s", (id,))
-        product = cursor.fetchone()
+    cursor.execute("SELECT * FROM products WHERE id=%s", (id,))
+    product = cursor.fetchone()
 
-        if not product:
-            return jsonify({"msg": "Product not found"}), 404
+    if not product:
+        return jsonify({"msg": "Product not found"}), 404
 
-        cursor.execute("""
-            UPDATE products SET
-            name=%s,
-            category=%s,
-            description=%s,
-            stock=%s,
-            quantity=%s,
-            metal_name=%s,
-            images=%s,
-            price=%s
-            WHERE id=%s
-        """, (
-            data.get("name", product["name"]),
-            data.get("category", product["category"]),
-            data.get("description", product["description"]),
-            int(data.get("stock", product["stock"])),
-            data.get("quantity", product["quantity"]),
-            data.get("metal_name") or product["metal_name"] or "Gold",
-            data.get("images", product["images"]),
-            float(data.get("price", product["price"])),
-            id
-        ))
+    cursor.execute("""
+        UPDATE products SET
+        name=%s,
+        category=%s,
+        description=%s,
+        stock=%s,
+        quantity=%s,
+        metal_name=%s,
+        images=%s,
+        weight=%s,
+        making_charge=%s
+        WHERE id=%s
+    """, (
+        data.get("name", product["name"]),
+        data.get("category", product["category"]),
+        data.get("description", product["description"]),
+        data.get("stock", product["stock"]),
+        data.get("quantity", product["quantity"]),
+        data.get("metal_name", product["metal_name"]),
+        data.get("images", product["images"]),
+        data.get("weight", product["weight"]),
+        data.get("making_charge", product["making_charge"]),
+        id
+    ))
 
-        mysql.connection.commit()
-        cursor.close()
-        return jsonify({"msg": "Product updated successfully"}), 200
-
-    except Exception as e:
-        print("UPDATE ERROR =", e)
-        return jsonify({"error": str(e)}), 500
-
+    mysql.connection.commit()
+    cursor.close()
+    return jsonify({"msg": "Product updated successfully"}), 200
 
 @app.route('/products/<int:id>', methods=['GET'])
 def get_product(id):
-    """
-    Get product by id
-    """
-    cursor = get_db_cursor()
-    cursor.execute("SELECT id, name, category, price, description, stock, images , quantity FROM products WHERE id=%s", (id,))
-    product = cursor.fetchone()
+    cursor = get_db_cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT 
+    p.*, m.base_rate, m.premium
+FROM products p
+JOIN metal_rates m 
+  ON LOWER(p.metal_name) COLLATE utf8mb4_0900_ai_ci
+   = LOWER(m.metal_type) COLLATE utf8mb4_0900_ai_ci
+WHERE p.id = %s;
+    """, (id,))
+
+    p = cursor.fetchone()
     cursor.close()
 
-    if product:
-        return jsonify({
-            "id": product[0], "name": product[1], "category": product[2],
-            "price": product[3], "description": product[4], "stock": product[5],
-            "images": product[6] , "quantity":product[7]
-        }), 200
-    return jsonify({"message": "Product not found"}), 404
+    if not p:
+        return jsonify({"message": "Product not found"}), 404
+
+    final_price = (
+        float(p["weight"]) *
+        (float(p["base_rate"]) + float(p["premium"]))
+    ) + float(p["making_charge"])
+
+    p["price"] = round(final_price, 2)
+    p.pop("base_rate")
+    p.pop("premium")
+
+    return jsonify(p), 200
+
+# @app.route("/api/products", methods=["GET"])
+# def get_products():
+#     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+
+#     query = """
+#     SELECT 
+#         p.id, p.name, p.weight, p.metal_type, p.making_charge,
+#         m.base_rate, m.premium
+#     FROM products p
+#     JOIN metal_rates m ON p.metal_type = m.metal_type
+#     """
+
+#     cursor.execute(query)
+#     rows = cursor.fetchall()
+#     cursor.close()
+
+#     products = []
+#     for row in rows:
+#         final_price = (
+#             float(row["weight"]) *
+#             (float(row["base_rate"]) + float(row["premium"]))
+#         ) + float(row["making_charge"] or 0)
+
+#         products.append({
+#             "id": row["id"],
+#             "name": row["name"],
+#             "metal": row["metal_type"],
+#             "weight": row["weight"],
+#             "price": final_price
+#         })
+
+#     return jsonify(products), 200
 
 
 @app.route('/profile', methods=['GET'])
@@ -941,6 +934,56 @@ def submit_contact():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
+    
+    
+@app.route("/api/admin/metal-rates", methods=["GET"])
+@jwt_required()
+def get_metal_rates():
+    cursor = mysql.connection.cursor()
+
+    cursor.execute("SELECT metal_type, base_rate, premium FROM metal_rates")
+    rows = cursor.fetchall()
+    cursor.close()
+
+    print(rows)
+
+    rates = {}
+    for row in rows:
+        rates[row[0]] = {              # metal_type store kr rahe string me 
+            "base_rate": float(row[1]), # base_rate string me calc prob so change int 
+            "premium": float(row[2])    # premium
+        }
+
+    print(rates)
+    return jsonify(rates), 200
+
+
+
+@app.route("/api/admin/metal-rates", methods=["POST"])
+@jwt_required()
+def update_metal_rate():
+    data = request.json
+
+    metal_type = data.get("metal_type")
+    base_rate = data.get("base_rate")
+    premium = data.get("premium")
+
+    if metal_type not in ["gold", "silver"]:
+        return jsonify({"message": "Invalid metal type"}), 400
+
+    cursor = mysql.connection.cursor()
+
+    cursor.execute("""
+        UPDATE metal_rates
+        SET base_rate = %s, premium = %s
+        WHERE metal_type = %s
+    """, (base_rate, premium, metal_type))
+
+    mysql.connection.commit()
+    cursor.close()
+
+    return jsonify({"message": "Rate updated successfully"}), 200
 
 
 

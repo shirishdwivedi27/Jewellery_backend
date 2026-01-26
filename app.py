@@ -495,21 +495,21 @@ def get_products():
     cursor = get_db_cursor(dictionary=True)
 
     cursor.execute("""
-  SELECT 
+    SELECT 
     p.id, p.name, p.category, p.description, p.stock, p.images,
     p.quantity, p.metal_name, p.weight, p.making_charge,
     m.base_rate, m.premium
-FROM products p
-JOIN metal_rates m 
-  ON LOWER(p.metal_name) COLLATE utf8mb4_0900_ai_ci
-   = LOWER(m.metal_type) COLLATE utf8mb4_0900_ai_ci;
+    FROM products p
+    JOIN metal_rates m 
+    ON LOWER(p.metal_name) COLLATE utf8mb4_0900_ai_ci
+    = LOWER(m.metal_type) COLLATE utf8mb4_0900_ai_ci;
     """)
-
     rows = cursor.fetchall()
     cursor.close()
     result = []
 
     for p in rows:
+        
         final_price = (
             float(p["weight"]) *
             (float(p["base_rate"]) + float(p["premium"]))
@@ -555,9 +555,9 @@ def update_product(id):
         return jsonify({"msg": "Product not found"}), 404
      
     image_url = product["images"]
-    new_base64 = data.get("images")
-    if new_base64:
-        image_url = upload_base64_to_imagekit(new_base64)
+    # new_base64 = data.get("images")
+    # if new_base64:
+    #     image_url = upload_base64_to_imagekit(new_base64)
 
     cursor.execute("""
         UPDATE products SET
@@ -578,7 +578,7 @@ def update_product(id):
         data.get("stock", product["stock"]),
         data.get("quantity", product["quantity"]),
         data.get("metal_name", product["metal_name"]),
-        image_url,
+        data.get("images",image_url),
         data.get("weight", product["weight"]),
         data.get("making_charge", product["making_charge"]),
         id

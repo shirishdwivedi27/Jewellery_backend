@@ -15,5 +15,13 @@ flask-jwt-extended==4.4.4
 Werkzeug==2.3.7
 python-dotenv==1.0.0
 mysqlclient==2.2.2
-imagekitio==5.1.1
+# imagekitio==5.1.1
+# requests==2.31.0
+
+
+
 requests==2.31.0
+urllib3==2.0.7
+certifi==2024.2.2
+
+imagekitio==4.1.0

@@ -16,12 +16,10 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from flask import send_from_directory
 from werkzeug.utils import secure_filename
-
-# import requests
-
-
+from imagekitio import ImageKit
+import requests
 import random 
-
+import traceback
 
 
 load_dotenv()
@@ -43,7 +41,9 @@ app.config['APP_URL'] = os.getenv('APP_URL')
 app.config['API_KEY'] = os.getenv('API_KEY')
 app.config['API_SECRET'] = os.getenv('API_SECRET')
 
-
+IMAGEKIT_PUBLIC_KEY = os.getenv("IMAGEKIT_PUBLIC_KEY")
+IMAGEKIT_PRIVATE_KEY = os.getenv("IMAGEKIT_PRIVATE_KEY")
+IMAGEKIT_URL_ENDPOINT = os.getenv("IMAGEKIT_URL_ENDPOINT")
 
 jwt = JWTManager(app)
 
@@ -160,7 +160,7 @@ def register():
         email = data.get('email')
         password = data.get('password')
         user_id = data.get('user_id') or username
-        phone=data.get('Phone')
+        #phone=data.get('Phone')
         
         if not username or not email or not password:
             return jsonify({"error": "All fields are required"}), 400
@@ -183,9 +183,9 @@ def register():
         cursor = get_db_cursor()
         cursor.execute(
             """INSERT INTO users 
-               (user_id, username, password, org_password, email, role,Phone) 
+               (user_id, username, password, org_password, email, role , Phone) 
                VALUES (%s,%s,%s,%s,%s,%s,%s)""",
-            (user_id, username, hashed_password, password, email, 'user',phone)
+            (user_id, username, hashed_password, password, email, 'user', "+91723472")
         )
         mysql.connection.commit()
         cursor.close()
@@ -400,12 +400,36 @@ def get_all_users():
     return jsonify(users), 200
 
 
+
+#CONVERSION TO BASE64 TO IMAGEKIT URL
+def upload_base64_to_imagekit(base64_image):
+    response = requests.post(
+        "https://upload.imagekit.io/api/v1/files/upload",
+        auth=(IMAGEKIT_PRIVATE_KEY, ""),   # Basic Auth
+        data={
+            "file": base64_image,          # data:image/...;base64,...
+            "fileName": "product.jpg",
+            "folder": "/products"
+        }
+    )
+
+    if response.status_code != 200:
+        raise Exception(response.text)
+
+    return response.json()["url"]
+
+# ADD PRODUCT
 @app.route('/products', methods=['POST'])
 @jwt_required()
 def create_product():
     try:
         data = request.get_json()
         cursor = get_db_cursor()
+        base64_image = data.get("images")
+        image_url = None
+
+        if base64_image:
+            image_url = upload_base64_to_imagekit(base64_image)
 
         cursor.execute("""
             INSERT INTO products 
@@ -416,7 +440,7 @@ def create_product():
             data.get('category'),
             data.get('description'),
             data.get('stock'),
-            data.get('images'),
+            image_url,
             data.get('quantity'),
             data.get('metal_name'),
             data.get('weight'),
@@ -433,6 +457,24 @@ def create_product():
 
 
 @app.route('/products', methods=['GET'])
+def get_products_dash():
+    """
+    Get all products
+    """
+    cursor = get_db_cursor()
+    cursor.execute("SELECT id, name, category , description, stock, images , quantity FROM products")
+    products = cursor.fetchall()
+    cursor.close()
+
+    result = [
+        {"id": p[0], "name": p[1], "category": p[2],
+         "description": p[3], "stock": p[4], "images": p[5],"quantity":p[6] } for p in products
+    ]
+    return jsonify(result), 200
+
+
+
+@app.route('/api/products', methods=['GET'])
 def get_products():
     cursor = get_db_cursor(dictionary=True)
 
@@ -449,7 +491,6 @@ JOIN metal_rates m
 
     rows = cursor.fetchall()
     cursor.close()
-    print(rows)
     result = []
 
     for p in rows:
@@ -496,6 +537,11 @@ def update_product(id):
 
     if not product:
         return jsonify({"msg": "Product not found"}), 404
+     
+    image_url = product["images"]
+    new_base64 = data.get("images")
+    if new_base64:
+        image_url = upload_base64_to_imagekit(new_base64)
 
     cursor.execute("""
         UPDATE products SET
@@ -516,7 +562,7 @@ def update_product(id):
         data.get("stock", product["stock"]),
         data.get("quantity", product["quantity"]),
         data.get("metal_name", product["metal_name"]),
-        data.get("images", product["images"]),
+        image_url,
         data.get("weight", product["weight"]),
         data.get("making_charge", product["making_charge"]),
         id
@@ -946,8 +992,6 @@ def get_metal_rates():
     rows = cursor.fetchall()
     cursor.close()
 
-    print(rows)
-
     rates = {}
     for row in rows:
         rates[row[0]] = {              # metal_type store kr rahe string me 
@@ -955,7 +999,6 @@ def get_metal_rates():
             "premium": float(row[2])    # premium
         }
 
-    print(rates)
     return jsonify(rates), 200
 
 
@@ -1024,12 +1067,7 @@ def update_contact_status(contact_id):
 
 
 
-# Upload folder
-UPLOAD_FOLDER = "Bespoke_Images"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
-
-
+#SAVE BESPOKE QUERY
 @app.route("/api/bespoke-request", methods=["POST"])
 @jwt_required()
 def save_bespoke():
@@ -1039,36 +1077,73 @@ def save_bespoke():
         product = request.form.get("product")
         details = request.form.get("details")
         size = request.form.get("size")
-
         image = request.files.get("image")
         image_url = None
 
         if image:
-            filename = secure_filename(image.filename)
-            image.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-            image_url = f"http://localhost:5000/uploads/{filename}"
+            # 👇 ImageKit direct upload (file object)
+            response = requests.post(
+                "https://upload.imagekit.io/api/v1/files/upload",
+                auth=(IMAGEKIT_PRIVATE_KEY, ""),
+                files={
+                    "file": image
+                },
+                data={
+                    "fileName": image.filename,
+                    "folder": "/bespoke"
+                }
+            )
+
+            if response.status_code != 200:
+                raise Exception(response.text)
+
+            image_url = response.json()["url"]
 
         cursor = mysql.connection.cursor()
         cursor.execute("""
             INSERT INTO bespoke_requests
             (full_name, phone, product_type, design_details, size, image_url)
-            VALUES (%s, %s, %s, %s, %s, %s)
+            VALUES (%s,%s,%s,%s,%s,%s)
         """, (name, phone, product, details, size, image_url))
 
         mysql.connection.commit()
         cursor.close()
 
-        return jsonify({
-            "message": "Data saved",
-            "image_url": image_url
-        }), 201
+        return jsonify({"msg": "Bespoke request submitted"}), 201
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+ #GET ALL BESPOKE QUERY   
+@app.route("/api/bespoke-requests", methods=["GET","OPTIONS"])
+def get_bespoke_requests():
+    try:
+        if request.method == "OPTIONS":
+            return "", 200
+        
+        cursor = get_db_cursor(dictionary=True)
 
-@app.route("/Bespoke_Images/<filename>")
-def view_image(filename):
-    return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
+        cursor.execute("""
+            SELECT
+              id,
+              full_name,
+              phone,
+              product_type,
+              design_details,
+              size,
+              image_url,
+              created_at
+            FROM bespoke_requests
+            ORDER BY created_at DESC
+        """)
+        data = cursor.fetchall()
+        cursor.close()
+
+        return jsonify(data), 200
+
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
 
 
 

@@ -1,0 +1,1129 @@
+2026-01-24 18:44:19,264 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-24 18:44:19,264 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-24 18:44:23,221 - ERROR: Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 242, in login
+    cursor=get_db_cursor(dictionary=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 67, in get_db_cursor
+    return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+2026-01-24 18:44:23,271 - INFO: 127.0.0.1 - - [24/Jan/2026 18:44:23] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-01-24 18:49:23,810 - INFO: 127.0.0.1 - - [24/Jan/2026 18:49:23] "[35m[1mPOST /api/bespoke-request HTTP/1.1[0m" 500 -
+2026-01-24 18:49:54,590 - INFO: 127.0.0.1 - - [24/Jan/2026 18:49:54] "[35m[1mPOST /api/bespoke-request HTTP/1.1[0m" 500 -
+2026-01-24 18:49:56,286 - INFO: 127.0.0.1 - - [24/Jan/2026 18:49:56] "[35m[1mPOST /api/bespoke-request HTTP/1.1[0m" 500 -
+2026-01-24 18:57:02,713 - INFO: 127.0.0.1 - - [24/Jan/2026 18:57:02] "[33mGET /uploads/pic15.jpg HTTP/1.1[0m" 404 -
+2026-01-24 18:57:03,026 - INFO: 127.0.0.1 - - [24/Jan/2026 18:57:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-24 18:57:06,107 - INFO: 127.0.0.1 - - [24/Jan/2026 18:57:06] "[33mGET /uploads/pic15.jpg HTTP/1.1[0m" 404 -
+2026-01-25 10:56:50,526 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-25 10:56:50,526 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 10:56:57,513 - ERROR: 127.0.0.1 - - [25/Jan/2026 10:56:57] code 400, message Bad request version ('\x8b\x12\x8bd\x9d¹\x00')
+2026-01-25 10:56:57,513 - INFO: 127.0.0.1 - - [25/Jan/2026 10:56:57] "[31m[1m\x16\x03\x01\x06²\x01\x00\x06®\x03\x03\x8cYS\x97àvóºÀØMÜ\x8c:äÖÈI{\x0cÀ$\x98\x8bÏ\x94\x97#\x19\x06çQ Þ\x1btËö\x08\x0f\x1bNùY\x121rÐÑÊËnx*³@B+\x0c\x8b\x12\x8bd\x9d¹\x00 [0m" 400 -
+2026-01-25 10:56:57,513 - ERROR: 127.0.0.1 - - [25/Jan/2026 10:56:57] code 400, message Bad request version ('<')
+2026-01-25 10:56:57,513 - INFO: 127.0.0.1 - - [25/Jan/2026 10:56:57] "[31m[1m\x16\x03\x01\x06ò\x01\x00\x06î\x03\x03ÿ(\x0b\x03\x9a7¶\x0f\x85w\x8eÅ/w>\x84#Äªur&\x9aÈYè8â#¡6g \x00ÎÉ>\x95\x17\x1f\x82\x1djÎ#ð:©\x9a5\x92Pô:ûÈë\x7f§\x88\x95.|Õ~\x00 ZZ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x85**\x00\x00\x00\x12\x00\x00þ\x0d\x00ú\x00\x00\x01\x00\x01\x0e\x00 Ì8\x04\x97usf\x93\x94Ä\x9fAÀñCvÿ\x82\x02³`1§\x04@­¥\x88Æ©ª-\x00Ð(ô]·ü}Þ@x \x1e¼CË6ó\x1eÊn\x87Ü"6Ba ¿»+\x8aYúO\x15gÍ¸nwQÚ¢ÅÊE'\x0bµ ø8ÿ\x9c$\x19§Ü.\x7f&\x02¤X*D\x1e«Ð¾]rÑgúýew·8Ð¼fw,\x16\x1dùÈ\x99AK8\x1c<[0m" 400 -
+2026-01-25 10:56:57,765 - ERROR: 127.0.0.1 - - [25/Jan/2026 10:56:57] code 400, message Bad request version ('\x92\x15=ÖF\x16Ô')
+2026-01-25 10:56:57,765 - INFO: 127.0.0.1 - - [25/Jan/2026 10:56:57] "[31m[1m\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03=4C¢\x8a\x98Ä/\x85ý°\x90S\x03ï§K\x02\x90*ÐÓ]\x0b\x95\x95\x92í#b(\x1b ÏF\x16\x16Y\x0d\x92\x15=ÖF\x16Ô[0m" 400 -
+2026-01-25 10:56:57,823 - ERROR: 127.0.0.1 - - [25/Jan/2026 10:56:57] code 400, message Bad request version ('::\x00\x00\x00')
+2026-01-25 10:56:57,823 - INFO: 127.0.0.1 - - [25/Jan/2026 10:56:57] "[31m[1m\x16\x03\x01\x06ò\x01\x00\x06î\x03\x03Û\x85úQßf?eeh\x84ê]¬]\x13Í\x0f;¨S\x9eeýÆ\x00\x80èg7UÈ z^R\x1d¯6¥\x8bRÞE\x09\x13ì\x08\x9eb\x93¦.ö/o\x19rt\x0c\x8a½íàm\x00 ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x85::\x00\x00\x00[0m" 400 -
+2026-01-25 10:56:57,823 - ERROR: 127.0.0.1 - - [25/Jan/2026 10:56:57] code 400, message Bad request version ('localhost\x00')
+2026-01-25 10:56:57,823 - INFO: 127.0.0.1 - - [25/Jan/2026 10:56:57] "[31m[1m\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03Üf\x8eCw8¿C\x9dÜíc6k\x88R<ª\x02S6\x84y&\x89qH\x9dG|\x0fÛ $´À\x8cÃä1\x18\x1dÂ3¼\x94*,ú\x14%E\x04ªlqnP\x89\x05ªØøÆ\x99\x00 **\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥::\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x1b\x00\x03\x02\x00\x02\x00#\x00\x00\x00\x00\x00\x0e\x00\x0c\x00\x00\x09localhost\x00[0m" 400 -
+2026-01-25 10:56:58,074 - ERROR: 127.0.0.1 - - [25/Jan/2026 10:56:58] code 400, message Bad request version ('\x02h2\x08http/1.1\x003\x04ï\x04íZZ\x00\x01\x00\x11ì\x04À\x02!?¨XÇ«@\x80\xadü¾')
+2026-01-25 10:56:58,074 - INFO: 127.0.0.1 - - [25/Jan/2026 10:56:58] "[31m[1m\x16\x03\x01\x06ò\x01\x00\x06î\x03\x03\x909Oá/oCý)\x803ýß\x90Ö|ø\x0fçvaf\x01p¯\x00Hê§\x9fBe \x94\x1e\x12LýNb\x8cv;]\x1e°í§\x8b\x1d\x18²~¯bD\x91Õ\x95õ¢\x90T\x1f\x85\x00 ªª\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x85\x1a\x1a\x00\x00\x00\x1b\x00\x03\x02\x00\x02ÿ\x01\x00\x01\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x003\x04ï\x04íZZ\x00\x01\x00\x11ì\x04À\x02!?¨XÇ«@\x80­ü¾[0m" 400 -
+2026-01-25 10:57:44,550 - INFO: 127.0.0.1 - - [25/Jan/2026 10:57:44] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 10:57:44,550 - INFO: 127.0.0.1 - - [25/Jan/2026 10:57:44] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 10:57:44,882 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 469, in get_products
+    cursor = get_db_cursor()
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 73, in get_db_cursor
+    return mysql.connection.cursor()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+2026-01-25 10:57:45,198 - INFO: 127.0.0.1 - - [25/Jan/2026 10:57:45] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 10:57:45,204 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 469, in get_products
+    cursor = get_db_cursor()
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 73, in get_db_cursor
+    return mysql.connection.cursor()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+2026-01-25 10:57:45,205 - INFO: 127.0.0.1 - - [25/Jan/2026 10:57:45] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 10:58:03,564 - INFO: 127.0.0.1 - - [25/Jan/2026 10:58:03] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 10:58:03,564 - INFO: 127.0.0.1 - - [25/Jan/2026 10:58:03] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 10:58:03,817 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 469, in get_products
+    cursor = get_db_cursor()
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 73, in get_db_cursor
+    return mysql.connection.cursor()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+2026-01-25 10:58:03,817 - INFO: 127.0.0.1 - - [25/Jan/2026 10:58:03] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 10:58:03,881 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 469, in get_products
+    cursor = get_db_cursor()
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 73, in get_db_cursor
+    return mysql.connection.cursor()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+2026-01-25 10:58:03,883 - INFO: 127.0.0.1 - - [25/Jan/2026 10:58:03] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 11:01:59,913 - INFO: 127.0.0.1 - - [25/Jan/2026 11:01:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:01:59,917 - INFO: 127.0.0.1 - - [25/Jan/2026 11:01:59] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:02:00,210 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 469, in get_products
+    cursor = get_db_cursor()
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 73, in get_db_cursor
+    return mysql.connection.cursor()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+2026-01-25 11:02:00,227 - INFO: 127.0.0.1 - - [25/Jan/2026 11:02:00] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 11:02:00,237 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 469, in get_products
+    cursor = get_db_cursor()
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 73, in get_db_cursor
+    return mysql.connection.cursor()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+2026-01-25 11:02:00,238 - INFO: 127.0.0.1 - - [25/Jan/2026 11:02:00] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-25 11:03:29,641 - ERROR: Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 245, in login
+    cursor=get_db_cursor(dictionary=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 72, in get_db_cursor
+    return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+2026-01-25 11:03:29,662 - INFO: 127.0.0.1 - - [25/Jan/2026 11:03:29] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-01-25 11:10:33,480 - INFO: 127.0.0.1 - - [25/Jan/2026 11:10:33] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:10:33,476 - INFO: 127.0.0.1 - - [25/Jan/2026 11:10:33] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:10:33,749 - INFO: 127.0.0.1 - - [25/Jan/2026 11:10:33] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:10:33,791 - INFO: 127.0.0.1 - - [25/Jan/2026 11:10:33] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:12:17,472 - ERROR: Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 246, in login
+    cursor.execute("update users set role='admin' where email=%s",(email,))
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (2013, 'Lost connection to server during query')
+2026-01-25 11:12:17,656 - INFO: 127.0.0.1 - - [25/Jan/2026 11:12:17] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-01-25 11:12:37,879 - ERROR: Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 245, in login
+    cursor=get_db_cursor(dictionary=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 72, in get_db_cursor
+    return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to server on 'localhost' (10061)")
+2026-01-25 11:12:37,884 - INFO: 127.0.0.1 - - [25/Jan/2026 11:12:37] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-01-25 11:14:43,360 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-25 11:14:43,360 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 11:15:53,739 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:53] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:15:53,743 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:53] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:15:53,969 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:53] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:15:54,053 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:54] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:15:57,701 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:57] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:15:57,702 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:57] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:15:57,703 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:57] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:15:57,715 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:57] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:15:57,717 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:57] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:15:57,982 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:57] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 11:15:58,012 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:58] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 11:15:58,017 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:58] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:15:58,029 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:58] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 11:15:58,295 - INFO: 127.0.0.1 - - [25/Jan/2026 11:15:58] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 11:16:18,273 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:18] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-25 11:16:18,729 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-25 11:16:18,729 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:18] "POST /login HTTP/1.1" 200 -
+2026-01-25 11:16:18,844 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:18] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:16:19,062 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:19] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:16:19,063 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:19] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:16:19,063 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:19] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:16:19,065 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:19] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:16:19,073 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:19] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:16:19,149 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:19] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:16:19,396 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:19] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:16:19,396 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:19] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:16:19,469 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:19] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:16:19,705 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:19] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:16:19,706 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:19] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:16:45,697 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-25 11:16:45,698 - INFO: 127.0.0.1 - - [25/Jan/2026 11:16:45] "POST /login HTTP/1.1" 200 -
+2026-01-25 11:20:06,243 - INFO: 127.0.0.1 - - [25/Jan/2026 11:20:06] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2026-01-25 11:21:24,415 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:24] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-25 11:21:24,816 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-25 11:21:24,818 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:24] "POST /login HTTP/1.1" 200 -
+2026-01-25 11:21:29,532 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:29] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:21:29,539 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:29] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:21:29,541 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:29] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:21:29,544 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:29] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:21:29,547 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:29] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:21:29,548 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:29] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:21:29,864 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:29] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:21:29,869 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:29] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:21:29,872 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:29] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:21:30,177 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:30] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:21:30,177 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:30] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:21:30,182 - INFO: 127.0.0.1 - - [25/Jan/2026 11:21:30] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:42:43,823 - INFO: 127.0.0.1 - - [25/Jan/2026 11:42:43] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-25 11:42:48,109 - ERROR: Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 245, in login
+    cursor=get_db_cursor(dictionary=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 72, in get_db_cursor
+    return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to server on 'localhost' (10061)")
+2026-01-25 11:42:48,210 - INFO: 127.0.0.1 - - [25/Jan/2026 11:42:48] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-01-25 11:42:52,191 - ERROR: Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 245, in login
+    cursor=get_db_cursor(dictionary=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 72, in get_db_cursor
+    return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to server on 'localhost' (10061)")
+2026-01-25 11:42:52,194 - INFO: 127.0.0.1 - - [25/Jan/2026 11:42:52] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-01-25 11:42:58,159 - INFO: 127.0.0.1 - - [25/Jan/2026 11:42:58] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-25 11:43:02,504 - ERROR: Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 245, in login
+    cursor=get_db_cursor(dictionary=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 72, in get_db_cursor
+    return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to server on 'localhost' (10061)")
+2026-01-25 11:43:02,507 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:02] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-01-25 11:43:06,440 - ERROR: Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 245, in login
+    cursor=get_db_cursor(dictionary=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 72, in get_db_cursor
+    return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to server on 'localhost' (10061)")
+2026-01-25 11:43:06,442 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:06] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-01-25 11:43:22,750 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-25 11:43:22,750 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 11:43:43,865 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:43] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-25 11:43:44,277 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-25 11:43:44,278 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:44] "POST /login HTTP/1.1" 200 -
+2026-01-25 11:43:49,039 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:43:49,040 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:43:49,040 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:43:49,041 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 11:43:49,041 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:43:49,042 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:43:49,355 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:43:49,355 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:43:49,359 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:43:49,668 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 11:43:49,668 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 11:43:49,669 - INFO: 127.0.0.1 - - [25/Jan/2026 11:43:49] "GET /products HTTP/1.1" 200 -
+2026-01-25 11:44:28,241 - INFO: 127.0.0.1 - - [25/Jan/2026 11:44:28] "OPTIONS /api/bespoke-request HTTP/1.1" 200 -
+2026-01-25 11:44:30,209 - INFO: 127.0.0.1 - - [25/Jan/2026 11:44:30] "[35m[1mPOST /api/bespoke-request HTTP/1.1[0m" 201 -
+2026-01-25 12:02:14,232 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:02:14,238 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:02:14,241 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:02:14,243 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:02:14,245 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:02:14,249 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:02:14,611 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 12:02:14,613 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 12:02:14,685 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:02:14,918 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "[31m[1mGET /api/admin/orders HTTP/1.1[0m" 401 -
+2026-01-25 12:02:14,920 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
+2026-01-25 12:02:14,999 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:14] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:02:45,475 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:45] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-25 12:02:45,879 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-25 12:02:45,881 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:45] "POST /login HTTP/1.1" 200 -
+2026-01-25 12:02:45,892 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:45] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:02:46,205 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:46] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:02:46,206 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:46] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:02:46,206 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:46] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:02:46,211 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:46] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:02:46,215 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:46] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:02:46,530 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:46] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:02:46,530 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:46] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:02:46,536 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:46] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:02:46,836 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:46] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:02:46,837 - INFO: 127.0.0.1 - - [25/Jan/2026 12:02:46] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:04:24,164 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:04:24,165 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:04:24,166 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:04:24,167 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:04:24,168 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:04:24,174 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:04:24,483 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:04:24,484 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:04:24,484 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:04:24,802 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:04:24,802 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:04:24,802 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:24] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:04:28,161 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:28] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:04:28,161 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:28] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:04:28,162 - INFO: 127.0.0.1 - - [25/Jan/2026 12:04:28] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:05:09,148 - INFO: 127.0.0.1 - - [25/Jan/2026 12:05:09] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:05:09,149 - INFO: 127.0.0.1 - - [25/Jan/2026 12:05:09] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:05:09,150 - INFO: 127.0.0.1 - - [25/Jan/2026 12:05:09] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:05:09,424 - INFO: 127.0.0.1 - - [25/Jan/2026 12:05:09] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:05:09,456 - INFO: 127.0.0.1 - - [25/Jan/2026 12:05:09] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:05:09,456 - INFO: 127.0.0.1 - - [25/Jan/2026 12:05:09] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:05:16,852 - INFO: 127.0.0.1 - - [25/Jan/2026 12:05:16] "[33mOPTIONS /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-25 12:05:17,149 - INFO: 127.0.0.1 - - [25/Jan/2026 12:05:17] "[33mOPTIONS /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-25 12:06:18,862 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-25 12:06:18,866 - INFO: 127.0.0.1 - - [25/Jan/2026 12:06:18] "POST /login HTTP/1.1" 200 -
+2026-01-25 12:07:38,823 - INFO: 127.0.0.1 - - [25/Jan/2026 12:07:38] "[31m[1mGET /api/bespoke-request HTTP/1.1[0m" 405 -
+2026-01-25 12:10:05,194 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:05] "OPTIONS /api/bespoke-request HTTP/1.1" 200 -
+2026-01-25 12:10:05,418 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:05] "[31m[1mGET /api/bespoke-request HTTP/1.1[0m" 405 -
+2026-01-25 12:10:11,145 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:11] "OPTIONS /api/bespoke-request HTTP/1.1" 200 -
+2026-01-25 12:10:11,411 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:11] "[31m[1mGET /api/bespoke-request HTTP/1.1[0m" 405 -
+2026-01-25 12:10:20,042 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:10:20,043 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:10:20,045 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:10:20,048 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:10:20,050 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:10:20,052 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:10:20,426 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:10:20,426 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:10:20,438 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:10:20,744 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:10:20,744 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:10:20,750 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:20] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:10:22,909 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:22] "OPTIONS /api/bespoke-request HTTP/1.1" 200 -
+2026-01-25 12:10:22,910 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:22] "OPTIONS /api/bespoke-request HTTP/1.1" 200 -
+2026-01-25 12:10:23,180 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:23] "[31m[1mGET /api/bespoke-request HTTP/1.1[0m" 405 -
+2026-01-25 12:10:23,225 - INFO: 127.0.0.1 - - [25/Jan/2026 12:10:23] "[31m[1mGET /api/bespoke-request HTTP/1.1[0m" 405 -
+2026-01-25 12:13:10,377 - INFO: 127.0.0.1 - - [25/Jan/2026 12:13:10] "[33mOPTIONS /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-25 12:13:12,851 - INFO: 127.0.0.1 - - [25/Jan/2026 12:13:12] "[33mOPTIONS /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-25 12:14:01,155 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:01] "[33mOPTIONS /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-25 12:14:01,160 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:01] "[33mOPTIONS /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-25 12:14:02,321 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:02] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:14:02,623 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:02] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:14:02,625 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:02] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:14:02,629 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:02] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:14:02,632 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:02] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:14:02,634 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:02] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:14:02,721 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:02] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:14:02,965 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:02] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:14:02,965 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:02] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:14:03,039 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:03] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:14:03,274 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:03] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:14:03,275 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:03] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:14:11,888 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:11] "[33mOPTIONS /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-25 12:14:11,890 - INFO: 127.0.0.1 - - [25/Jan/2026 12:14:11] "[33mOPTIONS /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-25 12:16:55,746 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-25 12:16:55,746 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 12:17:35,837 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-25 12:17:35,838 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 12:17:55,063 - INFO: 127.0.0.1 - - [25/Jan/2026 12:17:55] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:17:55,064 - INFO: 127.0.0.1 - - [25/Jan/2026 12:17:55] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:17:55,396 - INFO: 127.0.0.1 - - [25/Jan/2026 12:17:55] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:17:55,402 - INFO: 127.0.0.1 - - [25/Jan/2026 12:17:55] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:18:18,521 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:18] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-25 12:18:18,884 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-25 12:18:18,885 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:18] "POST /login HTTP/1.1" 200 -
+2026-01-25 12:18:18,895 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:18] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-25 12:18:19,206 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:19] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:18:19,206 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:19] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:18:19,207 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:19] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:18:19,207 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:19] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:18:19,210 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:19] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:18:19,465 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:19] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:18:19,525 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:19] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:18:19,527 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:19] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 12:18:19,528 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:19] "GET /products HTTP/1.1" 200 -
+2026-01-25 12:18:19,771 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:19] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 12:18:21,233 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:21] "OPTIONS /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-25 12:18:21,537 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:21] "OPTIONS /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-25 12:18:21,540 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:21] "[35m[1mGET /api/bespoke-requests HTTP/1.1[0m" 500 -
+2026-01-25 12:18:21,852 - INFO: 127.0.0.1 - - [25/Jan/2026 12:18:21] "[35m[1mGET /api/bespoke-requests HTTP/1.1[0m" 500 -
+2026-01-25 12:24:36,755 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-25 12:24:36,768 - INFO: 127.0.0.1 - - [25/Jan/2026 12:24:36] "POST /login HTTP/1.1" 200 -
+2026-01-25 12:24:58,608 - INFO: 127.0.0.1 - - [25/Jan/2026 12:24:58] "[31m[1mGET /api/bespoke-request HTTP/1.1[0m" 405 -
+2026-01-25 12:25:04,722 - INFO: 127.0.0.1 - - [25/Jan/2026 12:25:04] "[31m[1mGET /api/bespoke-request HTTP/1.1[0m" 405 -
+2026-01-25 12:26:19,271 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-25 12:26:19,271 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 12:26:30,541 - INFO: User logged in: Admin (admin123@gmail.com)
+2026-01-25 12:26:30,542 - INFO: 127.0.0.1 - - [25/Jan/2026 12:26:30] "POST /login HTTP/1.1" 200 -
+2026-01-25 12:26:59,753 - INFO: 127.0.0.1 - - [25/Jan/2026 12:26:59] "[31m[1mGET /api/bespoke-request HTTP/1.1[0m" 405 -
+2026-01-25 12:31:15,764 - INFO: 127.0.0.1 - - [25/Jan/2026 12:31:15] "[35m[1mGET /api/bespoke-requests HTTP/1.1[0m" 500 -
+2026-01-25 12:33:19,187 - INFO: 127.0.0.1 - - [25/Jan/2026 12:33:19] "[35m[1mGET /api/bespoke-requests HTTP/1.1[0m" 500 -
+2026-01-25 12:33:55,316 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-25 12:33:55,317 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 12:34:00,882 - INFO: 127.0.0.1 - - [25/Jan/2026 12:34:00] "GET /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-25 12:35:35,979 - INFO: 127.0.0.1 - - [25/Jan/2026 12:35:35] "OPTIONS /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-25 12:35:35,980 - INFO: 127.0.0.1 - - [25/Jan/2026 12:35:35] "OPTIONS /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-25 12:35:36,253 - INFO: 127.0.0.1 - - [25/Jan/2026 12:35:36] "GET /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-25 12:35:36,288 - INFO: 127.0.0.1 - - [25/Jan/2026 12:35:36] "GET /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-25 12:35:50,553 - INFO: 127.0.0.1 - - [25/Jan/2026 12:35:50] "[33mGET /uploads/pic3.jpg HTTP/1.1[0m" 404 -
+2026-01-25 12:35:50,814 - INFO: 127.0.0.1 - - [25/Jan/2026 12:35:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-25 12:35:56,884 - INFO: 127.0.0.1 - - [25/Jan/2026 12:35:56] "[33mGET /uploads/pic8.jpg HTTP/1.1[0m" 404 -
+2026-01-25 12:37:34,878 - INFO: 127.0.0.1 - - [25/Jan/2026 12:37:34] "OPTIONS /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-25 12:37:34,879 - INFO: 127.0.0.1 - - [25/Jan/2026 12:37:34] "OPTIONS /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-25 12:37:35,125 - INFO: 127.0.0.1 - - [25/Jan/2026 12:37:35] "GET /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-25 12:37:35,187 - INFO: 127.0.0.1 - - [25/Jan/2026 12:37:35] "GET /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-25 15:31:32,382 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-25 15:31:32,383 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-25 15:31:39,286 - INFO: 127.0.0.1 - - [25/Jan/2026 15:31:39] "POST /auth/send-otp HTTP/1.1" 200 -
+2026-01-25 15:35:10,257 - INFO: 127.0.0.1 - - [25/Jan/2026 15:35:10] "POST /auth/send-otp HTTP/1.1" 200 -
+2026-01-25 15:36:28,866 - INFO: 127.0.0.1 - - [25/Jan/2026 15:36:28] "POST /auth/send-otp HTTP/1.1" 200 -
+2026-01-25 15:36:59,123 - INFO: 127.0.0.1 - - [25/Jan/2026 15:36:59] "POST /auth/send-otp HTTP/1.1" 200 -
+2026-01-25 15:38:12,615 - INFO: 127.0.0.1 - - [25/Jan/2026 15:38:12] "POST /auth/send-otp HTTP/1.1" 200 -
+2026-01-25 15:40:45,435 - INFO: 127.0.0.1 - - [25/Jan/2026 15:40:45] "POST /auth/send-otp HTTP/1.1" 200 -
+2026-01-25 16:10:27,728 - INFO: 127.0.0.1 - - [25/Jan/2026 16:10:27] "POST /auth/send-otp HTTP/1.1" 200 -
+2026-01-25 16:17:11,348 - INFO: 127.0.0.1 - - [25/Jan/2026 16:17:11] "POST /auth/send-otp HTTP/1.1" 200 -
+2026-01-26 04:07:09,508 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-26 04:07:09,510 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-26 04:07:20,100 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 482, in get_products
+    cursor = get_db_cursor()
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 77, in get_db_cursor
+    return mysql.connection.cursor()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+2026-01-26 04:07:20,331 - INFO: 127.0.0.1 - - [26/Jan/2026 04:07:20] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-26 04:08:26,709 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 482, in get_products
+    cursor = get_db_cursor()
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 77, in get_db_cursor
+    return mysql.connection.cursor()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+2026-01-26 04:08:26,749 - INFO: 127.0.0.1 - - [26/Jan/2026 04:08:26] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-26 04:09:23,708 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-26 04:09:23,709 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-26 04:09:31,880 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 482, in get_products
+    cursor = get_db_cursor()
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 77, in get_db_cursor
+    return mysql.connection.cursor()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+2026-01-26 04:09:31,887 - INFO: 127.0.0.1 - - [26/Jan/2026 04:09:31] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-26 04:17:39,311 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-26 04:17:39,313 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-26 04:17:50,258 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 483, in get_products
+    cursor = get_db_cursor()
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 77, in get_db_cursor
+    return mysql.connection.cursor()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to server on 'localhost' (10061)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 488, in get_products
+    return jsonify({"error":e}),500
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\json\provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\json\provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\json\provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type OperationalError is not JSON serializable
+2026-01-26 04:17:50,551 - INFO: 127.0.0.1 - - [26/Jan/2026 04:17:50] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-26 04:18:18,963 - ERROR: Exception on /products/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 563, in get_product
+    cursor = get_db_cursor()
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 77, in get_db_cursor
+    return mysql.connection.cursor()
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to server on 'localhost' (10061)")
+2026-01-26 04:18:18,967 - INFO: 127.0.0.1 - - [26/Jan/2026 04:18:18] "[35m[1mGET /products/1 HTTP/1.1[0m" 500 -
+2026-01-26 04:31:29,218 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-26 04:31:29,219 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-26 04:31:36,319 - INFO: 127.0.0.1 - - [26/Jan/2026 04:31:36] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-26 15:08:06,125 - INFO: 127.0.0.1 - - [26/Jan/2026 15:08:06] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-26 17:52:12,841 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.102:5000
+2026-01-26 17:52:12,841 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-26 17:52:21,623 - INFO: 127.0.0.1 - - [26/Jan/2026 17:52:21] "[35m[1mGET /api/bespoke-requests HTTP/1.1[0m" 500 -
+2026-01-26 18:16:40,226 - ERROR: Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 253, in login
+    cursor=get_db_cursor(dictionary=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 76, in get_db_cursor
+    return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2013, "Lost connection to server at 'handshake: reading initial communication packet', system error: 0")
+2026-01-26 18:16:41,024 - INFO: 127.0.0.1 - - [26/Jan/2026 18:16:41] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-01-26 18:18:12,677 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.102:5000
+2026-01-26 18:18:12,685 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-26 18:18:39,536 - ERROR: Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 253, in login
+    cursor=get_db_cursor(dictionary=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 76, in get_db_cursor
+    return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2013, "Lost connection to server at 'handshake: reading initial communication packet', system error: 0")
+2026-01-26 18:18:39,544 - INFO: 127.0.0.1 - - [26/Jan/2026 18:18:39] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-01-26 18:19:41,650 - INFO: 127.0.0.1 - - [26/Jan/2026 18:19:41] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
+2026-01-26 18:40:27,881 - INFO: 127.0.0.1 - - [26/Jan/2026 18:40:27] "[33mGET /uploads/pic3.jpg HTTP/1.1[0m" 404 -
+2026-01-26 19:22:44,622 - INFO: 127.0.0.1 - - [26/Jan/2026 19:22:44] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -
+2026-01-26 19:52:24,510 - ERROR: Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 253, in login
+    cursor=get_db_cursor(dictionary=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\OneDrive\Desktop\Backend\Jewellery_backend\app.py", line 76, in get_db_cursor
+    return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 109, in connection
+    ctx.mysql_db = self.connect
+                   ^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_mysqldb\__init__.py", line 97, in connect
+    return MySQLdb.connect(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ideapad\AppData\Local\Programs\Python\Python312\Lib\site-packages\MySQLdb\connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2013, "Lost connection to server at 'handshake: reading initial communication packet', system error: 0")
+2026-01-26 19:52:24,565 - INFO: 127.0.0.1 - - [26/Jan/2026 19:52:24] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-01-26 19:53:51,266 - INFO: 127.0.0.1 - - [26/Jan/2026 19:53:51] "[31m[1mGET /testdb HTTP/1.1[0m" 400 -

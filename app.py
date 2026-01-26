@@ -16,11 +16,14 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from flask import send_from_directory
 from werkzeug.utils import secure_filename
-
 import requests
-
-
 import random 
+from imagekitio import ImageKit
+from dotenv import load_dotenv
+import traceback
+import os
+
+
 
 
 
@@ -44,6 +47,9 @@ app.config['API_KEY'] = os.getenv('API_KEY')
 app.config['API_SECRET'] = os.getenv('API_SECRET')
 
 
+IMAGEKIT_PUBLIC_KEY = os.getenv("IMAGEKIT_PUBLIC_KEY")
+IMAGEKIT_PRIVATE_KEY = os.getenv("IMAGEKIT_PRIVATE_KEY")
+IMAGEKIT_URL_ENDPOINT = os.getenv("IMAGEKIT_URL_ENDPOINT")
 
 jwt = JWTManager(app)
 
@@ -52,6 +58,8 @@ jwt = JWTManager(app)
 app.config['fir_tech']=os.getenv('SENDER')
 app.config['sec_tech']=os.getenv('PASSWORD')
 
+
+#LOG FILE
 log_filename = "script.log"
 logging.basicConfig(
     filename=log_filename,
@@ -61,13 +69,15 @@ logging.basicConfig(
 
 mysql=MySQL(app)
 
+# DATABSE CONNECTION
 def get_db_cursor(dictionary=False):
     """Return MySQL cursor"""
     if dictionary:
         return mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     return mysql.connection.cursor()
 
-@app.route('/testdb')    # end_point   app url ->  google.com
+# TEST DATABASE
+@app.route('/testdb')
 def test_db():
     try:
         cur = mysql.connection.cursor()
@@ -92,6 +102,7 @@ def protected():
     print(current_user)
     return jsonify(logged_in_as=current_user)
 
+# SEND EMAIL 
 def send_email(to_email, subject, body):
     try:
         sender_email = app.config['fir_tech']
@@ -114,7 +125,7 @@ def send_email(to_email, subject, body):
         logging.error(f"Email sending failed: {str(e)}")
         return False
 
-
+# WELCOME MAIL
 def send_welcome_email(app, receiver_email):
     try:
         sender_email = app.config['fir_tech']
@@ -150,7 +161,8 @@ Shirish Dwivedi
 
     except Exception as e:
         logging.error(f"Email sending failed: {str(e)}")
-        
+
+# REGISTER    
 @app.route('/register', methods=['POST'])
 def register():
     try:
@@ -222,8 +234,7 @@ def register():
         }), 500
 
 
-
-
+#LOGIN
 @app.route('/login', methods=['POST'])
 def login():
     """
@@ -264,6 +275,8 @@ def login():
 
     return jsonify({"msg": "Invalid email or password"}), 401
 
+
+#FORGET PASSWORD
 @app.route('/forgetpassword', methods=['POST'])
 def forget_password():
     try:
@@ -343,6 +356,7 @@ def forget_password():
         logging.exception("Unhandled forget password error")
         return jsonify({"msg": "internal server error"}), 500
 
+#RESET PASSOWRD
 @app.route('/resetpassword', methods=['POST'])
 def reset_password():
     try:
@@ -388,7 +402,7 @@ def reset_password():
         logging.exception("Reset password error")
         return jsonify({"msg": "internal server error"}), 500
 
-    
+# GET ALL USERS 
 @app.route('/api/admin/users', methods=['GET'])
 @jwt_required()
 def get_all_users():
@@ -400,6 +414,24 @@ def get_all_users():
 
 
 
+#CONVERSION TO BASE64 TO IMAGEKIT URL
+def upload_base64_to_imagekit(base64_image):
+    response = requests.post(
+        "https://upload.imagekit.io/api/v1/files/upload",
+        auth=(IMAGEKIT_PRIVATE_KEY, ""),   # Basic Auth
+        data={
+            "file": base64_image,          # data:image/...;base64,...
+            "fileName": "product.jpg",
+            "folder": "/products"
+        }
+    )
+
+    if response.status_code != 200:
+        raise Exception(response.text)
+
+    return response.json()["url"]
+
+# ADD PRODUCT
 @app.route('/products', methods=['POST'])
 @jwt_required()
 def create_product():
@@ -409,6 +441,15 @@ def create_product():
     """
     try:
         data = request.get_json()
+        base64_image = data.get("images")
+        image_url = None
+        
+        logging.info(base64_image)
+        
+        if base64_image:
+            image_url = upload_base64_to_imagekit(base64_image)
+        logging.info(image_url)
+        logging.info(base64_image)
         try:
             cursor = get_db_cursor()
             cursor.execute("""
@@ -420,14 +461,15 @@ def create_product():
                 data.get('price'),
                 data.get('description'),
                 data.get('stock'),
-                data.get('images'),
+                image_url,
                 data.get('quantity'),
                 data.get('metal_name')
             )
             )
             mysql.connection.commit()
             cursor.close()
-            return jsonify({"msg": "Product created successfully"}), 201 
+            return jsonify({"msg": "Product created successfully",
+            "image_url": image_url}), 201 
         except Exception as e:
             logging.info("Hello",str(e))
             return jsonify({"msg":"Product not created","error":str(e)}), 401 
@@ -435,28 +477,29 @@ def create_product():
         logging.info("Hello",str(e))
         return jsonify({"msg":"Product not created","error":str(e)}), 401 
 
-
-
-
-
+# GET ALL PRODUCT
 @app.route('/products', methods=['GET'])
 def get_products():
     """
     Get all products
     """
-    cursor = get_db_cursor()
-    cursor.execute("SELECT id, name, category, price, description, stock, images , quantity FROM products")
-    products = cursor.fetchall()
-    cursor.close()
-
+    try:
+        cursor = get_db_cursor()
+        cursor.execute("SELECT id, name, category, description, stock, images , quantity FROM products")
+        products = cursor.fetchall()
+        cursor.close()
+    except Exception as e:
+        return jsonify({"error":str(e)}),500
+    
+    logging.info(products)
+    print(products)
     result = [
-        {"id": p[0], "name": p[1], "category": p[2], "price": p[3],
-         "description": p[4], "stock": p[5], "images": p[6],"quantity":p[7] } for p in products
+        {"id": p[0], "name": p[1], "category": p[2], 
+         "description": p[3], "stock": p[4], "images": p[5],"quantity":p[6] } for p in products
     ]
     return jsonify(result), 200
 
-
-
+# DELETE THE PRODUCT
 @app.route("/products/<int:id>", methods=["DELETE"])
 @jwt_required()
 def delete_product(id):
@@ -466,7 +509,7 @@ def delete_product(id):
     cursor.close()
     return jsonify({"message": "Product deleted"})
 
-
+# UPDATE PRODUCT
 @app.route("/products/<int:id>", methods=["PUT"])
 @jwt_required()
 def update_product(id):
@@ -479,6 +522,11 @@ def update_product(id):
 
         if not product:
             return jsonify({"msg": "Product not found"}), 404
+        
+        image_url = product["images"]
+        new_base64 = data.get("images")
+        if new_base64:
+            image_url = upload_base64_to_imagekit(new_base64)
 
         cursor.execute("""
             UPDATE products SET
@@ -498,7 +546,7 @@ def update_product(id):
             int(data.get("stock", product["stock"])),
             data.get("quantity", product["quantity"]),
             data.get("metal_name") or product["metal_name"] or "Gold",
-            data.get("images", product["images"]),
+            image_url,
             float(data.get("price", product["price"])),
             id
         ))
@@ -511,7 +559,7 @@ def update_product(id):
         print("UPDATE ERROR =", e)
         return jsonify({"error": str(e)}), 500
 
-
+# GET PRODUCT BY ID
 @app.route('/products/<int:id>', methods=['GET'])
 def get_product(id):
     """
@@ -537,27 +585,7 @@ def profile():
     user_id = get_jwt_identity()
     return jsonify({"user_id": user_id}), 200
 
-
-# @app.route('/cart', methods=['POST'])
-# @jwt_required()
-# def add_to_cart():
-#     """
-#     Add product to cart
-#     Fields: product_id, quantity
-#     """
-#     user_id = get_jwt_identity()
-#     data = request.get_json()
-    
-#     cursor = get_db_cursor()
-    
-#     cursor.execute("""
-#         INSERT INTO cart (user_id, product_id, quantity) VALUES (%s,%s,%s)
-#         ON DUPLICATE KEY UPDATE quantity = quantity + %s
-#     """, (user_id, data['product_id'], data['quantity'], data['quantity']))
-#     mysql.connection.commit()
-#     cursor.close()
-#     return jsonify({"msg": "Added to cart"}), 201
-
+# ADD TO CART
 @app.route('/cart', methods=['POST'])
 @jwt_required()
 def add_to_cart():
@@ -566,10 +594,6 @@ def add_to_cart():
 
     product_id = data.get("product_id")  
     quantity = data.get("quantity", 1)  
-
-    # # Force minimum quantity = 10 
-    # if quantity < 10: 
-    #     quantity = 10 
 
     cursor = get_db_cursor()  
 
@@ -596,7 +620,7 @@ def add_to_cart():
     return jsonify({"msg": "Product added to cart", "quantity": quantity}), 201
 
 
-
+# GET CART
 @app.route('/cart', methods=['GET'])
 @jwt_required()
 def get_cart():
@@ -615,6 +639,7 @@ def get_cart():
     result = [{"product_id": i[0], "quantity": i[1], "name": i[2], "price": i[3], "images": i[4]} for i in cart_items]
     return jsonify(result), 200
 
+# UPDATE CART
 @app.route('/cart/update', methods=['PUT'])
 @jwt_required()
 def update_cart_quantity():
@@ -645,6 +670,7 @@ def update_cart_quantity():
 
     return jsonify({"msg": "Quantity updated successfully"}), 200
 
+# UPDATE CART QUATNTITY MIN 10
 @app.route('/cart/update/min', methods=['PUT'])
 @jwt_required()
 def update_cart_quantity_min():
@@ -660,9 +686,6 @@ def update_cart_quantity_min():
     if not product_id or not quantity:
         return jsonify({"msg": "Product ID and quantity required"}), 400
 
-    # if quantity < 10:
-    #     return jsonify({"msg": "Minimum quantity is 10"}), 400
-    
     logging.info(data)
     cursor = get_db_cursor()
     cursor.execute(
@@ -675,7 +698,7 @@ def update_cart_quantity_min():
 
     return jsonify({"msg": "Quantity updated successfully"}), 200
 
-
+# DELETE FROM CART
 @app.route('/cart/<int:product_id>', methods=['DELETE'])
 @jwt_required()
 def remove_from_cart(product_id):
@@ -690,7 +713,7 @@ def remove_from_cart(product_id):
     return jsonify({"msg": "Removed from cart"}), 200
 
 
-
+# CREATE ORDER
 @app.route('/orders', methods=['POST'])
 @jwt_required()
 def create_order():
@@ -725,12 +748,12 @@ def create_order():
     cursor.close()
     return jsonify({"msg": "Order placed successfully", "order_id": order_id}), 201
 
-
+# GET ALL ORDERS FOR ADMIN
 @app.route('/api/admin/orders',methods=['GET'])
 @jwt_required()
 def get_orders_admin():
     """
-    Get all orders for a user
+    Get all orders for a ADMIN
     """
     user_id = get_jwt_identity()
     cursor = get_db_cursor()
@@ -742,6 +765,7 @@ def get_orders_admin():
     return jsonify(result), 200
 
 
+# GET ALL ORDERS FOR USER
 @app.route('/orders', methods=['GET'])
 @jwt_required()
 def get_orders():
@@ -757,6 +781,7 @@ def get_orders():
     result = [{"id": o[0], "address": o[1], "payment_method": o[2], "status": o[3], "created_at": str(o[4])} for o in orders]
     return jsonify(result), 200
 
+#UPDATE ORDER STATUS
 @app.route('/api/admin/orders/<int:order_id>', methods=['PUT'])
 @jwt_required()
 def update_order_status(order_id):
@@ -771,6 +796,7 @@ def update_order_status(order_id):
     return jsonify({"msg": "Order updated"}), 200
 
 
+#GET ALL CATEGORY
 @app.route('/categories', methods=['GET'])
 def get_categories():
     """
@@ -782,7 +808,7 @@ def get_categories():
     cursor.close()
     return jsonify(categories), 200
 
-
+#GET ALL PRODUCT BY CATEGORY
 @app.route('/products/category/<string:category>', methods=['GET'])
 def get_products_by_category(category):
     """
@@ -796,7 +822,7 @@ def get_products_by_category(category):
     return jsonify(result), 200
 
 
-
+# SEND MAIL
 @app.route('/sendmail',methods=['POST'])
 def send_mail():
     try:
@@ -839,7 +865,7 @@ def send_mail():
         
         
 
-
+#SUBMIT CONTACT
 @app.route('/api/contact', methods=['POST'])
 def submit_contact():
     """Handle contact form submissions"""
@@ -891,9 +917,7 @@ def get_contacts():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-
-
-# Optional: Update contact status
+#UPDATE CONTACT STATUS
 @app.route('/api/admin/contacts/<int:contact_id>', methods=['PATCH'])
 def update_contact_status(contact_id):
     """Update contact status"""
@@ -911,15 +935,7 @@ def update_contact_status(contact_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-
-
-
-# Upload folder
-UPLOAD_FOLDER = "Bespoke_Images"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
-
-
+#SAVE BESPOKE QUERY
 @app.route("/api/bespoke-request", methods=["POST"])
 @jwt_required()
 def save_bespoke():
@@ -929,40 +945,150 @@ def save_bespoke():
         product = request.form.get("product")
         details = request.form.get("details")
         size = request.form.get("size")
-
         image = request.files.get("image")
         image_url = None
 
         if image:
-            filename = secure_filename(image.filename)
-            image.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-            image_url = f"http://localhost:5000/uploads/{filename}"
+            # 👇 ImageKit direct upload (file object)
+            response = requests.post(
+                "https://upload.imagekit.io/api/v1/files/upload",
+                auth=(IMAGEKIT_PRIVATE_KEY, ""),
+                files={
+                    "file": image
+                },
+                data={
+                    "fileName": image.filename,
+                    "folder": "/bespoke"
+                }
+            )
+
+            if response.status_code != 200:
+                raise Exception(response.text)
+
+            image_url = response.json()["url"]
 
         cursor = mysql.connection.cursor()
         cursor.execute("""
             INSERT INTO bespoke_requests
             (full_name, phone, product_type, design_details, size, image_url)
-            VALUES (%s, %s, %s, %s, %s, %s)
+            VALUES (%s,%s,%s,%s,%s,%s)
         """, (name, phone, product, details, size, image_url))
 
         mysql.connection.commit()
         cursor.close()
 
-        return jsonify({
-            "message": "Data saved",
-            "image_url": image_url
-        }), 201
+        return jsonify({"msg": "Bespoke request submitted"}), 201
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+ #GET ALL BESPOKE QUERY   
+@app.route("/api/bespoke-requests", methods=["GET","OPTIONS"])
+def get_bespoke_requests():
+    try:
+        if request.method == "OPTIONS":
+            return "", 200
+        
+        cursor = get_db_cursor(dictionary=True)
 
-@app.route("/Bespoke_Images/<filename>")
-def view_image(filename):
-    return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
+        cursor.execute("""
+            SELECT
+              id,
+              full_name,
+              phone,
+              product_type,
+              design_details,
+              size,
+              image_url,
+              created_at
+            FROM bespoke_requests
+            ORDER BY created_at DESC
+        """)
+        data = cursor.fetchall()
+        cursor.close()
+
+        return jsonify(data), 200
+
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/auth/send-otp", methods=["POST"])
+def send_otp():
+    data = request.get_json()
+    phone = data.get("phone")
+
+    if not phone:
+        return jsonify({"msg": "Phone number required"}), 400
+
+    payload = {
+        "mobile": phone,
+        "authkey": os.getenv("MSG91_AUTH_KEY"),
+        "otp_length": 6,
+        "otp_expiry": 5
+    }
+
+    response = requests.post(
+        "https://control.msg91.com/api/v5/otp",
+        json=payload
+    )
+    try:
+        return jsonify(response.json()), response.status_code
+    except:
+        return jsonify({"msg": "OTP sent"}), 200
+
+@app.route("/auth/verify-otp", methods=["POST"])
+def verify_otp():
+    data = request.get_json()
+    phone = data.get("phone")
+    name = data.get("name")
+    otp = data.get("otp")
+
+    if not phone or not otp:
+        return jsonify({"msg": "Phone and OTP required"}), 400
+
+    # Verify OTP from MSG91
+    payload = {
+        "mobile": phone,
+        "otp": otp,
+        "authkey": os.getenv("MSG91_AUTH_KEY")
+    }
+
+    res = requests.post(
+        "https://control.msg91.com/api/v5/otp/verify",
+        json=payload
+    )
+
+    result = res.json()
+    if result.get("type") != "success":
+        return jsonify({"msg": "Invalid OTP"}), 401
+
+    cursor = get_db_cursor(dictionary=True)
+    cursor.execute("SELECT * FROM otp_user WHERE phone=%s", (phone,))
+    user = cursor.fetchone()
+
+    if not user:
+        cursor.execute("""
+            INSERT INTO otp_user (name, phone, is_verified)
+            VALUES (%s,%s,1)
+        """, (name, phone))
+        mysql.connection.commit()
+
+    cursor.close()
+
+    token = create_access_token(identity={
+        "phone": phone,
+        "role": "user",
+        "auth_type": "otp"
+    })
+
+    return jsonify({
+        "access_token": token,
+        "msg": "Login successful",
+    }), 200
 
 
 
-
-
+# MAIN METHOD
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))

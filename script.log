@@ -1388,3 +1388,8 @@ MySQLdb.OperationalError: (1054, "Unknown column 'price' in 'field list'")
 2026-01-26 18:12:04,545 - INFO: 127.0.0.1 - - [26/Jan/2026 18:12:04] "POST /login HTTP/1.1" 200 -
 2026-01-26 18:12:24,271 - INFO: 127.0.0.1 - - [26/Jan/2026 18:12:24] "[35m[1mPOST /api/bespoke-request HTTP/1.1[0m" 500 -
 2026-01-26 18:13:30,030 - INFO: 127.0.0.1 - - [26/Jan/2026 18:13:30] "[35m[1mPOST /api/bespoke-request HTTP/1.1[0m" 500 -
+2026-01-26 22:17:00,419 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-26 22:17:00,419 - INFO: [33mPress CTRL+C to quit[0m

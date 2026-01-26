@@ -401,22 +401,26 @@ def get_all_users():
 
 
 
-#CONVERSION TO BASE64 TO IMAGEKIT URL
-def upload_base64_to_imagekit(base64_image):
-    response = requests.post(
-        "https://upload.imagekit.io/api/v1/files/upload",
-        auth=(IMAGEKIT_PRIVATE_KEY, ""),   # Basic Auth
-        data={
-            "file": base64_image,          # data:image/...;base64,...
-            "fileName": "product.jpg",
-            "folder": "/products"
-        }
-    )
+# def upload_base64_to_imagekit(base64_image):
+#     url = "https://upload.imagekit.io/api/v1/files/upload"
 
-    if response.status_code != 200:
-        raise Exception(response.text)
+#     private_key = "YOUR_IMAGEKIT_PRIVATE_KEY"
+#     auth = base64.b64encode(f"{private_key}:".encode()).decode()
 
-    return response.json()["url"]
+#     payload = {
+#         "file": base64_image,     # ✅ RAW base64 only
+#         "fileName": "product.jpg"
+#     }
+
+#     headers = {
+#         "Authorization": f"Basic {auth}"
+#     }
+
+#     response = requests.post(url, data=payload, headers=headers, timeout=30)
+#     response.raise_for_status()
+
+#     return response.json()["url"]
+
 
 # ADD PRODUCT
 @app.route('/products', methods=['POST'])
@@ -425,12 +429,24 @@ def create_product():
     try:
         data = request.get_json()
         cursor = get_db_cursor()
+        
         base64_image = data.get("images")
-        image_url = None
 
-        if base64_image:
-            image_url = upload_base64_to_imagekit(base64_image)
-
+        # if base64_image and base64_image.startswith("data:image"):
+        #     base64_image = base64_image.split(",")[1] 
+        #    # base64_image = data.get("images")
+           
+        # image_url = None
+        
+        # print(base64_image)
+        # logging.info(base64_image)
+        
+        # if base64_image:
+        #     image_url = upload_base64_to_imagekit(base64_image)
+        
+        # print(image_url)
+        # logging.info(image_url)
+        
         cursor.execute("""
             INSERT INTO products 
             (name, category, description, stock, images, quantity, metal_name, weight, making_charge)
@@ -440,7 +456,7 @@ def create_product():
             data.get('category'),
             data.get('description'),
             data.get('stock'),
-            image_url,
+            base64_image,
             data.get('quantity'),
             data.get('metal_name'),
             data.get('weight'),

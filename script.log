@@ -1139,3 +1139,252 @@ MySQLdb.OperationalError: (1267, "Illegal mix of collations (utf8mb4_general_ci,
 2026-01-25 22:56:17,019 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:17] "[31m[1mGET /api/admin/users HTTP/1.1[0m" 401 -
 2026-01-25 22:56:17,024 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:17] "[31m[1mGET /api/admin/metal-rates HTTP/1.1[0m" 401 -
 2026-01-25 22:56:17,219 - INFO: 127.0.0.1 - - [25/Jan/2026 22:56:17] "GET /api/products HTTP/1.1" 200 -
+2026-01-25 23:20:05,449 - INFO: hello
+2026-01-25 23:20:05,458 - INFO: 127.0.0.1 - - [25/Jan/2026 23:20:05] "GET /testdb HTTP/1.1" 200 -
+2026-01-25 23:21:01,568 - INFO: New user registered: shirish817232
+2026-01-25 23:21:01,590 - INFO: 127.0.0.1 - - [25/Jan/2026 23:21:01] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
+2026-01-25 23:21:05,394 - INFO: Welcome email sent successfully
+2026-01-25 23:41:42,202 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-25 23:41:42,207 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 23:41:42,212 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 23:41:42,216 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 23:41:42,220 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-25 23:41:42,224 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 23:41:42,513 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 23:41:42,517 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 23:41:42,640 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 23:41:42,642 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 23:41:42,646 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 23:41:42,685 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "GET /api/products HTTP/1.1" 200 -
+2026-01-25 23:41:42,965 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 23:41:42,968 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 23:41:42,977 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:42] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 23:41:43,026 - INFO: 127.0.0.1 - - [25/Jan/2026 23:41:43] "GET /api/products HTTP/1.1" 200 -
+2026-01-25 23:45:30,596 - INFO: 127.0.0.1 - - [25/Jan/2026 23:45:30] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-25 23:45:30,601 - INFO: 127.0.0.1 - - [25/Jan/2026 23:45:30] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 23:45:30,602 - INFO: 127.0.0.1 - - [25/Jan/2026 23:45:30] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-25 23:45:30,607 - INFO: 127.0.0.1 - - [25/Jan/2026 23:45:30] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-25 23:45:30,936 - INFO: 127.0.0.1 - - [25/Jan/2026 23:45:30] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-25 23:45:30,939 - INFO: 127.0.0.1 - - [25/Jan/2026 23:45:30] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-25 23:45:30,951 - INFO: 127.0.0.1 - - [25/Jan/2026 23:45:30] "GET /api/products HTTP/1.1" 200 -
+2026-01-25 23:45:30,951 - INFO: 127.0.0.1 - - [25/Jan/2026 23:45:30] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:29:32,361 - ERROR: Exception on /products [GET]
+Traceback (most recent call last):
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\Jewellers\app.py", line 441, in get_products_dash
+    cursor.execute("SELECT id, name, category, price, description, stock, images , quantity FROM products")
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "C:\Users\Shirish\AppData\Roaming\Python\Python39\site-packages\MySQLdb\connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1054, "Unknown column 'price' in 'field list'")
+2026-01-26 16:29:32,689 - INFO: 127.0.0.1 - - [26/Jan/2026 16:29:32] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2026-01-26 16:30:55,047 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-26 16:30:55,047 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-26 16:30:59,917 - INFO: 127.0.0.1 - - [26/Jan/2026 16:30:59] "GET /products HTTP/1.1" 200 -
+2026-01-26 16:31:00,653 - INFO: 127.0.0.1 - - [26/Jan/2026 16:31:00] "GET /products HTTP/1.1" 200 -
+2026-01-26 16:41:12,917 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:12] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 16:41:12,919 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:12] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:41:12,927 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:12] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:41:12,930 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:12] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:41:12,932 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:12] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 16:41:12,935 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:12] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:41:13,253 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:13] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:41:13,281 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:13] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:41:13,355 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:13] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:41:13,355 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:13] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:41:13,357 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:13] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:41:13,384 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:13] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 16:41:13,673 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:13] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:41:13,675 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:13] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:41:13,678 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:13] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:41:13,721 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:13] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 16:41:57,326 - INFO: 127.0.0.1 - - [26/Jan/2026 16:41:57] "GET /products HTTP/1.1" 200 -
+2026-01-26 16:42:47,743 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:47] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 16:42:47,744 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:47] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:42:47,745 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:47] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:42:47,746 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:47] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:42:47,748 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:47] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 16:42:47,749 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:47] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:42:48,056 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:48] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:42:48,062 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:48] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:42:48,071 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:48] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:42:48,073 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:48] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:42:48,075 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:48] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:42:48,101 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:48] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 16:42:48,389 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:48] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:42:48,390 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:48] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:42:48,393 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:48] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:42:48,432 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:48] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 16:42:53,912 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:53] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-26 16:42:53,913 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:53] "OPTIONS /products HTTP/1.1" 200 -
+2026-01-26 16:42:54,194 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:54] "GET /products HTTP/1.1" 200 -
+2026-01-26 16:42:54,235 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:54] "GET /products HTTP/1.1" 200 -
+2026-01-26 16:42:58,058 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:58] "GET /products HTTP/1.1" 200 -
+2026-01-26 16:42:58,377 - INFO: 127.0.0.1 - - [26/Jan/2026 16:42:58] "GET /products HTTP/1.1" 200 -
+2026-01-26 16:43:00,160 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 16:43:00,161 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:43:00,161 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:43:00,162 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:43:00,164 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 16:43:00,168 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:43:00,479 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:43:00,485 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:43:00,494 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:43:00,494 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:43:00,498 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:43:00,535 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 16:43:00,811 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 16:43:00,812 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 16:43:00,816 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 16:43:00,855 - INFO: 127.0.0.1 - - [26/Jan/2026 16:43:00] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 16:55:16,015 - INFO: 127.0.0.1 - - [26/Jan/2026 16:55:16] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 16:55:35,045 - INFO: 127.0.0.1 - - [26/Jan/2026 16:55:35] "GET /products HTTP/1.1" 200 -
+2026-01-26 17:22:12,124 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-26 17:22:12,124 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-26 17:22:19,989 - INFO: User logged in: shirish8172 (praveengupta221715@gmail.com)
+2026-01-26 17:22:19,991 - INFO: 127.0.0.1 - - [26/Jan/2026 17:22:19] "POST /login HTTP/1.1" 200 -
+2026-01-26 17:23:55,023 - INFO: 127.0.0.1 - - [26/Jan/2026 17:23:55] "[31m[1mPOST /products HTTP/1.1[0m" 401 -
+2026-01-26 17:24:40,641 - INFO: 127.0.0.1 - - [26/Jan/2026 17:24:40] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2026-01-26 17:25:52,582 - INFO: 127.0.0.1 - - [26/Jan/2026 17:25:52] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2026-01-26 17:26:45,357 - INFO: User logged in: shirish8172 (praveengupta221715@gmail.com)
+2026-01-26 17:26:45,357 - INFO: 127.0.0.1 - - [26/Jan/2026 17:26:45] "POST /login HTTP/1.1" 200 -
+2026-01-26 17:27:09,865 - INFO: User logged in: shirish8172 (praveengupta221715@gmail.com)
+2026-01-26 17:27:09,867 - INFO: 127.0.0.1 - - [26/Jan/2026 17:27:09] "POST /login HTTP/1.1" 200 -
+2026-01-26 17:27:28,123 - INFO: 127.0.0.1 - - [26/Jan/2026 17:27:28] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2026-01-26 17:28:39,041 - INFO: 127.0.0.1 - - [26/Jan/2026 17:28:39] "[33mGET //api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:29:00,581 - INFO: 127.0.0.1 - - [26/Jan/2026 17:29:00] "[33mGET //api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:31:20,328 - INFO: 127.0.0.1 - - [26/Jan/2026 17:31:20] "[33mPOST //api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:31:27,684 - INFO: 127.0.0.1 - - [26/Jan/2026 17:31:27] "[35m[1mPOST //api/bespoke-request HTTP/1.1[0m" 201 -
+2026-01-26 17:31:39,078 - INFO: 127.0.0.1 - - [26/Jan/2026 17:31:39] "[33mGET //api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:32:06,552 - INFO: 127.0.0.1 - - [26/Jan/2026 17:32:06] "[35m[1mPOST //api/bespoke-request HTTP/1.1[0m" 201 -
+2026-01-26 17:32:51,689 - INFO: 127.0.0.1 - - [26/Jan/2026 17:32:51] "[33mGET //api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:33:38,819 - INFO: 127.0.0.1 - - [26/Jan/2026 17:33:38] "[33mGET /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:33:40,660 - INFO: 127.0.0.1 - - [26/Jan/2026 17:33:40] "[33mGET /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:33:59,929 - INFO: 127.0.0.1 - - [26/Jan/2026 17:33:59] "[35m[1mPOST /api/bespoke-request HTTP/1.1[0m" 201 -
+2026-01-26 17:34:11,095 - INFO: 127.0.0.1 - - [26/Jan/2026 17:34:11] "[33mGET /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:34:58,879 - INFO: 127.0.0.1 - - [26/Jan/2026 17:34:58] "[33mGET //api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:35:08,858 - INFO: 127.0.0.1 - - [26/Jan/2026 17:35:08] "[33mGET /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:35:11,068 - INFO: 127.0.0.1 - - [26/Jan/2026 17:35:11] "[33mGET /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:43:27,602 - INFO: 127.0.0.1 - - [26/Jan/2026 17:43:27] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 17:43:27,607 - INFO: 127.0.0.1 - - [26/Jan/2026 17:43:27] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 17:43:27,609 - INFO: 127.0.0.1 - - [26/Jan/2026 17:43:27] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 17:43:27,612 - INFO: 127.0.0.1 - - [26/Jan/2026 17:43:27] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 17:43:27,622 - INFO: 127.0.0.1 - - [26/Jan/2026 17:43:27] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 17:43:27,626 - INFO: 127.0.0.1 - - [26/Jan/2026 17:43:27] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 17:43:27,915 - INFO: 127.0.0.1 - - [26/Jan/2026 17:43:27] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 17:43:27,918 - INFO: 127.0.0.1 - - [26/Jan/2026 17:43:27] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 17:43:39,687 - INFO: 127.0.0.1 - - [26/Jan/2026 17:43:39] "GET /products HTTP/1.1" 200 -
+2026-01-26 17:43:39,901 - INFO: 127.0.0.1 - - [26/Jan/2026 17:43:39] "GET /products HTTP/1.1" 200 -
+2026-01-26 17:44:35,818 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:35] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-26 17:44:36,177 - INFO: User logged in: shirish8172 (praveengupta221715@gmail.com)
+2026-01-26 17:44:36,179 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "POST /login HTTP/1.1" 200 -
+2026-01-26 17:44:36,209 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 17:44:36,523 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 17:44:36,524 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 17:44:36,524 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 17:44:36,527 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 17:44:36,533 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 17:44:36,572 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 17:44:36,834 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 17:44:36,844 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 17:44:36,858 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 17:44:36,860 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 17:44:36,887 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:36] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 17:44:37,166 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:37] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 17:44:37,174 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:37] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 17:44:37,174 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:37] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 17:44:42,103 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 17:44:42,110 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 17:44:42,111 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 17:44:42,113 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 17:44:42,118 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 17:44:42,128 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 17:44:42,416 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 17:44:42,426 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 17:44:42,430 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 17:44:42,436 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 17:44:42,446 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 17:44:42,620 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 17:44:42,747 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 17:44:42,748 - INFO: 127.0.0.1 - - [26/Jan/2026 17:44:42] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 17:53:58,242 - INFO: 127.0.0.1 - - [26/Jan/2026 17:53:58] "[33mGET /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:58:41,600 - INFO: 127.0.0.1 - - [26/Jan/2026 17:58:41] "GET /products HTTP/1.1" 200 -
+2026-01-26 17:58:41,794 - INFO: 127.0.0.1 - - [26/Jan/2026 17:58:41] "GET /products HTTP/1.1" 200 -
+2026-01-26 17:59:25,162 - INFO: 127.0.0.1 - - [26/Jan/2026 17:59:25] "[33mGET /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 17:59:26,802 - INFO: 127.0.0.1 - - [26/Jan/2026 17:59:26] "[33mGET /api/bespoke-requests HTTP/1.1[0m" 404 -
+2026-01-26 18:06:44,445 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.159:5000
+2026-01-26 18:06:44,445 - INFO: [33mPress CTRL+C to quit[0m
+2026-01-26 18:06:47,182 - INFO: 127.0.0.1 - - [26/Jan/2026 18:06:47] "GET /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-26 18:07:54,946 - INFO: 127.0.0.1 - - [26/Jan/2026 18:07:54] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-26 18:07:55,207 - INFO: 127.0.0.1 - - [26/Jan/2026 18:07:55] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2026-01-26 18:08:36,095 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:36] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-26 18:08:36,504 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:36] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2026-01-26 18:08:42,504 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:42] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-26 18:08:42,913 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:42] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2026-01-26 18:08:49,296 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:49] "OPTIONS /login HTTP/1.1" 200 -
+2026-01-26 18:08:49,693 - INFO: User logged in: shirish8172 (praveengupta221715@gmail.com)
+2026-01-26 18:08:49,693 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:49] "POST /login HTTP/1.1" 200 -
+2026-01-26 18:08:49,860 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:49] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 18:08:50,034 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 18:08:50,034 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 18:08:50,035 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 18:08:50,036 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 18:08:50,040 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 18:08:50,171 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 18:08:50,340 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 18:08:50,349 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 18:08:50,350 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 18:08:50,360 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 18:08:50,361 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 18:08:50,666 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 18:08:50,668 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 18:08:50,674 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 18:08:50,678 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:50] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 18:08:56,988 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:56] "OPTIONS /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-26 18:08:56,990 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:56] "OPTIONS /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-26 18:08:57,246 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:57] "GET /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-26 18:08:57,305 - INFO: 127.0.0.1 - - [26/Jan/2026 18:08:57] "GET /api/bespoke-requests HTTP/1.1" 200 -
+2026-01-26 18:09:02,425 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:02] "[33mGET /uploads/plant_with_pot.png HTTP/1.1[0m" 404 -
+2026-01-26 18:09:02,747 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-26 18:09:26,970 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:26] "[33mGET /uploads/plant_with_pot.png HTTP/1.1[0m" 404 -
+2026-01-26 18:09:34,281 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "OPTIONS /api/products HTTP/1.1" 200 -
+2026-01-26 18:09:34,584 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 18:09:34,585 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 18:09:34,587 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 18:09:34,589 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "OPTIONS /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 18:09:34,592 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "OPTIONS /api/admin/users HTTP/1.1" 200 -
+2026-01-26 18:09:34,604 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 18:09:34,893 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "OPTIONS /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 18:09:34,902 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 18:09:34,910 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 18:09:34,912 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 18:09:34,918 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:34] "GET /api/products HTTP/1.1" 200 -
+2026-01-26 18:09:35,226 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:35] "GET /api/admin/orders HTTP/1.1" 200 -
+2026-01-26 18:09:35,226 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:35] "GET /api/admin/users HTTP/1.1" 200 -
+2026-01-26 18:09:35,228 - INFO: 127.0.0.1 - - [26/Jan/2026 18:09:35] "GET /api/admin/metal-rates HTTP/1.1" 200 -
+2026-01-26 18:11:59,184 - INFO: 127.0.0.1 - - [26/Jan/2026 18:11:59] "[31m[1mPOST /api/bespoke-request HTTP/1.1[0m" 401 -
+2026-01-26 18:12:04,544 - INFO: User logged in: shirish8172 (praveengupta221715@gmail.com)
+2026-01-26 18:12:04,545 - INFO: 127.0.0.1 - - [26/Jan/2026 18:12:04] "POST /login HTTP/1.1" 200 -
+2026-01-26 18:12:24,271 - INFO: 127.0.0.1 - - [26/Jan/2026 18:12:24] "[35m[1mPOST /api/bespoke-request HTTP/1.1[0m" 500 -
+2026-01-26 18:13:30,030 - INFO: 127.0.0.1 - - [26/Jan/2026 18:13:30] "[35m[1mPOST /api/bespoke-request HTTP/1.1[0m" 500 -

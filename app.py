@@ -992,8 +992,6 @@ def get_metal_rates():
     rows = cursor.fetchall()
     cursor.close()
 
-    print(rows)
-
     rates = {}
     for row in rows:
         rates[row[0]] = {              # metal_type store kr rahe string me 
@@ -1001,7 +999,6 @@ def get_metal_rates():
             "premium": float(row[2])    # premium
         }
 
-    print(rates)
     return jsonify(rates), 200
 
 

@@ -728,13 +728,13 @@ def get_cart():
     user_id = get_jwt_identity()
     cursor = get_db_cursor()
     cursor.execute("""
-        SELECT c.product_id, c.quantity, p.name, p.price, p.images
+        SELECT c.product_id, c.quantity, p.name, p.images
         FROM cart c JOIN products p ON c.product_id=p.id WHERE c.user_id=%s
     """, (user_id,))
     cart_items = cursor.fetchall()
     cursor.close()
 
-    result = [{"product_id": i[0], "quantity": i[1], "name": i[2], "price": i[3], "images": i[4]} for i in cart_items]
+    result = [{"product_id": i[0], "quantity": i[1], "name": i[2], "images": i[3]} for i in cart_items]
     return jsonify(result), 200
 
 @app.route('/cart/update', methods=['PUT'])

@@ -1083,75 +1083,53 @@ def update_contact_status(contact_id):
 
 
 
-#SAVE BESPOKE QUERY
 @app.route("/api/bespoke-request", methods=["POST"])
-@jwt_required()
-def save_bespoke():
-    try:
-        name = request.form.get("name")
-        phone = request.form.get("phone")
-        product = request.form.get("product")
-        details = request.form.get("details")
-        size = request.form.get("size")
-        image = request.files.get("image")
-        image_url = None
+def bespoke_request():
+    data = request.get_json()
 
-        if image:
-            # 👇 ImageKit direct upload (file object)
-            response = requests.post(
-                "https://upload.imagekit.io/api/v1/files/upload",
-                auth=(IMAGEKIT_PRIVATE_KEY, ""),
-                files={
-                    "file": image
-                },
-                data={
-                    "fileName": image.filename,
-                    "folder": "/bespoke"
-                }
-            )
-
-            if response.status_code != 200:
-                raise Exception(response.text)
-
-            image_url = response.json()["url"]
-
-        cursor = mysql.connection.cursor()
-        cursor.execute("""
-            INSERT INTO bespoke_requests
-            (full_name, phone, product_type, design_details, size, image_url)
-            VALUES (%s,%s,%s,%s,%s,%s)
-        """, (name, phone, product, details, size, image_url))
-
-        mysql.connection.commit()
-        cursor.close()
-
-        return jsonify({"msg": "Bespoke request submitted"}), 201
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    name = data.get("name")
+    phone = data.get("phone")
+    product = data.get("product")
+    details = data.get("details")
+    size = data.get("size")
+    image_base64 = data.get("image") 
     
- #GET ALL BESPOKE QUERY   
-@app.route("/api/bespoke-requests", methods=["GET","OPTIONS"])
+    cursor = get_db_cursor(dictionary=True)
+    # DB save logic
+    cursor.execute("""
+        INSERT INTO bespoke_requests
+        (name, phone, product, details, size, image_base64)
+        VALUES (%s, %s, %s, %s, %s, %s)
+    """, (name, phone, product, details, size, image_base64))
+
+    mysql.connection.commit()
+    cursor.close()
+
+    return jsonify({"msg": "Bespoke request saved"}), 201
+
+    
+@app.route("/api/bespoke-requests", methods=["GET", "OPTIONS"])
 def get_bespoke_requests():
     try:
         if request.method == "OPTIONS":
             return "", 200
-        
+
         cursor = get_db_cursor(dictionary=True)
 
         cursor.execute("""
             SELECT
-              id,
-              full_name,
-              phone,
-              product_type,
-              design_details,
-              size,
-              image_url,
-              created_at
+                id,
+                name,
+                phone,
+                product,
+                details,
+                size,
+                image_base64 AS image,
+                created_at
             FROM bespoke_requests
             ORDER BY created_at DESC
         """)
+
         data = cursor.fetchall()
         cursor.close()
 
@@ -1160,8 +1138,6 @@ def get_bespoke_requests():
     except Exception as e:
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
-
-
 
 
 

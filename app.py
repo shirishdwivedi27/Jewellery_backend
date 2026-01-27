@@ -169,8 +169,9 @@ def register():
         email = data.get('email')
         password = data.get('password')
         user_id = data.get('user_id') or username
-        #phone=data.get('Phone')
-        
+        phone = str(data.get('phone')) if data.get('phone') else None
+
+        print(type(phone))
         if not username or not email or not password:
             return jsonify({"error": "All fields are required"}), 400
 
@@ -194,7 +195,7 @@ def register():
             """INSERT INTO users 
                (user_id, username, password, org_password, email, role , Phone) 
                VALUES (%s,%s,%s,%s,%s,%s,%s)""",
-            (user_id, username, hashed_password, password, email, 'user', "+91723472")
+            (user_id, username, hashed_password, password, email, 'user', phone )
         )
         mysql.connection.commit()
         cursor.close()

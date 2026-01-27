@@ -20,6 +20,9 @@ from imagekitio import ImageKit
 import requests
 import random 
 import traceback
+import uuid, time, random
+
+phone_otp_store = {}
 
 
 load_dotenv()
@@ -78,6 +81,12 @@ def test_db():
     except Exception as e:
         return {"error": str(e)},400 
     
+
+
+
+
+
+
 
 @app.route('/',methods=['GET'])
 def home():
@@ -222,6 +231,67 @@ def register():
             "error": str(e)
         }), 500
 
+
+
+@app.route('/request-phone-otp', methods=['POST'])
+def request_phone_otp():
+    phone = request.json.get('phone')
+
+    if not phone:
+        return jsonify({"error": "Phone required"}), 400
+
+    session_token = str(uuid.uuid4())
+    otp = random.randint(100000, 999999)
+
+    phone_otp_store[session_token] = {
+        "phone": phone,
+        "otp": otp,
+        "expires": time.time() + 300
+    }
+
+    return jsonify({
+        "otp": otp,               
+        "sessionToken": session_token
+    })
+
+
+
+@app.route('/verify-phone-otp', methods=['POST'])
+def verify_phone_otp():
+    otp = int(request.json.get('otp'))
+    session = request.json.get('sessionToken')
+
+    data = phone_otp_store.get(session)
+    if not data:
+        return jsonify({"msg": "expired"}), 400
+
+    if time.time() > data["expires"]:
+        return jsonify({"msg": "expired"}), 400
+
+    if otp != data["otp"]:
+        return jsonify({"msg": "invalid"}), 400
+
+    phone = data["phone"]
+    del phone_otp_store[session]
+
+    cursor = get_db_cursor(dictionary=True)
+    cursor.execute("SELECT * FROM users WHERE phone=%s", (phone,))
+    user = cursor.fetchone()
+    cursor.close()
+
+    if not user:
+        return jsonify({"msg": "user_not_found"}), 404
+    logging.info("hello")
+    access_token = create_access_token(identity=user['user_id'])
+
+    return jsonify({
+        "access_token": access_token,
+        "user": {
+            "id": user['username'],
+            "email": user['email'],
+            "role": user['role']
+        }
+    }),200
 
 
 
@@ -722,19 +792,47 @@ def add_to_cart():
 @app.route('/cart', methods=['GET'])
 @jwt_required()
 def get_cart():
-    """
-    Get all cart items for user
-    """
     user_id = get_jwt_identity()
-    cursor = get_db_cursor()
+    cursor = get_db_cursor(dictionary=True)
+
     cursor.execute("""
-        SELECT c.product_id, c.quantity, p.name, p.images
-        FROM cart c JOIN products p ON c.product_id=p.id WHERE c.user_id=%s
+        SELECT 
+            c.product_id,
+            c.quantity AS cart_quantity,
+            p.name,
+            p.images,
+            p.weight,
+            p.making_charge,
+            m.base_rate,
+            m.premium
+        FROM cart c
+        JOIN products p ON c.product_id = p.id
+        JOIN metal_rates m 
+          ON LOWER(p.metal_name) COLLATE utf8mb4_0900_ai_ci
+          = LOWER(m.metal_type) COLLATE utf8mb4_0900_ai_ci
+        WHERE c.user_id = %s
     """, (user_id,))
+
     cart_items = cursor.fetchall()
     cursor.close()
 
-    result = [{"product_id": i[0], "quantity": i[1], "name": i[2], "images": i[3]} for i in cart_items]
+    result = []
+
+    for i in cart_items:
+        unit_price = (
+            float(i["weight"]) *
+            (float(i["base_rate"]) + float(i["premium"]))
+        ) + float(i["making_charge"])
+
+        result.append({
+            "product_id": i["product_id"],
+            "name": i["name"],
+            "images": i["images"],
+            "quantity": i["cart_quantity"],
+            "price": round(unit_price, 2),
+            "total_price": round(unit_price * i["cart_quantity"], 2)
+        })
+
     return jsonify(result), 200
 
 @app.route('/cart/update', methods=['PUT'])

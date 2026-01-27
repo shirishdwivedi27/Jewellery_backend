@@ -256,7 +256,6 @@ def request_phone_otp():
     })
 
 
-
 @app.route('/verify-phone-otp', methods=['POST'])
 def verify_phone_otp():
     otp = int(request.json.get('otp'))
@@ -1192,6 +1191,9 @@ def bespoke_request():
     details = data.get("details")
     size = data.get("size")
     image_base64 = data.get("image") 
+    
+    print(image_base64)
+    logging.info(image_base64)
     
     cursor = get_db_cursor(dictionary=True)
     # DB save logic
